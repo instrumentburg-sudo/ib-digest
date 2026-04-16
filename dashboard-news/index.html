@@ -3,21 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard News — ИнструментБург</title>
+  <title>Dashboard News · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
   <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
 </head>
 <body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="../digest/">Дайджест</a>
+      <a href="./" class="active">Дашборд</a>
+    </nav>
+  </div>
   <div class="container">
-    <header>
-      <h1>📊 Dashboard News</h1>
-      <div class="meta"><a href="../" class="back">← на главную</a></div>
+    <header class="page-header">
+      <div class="kicker">Архив выпусков</div>
+      <h1>Dashboard <em>News</em></h1>
+      <div class="meta">
+        <span>Ежедневные инсайты</span>
+        <span class="sep">·</span>
+        <span>Метрика · Авито · LiveSklad · P&amp;L</span>
+      </div>
     </header>
     <ul class="index-list" id="items">
       <!-- ITEMS_START -->
       <li><a href="2026-04-16.html">Dashboard News 2026-04-16</a><span class="preview">Проверить скорость загрузки сайта и релевантность посадочных</span><span class="date">2026-04-16</span></li>
       <!-- ITEMS_END -->
     </ul>
-    <footer>Обновляется ежедневно в 18:00 EKB · <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a></footer>
+    <footer class="page-footer">
+      <span>Обновляется ежедневно · 18:00 EKB</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
   </div>
 </body>
 </html>

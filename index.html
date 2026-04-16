@@ -3,35 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ИБ — Дайджест и Дашборд-новости</title>
+  <title>ИБ · Лента</title>
+  <meta name="robots" content="noindex, nofollow">
   <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
 </head>
 <body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="./" class="active">Главная</a>
+      <a href="digest/">Дайджест</a>
+      <a href="dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
   <div class="container">
-    <header>
-      <h1>ИнструментБург — Цифровая лента</h1>
-      <div class="meta">Утренний AI-дайджест + ежедневные инсайты по KPI</div>
+    <header class="page-header">
+      <div class="kicker">Internal · Антон</div>
+      <h1><em>Цифровая</em> лента ИнструментБург</h1>
+      <div class="meta">
+        <span>Утренний AI-дайджест</span>
+        <span class="sep">·</span>
+        <span>Ежедневные инсайты по KPI</span>
+      </div>
     </header>
 
-    <nav class="tabs">
-      <a href="digest/" class="active">AI-дайджест</a>
-      <a href="dashboard-news/">Dashboard News</a>
-    </nav>
-
+    <h2>Дайджест</h2>
+    <p>Утренняя сводка: релизы OpenClaw и Claude Code, GitHub trending, Reddit и Hacker News — всё с живыми примерами и конкретикой применения для ИБ.</p>
     <div class="card">
-      <h2 style="margin-top:0">📡 AI-дайджест</h2>
-      <p>Утренняя сводка: релизы OpenClaw и Claude Code, GitHub trending, Reddit/HN — всё с живыми примерами и конкретикой применения для ИБ.</p>
-      <p><a href="digest/">→ Все выпуски</a></p>
+      <span class="hint">Обновляется 11:00 EKB</span>
+      <p><a href="digest/">Все выпуски дайджеста →</a></p>
     </div>
 
+    <h2>Dashboard News</h2>
+    <p>Ежедневные инсайты из <code>apps/dashboard</code>: Метрика + Авито + LiveSklad + P&amp;L. Человекочитаемая версия <code>insights.js</code>.</p>
     <div class="card">
-      <h2 style="margin-top:0">📊 Dashboard News</h2>
-      <p>Ежедневные инсайты из <code>apps/dashboard</code>: Метрика + Авито + LiveSklad + P&amp;L. Человекочитаемая версия <code>insights.js</code>.</p>
-      <p><a href="dashboard-news/">→ Все выпуски</a></p>
+      <span class="hint">Обновляется 18:00 EKB</span>
+      <p><a href="dashboard-news/">Все выпуски Dashboard News →</a></p>
     </div>
 
-    <footer>
-      Источник: <a href="https://github.com/instrumentburg-sudo/ib-digest">github.com/instrumentburg-sudo/ib-digest</a> · Автообновление через OpenClaw cron
+    <footer class="page-footer">
+      <span>github.com/instrumentburg-sudo/ib-digest</span>
+      <span>via OpenClaw cron</span>
     </footer>
   </div>
 </body>

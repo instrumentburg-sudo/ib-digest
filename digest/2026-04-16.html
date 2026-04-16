@@ -3,56 +3,69 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Дайджест 2026-04-16</title>
+  <title>Дайджест 2026-04-16 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
   <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
 </head>
 <body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
   <div class="container">
-    <header>
-      <h1>📡 Дайджест 2026-04-16</h1>
-      <div class="meta"><a href="./" class="back">← все выпуски</a> · 2026-04-16</div>
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-04-16</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
     </header>
-    <h2>🔍 Утренний дайджест — 16.04.2026</h2>
-
-<h2>🔧 OpenClaw v2026.4.15-beta.1 (15.04):</h2>
-<p style="margin-left:12px">• Memory-core: <code>memory_get</code> теперь читает только канонические файлы (MEMORY.md, memory/**) — закрыт обход read tool-policy</p>
-<p style="margin-left:12px">• Cron: forward tool policy в attempt layer — <code>--tools</code> allowlists и message-tool suppression снова работают</p>
-<p style="margin-left:12px">• Memory-lancedb: cloud storage для memory-индексов (не только локально)</p>
-<blockquote><strong>→ Нам:</strong> Нам: проверить наши cron-jobs (<code>dashboard-daily-update</code>, <code>morning-tech-digest</code>) после апдейта — вероятно, именно <code>lossless-claw</code> engine сейчас падает. Обновление может починить.</blockquote>
-
+    <h2>🔧 OpenClaw v2026.4.15-beta.1 (15.04):</h2>
+<ul class="bullets">
+<li>Memory-core: <code>memory_get</code> теперь читает только канонические файлы (MEMORY.md, memory/**) — закрыт обход read tool-policy</li>
+<li>Cron: forward tool policy в attempt layer — <code>--tools</code> allowlists и message-tool suppression снова работают</li>
+<li>Memory-lancedb: cloud storage для memory-индексов (не только локально)</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> проверить наши cron-jobs (<code>dashboard-daily-update</code>, <code>morning-tech-digest</code>) после апдейта — вероятно, именно <code>lossless-claw</code> engine сейчас падает. Обновление может починить.</blockquote>
 <h2>🤖 Claude Code v2.1.111 (сегодня):</h2>
-<p style="margin-left:12px">• Opus 4.7 xhigh effort level (между high и max), тюнится через <code>/effort</code></p>
-<p style="margin-left:12px">• <code>/ultrareview</code> — параллельный multi-agent code review в облаке: <code>/ultrareview</code> для ветки или <code>/ultrareview &lt;PR#&gt;</code></p>
-<p style="margin-left:12px">• <code>/less-permission-prompts</code> skill — сканит транскрипты и предлагает allowlist в settings.json</p>
-<blockquote><strong>→ Нам:</strong> Нам: прогнать <code>/less-permission-prompts</code> на проекте ИнструментБург — уберёт половину permission-промптов по gh/curl/jq. Использовать <code>/ultrareview</code> перед деплоями прода (вместо ручного codex review).</blockquote>
-
+<ul class="bullets">
+<li>Opus 4.7 xhigh effort level (между high и max), тюнится через <code>/effort</code></li>
+<li><code>/ultrareview</code> — параллельный multi-agent code review в облаке: <code>/ultrareview</code> для ветки или <code>/ultrareview &lt;PR#&gt;</code></li>
+<li><code>/less-permission-prompts</code> skill — сканит транскрипты и предлагает allowlist в settings.json</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> прогнать <code>/less-permission-prompts</code> на проекте ИнструментБург — уберёт половину permission-промптов по gh/curl/jq. Использовать <code>/ultrareview</code> перед деплоями прода (вместо ручного codex review).</blockquote>
 <h2>📡 Что нового в AI:</h2>
-
-<h3>1. claude-mem — плагин автозахвата контекста (1907 ⭐ за день)</h3>
-<p>Что случилось: TS-плагин для Claude Code, автоматически сохраняет всё что Claude делает между сессиями.</p>
-<p>Живой пример: <a href="https://github.com/thedotmack/claude-mem" target="_blank" rel="noopener">https://github.com/thedotmack/claude-mem</a></p>
-<blockquote><strong>👉</strong> Как применить: установить в корневой CLAUDE Code — заменит наши ручные STATUS.md в <code>convex/</code>, <code>apps/calculator/</code>, <code>apps/avito-ads/</code>. Особенно полезно для avito-pipeline, где контекст разливается по 10+ шагов.</blockquote>
-
-<h3>2. /contribute — плагин для OSS-контрибуций (12 фаз: discover → PR → merge)</h3>
-<p>Что случилось: Markdown-плагин без скриптов: discover (поиск issue) → analyze (клон + стиль) → work → test (5 гейтов, 85% для submit) → submit → review → debug.</p>
-<p>Живой пример: <a href="https://www.reddit.com/r/ClaudeCode/comments/1rkpb28" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeCode/comments/1rkpb28</a></p>
-<blockquote><strong>👉</strong> Как применить: адаптировать принцип &quot;phase-gated с scoring&quot; к нашему <code>avito-listing-pipeline</code> — сейчас шаги 1-10, но нет жёсткого гейта между ними. Добавить &quot;85% проходной балл&quot; для перехода между фазами.</blockquote>
-
-<h3>3. 23 iOS agent skills — борьба с галлюцинациями через специализацию</h3>
-<p>Что случилось: автор собрал 23 узких скилла (SwiftUI, SwiftData, Liquid Glass, Foundation Models) — модель перестаёт выдавать deprecated API.</p>
-<p>Живой пример: <a href="https://www.reddit.com/r/ClaudeAI/comments/1rng766" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeAI/comments/1rng766</a> | <code>/plugin marketplace add dpearson2699/swift-ios-skills</code></p>
-<blockquote><strong>👉</strong> Как применить: разбить наш <code>.claude/rules/livesklad.md</code> (единый файл) на 3-4 специализированных скилла: <code>livesklad-orders</code>, <code>livesklad-parts</code>, <code>livesklad-webhooks</code>. Меньше галлюцинаций по API endpoints.</blockquote>
-
-<h3>4. €54k за 13ч — незащищённый Firebase ключ к Gemini API</h3>
-<p>Что случилось: 316 очков на HN — у команды утёк browser-key без ограничений, атакующие слили €54k на Gemini requests.</p>
-<p>Живой пример: <a href="https://discuss.ai.google.dev/t/unexpected-54k-billing-spike-in-13-hours/140262" target="_blank" rel="noopener">https://discuss.ai.google.dev/t/unexpected-54k-billing-spike-in-13-hours/140262</a></p>
-<blockquote><strong>👉</strong> Как применить: ревизия всех AI-ключей в проекте (POLZA_AI, AI proxy в calculator/convex) — проверить что все с httpReferrer/IP ограничениями или бэкенд-only. Audit <code>~/.config/instrumentburg/api-keys.env</code> на leaked keys.</blockquote>
-
-<h3>5. Qwen3.6-35B-A3B — open-source агентская модель</h3>
-<p>Что случилось: 353 очка на HN, новая открытая модель заточена под coding-agents, бесплатна.</p>
-<p>Живой пример: <a href="https://qwen.ai/blog?id=qwen3.6-35b-a3b" target="_blank" rel="noopener">https://qwen.ai/blog?id=qwen3.6-35b-a3b</a></p>
-<blockquote><strong>👉</strong> Как применить: протестировать как замена gpt-4o в Polza fallback для LLM ответов в онбординг-боте — потенциально дешевле. Прогнать eval-template на 20 вопросах из knowledge/.</blockquote>
-    <footer>Сгенерировано автоматически · <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a></footer>
+<h3 class="numbered" data-n="1">claude-mem — плагин автозахвата контекста (1907 ⭐ за день)</h3>
+<p><span class="hint">Что случилось</span> TS-плагин для Claude Code, автоматически сохраняет всё что Claude делает между сессиями.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/thedotmack/claude-mem" target="_blank" rel="noopener">https://github.com/thedotmack/claude-mem</a></p>
+<blockquote><strong>👉 Как применить:</strong> установить в корневой CLAUDE Code — заменит наши ручные STATUS.md в <code>convex/</code>, <code>apps/calculator/</code>, <code>apps/avito-ads/</code>. Особенно полезно для avito-pipeline, где контекст разливается по 10+ шагов.</blockquote>
+<h3 class="numbered" data-n="2">/contribute — плагин для OSS-контрибуций (12 фаз: discover → PR → merge)</h3>
+<p><span class="hint">Что случилось</span> Markdown-плагин без скриптов: discover (поиск issue) → analyze (клон + стиль) → work → test (5 гейтов, 85% для submit) → submit → review → debug.</p>
+<p><span class="hint">Живой пример</span> <a href="https://www.reddit.com/r/ClaudeCode/comments/1rkpb28" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeCode/comments/1rkpb28</a></p>
+<blockquote><strong>👉 Как применить:</strong> адаптировать принцип &quot;phase-gated с scoring&quot; к нашему <code>avito-listing-pipeline</code> — сейчас шаги 1-10, но нет жёсткого гейта между ними. Добавить &quot;85% проходной балл&quot; для перехода между фазами.</blockquote>
+<h3 class="numbered" data-n="3">23 iOS agent skills — борьба с галлюцинациями через специализацию</h3>
+<p><span class="hint">Что случилось</span> автор собрал 23 узких скилла (SwiftUI, SwiftData, Liquid Glass, Foundation Models) — модель перестаёт выдавать deprecated API.</p>
+<p><span class="hint">Живой пример</span> <a href="https://www.reddit.com/r/ClaudeAI/comments/1rng766" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeAI/comments/1rng766</a> | <code>/plugin marketplace add dpearson2699/swift-ios-skills</code></p>
+<blockquote><strong>👉 Как применить:</strong> разбить наш <code>.claude/rules/livesklad.md</code> (единый файл) на 3-4 специализированных скилла: <code>livesklad-orders</code>, <code>livesklad-parts</code>, <code>livesklad-webhooks</code>. Меньше галлюцинаций по API endpoints.</blockquote>
+<h3 class="numbered" data-n="4">€54k за 13ч — незащищённый Firebase ключ к Gemini API</h3>
+<p><span class="hint">Что случилось</span> 316 очков на HN — у команды утёк browser-key без ограничений, атакующие слили €54k на Gemini requests.</p>
+<p><span class="hint">Живой пример</span> <a href="https://discuss.ai.google.dev/t/unexpected-54k-billing-spike-in-13-hours/140262" target="_blank" rel="noopener">https://discuss.ai.google.dev/t/unexpected-54k-billing-spike-in-13-hours/140262</a></p>
+<blockquote><strong>👉 Как применить:</strong> ревизия всех AI-ключей в проекте (POLZA_AI, AI proxy в calculator/convex) — проверить что все с httpReferrer/IP ограничениями или бэкенд-only. Audit <code>~/.config/instrumentburg/api-keys.env</code> на leaked keys.</blockquote>
+<h3 class="numbered" data-n="5">Qwen3.6-35B-A3B — open-source агентская модель</h3>
+<p><span class="hint">Что случилось</span> 353 очка на HN, новая открытая модель заточена под coding-agents, бесплатна.</p>
+<p><span class="hint">Живой пример</span> <a href="https://qwen.ai/blog?id=qwen3.6-35b-a3b" target="_blank" rel="noopener">https://qwen.ai/blog?id=qwen3.6-35b-a3b</a></p>
+<blockquote><strong>👉 Как применить:</strong> протестировать как замена gpt-4o в Polza fallback для LLM ответов в онбординг-боте — потенциально дешевле. Прогнать eval-template на 20 вопросах из knowledge/.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
   </div>
 </body>
 </html>
