@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-04-17 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-04-17</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw v2026.4.15:</h2>
+<ul class="bullets">
+<li><strong>Context Engine: graceful fallback</strong> на legacy engine при factory throw / contract violation / unregistered id — это ровно наша ошибка <code>Context engine &quot;lossless-claw&quot; factory returned an invalid ContextEngine</code>, которая сегодня уронила digest и dashboard-cron.</li>
+<li>Default Anthropic → Claude Opus 4.7, <code>opus</code> alias и Claude CLI defaults обновлены.</li>
+<li>Новая <strong>Model Auth status card</strong> в Control UI — видно здоровье OAuth токенов и rate-limit пресс.</li>
+<li><code>experimental.localModelLean: true</code> — для слабых локальных моделей убирает browser/cron/message из default tools.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> апгрейд с 2026.4.14 → 2026.4.15 снимет блокер cron (lossless-claw). Без него каждый cron будет падать в течение 1-10 сек на старте сессии. Рекомендую обновиться и проверить cron enable.</blockquote>
+<h2>🤖 Claude Code v2.1.110-112 (последние 48ч):</h2>
+<ul class="bullets">
+<li><strong>xhigh</strong> effort level для Opus 4.7 между <code>high</code> и <code>max</code> — <code>/effort xhigh</code> или через <code>--effort xhigh</code>.</li>
+<li><strong>/ultrareview</strong> и <strong>/less-permission-prompts</strong> — новые встроенные skill&#x27;ы (скан транскриптов и предложение allowlist&#x27;а для settings.json).</li>
+<li><strong>/tui fullscreen</strong> — flicker-free рендер в той же сессии, <code>/focus</code> для фокус-вью.</li>
+<li>Push notifications от Claude при включённом Remote Control.</li>
+<li>Фикс &quot;claude-opus-4-7 is temporarily unavailable&quot; в auto mode.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> <code>/less-permission-prompts</code> имеет смысл прогнать — уменьшит пермишн-спам в dashboard-cron. <code>/tui fullscreen</code> — для долгих сессий онбординг-бота.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Qwen3.6-35B-A3B</h3>
+<p><span class="hint">Что случилось</span> Alibaba открыла 35B MoE (3B активных) с fine-tune&#x27;ом под agentic coding, топ-1 на HN сегодня (1178 очков).</p>
+<p><span class="hint">Живой пример</span> <a href="https://qwen.ai/blog?id=qwen3.6-35b-a3b" target="_blank" rel="noopener">https://qwen.ai/blog?id=qwen3.6-35b-a3b</a></p>
+<blockquote><strong>👉 Как применить:</strong> потенциальный локальный fallback для cron-раннеров вместо zai/glm-5.1, который хронически упирается в rate limit.</blockquote>
+<h3 class="numbered" data-n="2">openai/openai-agents-python — мультиагентный framework от OpenAI</h3>
+<p><span class="hint">Что случилось</span> Lightweight multi-agent coordination framework, 624 звезды за день на GitHub Trending.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/openai/openai-agents-python" target="_blank" rel="noopener">https://github.com/openai/openai-agents-python</a></p>
+<blockquote><strong>👉 Как применить:</strong> сравнить подход с OpenClaw TeamCreate — возможно, даст идеи для pipeline товарных объявлений Авито.</blockquote>
+<h3 class="numbered" data-n="3">obra/superpowers — skills framework</h3>
+<p><span class="hint">Что случилось</span> 2058 звёзд за день на Trending. Это тот же подход, что у нас в <code>.claude/skills/</code>.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/obra/superpowers" target="_blank" rel="noopener">https://github.com/obra/superpowers</a></p>
+<blockquote><strong>👉 Как применить:</strong> уже в стеке (superpowers:brainstorming, systematic-debugging). Стоит просмотреть новые скиллы апстрима на предмет полезного.</blockquote>
+<h3 class="numbered" data-n="4">Android CLI для agent-driven dev</h3>
+<p><span class="hint">Что случилось</span> Google выпустил CLI для сборки Android-приложений через любой агент (269 очков на HN).</p>
+<p><span class="hint">Живой пример</span> <a href="https://android-developers.googleblog.com/2026/04/build-android-apps-3x-faster-using-any-agent.html" target="_blank" rel="noopener">https://android-developers.googleblog.com/2026/04/build-android-apps-3x-faster-using-any-agent.html</a></p>
+<blockquote><strong>👉 Как применить:</strong> не в приоритете — у нас нет Android-приложений, но держим в виду если решим делать мобильный интерфейс для онбординг-бота.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
