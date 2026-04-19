@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог гипотез роста · апрель 2026</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+  <style>
+    .hero-grid {
+      display: grid;
+      gap: 1px;
+      background: var(--border);
+      border: var(--hairline);
+      border-radius: 8px;
+      overflow: hidden;
+      grid-template-columns: 1.3fr 0.9fr;
+      margin-bottom: 28px;
+    }
+    .panel {
+      background: var(--bg-raised);
+      padding: 18px 20px;
+    }
+    .panel.lead {
+      padding: 24px 24px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      min-height: 100%;
+    }
+    .hero-line {
+      font-family: var(--serif);
+      font-size: clamp(1.9rem, 4vw, 3.2rem);
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+      max-width: 14ch;
+    }
+    .hero-line strong { color: var(--accent-hi); font-weight: 400; }
+    .hero-summary {
+      font-size: 15.5px;
+      color: var(--fg-2);
+      max-width: 38rem;
+    }
+    .micro-label {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--fg-3);
+      margin-bottom: 10px;
+      display: block;
+    }
+    .big-number {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4.5vw, 3.4rem);
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      color: var(--fg);
+      margin-bottom: 8px;
+    }
+    .big-number .unit { color: var(--accent-hi); font-size: 0.6em; margin-left: 2px; }
+    .subtle { color: var(--fg-2); font-size: 14px; }
+
+    /* Категории */
+    .cat-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 12px 0 28px;
+      padding: 14px 16px;
+      background: var(--bg-raised);
+      border: var(--hairline);
+      border-radius: 6px;
+    }
+    .cat-nav a {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--fg-3);
+      text-decoration: none;
+      padding: 4px 10px;
+      border: var(--hairline-hi);
+      border-radius: 3px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: all 0.15s;
+    }
+    .cat-nav a:hover { color: var(--fg); border-color: var(--accent); background: var(--accent-dim); }
+    .cat-nav .count {
+      color: var(--fg-4);
+      margin-left: 4px;
+    }
+
+    /* Блок категории */
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-top: 44px;
+      margin-bottom: 14px;
+      padding-top: 4px;
+    }
+    .section-head h2 {
+      margin: 0;
+    }
+    .section-head h2::after { display: none; }
+    .section-head .cat-num {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      color: var(--fg-4);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* Сетка гипотез */
+    .hyp-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: var(--hairline);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .hyp {
+      background: var(--bg-raised);
+      padding: 16px 18px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: background 0.15s;
+    }
+    .hyp:hover { background: var(--bg-elev); }
+    .hyp-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .hyp-num {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      color: var(--fg-4);
+      letter-spacing: 0.1em;
+    }
+    .hyp-title {
+      font-family: var(--serif);
+      font-size: 19px;
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+      color: var(--fg);
+      margin: 0;
+    }
+    .hyp-desc {
+      font-size: 13.5px;
+      color: var(--fg-2);
+      line-height: 1.5;
+    }
+    .hyp-foot {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: auto;
+      padding-top: 8px;
+    }
+    .tag {
+      font-family: var(--mono);
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: 3px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      line-height: 1.6;
+      border: 1px solid transparent;
+    }
+    .tag-effort {
+      background: var(--bg);
+      color: var(--fg-3);
+      border-color: var(--border-hi);
+    }
+    .tag-impact {
+      background: rgba(124,201,143,0.08);
+      color: var(--good);
+      border-color: rgba(124,201,143,0.3);
+    }
+    .tag-scenario {
+      background: var(--bg);
+      color: var(--fg-3);
+      border-color: var(--border);
+    }
+    .tag-s1 { color: var(--accent); border-color: rgba(212,165,116,0.4); }
+    .tag-s2 { color: var(--good); border-color: rgba(124,201,143,0.4); }
+    .tag-s3 { color: var(--warn); border-color: rgba(229,184,116,0.4); }
+    .tag-s4 { color: var(--bad); border-color: rgba(228,122,122,0.4); }
+    .tag-all {
+      color: var(--accent-hi);
+      border-color: rgba(212,165,116,0.5);
+      background: rgba(212,165,116,0.06);
+    }
+
+    .legend {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin: 8px 0 24px;
+      padding: 10px 14px;
+      background: var(--bg-raised);
+      border: var(--hairline);
+      border-radius: 6px;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--fg-3);
+    }
+    .legend .lg-item { display: inline-flex; gap: 6px; align-items: center; }
+    .legend .lg-chip {
+      display: inline-block;
+      padding: 1px 6px;
+      border-radius: 3px;
+      font-size: 9.5px;
+      border: 1px solid;
+      letter-spacing: 0.05em;
+    }
+
+    .bottom-line {
+      margin-top: 34px;
+      padding: 24px;
+      border: 1px solid rgba(212,165,116,0.22);
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(212,165,116,0.08), rgba(212,165,116,0.03)),
+        var(--bg-raised);
+    }
+    .bottom-line h2 { margin-top: 0; }
+    .bottom-line h2::after { width: 42px; }
+    .bottom-line p {
+      font-family: var(--serif);
+      font-size: clamp(1.3rem, 2.2vw, 1.85rem);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      max-width: 32ch;
+    }
+
+    .source-note {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--fg-4);
+      margin-top: 18px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid, .hyp-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="../digest/">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+      <a href="./" class="active">Стратегия</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Каталог гипотез · 19.04.2026</div>
+      <h1>Что ещё можно <em>попробовать</em> · Россия, апрель 2026</h1>
+      <div class="meta">
+        <a href="./">Все разборы</a>
+        <span class="sep">·</span>
+        <a href="path-to-million-2026-04-19.html">Путь к миллиону</a>
+        <a href="snapshot-2026-04-19.html">Снимок</a>
+      </div>
+    </header>
+
+    <section class="hero-grid">
+      <div class="panel lead">
+        <span class="micro-label">Зачем эта страница</span>
+        <div class="hero-line">Не план, а <strong>каталог ручек</strong>.</div>
+        <p class="hero-summary">34 гипотезы, адаптированные под Россию весной 2026 и под то, что у ИнструментБурга уже есть: LiveSklad, Dashboard, автоматика Авито, Convex-калькулятор, B2B-портфель с Россетями и ЕЭСК, страница под 44-ФЗ. Каждая гипотеза промаркирована сценарием 2028, чтобы было видно — где она усиливает B2B-платформу, а где — только «кормушку».</p>
+      </div>
+      <div class="panel">
+        <span class="micro-label">Чем отличается Россия 2026</span>
+        <p class="subtle">Google Ads не работает. DeWalt / Bosch ушли — фокус на Patriot / Интерскол / Вихрь. Доля маркетплейсов в покупке инструмента 60–70%. Яндекс приоритезирует Дзен. Долями / Сплит — рабочие инструменты рассрочки. Telegram-mini-apps выстрелили. СБП вытесняет эквайринг.</p>
+      </div>
+    </section>
+
+    <div class="legend">
+      <span class="lg-item"><span class="lg-chip tag-all">все сценарии</span> универсально</span>
+      <span class="lg-item"><span class="lg-chip tag-s1">s1</span> Кормушка</span>
+      <span class="lg-item"><span class="lg-chip tag-s2">s2</span> B2B-платформа</span>
+      <span class="lg-item"><span class="lg-chip tag-s3">s3</span> На продажу</span>
+      <span class="lg-item"><span class="lg-chip tag-s4">s4</span> Плацдарм</span>
+      <span class="lg-item"><span class="lg-chip tag-effort">S / M / L</span> усилие</span>
+    </div>
+
+    <nav class="cat-nav">
+      <a href="#cat1">01 · Каналы<span class="count">5</span></a>
+      <a href="#cat2">02 · Платежи<span class="count">3</span></a>
+      <a href="#cat3">03 · B2B<span class="count">5</span></a>
+      <a href="#cat4">04 · Товарка<span class="count">4</span></a>
+      <a href="#cat5">05 · Аренда<span class="count">3</span></a>
+      <a href="#cat6">06 · SEO / контент<span class="count">4</span></a>
+      <a href="#cat7">07 · AI / автоматизация<span class="count">4</span></a>
+      <a href="#cat8">08 · Партнёрства<span class="count">3</span></a>
+      <a href="#cat9">09 · Диверсификация<span class="count">3</span></a>
+    </nav>
+
+    <div id="cat1" class="section-head">
+      <span class="cat-num">01</span><h2>Цифровые каналы, которых ещё нет</h2>
+    </div>
+    <section class="hyp-grid">
+      <div class="hyp">
+        <div class="hyp-head"><span class="hyp-num">01</span></div>
+        <h3 class="hyp-title">Telegram-мини-приложение «ЛК клиента»</h3>
+        <p class="hyp-desc">Клиент по ссылке в TG видит свои заказы, статус, смету, фото ремонта, кнопку «согласовать / отказ». На LiveSklad API — пара недель на MVP. Заменяет звонки и SMS, ускоряет дожим 178 «ждущих» заказов.</p>
+        <div class="hyp-foot">
+          <span class="tag tag-effort">M · 2–3 нед</span>
+          <span class="tag tag-impact">+конверсия · −звонки</span>
+          <span class="tag tag-scenario tag-all">все</span>
+        </div>
+      </div>
+      <div class="hyp">
+        <div class="hyp-head"><span class="hyp-num">02</span></div>
+        <h3 class="hyp-title">WhatsApp Business + авто-статусы</h3>
+        <p class="hyp-desc">Клиенту в WhatsApp автоматически уходит: принят → диагностика → смета → готов к выдаче. На LiveSklad webhook + WhatsApp Business API. Для поколения, которое не смотрит Telegram.</p>
+        <div class="hyp-foot">
+          <span class="tag tag-effort">S · 3–5 дней</span>
+          <span class="tag tag-impact">+дожим</span>
+          <span class="tag tag-scenario tag-all">все</span>
+        </div>
+      </div>
+      <div class="hyp">
+        <div class="hyp-head"><span class="hyp-num">03</span></div>
+        <h3 class="hyp-title">Яндекс Дзен блог</h3>
+        <p class="hyp-desc">«Почему бензопила не заводится — 7 причин», «Как хранить триммер зимой». 2–3 статьи в месяц под сезон. Дзен ранжируется в поиске Яндекса, даёт долгоиграющий SEO-эффект бесплатно.</p>
+        <div class="hyp-foot">
+          <span class="tag tag-effort">S · 4 часа / статья</span>
+          <span class="tag tag-impact">+SEO-трафик</span>
+          <span class="tag tag-scenario tag-s1">s1</span>
+          <span class="tag tag-scenario tag-s3">s3</span>
+        </div>
+      </div>
+      <div class="hyp">
+        <div class="hyp-head"><span class="hyp-num">04</span></div>
+        <h3 class="hyp-title">YouTube Shorts / RuTube «10 минут ремонта»</h3>
+        <p class="hyp-desc">Короткие видео 30–60 сек: мастер чинит типовую поломку, показывает, что было и как стало. Нулевой скрипт, реальная работа. Дополнительный канал доверия, бесплатный контент.</p>
+        <div class="hyp-foot">
+          <span class="tag tag-effort">S · по 30 мин</span>
+          <span class="tag tag-impact">+доверие</span>
+          <span class="tag tag-scenario tag-all">все</span>
+        </div>
+      </div>
+      <div class="hyp">
+        <div class="hyp-head"><span class="hyp-num">05</span></div>
+        <h3 class="hyp-title">Системный сбор отзывов Яндекс / 2GIS</h3>
+        <p class="hyp-desc">После каждой выдачи — автосообщение с просьбой отзыв + QR-код на стойке. 5 отзывов в неделю = +2 место в выдаче карточки за квартал. Ранжирование на картах — главный приток в сервис.</p>
+        <div class="hyp-foot">
+          <span class="tag tag-effort">S · 1 день настройки</span>
+          <span class="tag tag-impact">+лиды с карт</span>
+          <span class="tag tag-scenario tag-all">все</span>
+        </div>
+      </div>
+    </section>
+
+    <div id="cat2" class="section-head">
+      <span class="cat-num">02</span><h2>Платежи и финансы</h2>
+    </div>
+    <section class="hyp-grid">
+      <div class="hyp">
+        <div class="hyp-head"><span class="hyp-num">06</span></div>
+        <h3 class="hyp-title">Долями / Сплит для чеков &gt; 5k ₽</h3>
+        <p class="hyp-desc">Рассрочка 4× без процентов — клиент соглашается на дорогой ремонт, которому раньше говорил «нет». Конверсия на чеках 5–15k растёт на 15–25% по данным ритейла. Подключение через ОФД-партнёра, без своих денег.</p>
+        <div class="hyp-foot">
+          <span class="tag tag-effort">S · 1 неделя</span>
+          <span class="tag tag-impact">−отказы · +средний чек</span>
+          <span class="tag tag-scenario tag-s1">s1</span>
+          <span class="tag tag-scenario tag-s2">s2</span>
+        </div>
+      </div>
+      <div class="hyp">
+        <div class="hyp-head"><span class="hyp-num">07</span></div>
+        <h3 class="hyp-title">СБП QR в приёмке</h3>
+        <p class="hyp-desc">Комиссия 0,4–0,7% против 2–2,5% эквайринга. На обороте 1M/мес экономия ~15–20k. Клиент платит со смартфона, чек из кассы. Не заменяет эквайринг, а дополняет его.</p>
+        <div class="hyp-foot">
+          <span class="tag tag-effort">S · настройка банком</span>
+          <span class="tag tag-impact">+15–20k / мес</span>
+          <span class="tag tag-scenario tag-all">все</span>
+        </div>
+      </div>
+      <div class="hyp">
+        <div class="hyp-head"><span class="hyp-num">08</span></div>
+        <h3 class="hyp-title">Депозит аренды через заморозку СБП</h3>
+        <p class="hyp-desc">Вместо наличного залога — заморозка средств по СБП на сумму залога. Клиенту не нужно тащить наличные, оператору не нужно держать сейф. Снижение барьера для дорогих позиций в прокате.</p>
+        <div class="hyp-foot">
+          <span class="tag tag-effort">M · интеграция с банком</span>
+          <span class="tag tag-impact">+прокат дорогого</span>
+          <span class="tag tag-scenario tag-s1">s1</span>
+          <span class="tag tag-scenario tag-s2">s2</span>
+        </div>
+      </div>
+    </section>
+
+    <div id="cat3" class="section-head">
+      <span class="cat-num">03</span><h2>B2B — то, чего ещё нет</h2>
+    </div>
+    <section class="hyp-grid">
+      <div class="hyp">
+        <div class="hyp-head"><span class="hyp-num">09</span></div>
+        <h3 class="hyp-title">Абонентка «Парк под ключ»</h3>
+        <p class="hyp-desc">Фиксированная ежемесячная плата × количество единиц парка + безлимит ремонта в пределах нормы + подменный фонд + SLA 72 ч. Продаётся в Россети / ЕЭСК / Уралэлектромедь как «сервис без головной боли».</p>
+        <div class="hyp-foot">
+          <span class="tag tag-effort">L · 1–2 мес + продажи</span>
+          <span class="tag tag-impact">+200–400k / мес</span>
+          <span class="tag tag-scenario tag-s2">s2</span>
+          <span class="tag tag-scenario tag-s3">s3</span>
+        </div>
+      </div>
+      <div class="hyp">
+        <div class="hyp-head"><span class="hyp-num">10</span></div>
+        <h3 class="hyp-title">Корпоративный ЛК на LiveSklad API</h3>
+        <p class="hyp-desc">Ответственный со стороны клиента заводит заявки, видит историю, закрывающие документы, аналитику по парку. Следующий шаг после текущего B2B-контура. Повышает доверие, снижает отток.</p>
+        <div class="hyp-foot">
+          <span class="tag tag-effort">M · 3–4 нед</span>
+          <span class="tag tag-impact">+удержание</span>
+          <span class="tag tag-scenario tag-s2">s2</span>
+          <span class="tag tag-scenario tag-s3">s3</span>
+        </div>
+      </div>
+      <div class="hyp">
+        <div class="hyp-head"><span class="hyp-num">11</span></div>
+        <h3 class="hyp-title">Активный выход на ЕТП</h3>
+        <p class="hyp-desc">Сбер-А, Росэлторг, ЕЭТП, ТЭК-Торг, B2B-Center. Страница <code>/zakupki-44-223-fz</code> уже собрана. Следующий шаг — еженедельный скрейп тендеров по ОКПД «ремонт инструмента», «обслуживание оборудования».</p>
+        <div class="hyp-foot">
+          <span class="tag tag-effort">M · 1 нед настройка</span>
+          <span class="tag tag-impact">+пассивный поток</span>
+          <span class="tag tag-scenario tag-s2">s2</span>
+          <span class="tag tag-scenario tag-s3">s3</span>
+        </div>
+      </div>
+      <div class="hyp">
+        <div class="hyp-head"><span class="hyp-num">12</span></div>
+        <h3 class="hyp-title">Бригады / самозанятые мастера в городах</h3>
+        <p class="hyp-desc">Договор с 2–3 самозанятыми мастерами в Каменск-Уральском, Первоуральске, Верхней Пышме. Свои ездят только на ДГУ. Расширение географии B2B без найма — оплата сдельная.</p>
+        <div class="hyp-foot">
+          <span class="tag tag-effort">M · 2–3 нед подбора</span>
+          <span class="tag tag-impact">+гео B2B</span>
+          <span class="tag tag-scenario tag-s2">s2</span>
+        </div>
+      </div>
+      <div class="hyp">
+        <div class="hyp-head"><span class="hyp-num">13</span></div>
+        <h3 class="hyp-title">Договор со страховыми на КАСКО-инструменты</h3>
+        <p class="hyp-desc">Ингосстрах, Согаз, ВСК страхуют дорогой инструмент B2B. Страховой случай → направление к аккредитованному сервису. Заключить договор как авторизованному центру — пассивный поток оплачиваемых ремонтов.</p>
+        <div class="hyp-foot">
+          <span class="tag tag-effort">L · переговоры 1–2 мес</span>
+          <span class="tag tag-impact">+стабильный поток</span>
+          <span class="tag tag-scenario tag-s2">s2</span>
+          <span class="tag tag-scenario tag-s3">s3</span>
+        </div>
+      </div>
+    </section>
+
+    <div id="cat4" class="section-head">
+      <span class="cat-num">04</span><h2>Товарные направления</h2>
+    </div>
+    <section class="hyp-grid">
+      <div class="hyp">
+        <div class="hyp-head"><span class="hyp-num">14</span></div>
+        <h3 class="hyp-title">Магазин расходки на Ozon / WB</h3>
+        <p class="hyp-desc">Диски, цепи, леска, масло, свечи. Маржа 30–50%, отгрузка со склада Ozon (FBO). Рынок уже признал МП как канал №1 покупки инструментов. Начать с 10–15 SKU, масштабировать по продажам.</p>
+        <div class="hyp-foot">
+          <span class="tag tag-effort">L · 1–2 мес настройки</span>
+          <span class="tag tag-impact">+100–200k / мес</span>
+          <span class="tag tag-scenario tag-s1">s1</span>
+          <span class="tag tag-scenario tag-s4">s4</span>
+        </div>
+      </div>
+      <div class="hyp">
+        <div class="hyp-head"><span class="hyp-num">15</span></div>
+        <h3 class="hyp-title">Private label расходки «ИнструментБург»</h3>
+        <p class="hyp-desc">Своя марка лесочки / цепей / масла. Контрактная фасовка у китайского / российского производителя. Маржа +15–20% к обычной перепродаже. Работает и в рознице, и на МП.</p>
+        <div class="hyp-foot">
+          <span class="tag tag-effort">L · 3–4 мес до запуска</span>
+          <span class="tag tag-impact">+маржа 15–20%</span>
+          <span class="tag tag-scenario tag-s4">s4</span>
+        </div>
+      </div>
+      <div class="hyp">
+        <div class="hyp-head"><span class="hyp-num">16</span></div>
+        <h3 class="hyp-title">Trade-in старого инструмента</h3>
+        <p class="hyp-desc">Клиент сдаёт старый инструмент как взаимозачёт на ремонт или покупку нового. Что годно — идёт в прокат под видом «экономкласс». Что негодно — на запчасти. Дополнительный поток оборотного капитала и прокатных единиц.</p>
+        <div class="hyp-foot">
+          <span class="tag tag-effort">S · процесс + объявление</span>
+          <span class="tag tag-impact">+лиды · +парк</span>
+          <span class="tag tag-scenario tag-s1">s1</span>
+        </div>
+      </div>
+      <div class="hyp">
+        <div class="hyp-head"><span class="hyp-num">17</span></div>
+        <h3 class="hyp-title">Продажа Б/У с гарантией 3 мес</h3>
+        <p class="hyp-desc">После Trade-in или списания B2B-парка — перепродажа проверенного инструмента физикам. Чек 3–10k, маржа 40–60%. Не новое, не барахло, а «проверили и даём гарантию». Работает на Авито и в рознице.</p>
+        <div class="hyp-foot">
+          <span class="tag tag-effort">S · поток из 16</span>
+          <span class="tag tag-impact">+50–80k / мес</span>
+          <span class="tag tag-scenario tag-s1">s1</span>
+          <span class="tag tag-scenario tag-s4">s4</span>
+        </div>
+      </div>
+    </section>
+
+    <div id="cat5" class="section-head">
+      <span class="cat-num">05</span><h2>Аренда — рычаги, которые ещё не трогали</h2>
+    </div>
+    <section class="hyp-grid">
+      <div class="hyp">
+        <div class="hyp-head"><span class="hyp-num">18</span></div>
+        <h3 class="hyp-title">Динамический прайс аренды</h3>
+        <p class="hyp-desc">В выходные +20% (пик спроса у физиков), в будни ранним утром −15% (простой). Как в каршеринге. На Convex-калькуляторе реализуется парой функций. Рост выручки с того же парка без новых единиц.</p>
+        <div class="hyp-foot">
+          <span class="tag tag-effort">S · правки калькулятора</span>
+          <span class="tag tag-impact">+10–15% выручки</span>
+          <span class="tag tag-scenario tag-s1">s1</span>
+          <span class="tag tag-scenario tag-s4">s4</span>
+        </div>
+      </div>
+      <div class="hyp">
+        <div class="hyp-head"><span class="hyp-num">19</span></div>
+        <h3 class="hyp-title">Подписка на аренду для ИП-строителей</h3>
+        <p class="hyp-desc">Фикс 15–25k/мес + безлимит аренды из набора «Ремонтная бригада» (перфоратор, УШМ, пылесос, лазер, штроборез). Для мелких бригад — предсказуемая смета. Для нас — гарантированная выручка.</p>
+        <div class="hyp-foot">
+          <span class="tag tag-effort">M · продукт + продажи</span>
+          <span class="tag tag-impact">+50–150k / мес</span>
+          <span class="tag tag-scenario tag-s2">s2</span>
+        </div>
+      </div>
+      <div class="hyp">
+        <div class="hyp-head"><span class="hyp-num">20</span></div>
+        <h3 class="hyp-title">Честные цифры маржи проката</h3>
+        <p class="hyp-desc">Сколько прокат реально приносит чистыми? 293 позиции, но структура LTV и стоимости обслуживания парка неизвестна. Это не гипотеза роста, а предусловие для всех остальных решений о прокате.</p>
+        <div class="hyp-foot">
+          <span class="tag tag-effort">S · 1 день анализа</span>
+          <span class="tag tag-impact">основа для решений</span>
+          <span class="tag tag-scenario tag-all">все</span>
+        </div>
+      </div>
+    </section>
+
+    <div id="cat6" class="section-head">
+      <span class="cat-num">06</span><h2>SEO и контент для Яндекса</h2>
+    </div>
+    <section class="hyp-grid">
+      <div class="hyp">
+        <div class="hyp-head"><span class="hyp-num">21</span></div>
+        <h3 class="hyp-title">Локальное SEO по районам Екб</h3>
+        <p class="hyp-desc">«Ремонт бензопил Пионерский», «Прокат инструмента Уралмаш», «…Эльмаш», «…Химмаш». 6–8 посадочных на районы, каждая с телефоном, картой, маршрутом от метро. Бьёт конкурентов локальностью.</p>
+        <div class="hyp-foot">
+          <span class="tag tag-effort">M · 1–2 нед</span>
+          <span class="tag tag-impact">+локальный трафик</span>
+          <span class="tag tag-scenario tag-all">все</span>
+        </div>
+      </div>
+      <div class="hyp">
+        <div class="hyp-head"><span class="hyp-num">22</span></div>
+        <h3 class="hyp-title">«Бесплатная диагностика» как лид-магнит</h3>
+        <p class="hyp-desc">Посадочная + объявление + реклама: «Бесплатная диагностика за 15 минут». Дальше — приёмка с нашей маржой. Конверсия из «пришёл посмотреть» в «оставил на ремонт» исторически 60–70%.</p>
+        <div class="hyp-foot">
+          <span class="tag tag-effort">S · посадочная + оффер</span>
+          <span class="tag tag-impact">+лиды из Директа</span>
+          <span class="tag tag-scenario tag-s1">s1</span>
+        </div>
+      </div>
+      <div class="hyp">
+        <div class="hyp-head"><span class="hyp-num">23</span></div>
+        <h3 class="hyp-title">Переупаковка Яндекс Директа</h3>
+        <p class="hyp-desc">Сейчас 5 656 ₽ / 0 заявок — канал не работает. Варианты: отключить совсем, или сменить стратегию на «оплата за конверсию» (Яндекс автоматом отсекает нерелевантных), или сузить запросы до топ-5 по CTR.</p>
+        <div class="hyp-foot">
+          <span class="tag tag-effort">S · 1 день</span>
+          <span class="tag tag-impact">−слив бюджета</span>
+          <span class="tag tag-scenario tag-all">все</span>
+        </div>
+      </div>
+      <div class="hyp">
+        <div class="hyp-head"><span class="hyp-num">24</span></div>
+        <h3 class="hyp-title">Ремаркетинг Метрики на брошенную корзину калькулятора</h3>
+        <p class="hyp-desc">Клиент зашёл в калькулятор смет, ввёл данные, ушёл. Догонять его баннером «Ваша смета ещё в силе, ответим за 5 минут». Конверсия из «почти клиент» в «клиент» растёт в 2–3 раза.</p>
+        <div class="hyp-foot">
+          <span class="tag tag-effort">S · сегмент + баннер</span>
+          <span class="tag tag-impact">+дожим</span>
+          <span class="tag tag-scenario tag-s1">s1</span>
+          <span class="tag tag-scenario tag-s2">s2</span>
+        </div>
+      </div>
+    </section>
+
+    <div id="cat7" class="section-head">
+      <span class="cat-num">07</span><h2>AI и автоматизация</h2>
+    </div>
+    <section class="hyp-grid">
+      <div class="hyp">
+        <div class="hyp-head"><span class="hyp-num">25</span></div>
+        <h3 class="hyp-title">AI-бот приёмки</h3>
+        <p class="hyp-desc">Клиент в TG / WhatsApp пишет «принесу триммер Штиль, не заводится, очень срочно». Бот задаёт уточняющие вопросы, оценивает срочность, записывает на удобное время, создаёт draft-заказ в LiveSklad.</p>
+        <div class="hyp-foot">
+          <span class="tag tag-effort">M · 3–4 нед</span>
+          <span class="tag tag-impact">−нагрузка приёмщиков</span>
+          <span class="tag tag-scenario tag-s1">s1</span>
+          <span class="tag tag-scenario tag-s4">s4</span>
+        </div>
+      </div>
+      <div class="hyp">
+        <div class="hyp-head"><span class="hyp-num">26</span></div>
+        <h3 class="hyp-title">ML-прогноз сроков ремонта</h3>
+        <p class="hyp-desc">По типу устройства + неисправности + загрузке мастеров — прогноз срока «от 2 до 5 дней» с реальной точностью. Клиент получает честный срок при приёмке. Снижает отказы от ремонта (16% сейчас) минимум вдвое.</p>
+        <div class="hyp-foot">
+          <span class="tag tag-effort">M · данные уже есть</span>
+          <span class="tag tag-impact">−отказы от ремонта</span>
+          <span class="tag tag-scenario tag-s1">s1</span>
+          <span class="tag tag-scenario tag-s2">s2</span>
+        </div>
+      </div>
+      <div class="hyp">
+        <div class="hyp-head"><span class="hyp-num">27</span></div>
+        <h3 class="hyp-title">Скоринг клиентов LTV</h3>
+        <p class="hyp-desc">По истории LiveSklad: кто возвращается, кто платит без торга, кто приносит B2B-поток. Сегменты: VIP, регулярный, разовый, проблемный. На VIP — дополнительная забота, на проблемных — автоматические фильтры.</p>
+        <div class="hyp-foot">
+          <span class="tag tag-effort">S · запрос к БД</span>
+          <span class="tag tag-impact">+фокус на ценных</span>
+          <span class="tag tag-scenario tag-s2">s2</span>
+          <span class="tag tag-scenario tag-s3">s3</span>
+        </div>
+      </div>
+      <div class="hyp">
+        <div class="hyp-head"><span class="hyp-num">28</span></div>
+        <h3 class="hyp-title">Автогенерация объявлений Авито из LiveSklad</h3>
+        <p class="hyp-desc">Прокатный парк пополнился — YAML-объявление собирается автоматически, слайды из шаблона, текст из LLM. Уже есть пайплайн Авито — осталось подключить LS как источник. Масштабируется без ручной работы.</p>
+        <div class="hyp-foot">
+          <span class="tag tag-effort">M · доработка пайплайна</span>
+          <span class="tag tag-impact">+объявления без труда</span>
+          <span class="tag tag-scenario tag-all">все</span>
+        </div>
+      </div>
+    </section>
+
+    <div id="cat8" class="section-head">
+      <span class="cat-num">08</span><h2>Партнёрства</h2>
+    </div>
+    <section class="hyp-grid">
+      <div class="hyp">
+        <div class="hyp-head"><span class="hyp-num">29</span></div>
+        <h3 class="hyp-title">Строительные рынки / ДСК</h3>
+        <p class="hyp-desc">Point-of-service на рынках Юность / Северный: маленький стол, QR-код, приёмщик на 2 дня в неделю. Клиент купил инструмент — рядом же его обслужат. Классическая экосистемная привязка.</p>
+        <div class="hyp-foot">
+          <span class="tag tag-effort">M · договор + оператор</span>
+          <span class="tag tag-impact">+лиды без Директа</span>
+          <span class="tag tag-scenario tag-s1">s1</span>
+        </div>
+      </div>
+      <div class="hyp">
+        <div class="hyp-head"><span class="hyp-num">30</span></div>
+        <h3 class="hyp-title">Колледжи / УЦ — кадровая воронка</h3>
+        <p class="hyp-desc">Уральский колледж строительства, УРТК. Стажировка 2 мес у нас, дальше либо берём, либо отпускаем в индустрию. Проблема дефицита мастеров — не рынок труда, а отсутствие входа в профессию.</p>
+        <div class="hyp-foot">
+          <span class="tag tag-effort">L · 1 нед договор, потом долго</span>
+          <span class="tag tag-impact">решает bottleneck «люди»</span>
+          <span class="tag tag-scenario tag-s2">s2</span>
+          <span class="tag tag-scenario tag-s3">s3</span>
+        </div>
+      </div>
+      <div class="hyp">
+        <div class="hyp-head"><span class="hyp-num">31</span></div>
+        <h3 class="hyp-title">УК ЖКХ — обслуживание дворников</h3>
+        <p class="hyp-desc">У УК на балансе триммеры, снегоуборщики, воздуходувки. Сейчас они чинят сами или закапывают. Предложить абонентский сервис — простое ценностное предложение, десятки УК в Екб.</p>
+        <div class="hyp-foot">
+          <span class="tag tag-effort">M · холодные продажи</span>
+          <span class="tag tag-impact">+50–100k / мес</span>
+          <span class="tag tag-scenario tag-s2">s2</span>
+        </div>
+      </div>
+    </section>
+
+    <div id="cat9" class="section-head">
+      <span class="cat-num">09</span><h2>Диверсификация (к сценарию 04 «Плацдарм»)</h2>
+    </div>
+    <section class="hyp-grid">
+      <div class="hyp">
+        <div class="hyp-head"><span class="hyp-num">32</span></div>
+        <h3 class="hyp-title">SaaS для сервисных центров</h3>
+        <p class="hyp-desc">У вас уже есть LiveSklad-интеграция, Convex-калькулятор, Dashboard. Упаковать как продукт «CRM для СЦ инструмента» — подписка 3–10k/мес. Рынок в России: сотни СЦ, у большинства Excel. Большой риск, большой потенциал.</p>
+        <div class="hyp-foot">
+          <span class="tag tag-effort">XL · 6+ мес</span>
+          <span class="tag tag-impact">потолок ×10</span>
+          <span class="tag tag-scenario tag-s4">s4</span>
+        </div>
+      </div>
+      <div class="hyp">
+        <div class="hyp-head"><span class="hyp-num">33</span></div>
+        <h3 class="hyp-title">Франшиза «ИнструментБург»</h3>
+        <p class="hyp-desc">В городах 100–300k населения — мастер-одиночка уже есть, а сервисной системы нет. Паушальный взнос 300–500k + роялти 5–8%. Ваш ТагилИнструмент — готовая витрина модели.</p>
+        <div class="hyp-foot">
+          <span class="tag tag-effort">L · 3–4 мес упаковки</span>
+          <span class="tag tag-impact">пассивная выручка</span>
+          <span class="tag tag-scenario tag-s4">s4</span>
+          <span class="tag tag-scenario tag-s3">s3</span>
+        </div>
+      </div>
+      <div class="hyp">
+        <div class="hyp-head"><span class="hyp-num">34</span></div>
+        <h3 class="hyp-title">Школа приёмщиков / мастеров онлайн</h3>
+        <p class="hyp-desc">Курс 30–60 часов для желающих войти в профессию. 10–20k за курс, 100+ учеников в год. Дополнительно — кадровая воронка (лучших берёте к себе) и монетизация своей экспертизы.</p>
+        <div class="hyp-foot">
+          <span class="tag tag-effort">L · 2–3 мес запись курса</span>
+          <span class="tag tag-impact">+воронка +доход</span>
+          <span class="tag tag-scenario tag-s4">s4</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="bottom-line">
+      <h2>Как этим пользоваться</h2>
+      <p>Каталог — это не план. Это 34 возможных движения, из которых 6–10 подходят под ваш выбранный сценарий 2028. Сценарий выбран → в каталоге выделяются свои гипотезы → из них ранжируются 3–5 на квартал.</p>
+    </section>
+
+    <div class="source-note">
+      Источники: apps/dashboard (текущее состояние каналов и P&amp;L), memory/project_horizon_2028_open_question, memory/feedback_payroll_unofficial. Тренды Россия 2026 — открытые данные Ozon/WB, RAEX, Adindex, публикации по e-commerce Q1 2026. Конкретные эффекты (+k/мес) — экспертные оценки для обсуждения, не финмодель. Усилие: S (до недели), M (2–4 нед), L (1–3 мес), XL (3+ мес).
+    </div>
+
+    <footer class="page-footer">
+      <span>Клодик · 19.04.2026 · каталог гипотез</span>
+      <a href="./">К списку разборов</a>
+    </footer>
+  </div>
+</body>
+</html>
