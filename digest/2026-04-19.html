@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-04-19 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-04-19</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw v2026.4.19-beta.2:</h2>
+<ul class="bullets">
+<li>Починили корректный учёт usage у OpenAI-совместимых бэкендов в стриминге, чтобы контекст больше не показывал ложные 0%.</li>
+<li>Развязали nested agent work по сессиям, чтобы длинный запуск в одной сессии не стопорил остальные.</li>
+<li>В /status теперь сохраняется последний известный usage даже у провайдеров, которые не присылают метаданные.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> контроль крона и агентных сессий станет честнее, особенно если гоняем смешанные провайдеры и длинные фоновые ветки.</blockquote>
+<h2>🤖 Claude Code: за последние 24 часа релизов не было.</h2>
+<ul class="bullets">
+<li>Последний видимый апдейт вне окна 24ч, новый дайджестный сигнал сегодня не вышел.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> можно не дёргать обновление с утра, а смотреть уже следующий релиз.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">OpenAI Agents Python снова в трендах GitHub</h3>
+<p><span class="hint">Что случилось</span> репозиторий openai/openai-agents-python сегодня в daily trending. Это лёгкий фреймворк для multi-agent workflows, то есть тема агентных пайплайнов не остывает, а уходит в более прикладной слой.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/openai/openai-agents-python" target="_blank" rel="noopener">https://github.com/openai/openai-agents-python</a></p>
+<blockquote><strong>👉 Как применить:</strong> сравнить их паттерны orchestration и handoff с нашими subagents, особенно там, где у нас есть зависания и сложные длинные цепочки.</blockquote>
+<h3 class="numbered" data-n="2">Omi, ИИ который слушает и подсказывает, тоже резко пошёл вверх</h3>
+<p><span class="hint">Что случилось</span> BasedHardware/omi сегодня в daily trending GitHub. Проект про ассистента, который видит экран, слышит разговор и подсказывает следующее действие.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/BasedHardware/omi" target="_blank" rel="noopener">https://github.com/BasedHardware/omi</a></p>
+<blockquote><strong>👉 Как применить:</strong> полезно как референс для наших сценариев &quot;агент рядом&quot;, где нужен не чат, а подсказки по ходу работы оператора.</blockquote>
+<h3 class="numbered" data-n="3">Показали zero-copy инференс из WebAssembly прямо в GPU на Apple Silicon</h3>
+<p><span class="hint">Что случилось</span> автор Driftwood собрал цепочку, где память Wasm-модуля и GPU буфер делят одни и те же байты без копирования. В демонстрации Wasm пишет матрицы, GPU считает GEMM, результат читается обратно тем же указателем. Дальше он прогнал так Llama 3.2 1B.</p>
+<p><span class="hint">Живой пример</span> <a href="https://abacusnoir.com/2026/04/18/zero-copy-gpu-inference-from-webassembly-on-apple-silicon/" target="_blank" rel="noopener">https://abacusnoir.com/2026/04/18/zero-copy-gpu-inference-from-webassembly-on-apple-silicon/</a></p>
+<blockquote><strong>👉 Как применить:</strong> держать в уме для локальных агентных рантаймов и portable inference, если будем делать лёгкие edge-сценарии на Mac mini или Apple Silicon.</blockquote>
+<h3 class="numbered" data-n="4">На Hacker News обсуждают Claude Design как возврат дизайна обратно в код</h3>
+<p><span class="hint">Что случилось</span> живое обсуждение тезиса, что в агентную эпоху source of truth снова станет код, а не Figma. Главная мысль, Claude Design силён не сам по себе, а потому что рядом Claude Code и между дизайном и реализацией может исчезнуть шов.</p>
+<p><span class="hint">Живой пример</span> <a href="https://news.ycombinator.com/item?id=47818700" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=47818700</a></p>
+<blockquote><strong>👉 Как применить:</strong> для наших внутренних тулов это сигнал меньше держаться за промежуточные схемы и больше строить flow, где прототип сразу превращается в рабочий интерфейс.</blockquote>
+<h3 class="numbered" data-n="5">На HN всплыл народный leaderboard по сравнению Opus 4.6 и 4.7 на реальных промптах</h3>
+<p><span class="hint">Что случилось</span> сообщество собирает анонимные сравнения request-token usage между версиями Opus на живых запросах. Это не официальный бенчмарк, но хороший ранний сигнал, что рынок уже смотрит не только на качество, но и на экономику запроса.</p>
+<p><span class="hint">Живой пример</span> <a href="https://news.ycombinator.com/item?id=47816960" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=47816960</a></p>
+<blockquote><strong>👉 Как применить:</strong> когда тестируем новые модели в продовых сценариях, сразу сравнивать не только ответ, но и цену длинного контекста и расход токенов на типовых задачах.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
