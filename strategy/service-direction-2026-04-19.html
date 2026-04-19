@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Куда растёт сервис ИнструментБург · 2026-04-19</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+  <style>
+    .hero-grid, .signal-grid, .flow-grid, .risk-grid {
+      display: grid;
+      gap: 1px;
+      background: var(--border);
+      border: var(--hairline);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .hero-grid { grid-template-columns: 1.3fr 0.9fr; margin-bottom: 28px; }
+    .signal-grid, .risk-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .flow-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    .panel, .signal, .flow-step, .risk {
+      background: var(--bg-raised);
+      padding: 18px 20px;
+    }
+    .panel.lead {
+      padding: 24px 24px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      min-height: 100%;
+    }
+    .hero-line {
+      font-family: var(--serif);
+      font-size: clamp(1.9rem, 4vw, 3.3rem);
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+      max-width: 11ch;
+    }
+    .hero-line strong { color: var(--accent-hi); font-weight: 400; }
+    .hero-summary {
+      font-size: 16px;
+      color: var(--fg-2);
+      max-width: 36rem;
+    }
+    .micro-label {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--fg-3);
+      margin-bottom: 10px;
+      display: block;
+    }
+    .big-number {
+      font-family: var(--serif);
+      font-size: clamp(2.1rem, 5vw, 4rem);
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      color: var(--fg);
+      margin-bottom: 12px;
+    }
+    .big-number .unit { color: var(--accent-hi); }
+    .subtle { color: var(--fg-2); }
+    .signal-title, .risk-title, .flow-title {
+      font-family: var(--serif);
+      font-size: 25px;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+    .signal p, .risk p, .flow-step p { color: var(--fg-2); }
+    .signal strong, .risk strong, .flow-step strong { color: var(--fg); }
+    .section-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
+    }
+    .card p + p { margin-top: 8px; }
+    .card ul {
+      list-style: none;
+      margin-top: 10px;
+      display: grid;
+      gap: 8px;
+    }
+    .card li {
+      color: var(--fg-2);
+      padding-left: 14px;
+      position: relative;
+    }
+    .card li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+    .flow-step {
+      min-height: 170px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .step-no {
+      font-family: var(--mono);
+      color: var(--fg-3);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .bottom-line {
+      margin-top: 34px;
+      padding: 24px;
+      border: 1px solid rgba(212,165,116,0.22);
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(212,165,116,0.08), rgba(212,165,116,0.03)),
+        var(--bg-raised);
+    }
+    .bottom-line h2 { margin-top: 0; }
+    .bottom-line h2::after { width: 42px; }
+    .bottom-line p {
+      font-family: var(--serif);
+      font-size: clamp(1.4rem, 2.4vw, 2rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      max-width: 24ch;
+    }
+    @media (max-width: 900px) {
+      .hero-grid, .signal-grid, .risk-grid, .flow-grid { grid-template-columns: 1fr; }
+      .flow-step { min-height: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="../digest/">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+      <a href="./" class="active">Стратегия</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Стратегический разбор · ВС 19.04</div>
+      <h1>Куда на самом деле растёт <em>сервис</em> ИнструментБург</h1>
+      <div class="meta">
+        <a href="./">Все разборы</a>
+        <span class="sep">·</span>
+        <a href="../dashboard-news/2026-04-19.html">Dashboard News 19.04</a>
+      </div>
+    </header>
+
+    <section class="hero-grid">
+      <div class="panel lead">
+        <span class="micro-label">Главный вывод</span>
+        <div class="hero-line">Проблема не в <strong>спросе</strong> и не в <strong>идеях</strong>.</div>
+        <p class="hero-summary">У ИнструментБурга уже давно пытается родиться не просто мастерская по ремонту, а собранная сервисно-B2B компания. Она упирается в людей, процесс, склад и ручное управление, а не в отсутствие новых направлений.</p>
+      </div>
+      <div class="panel">
+        <span class="micro-label">Планка, которую хочется взять</span>
+        <div class="big-number">1 <span class="unit">млн ₽</span></div>
+        <p class="subtle">чистой прибыли в месяц</p>
+        <p class="subtle">По собранной ранее финмодели текущая система сама по себе к этой цифре не дорастает. Нужен не новый хаотичный контур, а другой уровень сборки бизнеса.</p>
+      </div>
+    </section>
+
+    <section class="signal-grid">
+      <div class="signal">
+        <span class="micro-label">Ядро</span>
+        <div class="signal-title">Ремонт уже держит бизнес</div>
+        <p><strong>Сервис, а не прокат,</strong> даёт основную осмысленную прибыль. Даже в сценарии Тагила стартовая логика та же: сначала ремонт, потом прокат как допродажа.</p>
+      </div>
+      <div class="signal">
+        <span class="micro-label">Реальность</span>
+        <div class="signal-title">B2B уже не гипотеза</div>
+        <p><strong>Россети, ДГУ, юрлица, договорные цены, выезды, тендеры</strong> уже есть в контуре. Это давно не чистый B2C-сервис.</p>
+      </div>
+      <div class="signal">
+        <span class="micro-label">Высокий чек</span>
+        <div class="signal-title">ДГУ уже работает, но не масштабировано</div>
+        <p>Тяжёлое обслуживание не придумано с нуля. Оно уже живёт в процессах и клиентах, но каждый раз застревает на обязательствах и дефиците сильных людей.</p>
+      </div>
+      <div class="signal">
+        <span class="micro-label">Ложный путь</span>
+        <div class="signal-title">Новые случайные направления не спасут</div>
+        <p>Дроны отложены. Вторая точка отложена. Распыление само по себе не решает системный потолок, только размазывает внимание и деньги.</p>
+      </div>
+    </section>
+
+    <h2>Что уже является ядром</h2>
+    <div class="section-grid">
+      <div class="card good">
+        <span class="hint">01 · Основа</span>
+        <p><strong>Ремонт, это якорная услуга.</strong></p>
+        <ul>
+          <li>Даёт основную выручку и единственный устойчивый контур прибыли.</li>
+          <li>Формирует возвращаемость клиентов и высокий LTV.</li>
+          <li>Тянет за собой запасные части, диагностику и договорное обслуживание.</li>
+        </ul>
+      </div>
+      <div class="card good">
+        <span class="hint">02 · Повторяемые деньги</span>
+        <p><strong>B2B уже встроен в реальность бизнеса.</strong></p>
+        <ul>
+          <li>Есть реальные крупные клиенты и договорные прайсы.</li>
+          <li>Есть B2B-аутрич и база для системного развития.</li>
+          <li>Есть логика контракта, абонентки и обслуживания парка инструмента.</li>
+        </ul>
+      </div>
+      <div class="card good">
+        <span class="hint">03 · Усилитель</span>
+        <p><strong>Прокат полезен, но не как главный мотор роста.</strong></p>
+        <ul>
+          <li>Лучше работает как подменный фонд и допродажа к сервису.</li>
+          <li>Поддерживает B2B-договоры и удерживает клиента внутри контура.</li>
+          <li>Как отдельный драйвер прибыли сейчас выглядит слабее сервиса.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Где настоящий потолок</h2>
+    <section class="risk-grid">
+      <div class="risk">
+        <span class="micro-label">Бутылочное горлышко 01</span>
+        <div class="risk-title">Люди</div>
+        <p>Не хватает сильных исполнителей и плотного среднего управленческого слоя. Без этого тяжёлые и B2B-контуры не становятся надёжными.</p>
+      </div>
+      <div class="risk">
+        <span class="micro-label">Бутылочное горлышко 02</span>
+        <div class="risk-title">Процесс</div>
+        <p>Зависшие заказы, согласования, ожидание запчастей и длинный цикл ремонта съедают маржу быстрее, чем новые лиды её приносят.</p>
+      </div>
+      <div class="risk">
+        <span class="micro-label">Бутылочное горлышко 03</span>
+        <div class="risk-title">Склад и снабжение</div>
+        <p>Плохая адресность и медленное снабжение бьют не только по мастерам, но и по скорости закрытия, оборотке и качеству сервиса.</p>
+      </div>
+      <div class="risk">
+        <span class="micro-label">Бутылочное горлышко 04</span>
+        <div class="risk-title">Личное участие Антона</div>
+        <p>Слишком много решений всё ещё держится на одном человеке. Бизнес не научился переваривать больше маржи без ручного управления сверху.</p>
+      </div>
+    </section>
+
+    <h2>Как выглядит стратегия де-факто</h2>
+    <section class="flow-grid">
+      <div class="flow-step">
+        <span class="step-no">Шаг 01</span>
+        <div>
+          <div class="flow-title">Ремонт как ядро</div>
+          <p>Главная точка входа, экспертиза, база клиентов и поток задач.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <span class="step-no">Шаг 02</span>
+        <div>
+          <div class="flow-title">B2B-контракты</div>
+          <p>Повторяемая выручка через обслуживание парков, юрлиц и бригад.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <span class="step-no">Шаг 03</span>
+        <div>
+          <div class="flow-title">ДГУ и выездка</div>
+          <p>Высокий чек и более серьёзный контур, который уже есть, но требует надёжной сборки.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <span class="step-no">Шаг 04</span>
+        <div>
+          <div class="flow-title">Прокат как усилитель</div>
+          <p>Подменный фонд, допродажа и инструмент удержания, а не отдельная религия роста.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <span class="step-no">Шаг 05</span>
+        <div>
+          <div class="flow-title">Управленческий слой</div>
+          <p>Сервисный менеджер, снабжение, контроль маржи и загрузки. Без этого система снова упирается в потолок.</p>
+        </div>
+      </div>
+    </section>
+
+    <h2>Что точно не стоит путать с ростом</h2>
+    <div class="section-grid">
+      <div class="card warn">
+        <span class="hint">Не стратегия</span>
+        <p><strong>Ещё одно случайное направление.</strong></p>
+        <p>Если люди и процессы не собраны, новая ниша просто добавляет ещё один незакрытый контур.</p>
+      </div>
+      <div class="card warn">
+        <span class="hint">Не стратегия</span>
+        <p><strong>Рост лидов без роста пропускной способности.</strong></p>
+        <p>Маркетинг может подливать заявки, но если внутри длинный цикл, деньги будут зависать в незавершёнке.</p>
+      </div>
+      <div class="card warn">
+        <span class="hint">Не стратегия</span>
+        <p><strong>Ставка на прокат как на главный мотор.</strong></p>
+        <p>В текущих материалах он выглядит полезным контуром, но не тем, что пробивает потолок прибыли.</p>
+      </div>
+    </div>
+
+    <section class="bottom-line">
+      <h2>Фраза, в которой всё сходится</h2>
+      <p>Следующий большой рост ИнструментБурга придёт не из новой услуги, а из превращения текущего сервиса в управляемый сервисно-B2B контур с выездкой, контрактами и нормальным управленческим слоем.</p>
+    </section>
+
+    <footer class="page-footer">
+      <span>Источник: service-direction-context-2026-04-19.md</span>
+      <a href="./">К списку разборов</a>
+    </footer>
+  </div>
+</body>
+</html>
