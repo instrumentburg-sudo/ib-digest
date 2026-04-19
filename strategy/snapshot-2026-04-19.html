@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Снимок недели · ИнструментБург · 19.04.2026</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+  <style>
+    .hero-grid, .signal-grid, .flow-grid, .risk-grid, .pair-grid {
+      display: grid;
+      gap: 1px;
+      background: var(--border);
+      border: var(--hairline);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .hero-grid { grid-template-columns: 1.35fr 0.85fr; margin-bottom: 28px; }
+    .signal-grid, .risk-grid, .pair-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .flow-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .panel, .signal, .flow-step, .risk {
+      background: var(--bg-raised);
+      padding: 18px 20px;
+    }
+    .panel.lead {
+      padding: 24px 24px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      min-height: 100%;
+    }
+    .hero-line {
+      font-family: var(--serif);
+      font-size: clamp(1.9rem, 4vw, 3.2rem);
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+      max-width: 13ch;
+    }
+    .hero-line strong { color: var(--accent-hi); font-weight: 400; }
+    .hero-summary {
+      font-size: 15.5px;
+      color: var(--fg-2);
+      max-width: 38rem;
+    }
+    .micro-label {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--fg-3);
+      margin-bottom: 10px;
+      display: block;
+    }
+    .big-number {
+      font-family: var(--serif);
+      font-size: clamp(2.1rem, 5vw, 3.6rem);
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      color: var(--fg);
+      margin-bottom: 8px;
+    }
+    .big-number .unit { color: var(--accent-hi); font-size: 0.6em; margin-left: 2px; }
+    .subtle { color: var(--fg-2); font-size: 14px; }
+    .signal-title, .risk-title, .flow-title {
+      font-family: var(--serif);
+      font-size: 22px;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+    .signal p, .risk p, .flow-step p { color: var(--fg-2); font-size: 14px; }
+    .signal strong, .risk strong, .flow-step strong { color: var(--fg); }
+
+    /* Timeline chart */
+    .timeline {
+      background: var(--bg-raised);
+      border: var(--hairline);
+      border-radius: 8px;
+      padding: 22px 24px 20px;
+      margin: 10px 0;
+    }
+    .timeline-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .timeline-title {
+      font-family: var(--serif);
+      font-size: 21px;
+      letter-spacing: -0.015em;
+    }
+    .timeline-legend {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      color: var(--fg-3);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: flex;
+      gap: 14px;
+    }
+    .timeline-legend span::before {
+      content: '';
+      display: inline-block;
+      width: 8px; height: 8px;
+      border-radius: 2px;
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+    .lg-rev::before { background: var(--accent); }
+    .lg-prof::before { background: var(--good); }
+    .lg-loss::before { background: var(--bad); }
+    .lg-be::before { background: var(--fg-4); }
+    .bars {
+      display: grid;
+      grid-template-columns: repeat(8, minmax(0, 1fr));
+      gap: 6px;
+      align-items: end;
+      height: 180px;
+      border-bottom: 1px dashed var(--border-hi);
+      position: relative;
+      padding-bottom: 2px;
+    }
+    .bars::before {
+      content: 'break-even 981k';
+      position: absolute;
+      left: 0;
+      top: 38%;
+      font-family: var(--mono);
+      font-size: 9.5px;
+      color: var(--fg-4);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .bars::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0;
+      top: 43%;
+      border-top: 1px dashed var(--fg-4);
+      opacity: 0.5;
+    }
+    .bar-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      height: 100%;
+      justify-content: flex-end;
+      position: relative;
+    }
+    .bar {
+      width: 100%;
+      background: var(--accent);
+      border-radius: 2px 2px 0 0;
+      transition: background 0.15s;
+      min-height: 3px;
+    }
+    .bar.loss { background: var(--bad); opacity: 0.9; }
+    .bar-labels {
+      display: grid;
+      grid-template-columns: repeat(8, minmax(0, 1fr));
+      gap: 6px;
+      margin-top: 8px;
+      font-family: var(--mono);
+      font-size: 10.5px;
+      color: var(--fg-3);
+      text-align: center;
+      letter-spacing: 0.03em;
+    }
+    .bar-labels div span {
+      display: block;
+      color: var(--fg-4);
+      font-size: 10px;
+      margin-top: 2px;
+    }
+    .bar-labels div .pos { color: var(--good); }
+    .bar-labels div .neg { color: var(--bad); }
+
+    /* Team grid */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: var(--hairline);
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 10px 0;
+    }
+    .team-cell {
+      background: var(--bg-raised);
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .team-cell .name {
+      font-family: var(--serif);
+      font-size: 17px;
+      letter-spacing: -0.01em;
+      color: var(--fg);
+    }
+    .team-cell .role {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--fg-3);
+      margin-bottom: 4px;
+    }
+    .team-cell .pay {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--fg-2);
+      font-variant-numeric: tabular-nums;
+    }
+    .team-cell .pay strong { color: var(--accent-hi); font-weight: 500; }
+
+    /* Scenario grid */
+    .scenario-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin: 10px 0;
+    }
+    .scenario {
+      background: var(--bg-raised);
+      border: var(--hairline);
+      border-radius: 6px;
+      padding: 16px 18px;
+      border-left: 2px solid var(--border-hi);
+    }
+    .scenario.s1 { border-left-color: var(--accent); }
+    .scenario.s2 { border-left-color: var(--good); }
+    .scenario.s3 { border-left-color: var(--warn); }
+    .scenario.s4 { border-left-color: var(--bad); }
+    .scenario .s-name {
+      font-family: var(--serif);
+      font-size: 18px;
+      letter-spacing: -0.01em;
+      margin-bottom: 4px;
+    }
+    .scenario .s-desc {
+      color: var(--fg-2);
+      font-size: 13.5px;
+      line-height: 1.5;
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      margin: 8px 0;
+    }
+    .data-table th {
+      text-align: left;
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--fg-3);
+      padding: 8px 12px 8px 0;
+      border-bottom: 1px solid var(--border-hi);
+    }
+    .data-table td {
+      padding: 9px 12px 9px 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--fg-2);
+    }
+    .data-table td:first-child { color: var(--fg); font-weight: 500; }
+    .data-table .num { font-family: var(--mono); font-size: 12.5px; text-align: right; font-variant-numeric: tabular-nums; }
+    .data-table .good-val { color: var(--good); }
+    .data-table .bad-val { color: var(--bad); }
+    .data-table .warn-val { color: var(--warn); }
+    .data-table .highlight { color: var(--accent-hi); }
+
+    .bottom-line {
+      margin-top: 34px;
+      padding: 24px;
+      border: 1px solid rgba(212,165,116,0.22);
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(212,165,116,0.08), rgba(212,165,116,0.03)),
+        var(--bg-raised);
+    }
+    .bottom-line h2 { margin-top: 0; }
+    .bottom-line h2::after { width: 42px; }
+    .bottom-line p {
+      font-family: var(--serif);
+      font-size: clamp(1.3rem, 2.2vw, 1.85rem);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      max-width: 32ch;
+    }
+
+    .source-note {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--fg-4);
+      margin-top: 18px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid, .signal-grid, .risk-grid, .flow-grid, .pair-grid, .scenario-grid { grid-template-columns: 1fr; }
+      .flow-step { min-height: auto; }
+      .bars, .bar-labels { grid-template-columns: repeat(8, minmax(0, 1fr)); font-size: 9px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="../digest/">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+      <a href="./" class="active">Стратегия</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Снимок недели · ВС 19.04.2026</div>
+      <h1>Где сейчас <em>стоит</em> ИнструментБург</h1>
+      <div class="meta">
+        <a href="./">Все разборы</a>
+        <span class="sep">·</span>
+        <a href="service-direction-2026-04-19.html">Направление</a>
+        <a href="service-numbers-2026-04-19.html">Цифры</a>
+        <a href="../digest/2026-04-19.html">AI-дайджест</a>
+        <a href="../dashboard-news/2026-04-19.html">Дашборд</a>
+      </div>
+    </header>
+
+    <section class="hero-grid">
+      <div class="panel lead">
+        <span class="micro-label">Главный вывод недели</span>
+        <div class="hero-line">Система не <strong>ломается</strong>. Она не <strong>доросла</strong>.</div>
+        <p class="hero-summary">Март вернул выручку к 1,07 млн — впервые с осени. Апрель на 19-е число показывает 377 тыс, до конца месяца останется в минусе. Команда собрана, B2B уже в контуре, но бизнес без управленческого слоя не переваривает больше маржи — каждый всплеск упирается в людей и процесс.</p>
+      </div>
+      <div class="panel">
+        <span class="micro-label">Сегодня</span>
+        <div class="big-number">31,5<span class="unit">k ₽</span></div>
+        <p class="subtle">23 заказа ремонта, аренды 0. Средний чек <strong style="color:var(--bad)">1 952 ₽</strong> — на 32% ниже типичного (2 866 ₽).</p>
+        <p class="subtle" style="margin-top:10px;">Средние будни в этом периоде: 36,8 тыс и 32 заказа.</p>
+      </div>
+    </section>
+
+    <h2>Команда, которая сейчас есть</h2>
+    <p style="color:var(--fg-2); margin-bottom:14px;">9 человек на двух ролях: мастера, приёмщики, кладовщик, сервис-менеджер и B2B/HR-финансист. ФОТ с налогами — около 670 тыс ₽/мес. Оклад + премия/сдельн./% маржи — схемы разные, роли осознанно размыты.</p>
+    <div class="team-grid">
+      <div class="team-cell">
+        <span class="role">B2B · HR · Финансы</span>
+        <span class="name">Седяева Юлия</span>
+        <span class="pay">Оклад · <strong>101,5 тыс</strong></span>
+      </div>
+      <div class="team-cell">
+        <span class="role">Мастер</span>
+        <span class="name">Легков Евгений</span>
+        <span class="pay">Оклад + 30% работ · <strong>105,9 тыс</strong></span>
+      </div>
+      <div class="team-cell">
+        <span class="role">Приёмщик · Калькулятор</span>
+        <span class="name">Колупаев Александр</span>
+        <span class="pay">Оклад + премия · <strong>87 тыс</strong></span>
+      </div>
+      <div class="team-cell">
+        <span class="role">Сервис-менеджер</span>
+        <span class="name">Бухаленко Андрей</span>
+        <span class="pay">40k оклад + 5% маржи · <strong>72,5 тыс</strong></span>
+      </div>
+      <div class="team-cell">
+        <span class="role">Мастер</span>
+        <span class="name">Букин Владимир</span>
+        <span class="pay">Оклад + сдельн. · <strong>81,7 тыс</strong></span>
+      </div>
+      <div class="team-cell">
+        <span class="role">Приёмщик</span>
+        <span class="name">Оплетаев Игорь</span>
+        <span class="pay">Оклад + KPI · <strong>64,6 тыс</strong></span>
+      </div>
+      <div class="team-cell">
+        <span class="role">Кладовщик</span>
+        <span class="name">Коновалов Евгений</span>
+        <span class="pay">Оклад · <strong>55 тыс</strong></span>
+      </div>
+      <div class="team-cell">
+        <span class="role">Мастер</span>
+        <span class="name">Пастухов Дмитрий</span>
+        <span class="pay">40% от работ · <strong>17,4 тыс</strong></span>
+      </div>
+    </div>
+
+    <h2>Выручка и прибыль · 8 месяцев</h2>
+    <div class="timeline">
+      <div class="timeline-head">
+        <div class="timeline-title">От осени 2025 к апрелю 2026</div>
+        <div class="timeline-legend">
+          <span class="lg-rev">Выручка</span>
+          <span class="lg-loss">Убыток</span>
+          <span class="lg-be">Break-even</span>
+        </div>
+      </div>
+      <div class="bars">
+        <div class="bar-col"><div class="bar" style="height: 51%;" title="1,15 млн"></div></div>
+        <div class="bar-col"><div class="bar" style="height: 49%;" title="1,12 млн"></div></div>
+        <div class="bar-col"><div class="bar loss" style="height: 27%;" title="0,62 млн"></div></div>
+        <div class="bar-col"><div class="bar loss" style="height: 36%;" title="0,81 млн"></div></div>
+        <div class="bar-col"><div class="bar loss" style="height: 29%;" title="0,66 млн"></div></div>
+        <div class="bar-col"><div class="bar loss" style="height: 33%;" title="0,75 млн"></div></div>
+        <div class="bar-col"><div class="bar" style="height: 47%;" title="1,07 млн"></div></div>
+        <div class="bar-col"><div class="bar loss" style="height: 17%;" title="0,38 млн (неполный)"></div></div>
+      </div>
+      <div class="bar-labels">
+        <div>Сен<span>1,15M</span><span class="pos">+239k</span></div>
+        <div>Окт<span>1,12M</span><span class="pos">+163k</span></div>
+        <div>Ноя<span>0,62M</span><span class="neg">−459k</span></div>
+        <div>Дек<span>0,81M</span><span class="pos">+24k</span></div>
+        <div>Янв<span>0,66M</span><span class="neg">−65k</span></div>
+        <div>Фев<span>0,75M</span><span class="neg">−41k</span></div>
+        <div>Мар<span>1,07M</span><span class="pos">+87k</span></div>
+        <div>Апр*<span>0,38M</span><span class="neg">−444k</span></div>
+      </div>
+      <p class="source-note">Источник: apps/dashboard / LiveSklad + Модульбанк (порог MODULBANK_MERGE_FROM=2026-03). Дашборд показывает нижнюю оценку выручки: сен-фев где-то между revLs и revLs+revMbRaw. Апрель* — на 19-е число, не закрыт.</p>
+    </div>
+
+    <section class="signal-grid">
+      <div class="signal">
+        <span class="micro-label">Что держит</span>
+        <div class="signal-title">Фиксированные 765k / мес</div>
+        <p>ФОТ 519k (оклады, без налогов), аренда 101k, налоги 88k, Авито 34k, связь 7k, софт 8k, прочее 8k. Ниже 981k/мес — месяц уходит в минус без вариантов.</p>
+      </div>
+      <div class="signal">
+        <span class="micro-label">Что тянет</span>
+        <div class="signal-title">До «1 млн чистыми» — ×5</div>
+        <p>Порог <strong>2,26 млн</strong> выручки в месяц. Сентябрь-октябрь закрывался около половины пути. Март — первый живой отскок после зимы, но до цели всё ещё далеко.</p>
+      </div>
+    </section>
+
+    <h2>LiveSklad прямо сейчас</h2>
+    <section class="signal-grid">
+      <div class="signal">
+        <span class="micro-label">Активные заказы</span>
+        <table class="data-table">
+          <tr><td>Выдан</td><td class="num highlight">98</td></tr>
+          <tr><td>На согласовании</td><td class="num warn-val">70</td></tr>
+          <tr><td>Ждёт ответа</td><td class="num warn-val">58</td></tr>
+          <tr><td>Новый</td><td class="num warn-val">50</td></tr>
+          <tr><td>Готов / к выдаче</td><td class="num">9</td></tr>
+          <tr><td>В прокате</td><td class="num">6</td></tr>
+          <tr><td>На диагностике / ремонте</td><td class="num">3</td></tr>
+          <tr><td>Ожидание запчастей</td><td class="num">4</td></tr>
+          <tr><td>Отказ от ремонта</td><td class="num bad-val">11</td></tr>
+        </table>
+      </div>
+      <div class="signal">
+        <span class="micro-label">Что это значит</span>
+        <p><strong>178 заказов</strong> в состоянии «ждём клиента» (согласование + ждёт ответа + новый). Это не дефицит лидов, это <strong>длинный цикл дожима</strong>.</p>
+        <p style="margin-top:10px;">Поднять конверсию «ждёт → выдан» с 55% до 70% = <strong style="color:var(--accent-hi)">+65k ₽/мес</strong> без единого нового лида.</p>
+        <p style="margin-top:10px;">Сократить отказы от ремонта с 16% до 10% за счёт управления ожиданиями при приёмке = <strong style="color:var(--accent-hi)">+35k ₽/мес</strong>.</p>
+      </div>
+    </section>
+
+    <h2>Каналы · что происходит на неделе</h2>
+    <section class="pair-grid">
+      <div class="signal">
+        <span class="micro-label">Сайт instrumentburg.ru</span>
+        <div class="signal-title">Трафик ×4.3</div>
+        <p>1 148 визитов за неделю против 267 предыдущей. Резкий скачок 14 апреля (539 посетителей в день). Источник всплеска пока не идентифицирован.</p>
+        <p style="margin-top:8px;"><strong>Bounce 45,9%</strong> — высокий. Глубина просмотра 1,7. Трафик есть, но не убеждает.</p>
+      </div>
+      <div class="signal">
+        <span class="micro-label">Авито (91 объявление)</span>
+        <div class="signal-title">CR 9,9% · топ-канал</div>
+        <p>Просмотры на неделе чуть упали (−21%), но конверсия в контакты выше, чем у сайта. Топ: аренда стройинструмента (25 контактов), мастер по бензоиструменту (16), скарификатор (16).</p>
+        <p style="margin-top:8px;">Расходка — <strong>0 объявлений</strong>. 12 готовых текстов лежат с февраля.</p>
+      </div>
+      <div class="signal">
+        <span class="micro-label">Яндекс.Карты</span>
+        <div class="signal-title">Стабильные 40-55 / день</div>
+        <p>Ровный фон без всплесков и провалов. Это органика карточки и отзывов — база, которая держится сама.</p>
+      </div>
+      <div class="signal">
+        <span class="micro-label">Яндекс.Директ</span>
+        <div class="signal-title">5 656 ₽ · 0 заявок</div>
+        <p>За 30 дней две кампании (Аренда и Ремонт), CPL и там и там 0 — потому что заявок 0. CTR по Аренде 10,6% — клики есть, посадочная не закрывает.</p>
+      </div>
+    </section>
+
+    <h2>Два разбора этого дня</h2>
+    <div class="scenario-grid">
+      <a href="service-numbers-2026-04-19.html" class="scenario s1" style="text-decoration:none; display:block;">
+        <div class="s-name">Цифры сервиса · путь к миллиону</div>
+        <p class="s-desc">~170 заказов в марте, 477k выданных, средний чек 5 130 ₽. Математика: где именно теряются деньги и как из ×5 делают совокупность ×1,15 по разным направлениям.</p>
+      </a>
+      <a href="service-direction-2026-04-19.html" class="scenario s2" style="text-decoration:none; display:block;">
+        <div class="s-name">Куда растёт сервис</div>
+        <p class="s-desc">Ремонт как ядро, B2B как повторяемые деньги, ДГУ как высокий чек, прокат как усилитель. Ложный путь — новые случайные направления. Настоящий потолок — люди и процесс.</p>
+      </a>
+    </div>
+
+    <h2>AI-сигналы этого утра</h2>
+    <div class="card">
+      <span class="hint">Дайджест 19.04 · применимо к нам</span>
+      <p><strong>OpenClaw v2026.4.19-beta.2</strong> — честный usage у OpenAI-совместимых бэкендов и развязанные nested-сессии. Контур крона и агентных пайплайнов становится прозрачнее.</p>
+      <p><strong>Claude Code</strong> — релиза за сутки не было, можно не дёргать обновление.</p>
+      <p><strong>openai-agents-python</strong> в daily trending — референс для наших subagents, особенно в длинных зависающих цепочках.</p>
+      <p><strong>Omi</strong> (BasedHardware) — подсказывающий ассистент рядом с оператором. Ближе к сценарию «агент в приёмке», чем чат.</p>
+      <p><strong>Claude Design на HN</strong> — код как source of truth, а не Figma. Для внутренних тулов сигнал: меньше промежуточных схем, больше прямого flow.</p>
+      <p style="margin-top:8px;"><a href="../digest/2026-04-19.html">Полная версия дайджеста →</a></p>
+    </div>
+
+    <h2>Горизонт 2028 — единственный вопрос без ответа</h2>
+    <p style="color:var(--fg-2); margin-bottom:14px;">За последние недели вся работа и весь knowledge — тактика: SLA, автопилот заказов, event-sourced измерения, процессы приёмки. Ни одного brainstorm «каким ИнструментБург будет через 3 года». Цель «1 млн чистыми» без выбранного сценария — якорь, а не задача.</p>
+    <div class="scenario-grid">
+      <div class="scenario s1">
+        <div class="s-name">01 · Кормушка</div>
+        <p class="s-desc">Выручка ~1,5 млн стабильно, автоматизация до потери пульса, Антон 20 ч/нед, прибыль 300–400k.</p>
+      </div>
+      <div class="scenario s2">
+        <div class="s-name">02 · B2B-платформа</div>
+        <p class="s-desc">Убираем физиков, 10–15 корпоратов по подписке. «Ремонт-как-услуга» для промышленности.</p>
+      </div>
+      <div class="scenario s3">
+        <div class="s-name">03 · Актив на продажу</div>
+        <p class="s-desc">18–24 мес упаковки — выход с капиталом 20–40 млн. Всё, что делаем сейчас, становится инвестиционным аргументом.</p>
+      </div>
+      <div class="scenario s4">
+        <div class="s-name">04 · Плацдарм</div>
+        <p class="s-desc">Сервис кормит, пока строится что-то новое: SaaS для СЦ, новый продукт, смежная ниша.</p>
+      </div>
+    </div>
+    <p style="color:var(--fg-2); margin-top:14px;">Ни один из четырёх ещё не выбран. Пока не выбран — любой тактический совет укрепляет одну из моделей, которая может оказаться не той.</p>
+
+    <h2>Что точно стоит сделать на этой неделе</h2>
+    <section class="flow-grid">
+      <div class="flow-step">
+        <span class="step-no">Шаг 01</span>
+        <div>
+          <div class="flow-title">Узнать аренду</div>
+          <p>Сколько аренда приносит чистыми в марте? 30 минут анализа, меняет всю стратегию: 100k+ — один план, 20k — другой.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <span class="step-no">Шаг 02</span>
+        <div>
+          <div class="flow-title">Расходка на Авито</div>
+          <p>4 объявления из 12 готовых: диски, леска, масло, цепи. Тариф Pro ~5k/мес, эффект — воронка в ремонт.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <span class="step-no">Шаг 03</span>
+        <div>
+          <div class="flow-title">Утренний дайджест</div>
+          <p>Cron по статусам LiveSklad в Telegram. Ускоряет дожим 178 «ждущих» заказов без найма людей.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <span class="step-no">Шаг 04</span>
+        <div>
+          <div class="flow-title">Brainstorm 2028</div>
+          <p>Документ <code>docs/brainstorms/2026-04-19-vision-2028.md</code>. По 4 сценариям: день/неделя, команда, P&amp;L, роль Антона.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bottom-line">
+      <h2>Фраза, в которой всё сходится</h2>
+      <p>Следующий большой сдвиг — это не ещё одна услуга и не ещё один маркетинговый канал, а один выбранный сценарий на 2028 год и один управленческий слой, который позволит этот выбор довести.</p>
+    </section>
+
+    <div class="source-note">
+      Источники: apps/dashboard (LiveSklad API + Метрика + Авито + Модульбанк), pnlMonths/pnlStaff/pnlFixed на 19.04.2026 13:04, strategy/service-numbers-2026-04-19, strategy/service-direction-2026-04-19, digest/2026-04-19, dashboard-news/2026-04-19, memory/project_horizon_2028_open_question, memory/feedback_team_facts_april2026. Все цифры — снимок на 19.04.2026, не заменяет полную финотчётность.
+    </div>
+
+    <footer class="page-footer">
+      <span>Клодик · 19.04.2026 · снимок недели</span>
+      <a href="./">К списку разборов</a>
+    </footer>
+  </div>
+</body>
+</html>
