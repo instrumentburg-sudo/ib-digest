@@ -385,7 +385,7 @@
       <div class="cell">
         <span class="cell-num">Версия 01</span>
         <div class="cell-title">Операционная прибыль из сервиса</div>
-        <p>1 млн EBITDA в месяц именно от этого бизнеса. Требует выручки ~2,26 млн/мес при текущей структуре расходов.</p>
+        <p>1 млн EBITDA в месяц именно от этого бизнеса. Требует выручки ~2,26 млн/мес при текущей структуре расходов. Фикс 765k — это ФОТ (всё на руки, неофициально) + аренда + налоги бизнеса + прочее.</p>
         <div class="cell-formula">
           Выручка <strong>2,26M</strong> <span style="color:var(--fg-4)">→</span> переменные 30% <span style="color:var(--fg-4)">→</span> минус фикс <strong>765k</strong> <span style="color:var(--fg-4)">=</span> <strong>≈1M</strong>
         </div>
@@ -393,9 +393,9 @@
       <div class="cell">
         <span class="cell-num">Версия 02</span>
         <div class="cell-title">Свободные деньги владельцу</div>
-        <p>Другая сумма, зависит от налогового контура, вывода через ИП, дивидендов, реинвеста. Из 1 млн EBITDA до владельца дойдёт меньше.</p>
+        <p>Поскольку ФОТ неофициальный и НДФЛ/страховые не платятся, EBITDA уже близка к реальным «свободным». Главные вычеты — УСН, НДС 5% без вычетов и страховые ИП за себя.</p>
         <div class="cell-formula">
-          EBITDA <span style="color:var(--fg-4)">→</span> налоги / инвестиции <span style="color:var(--fg-4)">→</span> <strong>свободные</strong>
+          EBITDA <span style="color:var(--fg-4)">→</span> УСН / НДС 5% <span style="color:var(--fg-4)">→</span> <strong>свободные</strong>
         </div>
       </div>
       <div class="cell">
@@ -482,6 +482,7 @@
       <div class="s-right">
         <h4>Что делать, если этот</h4>
         <ol class="s-steps">
+          <li><strong>Обеление ФОТ — главный вопрос этого сценария</strong>: сейчас 8 сотрудников неофициально. При продаже покупатель либо потребует перевести всех в белое (+30% страховые, +13% НДФЛ к ФОТ = ~200k/мес расходов сверх текущих), либо возьмёт актив с дисконтом 30–50%. Считать цикл и EBITDA нужно сразу в «белой» версии, иначе 20–40 млн превратятся в 10–20 млн на сделке.</li>
           <li><strong>Чистая отчётность</strong>: закрыть методологические разрывы в P&amp;L, перестать смешивать Модульбанк и LS руками, полноценная выручка с марта 2026 уже есть — нужна за 12 мес вперёд.</li>
           <li><strong>Отвязка от Антона</strong>: всё, что сейчас «держится на одном человеке», должно мигрировать в процесс, регламент или сотрудника. Покупатель платит за систему, а не за основателя.</li>
           <li><strong>Темп роста</strong>: +30–50% YoY. Без роста мультипликатор падает с 4–5× до 2–3×.</li>
@@ -576,7 +577,7 @@
     </section>
 
     <div class="source-note">
-      Источники: apps/dashboard (pnlMonths, pnlFixed, pnlBreakEven=981k, pnlTarget=2,26M, pnlStaff), strategy/service-numbers-2026-04-19, strategy/service-direction-2026-04-19, memory/project_horizon_2028_open_question, memory/user_anton_owner_profile. Все цифры — снимок на 19.04.2026. Мультипликаторы и сроки сценариев — экспертные ориентиры, не финмодель.
+      Источники: apps/dashboard (pnlMonths, pnlFixed, pnlBreakEven=981k, pnlTarget=2,26M, pnlStaff), strategy/service-numbers-2026-04-19, strategy/service-direction-2026-04-19, memory/project_horizon_2028_open_question, memory/user_anton_owner_profile, memory/feedback_payroll_unofficial. Все цифры — снимок на 19.04.2026. ФОТ — реальные выплаты на руки без НДФЛ/страховых (неофициальное оформление). Мультипликаторы и сроки сценариев — экспертные ориентиры, не финмодель.
     </div>
 
     <footer class="page-footer">
