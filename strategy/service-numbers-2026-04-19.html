@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Цифры сервиса · Livesklad · 2026-04-19</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+  <style>
+    .hero-grid, .signal-grid, .flow-grid, .risk-grid {
+      display: grid;
+      gap: 1px;
+      background: var(--border);
+      border: var(--hairline);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .hero-grid { grid-template-columns: 1.3fr 0.9fr; margin-bottom: 28px; }
+    .signal-grid, .risk-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .flow-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .panel, .signal, .flow-step, .risk {
+      background: var(--bg-raised);
+      padding: 18px 20px;
+    }
+    .panel.lead {
+      padding: 24px 24px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      min-height: 100%;
+    }
+    .hero-line {
+      font-family: var(--serif);
+      font-size: clamp(1.9rem, 4vw, 3.3rem);
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+      max-width: 14ch;
+    }
+    .hero-line strong { color: var(--accent-hi); font-weight: 400; }
+    .hero-summary {
+      font-size: 16px;
+      color: var(--fg-2);
+      max-width: 36rem;
+    }
+    .micro-label {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--fg-3);
+      margin-bottom: 10px;
+      display: block;
+    }
+    .big-number {
+      font-family: var(--serif);
+      font-size: clamp(2.1rem, 5vw, 4rem);
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      color: var(--fg);
+      margin-bottom: 12px;
+    }
+    .big-number .unit { color: var(--accent-hi); }
+    .subtle { color: var(--fg-2); }
+    .signal-title, .risk-title, .flow-title {
+      font-family: var(--serif);
+      font-size: 25px;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+    .signal p, .risk p, .flow-step p { color: var(--fg-2); }
+    .signal strong, .risk strong, .flow-step strong { color: var(--fg); }
+    .section-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
+    }
+    .card p + p { margin-top: 8px; }
+    .card ul {
+      list-style: none;
+      margin-top: 10px;
+      display: grid;
+      gap: 8px;
+    }
+    .card li {
+      color: var(--fg-2);
+      padding-left: 14px;
+      position: relative;
+    }
+    .card li::before {
+      content: '\2192';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+    .flow-step {
+      min-height: 170px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .step-no {
+      font-family: var(--mono);
+      color: var(--fg-3);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .bottom-line {
+      margin-top: 34px;
+      padding: 24px;
+      border: 1px solid rgba(212,165,116,0.22);
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(212,165,116,0.08), rgba(212,165,116,0.03)),
+        var(--bg-raised);
+    }
+    .bottom-line h2 { margin-top: 0; }
+    .bottom-line h2::after { width: 42px; }
+    .bottom-line p {
+      font-family: var(--serif);
+      font-size: clamp(1.4rem, 2.4vw, 2rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      max-width: 30ch;
+    }
+    /* Data table styles */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin: 12px 0;
+    }
+    .data-table th {
+      text-align: left;
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--fg-3);
+      padding: 8px 12px 8px 0;
+      border-bottom: 1px solid var(--border-hi);
+    }
+    .data-table td {
+      padding: 10px 12px 10px 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--fg-2);
+    }
+    .data-table td:first-child { color: var(--fg); font-weight: 500; }
+    .data-table .num { font-family: var(--mono); font-size: 13px; text-align: right; }
+    .data-table .highlight { color: var(--accent-hi); font-weight: 500; }
+    .data-table .good-val { color: var(--good); }
+    .data-table .bad-val { color: var(--bad); }
+    .data-table .warn-val { color: var(--warn); }
+    .stat-row {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin: 16px 0;
+    }
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .stat-item .val {
+      font-family: var(--serif);
+      font-size: 28px;
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+    .stat-item .lbl {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--fg-3);
+    }
+    .source-note {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--fg-4);
+      margin-top: 20px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+    @media (max-width: 900px) {
+      .hero-grid, .signal-grid, .risk-grid, .flow-grid { grid-template-columns: 1fr; }
+      .flow-step { min-height: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="../digest/">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+      <a href="./" class="active">Стратегия</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Стратегический разбор · ВС 19.04</div>
+      <h1>Реальные цифры сервиса и <em>путь к миллиону</em></h1>
+      <div class="meta">
+        <a href="./">Все разборы</a>
+        <span class="sep">·</span>
+        <a href="service-direction-2026-04-19.html">Предыдущий разбор</a>
+      </div>
+    </header>
+
+    <section class="hero-grid">
+      <div class="panel lead">
+        <span class="micro-label">Главный вывод</span>
+        <div class="hero-line">Сервис в одиночку не <strong>дотягивает</strong>.</div>
+        <p class="hero-summary">~170 ремонтов в месяц при среднем чеке ~2&thinsp;900 ₽ дают ~490&thinsp;000 ₽ выручки по выданным заказам. С учётом себестоимости запчастей, ФОТ и аренды помещения — чистыми остаётся 150&ndash;200 тысяч. До миллиона нужно ×5, и это не решается «ещё одним мастером».</p>
+      </div>
+      <div class="panel">
+        <span class="micro-label">Математика марта 2026</span>
+        <div class="stat-row">
+          <div class="stat-item">
+            <span class="val">23&thinsp;750</span>
+            <span class="lbl">Всего заказов за историю</span>
+          </div>
+          <div class="stat-item">
+            <span class="val">170</span>
+            <span class="lbl">Заказов / март</span>
+          </div>
+          <div class="stat-item">
+            <span class="val highlight">477k</span>
+            <span class="lbl">Выручка выданных</span>
+          </div>
+        </div>
+        <p class="subtle">Конверсия в оплату: 55%. Ещё 28 заказов (16%) — отказ от ремонта.</p>
+      </div>
+    </section>
+
+    <h2>Реальные данные Livesklad</h2>
+    <p style="color:var(--fg-2); margin-bottom:16px;">Выборка из ~500 заказов за март–апрель 2026, получена через API Livesklad 19.04.2026.</p>
+
+    <section class="signal-grid">
+      <div class="signal">
+        <span class="micro-label">Март 2026 (полный месяц)</span>
+        <table class="data-table">
+          <tr><td>Заказов создано</td><td class="num">~170</td></tr>
+          <tr><td>Сумма по сметам</td><td class="num">~680&thinsp;000 ₽</td></tr>
+          <tr><td>Выдано (оплачено)</td><td class="num highlight">93 &nbsp;→&nbsp; 477&thinsp;000 ₽</td></tr>
+          <tr><td>Ждёт ответа / на согласовании</td><td class="num warn-val">87</td></tr>
+          <tr><td>Отказ от ремонта</td><td class="num bad-val">28 (16%)</td></tr>
+          <tr><td>Средний чек выданного</td><td class="num">5&thinsp;130 ₽</td></tr>
+        </table>
+      </div>
+      <div class="signal">
+        <span class="micro-label">Апрель 2026 (19 дней, не закрыт)</span>
+        <table class="data-table">
+          <tr><td>Заказов создано</td><td class="num">164</td></tr>
+          <tr><td>Сумма по сметам</td><td class="num">~400&thinsp;000 ₽</td></tr>
+          <tr><td>Выдано (оплачено)</td><td class="num highlight">66 &nbsp;→&nbsp; частичная выборка</td></tr>
+          <tr><td>Новых (не обработано)</td><td class="num warn-val">43</td></tr>
+          <tr><td>Аренда / в прокате</td><td class="num">7</td></tr>
+          <tr><td>Средний чек</td><td class="num">~2&thinsp;440 ₽</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <h2>Топ устройств по ремонту</h2>
+    <section class="risk-grid">
+      <div class="risk">
+        <span class="micro-label">Частота</span>
+        <div class="risk-title">Бензопилы и триммеры</div>
+        <p>~30% всех заказов. Средний чек <strong>1&thinsp;200–1&thinsp;700 ₽</strong>. Сезонный пик впереди — леска ×15, цепи ×3, масло ×3.</p>
+      </div>
+      <div class="risk">
+        <span class="micro-label">Маржинальность</span>
+        <div class="risk-title">Перфораторы и УШМ</div>
+        <p>~10% заказов. Средний чек <strong>2&thinsp;200–3&thinsp;100 ₽</strong>. Стабильный спрос вне сезона.</p>
+      </div>
+      <div class="risk">
+        <span class="micro-label">Высокий чек</span>
+        <div class="risk-title">Генераторы (ДГУ)</div>
+        <p>Мало заказов, но средний чек <strong>~6&thinsp;000 ₽</strong>. Рост ограничен кадрами — упирается в людей.</p>
+      </div>
+      <div class="risk">
+        <span class="micro-label">Скрытый актив</span>
+        <div class="risk-title">Неопознанные устройства</div>
+        <p>~25% заказов с typeDevice=? — это потерянная аналитика. Без неё невозможно управлять загрузкой мастеров.</p>
+      </div>
+    </section>
+
+    <h2>Где деньги теряются прямо сейчас</h2>
+    <div class="section-grid">
+      <div class="card warn">
+        <span class="hint">Утечка 01</span>
+        <p><strong>87 заказов «ждут» или «на согласовании» в марте.</strong></p>
+        <p>Это люди, которые пришли, но не дошли до оплаты. Если конверсию из «ждёт» в «выдан» поднять с 55% до 70% — это +65&thinsp;000 ₽ в месяц без единого нового лида.</p>
+      </div>
+      <div class="card warn">
+        <span class="hint">Утечка 02</span>
+        <p><strong>28 отказов от ремонта (16%).</strong></p>
+        <p>Каждый отказ — это уже потраченное время на диагностику. Причина обычно: цена или срок. Управление ожиданиями клиента при приёмке сократит отказы вдвое.</p>
+      </div>
+      <div class="card warn">
+        <span class="hint">Утечка 03</span>
+        <p><strong>43 новых заказа в апреле — не обработаны.</strong></p>
+        <p>Это не «мало лидов», это «лиды есть, но не дожимаются». Автоответчик (instrumentburg-responder) + утренний дайджест в Telegram = минимальная автоматизация дожима.</p>
+      </div>
+      <div class="card warn">
+        <span class="hint">Утечка 04</span>
+        <p><strong>Расходка — 0 объявлений на Авито.</strong></p>
+        <p>12 готовых текстов лежат с февраля. Спрос 7&thinsp;600/мес (15&thinsp;000 летом). Даже пессимистичный прогноз даёт кросс-сейл в ремонт на +6&thinsp;600–13&thinsp;200 ₽ маржи/мес.</p>
+      </div>
+    </div>
+
+    <h2>Математика пути к 1 млн чистыми</h2>
+    <section class="flow-grid">
+      <div class="flow-step">
+        <span class="step-no">База</span>
+        <div>
+          <div class="flow-title">Сервис: ~200k ₽</div>
+          <p>Текущий уровень чистой прибыли от ремонта при 170 заказах/мес. Стабильная база, но не мотор роста.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <span class="step-no">Прирост +150k</span>
+        <div>
+          <div class="flow-title">Конверсия + дожим</div>
+          <p>Поднять оплату с 55% до 70% (+65k). Сократить отказы с 16% до 10% (+35k). Улучшить средний чек upsell'ом (+50k).</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <span class="step-no">Прирост +200k</span>
+        <div>
+          <div class="flow-title">B2B контракты</div>
+          <p>Россети, Монетка, ОДКБ — уже есть в контуре. Систематизировать: 2–3 контракта на обслуживание парка = стабильные 200k+/мес.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="flow-grid" style="margin-top:1px;">
+      <div class="flow-step">
+        <span class="step-no">Прирост +200k</span>
+        <div>
+          <div class="flow-title">Товарка (Авито + МП)</div>
+          <p>Расходка на Авито как воронка. Ozon/WB — отдельный канал продаж. Масштабируется без пропорционального найма людей.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <span class="step-no">Прирост +150k</span>
+        <div>
+          <div class="flow-title">Аренда как усилитель</div>
+          <p>293 позиции в каталоге. Вопрос не в ассортименте, а в понимании: сколько аренда реально приносит? Без этого числа — слепая зона.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <span class="step-no">Прирост +100k</span>
+        <div>
+          <div class="flow-title">ДГУ / выездка</div>
+          <p>Самый высокий чек (~6k), но ограничен кадрами. Расти будет только когда появится надёжный человек на это направление.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bottom-line">
+      <h2>Первое, что нужно узнать</h2>
+      <p>Сколько аренда приносит чистыми в месяц? Без этого числа стратегия строится вслепую. Если аренда даёт 100k+ — один план. Если 20k — другой. Это один запрос к данным, но он меняет всё.</p>
+    </section>
+
+    <section style="margin-top:24px; padding:20px; background:var(--bg-elev); border-radius:8px; border:1px solid var(--border);">
+      <h2 style="margin-top:0;">Что можно сделать на этой неделе</h2>
+      <table class="data-table">
+        <tr><th>Шаг</th><th>Что</th><th>Затраты</th><th>Ожидаемый эффект</th></tr>
+        <tr><td>1</td><td>Подключить товарный тариф Авито Pro, выложить 4 объявления расходки (диски, леска, масло, цепи)</td><td class="num">1 день + ~5&thinsp;000 ₽/мес</td><td class="num">воронка в ремонт, +3–6 доп. ремонтов/мес</td></tr>
+        <tr><td>2</td><td>Запустить утренний дайджест в Telegram (статусы Livesklad)</td><td class="num">настройка cron</td><td class="num">ускорение дожима «ждущих» заказов</td></tr>
+        <tr><td>3</td><td>Проверить: сколько аренда приносит чистыми за март</td><td class="num">30 мин анализа</td><td class="num">понимание структуры выручки</td></tr>
+        <tr><td>4</td><td>Нормализовать typeDevice в Livesklad (25% = «?»)</td><td class="num">руками, 2 часа</td><td class="num">управление загрузкой мастеров</td></tr>
+      </table>
+    </section>
+
+    <div class="source-note">
+      Источник: Livesklad API, shops/{id}/orders, 19.04.2026. Выборка ~500 заказов за март–апрель 2026. Цифры по марже — оценка на основе данных из консилиума по расходке (07.04.2026) и финансового brainstorm (31.01.2026). Не заменяет полную финотчётность.
+    </div>
+
+    <footer class="page-footer">
+      <span>Клодик · 19.04.2026</span>
+      <a href="./">К списку разборов</a>
+    </footer>
+  </div>
+</body>
+</html>
