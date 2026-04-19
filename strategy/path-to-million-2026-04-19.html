@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Путь к миллиону · 4 сценария · 19.04.2026</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+  <style>
+    .hero-grid, .triple-grid, .flow-grid {
+      display: grid;
+      gap: 1px;
+      background: var(--border);
+      border: var(--hairline);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .hero-grid { grid-template-columns: 1.3fr 0.9fr; margin-bottom: 28px; }
+    .triple-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .flow-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    .panel, .cell, .flow-step {
+      background: var(--bg-raised);
+      padding: 18px 20px;
+    }
+    .panel.lead {
+      padding: 24px 24px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      min-height: 100%;
+    }
+    .hero-line {
+      font-family: var(--serif);
+      font-size: clamp(1.9rem, 4vw, 3.2rem);
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+      max-width: 13ch;
+    }
+    .hero-line strong { color: var(--accent-hi); font-weight: 400; }
+    .hero-summary {
+      font-size: 15.5px;
+      color: var(--fg-2);
+      max-width: 38rem;
+    }
+    .micro-label {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--fg-3);
+      margin-bottom: 10px;
+      display: block;
+    }
+    .big-number {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4.5vw, 3.4rem);
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      color: var(--fg);
+      margin-bottom: 8px;
+    }
+    .big-number .unit { color: var(--accent-hi); font-size: 0.6em; margin-left: 2px; }
+    .subtle { color: var(--fg-2); font-size: 14px; }
+
+    /* Три миллиона */
+    .triple-grid .cell {
+      padding: 22px 22px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-height: 200px;
+    }
+    .cell-num {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--fg-4);
+    }
+    .cell-title {
+      font-family: var(--serif);
+      font-size: 22px;
+      line-height: 1.1;
+      letter-spacing: -0.015em;
+      margin-bottom: 6px;
+    }
+    .cell p { color: var(--fg-2); font-size: 13.5px; line-height: 1.55; }
+    .cell-formula {
+      margin-top: auto;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--fg-3);
+      padding-top: 10px;
+      border-top: 1px dashed var(--border-hi);
+      letter-spacing: 0.02em;
+    }
+    .cell-formula strong { color: var(--accent-hi); font-weight: 500; }
+
+    /* Сценарий — детальная карточка */
+    .scenario-detail {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 1px;
+      background: var(--border);
+      border: var(--hairline);
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 14px 0;
+      border-left: 3px solid var(--border-hi);
+    }
+    .scenario-detail.s1 { border-left-color: var(--accent); }
+    .scenario-detail.s2 { border-left-color: var(--good); }
+    .scenario-detail.s3 { border-left-color: var(--warn); }
+    .scenario-detail.s4 { border-left-color: var(--bad); }
+    .s-left, .s-right {
+      background: var(--bg-raised);
+      padding: 22px 24px;
+    }
+    .s-left {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .s-tag {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--fg-3);
+    }
+    .s1 .s-tag { color: var(--accent); }
+    .s2 .s-tag { color: var(--good); }
+    .s3 .s-tag { color: var(--warn); }
+    .s4 .s-tag { color: var(--bad); }
+    .s-name {
+      font-family: var(--serif);
+      font-size: 28px;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+    }
+    .s-verdict {
+      font-family: var(--serif);
+      font-style: italic;
+      color: var(--fg-2);
+      font-size: 16px;
+      line-height: 1.3;
+      padding: 10px 14px;
+      border-left: 2px solid var(--border-hi);
+      background: var(--bg);
+      border-radius: 0 4px 4px 0;
+    }
+    .s-verdict.good { color: var(--good); border-left-color: var(--good); }
+    .s-verdict.warn { color: var(--warn); border-left-color: var(--warn); }
+    .s-verdict.bad  { color: var(--bad);  border-left-color: var(--bad); }
+    .s-verdict.neutral { color: var(--accent-hi); border-left-color: var(--accent); }
+    .s-formula {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--fg);
+      padding: 12px 14px;
+      background: var(--bg);
+      border: var(--hairline);
+      border-radius: 4px;
+      line-height: 1.7;
+      letter-spacing: 0.01em;
+    }
+    .s-formula strong { color: var(--accent-hi); font-weight: 500; }
+    .s-formula .arr { color: var(--fg-4); margin: 0 6px; }
+    .s-meta {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 6px;
+    }
+    .s-meta > div {
+      padding: 10px 12px;
+      background: var(--bg);
+      border: var(--hairline);
+      border-radius: 4px;
+    }
+    .s-meta .lbl {
+      font-family: var(--mono);
+      font-size: 9.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--fg-4);
+      margin-bottom: 4px;
+    }
+    .s-meta .val {
+      font-family: var(--serif);
+      font-size: 15px;
+      line-height: 1.2;
+      color: var(--fg);
+    }
+    .s-right h4 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+      margin-bottom: 12px;
+      color: var(--fg);
+    }
+    .s-right h4::before {
+      content: '';
+      display: inline-block;
+      width: 14px;
+      height: 1px;
+      background: var(--accent);
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    .s-steps {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 8px;
+    }
+    .s-steps li {
+      padding: 10px 12px 10px 36px;
+      background: var(--bg);
+      border: var(--hairline);
+      border-radius: 4px;
+      position: relative;
+      font-size: 13.5px;
+      color: var(--fg-2);
+      line-height: 1.5;
+    }
+    .s-steps li::before {
+      counter-increment: step-counter;
+      content: counter(step-counter, decimal-leading-zero);
+      position: absolute;
+      left: 12px;
+      top: 10px;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--fg-4);
+      letter-spacing: 0.05em;
+    }
+    .s-steps li strong { color: var(--fg); font-weight: 500; }
+    .s-steps { counter-reset: step-counter; }
+
+    /* Flow/universal */
+    .flow-step {
+      min-height: 170px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .step-no {
+      font-family: var(--mono);
+      color: var(--fg-3);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .flow-title {
+      font-family: var(--serif);
+      font-size: 20px;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+      margin-top: 6px;
+    }
+    .flow-step p { color: var(--fg-2); font-size: 13.5px; }
+    .flow-impact {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      color: var(--good);
+      letter-spacing: 0.03em;
+      padding-top: 10px;
+      margin-top: 10px;
+      border-top: 1px dashed var(--border-hi);
+    }
+
+    .two-hours {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: var(--hairline);
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 14px 0;
+    }
+    .hour {
+      background: var(--bg-raised);
+      padding: 22px 24px;
+    }
+    .hour-tag {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .hour-name {
+      font-family: var(--serif);
+      font-size: 26px;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+      line-height: 1.05;
+    }
+    .hour p { color: var(--fg-2); font-size: 14px; }
+    .hour code {
+      font-size: 12px;
+      padding: 2px 6px;
+    }
+
+    .bottom-line {
+      margin-top: 34px;
+      padding: 24px;
+      border: 1px solid rgba(212,165,116,0.22);
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(212,165,116,0.08), rgba(212,165,116,0.03)),
+        var(--bg-raised);
+    }
+    .bottom-line h2 { margin-top: 0; }
+    .bottom-line h2::after { width: 42px; }
+    .bottom-line p {
+      font-family: var(--serif);
+      font-size: clamp(1.3rem, 2.2vw, 1.85rem);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      max-width: 32ch;
+    }
+
+    .source-note {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--fg-4);
+      margin-top: 18px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid, .triple-grid, .flow-grid, .scenario-detail, .two-hours, .s-meta { grid-template-columns: 1fr; }
+      .flow-step { min-height: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="../digest/">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+      <a href="./" class="active">Стратегия</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Стратегический разбор · ВС 19.04.2026</div>
+      <h1>Путь к <em>миллиону</em> чистыми · 4 сценария</h1>
+      <div class="meta">
+        <a href="./">Все разборы</a>
+        <span class="sep">·</span>
+        <a href="snapshot-2026-04-19.html">Снимок недели</a>
+        <a href="service-numbers-2026-04-19.html">Цифры</a>
+        <a href="service-direction-2026-04-19.html">Направление</a>
+      </div>
+    </header>
+
+    <section class="hero-grid">
+      <div class="panel lead">
+        <span class="micro-label">Главный вывод</span>
+        <div class="hero-line">Дорожных карт <strong>четыре</strong>, а не одна.</div>
+        <p class="hero-summary">Универсальной карты к «1 млн чистыми» нет. Каждый из четырёх сценариев 2028 даёт свою формулу, свой срок и свою команду. Работать над всеми сразу означает ни один не собрать. Поэтому сначала выбор сценария, потом карта.</p>
+      </div>
+      <div class="panel">
+        <span class="micro-label">Текущее положение</span>
+        <div class="big-number">−444<span class="unit">k ₽</span></div>
+        <p class="subtle">прибыль апреля на 19-е число при break-even <strong>981 тыс ₽</strong>/мес. Чтобы 1 млн чистыми — выручка должна быть около <strong>2,26 млн ₽</strong>/мес, это ×3 к среднему.</p>
+      </div>
+    </section>
+
+    <h2>Какой именно миллион</h2>
+    <p style="color:var(--fg-2); margin-bottom:14px;">Три разных вопроса прячутся в одном слове. Без этой развилки любая карта строится в воздухе.</p>
+    <section class="triple-grid">
+      <div class="cell">
+        <span class="cell-num">Версия 01</span>
+        <div class="cell-title">Операционная прибыль из сервиса</div>
+        <p>1 млн EBITDA в месяц именно от этого бизнеса. Требует выручки ~2,26 млн/мес при текущей структуре расходов.</p>
+        <div class="cell-formula">
+          Выручка <strong>2,26M</strong> <span style="color:var(--fg-4)">→</span> переменные 30% <span style="color:var(--fg-4)">→</span> минус фикс <strong>765k</strong> <span style="color:var(--fg-4)">=</span> <strong>≈1M</strong>
+        </div>
+      </div>
+      <div class="cell">
+        <span class="cell-num">Версия 02</span>
+        <div class="cell-title">Свободные деньги владельцу</div>
+        <p>Другая сумма, зависит от налогового контура, вывода через ИП, дивидендов, реинвеста. Из 1 млн EBITDA до владельца дойдёт меньше.</p>
+        <div class="cell-formula">
+          EBITDA <span style="color:var(--fg-4)">→</span> налоги / инвестиции <span style="color:var(--fg-4)">→</span> <strong>свободные</strong>
+        </div>
+      </div>
+      <div class="cell">
+        <span class="cell-num">Версия 03</span>
+        <div class="cell-title">Якорь «10 лет не зря»</div>
+        <p>Если 1 млн — психологическая отметка, а не цель, математика подчинится задаче, а не реальности. Разговор переходит в смысл, а не в цифру.</p>
+        <div class="cell-formula">
+          Не карта <span style="color:var(--fg-4)">→</span> а <strong>честный ответ зачем</strong>
+        </div>
+      </div>
+    </section>
+
+    <h2>Сценарий 01 · Кормушка</h2>
+    <section class="scenario-detail s1">
+      <div class="s-left">
+        <span class="s-tag">Сценарий 01 · Тихая прибыль</span>
+        <div class="s-name">Кормушка</div>
+        <p class="subtle">1,5 млн выручки стабильно, автоматизация до предела, Антон 20 ч/нед.</p>
+        <div class="s-verdict neutral">1 млн чистыми — не достижим. Потолок 300–400 тыс при максимальной автоматизации.</div>
+        <div class="s-formula">
+          Выручка <strong>~1,5M</strong> <span class="arr">→</span> маржа 25% <span class="arr">=</span> <strong>≈375k</strong> чистыми
+        </div>
+        <div class="s-meta">
+          <div><div class="lbl">Срок</div><div class="val">6–9 мес</div></div>
+          <div><div class="lbl">Потолок</div><div class="val">300–400k</div></div>
+          <div><div class="lbl">Антон</div><div class="val">20 ч/нед</div></div>
+        </div>
+      </div>
+      <div class="s-right">
+        <h4>Что делать, если этот</h4>
+        <ol class="s-steps">
+          <li>Автоматизировать приёмку и статусы: <strong>autoresponder + утренний cron</strong> в Telegram по LiveSklad.</li>
+          <li>Выдавить ручное управление из ежедневной рутины: <strong>SLA 10 дней</strong>, автоотчёты, event-sourced метрики по мастерам.</li>
+          <li>Срезать всё, что не даёт 25%+ маржи: слабые объявления, низкомаржинальные виды ремонта, неэффективные каналы (Директ сейчас 5,6k / 0 заявок).</li>
+          <li>Переформулировать цель: <strong>не 1 млн, а 300k при 20 часах</strong>. Это честная рамка для сценария.</li>
+        </ol>
+      </div>
+    </section>
+
+    <h2>Сценарий 02 · B2B-платформа</h2>
+    <section class="scenario-detail s2">
+      <div class="s-left">
+        <span class="s-tag">Сценарий 02 · Подписочные корпораты</span>
+        <div class="s-name">B2B-платформа</div>
+        <p class="subtle">10–15 юрлиц по абонентке. «Ремонт-как-услуга» для промышленности.</p>
+        <div class="s-verdict good">1 млн чистыми достижим и даже логичен. B2B-контур уже в реальности — Россети, ЕЭСК, Уралэлектромедь, РЖД, АЭС.</div>
+        <div class="s-formula">
+          <strong>12 договоров</strong> × <strong>150k</strong>/мес <span class="arr">=</span> <strong>1,8M</strong> выручки <span class="arr">→</span> маржа 50% <span class="arr">=</span> <strong>≈900k</strong> чистыми
+        </div>
+        <div class="s-meta">
+          <div><div class="lbl">Срок</div><div class="val">12–18 мес</div></div>
+          <div><div class="lbl">Потолок</div><div class="val">0,8–1,6M</div></div>
+          <div><div class="lbl">Антон</div><div class="val">40 ч/нед</div></div>
+        </div>
+      </div>
+      <div class="s-right">
+        <h4>Что делать, если этот</h4>
+        <ol class="s-steps">
+          <li><strong>Портрет ядра</strong>: из текущей B2B-базы (Россети, ЕЭСК, ЭЛЕМ-Трейд) выделить 3–5 «идеальных», описать их pain / объём / частоту.</li>
+          <li><strong>Продукт</strong>: абонентка на обслуживание парка + SLA 72 ч + выезд + склад подменного инструмента. Прайс отдельный, не от диагностики.</li>
+          <li><strong>Кто ведёт</strong>: Седяева сейчас тянет B2B + HR + финансы — bottleneck. Либо выделить B2B-менеджера, либо разгрузить Юлию от HR/фин.</li>
+          <li><strong>Физики</strong>: не отрезать резко — сужать через ценовой фильтр и сроки, постепенно освобождая мощность под B2B.</li>
+          <li><strong>Метрика успеха</strong>: доля B2B в выручке растёт с ~20–30% до 60–70% за 12 мес.</li>
+        </ol>
+      </div>
+    </section>
+
+    <h2>Сценарий 03 · Актив на продажу</h2>
+    <section class="scenario-detail s3">
+      <div class="s-left">
+        <span class="s-tag">Сценарий 03 · Выход с капиталом</span>
+        <div class="s-name">Актив на продажу</div>
+        <p class="subtle">18–24 мес упаковки — продажа за 20–40 млн. Мультипликатор 4–5× EBITDA.</p>
+        <div class="s-verdict warn">1 млн чистыми — не цель, а побочный эффект. Ориентир меняется на EBITDA, темп роста и отвязку от Антона.</div>
+        <div class="s-formula">
+          EBITDA <strong>400–700k</strong>/мес <span class="arr">×</span> 12 <span class="arr">×</span> <strong>4–5</strong> <span class="arr">=</span> <strong>20–42M</strong> капитал
+        </div>
+        <div class="s-meta">
+          <div><div class="lbl">Срок</div><div class="val">18–24 мес</div></div>
+          <div><div class="lbl">Цель</div><div class="val">20–40M капитал</div></div>
+          <div><div class="lbl">Антон</div><div class="val">выход к концу</div></div>
+        </div>
+      </div>
+      <div class="s-right">
+        <h4>Что делать, если этот</h4>
+        <ol class="s-steps">
+          <li><strong>Чистая отчётность</strong>: закрыть методологические разрывы в P&amp;L, перестать смешивать Модульбанк и LS руками, полноценная выручка с марта 2026 уже есть — нужна за 12 мес вперёд.</li>
+          <li><strong>Отвязка от Антона</strong>: всё, что сейчас «держится на одном человеке», должно мигрировать в процесс, регламент или сотрудника. Покупатель платит за систему, а не за основателя.</li>
+          <li><strong>Темп роста</strong>: +30–50% YoY. Без роста мультипликатор падает с 4–5× до 2–3×.</li>
+          <li><strong>Нематериальный актив</strong>: digital-инфраструктура (LiveSklad, Dashboard, Convex, Автоматизация Авито) — это уже актив на 20–30 млн, оформить как часть сделки.</li>
+          <li><strong>Кандидаты-покупатели</strong>: конкуренты локально / федеральные сети / стратегические клиенты B2B, для которых сервис — вертикальная интеграция.</li>
+        </ol>
+      </div>
+    </section>
+
+    <h2>Сценарий 04 · Плацдарм</h2>
+    <section class="scenario-detail s4">
+      <div class="s-left">
+        <span class="s-tag">Сценарий 04 · Базовая лагерь</span>
+        <div class="s-name">Плацдарм</div>
+        <p class="subtle">Сервис кормит 200–300k чистыми, пока строится что-то новое.</p>
+        <div class="s-verdict bad">1 млн чистыми приходит от <strong style="color:var(--bad)">нового направления</strong>, а не от сервиса. Без конкретного «нового» сценарий пустой.</div>
+        <div class="s-formula">
+          Сервис <strong>≈250k</strong> <span class="arr">+</span> Новое направление <strong>≈750k</strong> <span class="arr">=</span> <strong>≈1M</strong> чистыми
+        </div>
+        <div class="s-meta">
+          <div><div class="lbl">Срок</div><div class="val">зависит от «нового»</div></div>
+          <div><div class="lbl">Риск</div><div class="val">высокий</div></div>
+          <div><div class="lbl">Антон</div><div class="val">80% — в новом</div></div>
+        </div>
+      </div>
+      <div class="s-right">
+        <h4>Что делать, если этот</h4>
+        <ol class="s-steps">
+          <li><strong>Определить «новое»</strong>: SaaS для сервисных центров (LiveSklad-подобный продукт), франшиза, собственный продукт под марку ИнструментБург, партнёрская сеть. Без этой клетки дальше нельзя.</li>
+          <li><strong>Стабилизировать сервис на автопилоте</strong> — те же шаги, что в сценарии «Кормушка», но с меньшим амбициозным потолком прибыли (250k вместо 400k).</li>
+          <li><strong>Перераспределить внимание Антона</strong>: 20% сервис, 80% — новое. Иначе плацдарм превратится в две недоделанные вещи.</li>
+          <li><strong>Валидация до вложений</strong>: прежде чем строить «новое» на год, прожить 2–3 месяца в формате «как будто уже так» — на что уходит время, что продаётся.</li>
+        </ol>
+      </div>
+    </section>
+
+    <h2>Что полезно во всех четырёх сценариях</h2>
+    <p style="color:var(--fg-2); margin-bottom:14px;">Есть работа, которая даёт +150–250k/мес и не противоречит ни одному сценарию. Это «очистка контура», а не ставка. Делать можно сейчас, не ждя выбора.</p>
+    <section class="flow-grid">
+      <div class="flow-step">
+        <span class="step-no">Шаг 01</span>
+        <div class="flow-title">Закрыть «ждущих»</div>
+        <p>178 заказов: согласование, ждёт ответа, новый. Конверсия 55% → 70%.</p>
+        <div class="flow-impact">+65k / мес</div>
+      </div>
+      <div class="flow-step">
+        <span class="step-no">Шаг 02</span>
+        <div class="flow-title">Снизить отказы</div>
+        <p>С 16% до 10%: цена и срок вслух, письменное подтверждение на приёмке.</p>
+        <div class="flow-impact">+35k / мес</div>
+      </div>
+      <div class="flow-step">
+        <span class="step-no">Шаг 03</span>
+        <div class="flow-title">Маржа по направлениям</div>
+        <p>Ремонт / прокат / B2B / расходка — 4 числа. Без них любой выбор вслепую.</p>
+        <div class="flow-impact">основа для карты</div>
+      </div>
+      <div class="flow-step">
+        <span class="step-no">Шаг 04</span>
+        <div class="flow-title">Расходка на Авито</div>
+        <p>4 из 12 готовых объявлений. Валидация рынка + воронка в ремонт.</p>
+        <div class="flow-impact">+20–40k / мес</div>
+      </div>
+      <div class="flow-step">
+        <span class="step-no">Шаг 05</span>
+        <div class="flow-title">typeDevice в LS</div>
+        <p>25% заказов с «?». Нормализовать — иначе загрузкой мастеров не управлять.</p>
+        <div class="flow-impact">управляемость</div>
+      </div>
+    </section>
+
+    <h2>Следующий шаг — не карта, а два часа</h2>
+    <p style="color:var(--fg-2); margin-bottom:14px;">Самое ценное, что можно сделать на этой неделе — не ускорить движение, а выбрать направление. Движения уже много, и его результат упирается не в объём, а в согласованность векторов.</p>
+    <section class="two-hours">
+      <div class="hour">
+        <span class="hour-tag">Час 01 · Выбор</span>
+        <div class="hour-name">Brainstorm 2028</div>
+        <p>Документ <code>docs/brainstorms/2026-04-19-vision-2028.md</code>. По каждому из четырёх сценариев: день/неделя Антона, команда, P&amp;L, что в этот момент означает «хорошо».</p>
+        <p style="margin-top:10px; color:var(--fg-3); font-size:13px;">Цель — не выбрать «лучший», а честно посмотреть, какой откликается. Три ребёнка, 10 лет, устал операционно — это вводные, не помехи.</p>
+      </div>
+      <div class="hour">
+        <span class="hour-tag">Час 02 · План</span>
+        <div class="hour-name">Карта под выбранный</div>
+        <p>После первого часа — конкретные этапы, цифры, роли, сроки. Но уже для <strong>одного</strong> сценария, а не для абстрактного «1 млн».</p>
+        <p style="margin-top:10px; color:var(--fg-3); font-size:13px;">Один сценарий — одна формула, одна команда, один bottleneck. Остальные три можно отложить сразу и не держать в голове параллельно.</p>
+      </div>
+    </section>
+
+    <section class="bottom-line">
+      <h2>Фраза, в которой всё сходится</h2>
+      <p>Миллион чистыми — это следствие выбранного сценария, а не самостоятельная цель. Пока сценарий не выбран, любая тактика укрепляет одну из моделей, которая может оказаться не той.</p>
+    </section>
+
+    <div class="source-note">
+      Источники: apps/dashboard (pnlMonths, pnlFixed, pnlBreakEven=981k, pnlTarget=2,26M, pnlStaff), strategy/service-numbers-2026-04-19, strategy/service-direction-2026-04-19, memory/project_horizon_2028_open_question, memory/user_anton_owner_profile. Все цифры — снимок на 19.04.2026. Мультипликаторы и сроки сценариев — экспертные ориентиры, не финмодель.
+    </div>
+
+    <footer class="page-footer">
+      <span>Клодик · 19.04.2026 · разбор «путь к миллиону»</span>
+      <a href="./">К списку разборов</a>
+    </footer>
+  </div>
+</body>
+</html>
