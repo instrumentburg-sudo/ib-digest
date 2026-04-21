@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-04-21 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-04-21</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw без релиза за последние 24 часа:</h2>
+<ul class="bullets">
+<li>За окно 24 часа новых релизов не было. Последний видимый релиз: v2026.4.19-beta.2 от 2026-04-19 05:55 UTC.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> сегодня просто держим в уме, что свежего выката не было, ничего срочно перепроверять не нужно.</blockquote>
+<h2>🤖 Claude Code v2.1.116:</h2>
+<ul class="bullets">
+<li>Сильно ускорили /resume на больших сессиях, улучшили старт MCP, добавили более понятный индикатор мышления и поправили пачку багов в терминалах и UI.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> это прямо полезно для длинных агентных сессий, тяжёлых контекстов и MCP-обвязки. Есть смысл обновиться, если упираемся в медленный resume или глюки терминала.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Claude Code уже используют не как чат, а как аварийного цифрового архивариуса</h3>
+<p><span class="hint">Что случилось</span> на Reddit человек описал, как через Claude Code восстановил и заново собрал мастер-архив из пяти повреждённых дисков и сотен тысяч файлов, включая восстановление логики папок по содержимому, а не только по хешам.</p>
+<p><span class="hint">Живой пример</span> <a href="https://www.reddit.com/r/ClaudeAI/comments/1sqv4g9/what_two_decades_of_data_loss_trauma_does_to_a/" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeAI/comments/1sqv4g9/what_two_decades_of_data_loss_trauma_does_to_a/</a></p>
+<blockquote><strong>👉 Как применить:</strong> тот же подход можно обернуть в наш внутренний сценарий для разбора свалок файлов, бэкапов и старых клиентских архивов.</blockquote>
+<h3 class="numbered" data-n="2">Kimi K2.6 выкатили в Hugging Face, комьюнити сразу понесло в тесты</h3>
+<p><span class="hint">Что случилось</span> в LocalLLaMA за сутки в топ вышел релиз Kimi K2.6, люди сразу тащат модель в локальные и полу-локальные пайплайны.</p>
+<p><span class="hint">Живой пример</span> <a href="https://www.reddit.com/r/LocalLLaMA/comments/1sqscao/kimi_k26_released_huggingface/" target="_blank" rel="noopener">https://www.reddit.com/r/LocalLLaMA/comments/1sqscao/kimi_k26_released_huggingface/</a></p>
+<blockquote><strong>👉 Как применить:</strong> проверить как дешёвую или резервную модель для черновиков, маршрутизации и фоновых агентов, где не нужен максимум качества.</blockquote>
+<h3 class="numbered" data-n="3">OpenAI Agents Python снова в daily trending GitHub</h3>
+<p><span class="hint">Что случилось</span> openai/openai-agents-python держится в GitHub Trending как лёгкий фреймворк для multi-agent workflows.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/openai/openai-agents-python" target="_blank" rel="noopener">https://github.com/openai/openai-agents-python</a></p>
+<blockquote><strong>👉 Как применить:</strong> подсмотреть паттерны orchestration, handoff и tool wiring для наших многосессионных сценариев в OpenClaw.</blockquote>
+<h3 class="numbered" data-n="4">Thunderbird thunderbolt выстрелил как AI-клиент без vendor lock-in</h3>
+<p><span class="hint">Что случилось</span> thunderbird/thunderbolt попал в daily trending с упором на выбор своих моделей и контроль над данными.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/thunderbird/thunderbolt" target="_blank" rel="noopener">https://github.com/thunderbird/thunderbolt</a></p>
+<blockquote><strong>👉 Как применить:</strong> посмотреть их UX-подход к локальным моделям и приватности, особенно для будущих внутренних ассистентов без жёсткой привязки к одному провайдеру.</blockquote>
+<h3 class="numbered" data-n="5">На Hacker News обсуждают не просто модели, а проверку провайдеров и реальную надёжность инференса</h3>
+<p><span class="hint">Что случилось</span> пост про Kimi Vendor Verifier собрал заметное обсуждение. Фокус не на “ещё одна модель”, а на верификации качества у inference-провайдеров и расхождении обещаний с фактом.</p>
+<p><span class="hint">Живой пример</span> <a href="https://news.ycombinator.com/item?id=47838703" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=47838703</a></p>
+<blockquote><strong>👉 Как применить:</strong> для наших агентов это аргумент мерить не только модель, но и конкретного провайдера, особенно там где важны стабильность, цена и воспроизводимость.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
