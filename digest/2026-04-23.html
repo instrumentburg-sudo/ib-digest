@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-04-23 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-04-23</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw v2026.4.21:</h2>
+<ul class="bullets">
+<li>В свежем релизе подтянули генерацию изображений на <code>gpt-image-2</code>, починили восстановление зависимостей через doctor и закрыли опасную дыру: owner-only команды больше не проходят через слишком мягкий fallback.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> если обновляться, получим более предсказуемую генерацию картинок, лучше диагностику поломок и важное усиление прав доступа для команд.</blockquote>
+<h2>🤖 Claude Code v2.1.118:</h2>
+<ul class="bullets">
+<li>Добавили visual mode в vim-режиме, прямой вызов MCP tools из hooks, named themes и большую пачку фиксов вокруг OAuth/MCP, <code>/fork</code>, <code>/resume</code> и локальных credentials.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> это заметный апгрейд для агентных сценариев — меньше хрупкости в MCP/авторизации и больше пользы от hooks без костылей.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">claude-context резко взлетел в GitHub Trending</h3>
+<p><span class="hint">Что случилось</span> репозиторий с MCP-поиском по коду для Claude Code набрал 871 звезду за день. Идея простая: давать агенту контекст по всей кодовой базе без ручного перебора файлов.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/zilliztech/claude-context" target="_blank" rel="noopener">https://github.com/zilliztech/claude-context</a></p>
+<blockquote><strong>👉 Как применить:</strong> протестировать на наших репах с длинным хвостом контекста — clawd, instrumentburg, toolrent-manager — чтобы агент меньше терялся между файлами и быстрее находил связи.</blockquote>
+<h3 class="numbered" data-n="2">Langfuse снова в тренде как базовый слой наблюдаемости для LLM</h3>
+<p><span class="hint">Что случилось</span> open-source платформа для метрик, evals, prompt management и трассировки LLM-пайплайнов снова в ежедневном тренде GitHub.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/langfuse/langfuse" target="_blank" rel="noopener">https://github.com/langfuse/langfuse</a></p>
+<blockquote><strong>👉 Как применить:</strong> это кандидат на нормальный контроль качества для агентов и cron-контуров — видеть, где именно ломаются пайплайны, а не ловить только финальный <code>Bad Request</code>.</blockquote>
+<h3 class="numbered" data-n="3">В Zed обсуждают параллельных агентов как штатный режим разработки</h3>
+<p><span class="hint">Что случилось</span> на Hacker News активно обсуждают запуск нескольких агентов параллельно в IDE, чтобы разносить поиск, правки и проверку по независимым потокам.</p>
+<p><span class="hint">Живой пример</span> <a href="https://zed.dev/blog/parallel-agents" target="_blank" rel="noopener">https://zed.dev/blog/parallel-agents</a></p>
+<blockquote><strong>👉 Как применить:</strong> это подтверждает наш вектор на мультиагентность — для сложных задач дальше имеет смысл делить работу на разведку, реализацию и ревью, а не держать всё в одной сессии.</blockquote>
+<h3 class="numbered" data-n="4">OpenAI выкатила Workspace Agents в ChatGPT</h3>
+<p><span class="hint">Что случилось</span> в Hacker News обсуждают новый слой агентной автоматизации внутри рабочих пространств ChatGPT — сигнал, что корпоративный рынок быстро двигается к встроенным агентам с доступом к рабочему контексту.</p>
+<p><span class="hint">Живой пример</span> <a href="https://openai.com/index/introducing-workspace-agents-in-chatgpt/" target="_blank" rel="noopener">https://openai.com/index/introducing-workspace-agents-in-chatgpt/</a></p>
+<blockquote><strong>👉 Как применить:</strong> нам стоит дальше усиливать своё отличие — не просто чат, а агент с памятью, cron-контуром, GitHub Pages, ботами и реальными бизнес-действиями.</blockquote>
+<h3 class="numbered" data-n="5">На X подтвердили заметные улучшения связки OpenClaw × Codex</h3>
+<p><span class="hint">Что случилось</span> утром maintainer OpenClaw Frank Y подтвердил разбор про недавние фиксы интеграции Codex/OpenClaw — речь о багах в auth и переключении harness, которые раньше мешали агентам нормально доводить задачи до конца.</p>
+<p><span class="hint">Живой пример</span> внутренний X digest <code>openclaw_news</code> за сегодня, источник: @frankekn</p>
+<blockquote><strong>👉 Как применить:</strong> это ещё один аргумент держать Codex-сценарии в боевом контуре и внимательно смотреть на качество ACP/integration-слоя, а не только на модель.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
