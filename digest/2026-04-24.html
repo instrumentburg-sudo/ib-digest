@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-04-24 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-04-24</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw v2026.4.22:</h2>
+<ul class="bullets">
+<li>Появился локальный embedded-режим для терминальных чатов без Gateway, при этом approvals и ограничения сохраняются.</li>
+<li>Можно добавлять модели прямо из чата через <code>/models add &lt;provider&gt; &lt;modelId&gt;</code> без перезапуска gateway.</li>
+<li>В статусе теперь явно видно runner: embedded Pi, CLI-backed provider или ACP harness.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> проще тестировать локальные сценарии, быстрее подключать новые модели и легче дебажить, где именно крутится агент.</blockquote>
+<h2>🤖 Claude Code v2.1.119:</h2>
+<ul class="bullets">
+<li><code>/config</code> теперь сохраняется в <code>~/.claude/settings.json</code> с нормальным приоритетом project/local/policy.</li>
+<li>Перенастройка subagent и SDK MCP серверов теперь идёт параллельно, не последовательно.</li>
+<li><code>--print</code> и <code>--agent</code> стали точнее уважать ограничения и permissionMode из agent-конфига.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> меньше сюрпризов после рестарта, быстрее старт сложных агентных сетапов, надёжнее поведение CLI-агентов в автоматизации.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">ml-intern от Hugging Face ворвался в Trending</h3>
+<p><span class="hint">Что случилось</span> open-source ML-инженер, который читает статьи, обучает модели и выкатывает результат — уже 720 звёзд за день.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/huggingface/ml-intern" target="_blank" rel="noopener">https://github.com/huggingface/ml-intern</a></p>
+<blockquote><strong>👉 Как применить:</strong> подсмотреть пайплайн для полуавтоматических R&amp;D-задач — от чтения paper до прогона эксперимента и упаковки результата.</blockquote>
+<h3 class="numbered" data-n="2">claude-context быстро растёт как слой поиска по коду для агентов</h3>
+<p><span class="hint">Что случилось</span> MCP для Claude Code, который даёт агенту поиск по всему кодобазу; за сутки +1011 звёзд.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/zilliztech/claude-context" target="_blank" rel="noopener">https://github.com/zilliztech/claude-context</a></p>
+<blockquote><strong>👉 Как применить:</strong> полезный паттерн для наших агентных связок, где контекст надо не пихать в окно, а доставать по запросу.</blockquote>
+<h3 class="numbered" data-n="3">Anthropic выпустили разбор проблем качества в Claude Code</h3>
+<p><span class="hint">Что случилось</span> на HN активно обсуждают постмортем по свежим жалобам на качество Claude Code — 495 комментариев за ~12 часов.</p>
+<p><span class="hint">Живой пример</span> <a href="https://www.anthropic.com/engineering/april-23-postmortem" target="_blank" rel="noopener">https://www.anthropic.com/engineering/april-23-postmortem</a></p>
+<blockquote><strong>👉 Как применить:</strong> если держим Claude Code в продовых сценариях, стоит закладывать страховки — контрольные проверки, fallback и явные метрики качества по агентам.</blockquote>
+<h3 class="numbered" data-n="4">Agent Vault показали на Hacker News</h3>
+<p><span class="hint">Что случилось</span> open-source прокси-хранилище секретов для агентов попало в HN; фокус именно на безопасной выдаче учёток агентам.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/Infisical/agent-vault" target="_blank" rel="noopener">https://github.com/Infisical/agent-vault</a></p>
+<blockquote><strong>👉 Как применить:</strong> хороший ориентир, как разруливать доступы агентов без раздачи токенов напрямую по окружениям и сессиям.</blockquote>
+<h3 class="numbered" data-n="5">DeepSeek v4 уже в топе HN</h3>
+<p><span class="hint">Что случилось</span> новый релиз модели/платформы DeepSeek обсуждают на HN; за 2 часа 452 балла и 183 комментария.</p>
+<p><span class="hint">Живой пример</span> <a href="https://api-docs.deepseek.com/" target="_blank" rel="noopener">https://api-docs.deepseek.com/</a></p>
+<blockquote><strong>👉 Как применить:</strong> держать в шорт-листе как альтернативный движок для дешёвых агентных и кодовых сценариев, если качество подтвердится на наших задачах.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
