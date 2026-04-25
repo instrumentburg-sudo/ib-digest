@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-04-25 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-04-25</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw v2026.4.23:</h2>
+<ul class="bullets">
+<li>Вышел свежий релиз: добавили генерацию и редактирование картинок через Codex OAuth и OpenRouter прямо из <code>image_generate</code>.</li>
+<li>Для сабагентов появился fork-контекст: можно наследовать текущий диалог в <code>sessions_spawn</code>, не ломая изоляцию по умолчанию.</li>
+<li>Починили доставку ответов длинных фоновых задач обратно в исходный чат и ряд багов в Telegram/Discord/WebChat.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> можно смелее использовать генерацию картинок без отдельного OpenAI API-ключа и аккуратнее прокинуть fork-контекст туда, где дочернему агенту реально нужен текущий разговор.</blockquote>
+<h2>🤖 Claude Code:</h2>
+<ul class="bullets">
+<li>За последние 24 часа релизов не было.</li>
+<li>Последняя запись в changelog — 2026-04-23, вне окна дайджеста.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> сегодня без срочных действий.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">DeepSeek V4 Preview</h3>
+<p><span class="hint">Что случилось</span> DeepSeek открыл веса V4 и сразу дал 1M контекст как стандарт. Упор на agentic coding, длинный контекст и более дешёвый быстрый режим Flash.</p>
+<p><span class="hint">Живой пример</span> <a href="https://api-docs.deepseek.com/news/news260424" target="_blank" rel="noopener">https://api-docs.deepseek.com/news/news260424</a></p>
+<blockquote><strong>👉 Как применить:</strong> проверить как резервную модель для длинных пайплайнов, больших PDF и агентных задач, где важна цена за длинный контекст.</blockquote>
+<h3 class="numbered" data-n="2">Google готовит крупную ставку на Anthropic</h3>
+<p><span class="hint">Что случилось</span> на Hacker News активно обсуждают новость Bloomberg о планах Google вложить до $40 млрд в Anthropic. Это сигнал, что гонка инфраструктуры и агентных продуктов только ускоряется.</p>
+<p><span class="hint">Живой пример</span> <a href="https://news.ycombinator.com/item?id=47892074" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=47892074</a></p>
+<blockquote><strong>👉 Как применить:</strong> держать стек с Claude/OpenClaw как стратегически живое направление и не откладывать сценарии, где агенты реально экономят время команды.</blockquote>
+<h3 class="numbered" data-n="3">ml-intern от Hugging Face взлетел в GitHub Trending</h3>
+<p><span class="hint">Что случилось</span> в топе дня open-source ML engineer, который читает статьи, обучает модели и доводит их до выкладки.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/huggingface/ml-intern" target="_blank" rel="noopener">https://github.com/huggingface/ml-intern</a></p>
+<blockquote><strong>👉 Как применить:</strong> посмотреть паттерны оркестрации для наших внутренних агентов — особенно как они упаковывают исследование → запуск → результат в один контур.</blockquote>
+<h3 class="numbered" data-n="4">claude-context тоже в трендах</h3>
+<p><span class="hint">Что случилось</span> инструмент для кодового поиска и подачи всей кодовой базы в контекст coding-агента набрал сильный сигнал за день.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/zilliztech/claude-context" target="_blank" rel="noopener">https://github.com/zilliztech/claude-context</a></p>
+<blockquote><strong>👉 Как применить:</strong> взять идеи для улучшения поиска по workspace и памяти, чтобы агентам было проще быстро находить нужные файлы и решения.</blockquote>
+<h3 class="numbered" data-n="5">free-claude-code снова широко расходится</h3>
+<p><span class="hint">Что случилось</span> репозиторий с доступом к Claude Code из терминала, VSCode и Discord стал одним из самых заметных AI-репо дня.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/Alishahryar1/free-claude-code" target="_blank" rel="noopener">https://github.com/Alishahryar1/free-claude-code</a></p>
+<blockquote><strong>👉 Как применить:</strong> не как прод-решение, а как индикатор спроса — людям очень нужен дешёвый и удобный coding-agent UX, значит стоит дальше упрощать вход в наши агентные сценарии.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
