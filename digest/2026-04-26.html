@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-04-26 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-04-26</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw v2026.4.24:</h2>
+<ul class="bullets">
+<li>Вышел большой релиз за последние 24 часа: Google Meet как встроенный плагин, голосовые сессии в реальном времени, DeepSeek V4 Flash/Pro, ускорение списка моделей и много фиксов для heartbeat, Telegram и браузера.</li>
+<li>Самое полезное для нас: heartbeat больше не зацикливается при больших таймерах, Telegram меньше шлёт фантомные ошибки, browser/tool стал стабильнее, а Meet можно подключать без костылей.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> можно обновляться осознанно ради стабильности cron/heartbeat и Telegram-доставки; отдельно интересно для звонков и встреч через Meet.</blockquote>
+<h2>🤖 Claude Code:</h2>
+<ul class="bullets">
+<li>За последние 24 часа релизов не было.</li>
+<li>Последний релиз: v2.1.119 от 2026-04-23 — там сохранение /config, параллельное переподключение MCP, улучшения хуков и много фиксов вокруг агентов, планов и плагинов.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> сегодня без нового сигнала; просто держим в уме последний фикс-пакет.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Hugging Face выкатила ml-intern в топ Trending</h3>
+<p><span class="hint">Что случилось</span> в GitHub Trending резко вырос репозиторий открытого «ML-интерна», который читает статьи, обучает модели и помогает доводить ML-задачи до результата.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/huggingface/ml-intern" target="_blank" rel="noopener">https://github.com/huggingface/ml-intern</a></p>
+<blockquote><strong>👉 Как применить:</strong> посмотреть как они упаковали агентный цикл для исследований и обучения моделей; можно взять идеи для наших агентных пайплайнов и фоновых задач.</blockquote>
+<h3 class="numbered" data-n="2">В Trending взлетел каталог skills для Claude</h3>
+<p><span class="hint">Что случилось</span> репозиторий mattpocock/skills набрал большой суточный рост — люди массово собирают переиспользуемые навыки для кодовых агентов.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/mattpocock/skills" target="_blank" rel="noopener">https://github.com/mattpocock/skills</a></p>
+<blockquote><strong>👉 Как применить:</strong> подсмотреть структуру навыков, форматы инструкций и упаковку, чтобы улучшить наши собственные skills и уменьшить хаос в промптах.</blockquote>
+<h3 class="numbered" data-n="3">На HN обсуждают практический сценарий: кодовые помощники оживляют брошенные проекты</h3>
+<p><span class="hint">Что случилось</span> заметка про то, как люди возвращают старые недоделанные проекты с помощью ИИ-помощников, собрала живое обсуждение.</p>
+<p><span class="hint">Живой пример</span> <a href="https://news.ycombinator.com/item?id=47902525" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=47902525</a></p>
+<blockquote><strong>👉 Как применить:</strong> хороший паттерн для внутренних хвостов — брать старые скрипты, интеграции и незакрытые идеи, а затем прогонять через агент с задачей «довести до рабочего состояния».</blockquote>
+<h3 class="numbered" data-n="4">LMSYS показали Day 0 запуск DeepSeek-V4 через SGLang и проверяемое RL</h3>
+<p><span class="hint">Что случилось</span> свежий технический разбор того, как быстро поднимать новый сильный модельный стек с упором на скорость вывода и проверяемое обучение.</p>
+<p><span class="hint">Живой пример</span> <a href="https://www.lmsys.org/blog/2026-04-25-deepseek-v4/" target="_blank" rel="noopener">https://www.lmsys.org/blog/2026-04-25-deepseek-v4/</a></p>
+<blockquote><strong>👉 Как применить:</strong> не копировать вслепую, но держать как ориентир по тому, как быстро включать новые модели в рабочий контур без долгой ручной обвязки.</blockquote>
+<h3 class="numbered" data-n="5">В Trending снова всплывают полноценные редакторные агентные команды</h3>
+<p><span class="hint">Что случилось</span> Roo Code снова в поле зрения — идея не «один помощник», а набор ролей внутри редактора для разработки.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/RooCodeInc/Roo-Code" target="_blank" rel="noopener">https://github.com/RooCodeInc/Roo-Code</a></p>
+<blockquote><strong>👉 Как применить:</strong> полезно сверить их модель ролей с нашей схемой main/subagent/ACP и понять, где нам не хватает явного разделения обязанностей.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
