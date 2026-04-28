@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-04-28 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-04-28</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw v2026.4.26:</h2>
+<ul class="bullets">
+<li>Вышел крупный релиз за последние 24 часа: добавили миграцию из Claude Code/Claude Desktop и Hermes, встроили провайдера Cerebras, усилили Google Meet/голосовые сессии и сильно подчистили баги вокруг cron, подагентов, локальных моделей и плагинов.</li>
+<li>Отдельно полезно: авто-компакция длинных сессий, безопаснее доставка completion от подагентов, меньше падений Gateway при битых плагинах и сетевых сбоях.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновление выглядит практичным — меньше хрупкости в фоновых задачах и агентных цепочках, плюс проще переносить конфиги и навыки между инструментами.</blockquote>
+<h2>🤖 Claude Code v2.1.121:</h2>
+<ul class="bullets">
+<li>Релиз за последние 24 часа: появился флаг alwaysLoad для MCP-серверов, заработал форк подагента в неинтерактивных сессиях, добавили поиск по /skills и замену вывода инструментов через PostToolUse hooks.</li>
+<li>Самое важное — серия исправлений утечек памяти, проблем /usage, нестабильного запуска MCP и сбоев при долгих сессиях.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> версия полезна для долгоживущих агентных рабочих процессов — меньше риск раздувания памяти и меньше ручного восстановления после сбоев.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">AgentSwift — открытый агент для сборки iOS-приложений</h3>
+<p><span class="hint">Что случилось</span> на Hacker News всплыл Show HN про AgentSwift — агент, который собирает iOS-приложения из описания и кода, заточен именно под рабочий цикл разработки, а не под разовые подсказки.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/hpennington/agentswift" target="_blank" rel="noopener">https://github.com/hpennington/agentswift</a></p>
+<blockquote><strong>👉 Как применить:</strong> посмотреть как они организовали агентные шаги для прикладной разработки и перенести паттерны в наши цепочки для внутренних сервисов и интерфейсов.</blockquote>
+<h3 class="numbered" data-n="2">GitNexus — граф знаний по репозиторию прямо в браузере</h3>
+<p><span class="hint">Что случилось</span> в GitHub Trending за сегодня сильно выстрелил GitNexus — клиентский инструмент, который строит граф знаний по репозиторию и дает поверх него RAG-агента для навигации по коду.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/abhigyanpatwari/GitNexus" target="_blank" rel="noopener">https://github.com/abhigyanpatwari/GitNexus</a></p>
+<blockquote><strong>👉 Как применить:</strong> использовать подход для быстрого входа в большие кодовые базы и для агентов, которым надо понимать структуру проекта до правок.</blockquote>
+<h3 class="numbered" data-n="3">Набор готовых навыков для Codex и агентных сценариев</h3>
+<p><span class="hint">Что случилось</span> в Trending пошел вверх awesome-codex-skills — подборка практических навыков для автоматизации через Codex CLI и API.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/ComposioHQ/awesome-codex-skills" target="_blank" rel="noopener">https://github.com/ComposioHQ/awesome-codex-skills</a></p>
+<blockquote><strong>👉 Как применить:</strong> быстро разобрать чужие шаблоны навыков и выбрать 2-3 идеи для наших рутин: продажи, дайджесты, разбор входящих и обслуживание памяти.</blockquote>
+<h3 class="numbered" data-n="4">На Reddit обсуждают отдельную систему навыков для Claude Code под iOS</h3>
+<p><span class="hint">Что случилось</span> за последние сутки заметен живой кейс — автор вынес iOS-разработку в отдельную систему навыков для Claude Code, чтобы не жечь токены на повторяемых подсказках и получить более предсказуемую сборку приложений.</p>
+<p><span class="hint">Живой пример</span> <a href="https://www.reddit.com/r/AI_Agents/comments/1swx84w/i_built_an_ios_agent_skill_system_for_claude_code/" target="_blank" rel="noopener">https://www.reddit.com/r/AI_Agents/comments/1swx84w/i_built_an_ios_agent_skill_system_for_claude_code/</a></p>
+<blockquote><strong>👉 Как применить:</strong> это прямое подтверждение, что узкие навыки под домен работают лучше общих промптов; нам стоит так же дробить навыки по задачам, а не держать всё в одном агенте.</blockquote>
+<h3 class="numbered" data-n="5">GitHub переводит Copilot на оплату по потреблению</h3>
+<p><span class="hint">Что случилось</span> на Hacker News активно обсуждают переход GitHub Copilot на модель оплаты по объему использования. Для агентных режимов и длинных чатов это делает стоимость менее предсказуемой.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/" target="_blank" rel="noopener">https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/</a></p>
+<blockquote><strong>👉 Как применить:</strong> для нас это лишний сигнал держать ставку на управляемые открытые и локальные связки, где цена и поведение агентных цепочек контролируются лучше.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
