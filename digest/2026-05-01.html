@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-05-01 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-05-01</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw v2026.4.29:</h2>
+<ul class="bullets">
+<li>Вышел свежий релиз OpenClaw: упор на управление активными запусками, видимые ответы в мессенджерах, метаданные маршрутизации подагентов и opt-in follow-up commitments для напоминаний через heartbeat.</li>
+<li>Память стала ближе к «людской вики»: person cards, связи, provenance/evidence-режимы, фильтры Active Memory по разговорам и частичный recall при таймауте.</li>
+<li>По моделям и провайдерам: NVIDIA provider, быстрее manifest/model/auth paths, Bedrock Opus 4.7 thinking parity, безопаснее Codex/OpenAI-compatible replay и streaming.</li>
+<li>Много практичных фиксов вокруг Telegram/Slack/WhatsApp/Discord, cron, локальных моделей, runtime deps, stale sessions и восстановления подагентов.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> релиз прямо про нашу боль — меньше хрупкости в фоновых задачах, видимых ответах Telegram и долгоживущих агентных цепочках. Обновление стоит держать в ближайшем списке, но отдельно проверить совместимость конфигов tools.exec/tools.fs с ограниченными профилями.</blockquote>
+<h2>🤖 Claude Code v2.1.126:</h2>
+<ul class="bullets">
+<li>Новый <code>/model</code> picker умеет брать модели из gateway <code>/v1/models</code>, если <code>ANTHROPIC_BASE_URL</code> смотрит на Anthropic-compatible gateway.</li>
+<li>Добавили <code>claude project purge [path]</code> для удаления состояния проекта: transcripts, tasks, file history, config entry; есть dry-run и интерактивный режим.</li>
+<li>Исправили пачку неприятных сбоев: OAuth login в WSL/SSH/контейнерах, stream idle timeout после сна и во время долгого thinking, пустой вывод после thinking, недоступные deferred tools у skills/subagents на первом turn.</li>
+<li>Важная security-правка: <code>allowManagedDomainsOnly</code> / <code>allowManagedReadPathsOnly</code> больше не игнорируются, если higher-priority managed settings не содержит sandbox block.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> полезно для связки Claude Code ↔ OpenClaw/gateway. Особенно важны фикс долгих background/remote sessions и доступность deferred tools у skills/subagents — это снижает случайные падения автоматизации.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Jcode — лёгкий harness для параллельных coding agents</h3>
+<p><span class="hint">Что случилось</span> в GitHub Trending поднялся <code>1jehuang/jcode</code> — Rust-инструмент для multi-session coding workflows. Автор делает ставку на быстрый старт, низкое потребление памяти, граф памяти, side panel, агентные swarm-сценарии и уведомления между агентами, если код меняется «под ногами».</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/1jehuang/jcode" target="_blank" rel="noopener">https://github.com/1jehuang/jcode</a></p>
+<blockquote><strong>👉 Как применить:</strong> подсмотреть идеи для наших исполнителей: лёгкие сессии, явные каналы между агентами, авто-уведомления о конфликтующих правках и граф памяти без постоянного расхода контекста.</blockquote>
+<h3 class="numbered" data-n="2">Skills становятся отдельным рынком и форматом доставки опыта</h3>
+<p><span class="hint">Что случилось</span> в дневном GitHub Trending одновременно заметны <code>mattpocock/skills</code>, <code>browserbase/skills</code> и <code>obra/superpowers</code>. Это уже не просто промпты, а переносимые «пакеты поведения» для Claude Code/Codex/Copilot/Gemini и других агентов.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/mattpocock/skills" target="_blank" rel="noopener">https://github.com/mattpocock/skills</a></p>
+<blockquote><strong>👉 Как применить:</strong> продолжать дробить наши навыки по доменам: КП, тендеры, Авито, видео, картинки, почта, память. Узкий навык с проверками и форматом отчёта лучше, чем один большой «умный агент».</blockquote>
+<h3 class="numbered" data-n="3">Browserbase Skills — браузер как управляемая способность агента</h3>
+<p><span class="hint">Что случилось</span> <code>browserbase/skills</code> предлагает набор навыков для Claude Agent SDK: browser automation, Browserbase CLI, serverless browser functions, site-debugger, trace, cookie-sync, search/fetch и adversarial UI testing.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/browserbase/skills" target="_blank" rel="noopener">https://github.com/browserbase/skills</a></p>
+<blockquote><strong>👉 Как применить:</strong> для наших сайтов и воронок это хороший ориентир: автоматический QA страниц, диагностика селекторов/бот-защиты, запись trace и проверка интерфейсов после правок без ручного кликанья.</blockquote>
+<h3 class="numbered" data-n="4">Superpowers — методология разработки поверх навыков</h3>
+<p><span class="hint">Что случилось</span> <code>obra/superpowers</code> продвигает полный процесс для coding agents: сначала уточнение цели и дизайн, потом worktree, план, TDD, подагенты, ревью и только потом завершение ветки.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/obra/superpowers" target="_blank" rel="noopener">https://github.com/obra/superpowers</a></p>
+<blockquote><strong>👉 Как применить:</strong> это близко к нашему правилу «outcome-first» для кодовых задач. Можно усилить шаблоны задач: обязательная проверка, критерии готовности, короткие задачи для подагентов, ревью перед финальным ответом.</blockquote>
+<h3 class="numbered" data-n="5">Supply-chain атака на PyPI <code>lightning</code> бьёт по AI-разработчикам</h3>
+<p><span class="hint">Что случилось</span> Semgrep сообщил о компрометации PyPI-пакета <code>lightning</code> версий 2.6.2 и 2.6.3 от 30 апреля. Вредоносный код крадёт токены/секреты, пытается распространяться через npm и добавляет persistence через <code>.claude/settings.json</code> и <code>.vscode/tasks.json</code>.</p>
+<p><span class="hint">Живой пример</span> <a href="https://semgrep.dev/blog/2026/malicious-dependency-in-pytorch-lightning-used-for-ai-training/" target="_blank" rel="noopener">https://semgrep.dev/blog/2026/malicious-dependency-in-pytorch-lightning-used-for-ai-training/</a></p>
+<blockquote><strong>👉 Как применить:</strong> проверить проекты с ML/LLM-зависимостями на <code>lightning==2.6.2/2.6.3</code>, неожиданные <code>.claude/setup.mjs</code>, <code>.claude/router_runtime.js</code>, <code>.vscode/setup.mjs</code>, <code>.vscode/tasks.json</code> и подозрительные workflow. Если пакет ставился в CI — считать окружение скомпрометированным и ротировать токены.</blockquote>
+<h3 class="numbered" data-n="6">Intel AutoRound — свежий сигнал по дешёвому локальному inference</h3>
+<p><span class="hint">Что случилось</span> на HN/GitHub заметен <code>intel/auto-round</code> — алгоритм квантования для низкобитного LLM inference с поддержкой CPU/XPU/CUDA и совместимостью с vLLM, SGLang и Transformers.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/intel/auto-round" target="_blank" rel="noopener">https://github.com/intel/auto-round</a></p>
+<blockquote><strong>👉 Как применить:</strong> держать в списке для экспериментов с локальными моделями, если будем снижать стоимость фоновых задач и переносить часть рутины с платных API на свой inference.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
