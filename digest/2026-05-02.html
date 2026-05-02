@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-05-02 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-05-02</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw — за последние 24 часа релизов не было.</h2>
+<h2>🤖 Claude Code v2.1.126:</h2>
+<ul class="bullets">
+<li>Модельный список теперь умеет брать модели из совместимого gateway <code>/v1/models</code>, если <code>ANTHROPIC_BASE_URL</code> смотрит в свой шлюз.</li>
+<li>Появился <code>claude project purge</code> для полной очистки состояния проекта: транскрипты, задачи, история файлов, запись в конфиге.</li>
+<li><code>--dangerously-skip-permissions</code> теперь реально пропускает почти все запросы на запись, кроме совсем катастрофических удалений.</li>
+<li>Починили вход по OAuth в WSL/SSH/контейнерах и зависания <code>Stream idle timeout</code> в фоне.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> стало проще гонять Claude Code через свой gateway и меньше случайных зависаний в удалённых/фоновых сессиях.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">browserbase/skills снова выстрелил в daily trending GitHub</h3>
+<p><span class="hint">Что случилось</span> набор skills для Claude Code с браузерной автоматизацией, CLI для Browserbase, отладкой сайтов, трейcами и UI-тестами набрал заметный живой интерес.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/browserbase/skills" target="_blank" rel="noopener">https://github.com/browserbase/skills</a></p>
+<blockquote><strong>👉 Как применить:</strong> подсмотреть, как они упаковывают browser automation в skills и playbook-ы — полезно для наших сценариев с тендерами, логинами и антибот-потоком.</blockquote>
+<h3 class="numbered" data-n="2">jcode набирает внимание как лёгкая harness-среда для мультисессионных агентов</h3>
+<p><span class="hint">Что случилось</span> в daily trending всплыл jcode — упор на многосессионность, память, side-panel и низкое потребление ресурсов.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/1jehuang/jcode" target="_blank" rel="noopener">https://github.com/1jehuang/jcode</a></p>
+<blockquote><strong>👉 Как применить:</strong> взять идеи по дешёвой многосессионности и памяти без раздувания RAM — это прямо бьётся с нашей агентной архитектурой и heartbeat/cron-нагрузкой.</blockquote>
+<h3 class="numbered" data-n="3">На Hacker News обсуждают agent-desktop — «Playwright для десктопных приложений»</h3>
+<p><span class="hint">Что случилось</span> инструмент даёт агенту доступ к accessibility tree любых desktop-приложений, обещает 78–96% экономии токенов за счёт skeleton traversal и детерминированных ссылок на элементы.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/lahfir/agent-desktop" target="_blank" rel="noopener">https://github.com/lahfir/agent-desktop</a></p>
+<blockquote><strong>👉 Как применить:</strong> это хороший ориентир для автоматизации не только браузера, но и локальных GUI-инструментов, если захотим управлять десктопными приложениями без скриншотного хака.</blockquote>
+<h3 class="numbered" data-n="4">На Hacker News всплыл AI CAD Harness для Autodesk Fusion</h3>
+<p><span class="hint">Что случилось</span> Adam Fusion предлагает нативного AI-агента для Fusion 360 как add-in, то есть агент заходит уже в CAD-процесс, а не только пишет текст рядом.</p>
+<p><span class="hint">Живой пример</span> <a href="https://fusion.adam.new/install" target="_blank" rel="noopener">https://fusion.adam.new/install</a></p>
+<blockquote><strong>👉 Как применить:</strong> сам кейс важен как сигнал — узкие вертикальные агенты внутри рабочего инструмента заходят сильнее, чем общие чат-боты. Для ИБ это подсказка думать не «ещё один чат», а «агент внутри 1С/CRM/ремонтного контура».</blockquote>
+<h3 class="numbered" data-n="5">На Reddit обсуждают минимальный workflow: Claude Code ведёт задачу от issue до PR</h3>
+<p><span class="hint">Что случилось</span> живой кейс из сообщества — разработчик собрал минимальный поток, где Claude Code проводит задачу через маленький demo-проект до merge-ready результата.</p>
+<p><span class="hint">Живой пример</span> <a href="https://www.reddit.com/r/ArtificialInteligence/comments/1sy2flm/sharing_my_minimal_dev_ai_workflow_claude_code/" target="_blank" rel="noopener">https://www.reddit.com/r/ArtificialInteligence/comments/1sy2flm/sharing_my_minimal_dev_ai_workflow_claude_code/</a></p>
+<blockquote><strong>👉 Как применить:</strong> нам это подтверждает рабочий паттерн «узкая задача → агент → PR/результат», а не попытку сразу строить полностью автономного универсального агента.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
