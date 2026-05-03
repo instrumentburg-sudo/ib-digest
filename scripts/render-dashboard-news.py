@@ -150,10 +150,22 @@ def render_summary(v: dict) -> str:
     if onec_status == "ok":
         onec_count = v.get("ONEC_UNPAID_COUNT")
         onec_total = v.get("ONEC_UNPAID_TOTAL", 0)
+        recent_invoice_count = v.get("ONEC_RECENT_INVOICE_COUNT", 0)
+        try:
+            has_recent_invoices = int(recent_invoice_count) > 0
+        except (TypeError, ValueError):
+            has_recent_invoices = False
+        if has_recent_invoices:
+            cells.append((
+                "1С 10д",
+                fmt_int(recent_invoice_count),
+                "сч.",
+                f"{fmt_int(v.get('ONEC_RECENT_INVOICE_TOTAL', 0))} ₽ · непроведено {fmt_int(v.get('ONEC_RECENT_INVOICE_UNPOSTED', 0))} · остаток {fmt_int(v.get('ONEC_RECENT_INVOICE_BALANCE', 0))} ₽",
+            ))
         all_count = v.get("ONEC_UNPAID_ALL_COUNT", onec_count)
         all_total = v.get("ONEC_UNPAID_ALL_TOTAL", onec_total)
         cells.append((
-            "1С всего",
+            "1С долг",
             fmt_int(all_count),
             "сч.",
             f"{fmt_int(all_total)} ₽ · 45д: {fmt_int(onec_count)} сч. · 30д: {fmt_int(v.get('ONEC_UNPAID_RECENT30', onec_count))} сч.",
