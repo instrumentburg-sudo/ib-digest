@@ -148,11 +148,15 @@ def render_summary(v: dict) -> str:
     ]
     onec_status = str(v.get("ONEC_UNPAID_STATUS") or "")
     if onec_status == "ok":
+        onec_count = v.get("ONEC_UNPAID_COUNT")
+        onec_total = v.get("ONEC_UNPAID_TOTAL", 0)
+        all_count = v.get("ONEC_UNPAID_ALL_COUNT", onec_count)
+        all_total = v.get("ONEC_UNPAID_ALL_TOTAL", onec_total)
         cells.append((
-            "1С 30д",
-            fmt_int(v.get("ONEC_UNPAID_RECENT30", v.get("ONEC_UNPAID_COUNT"))),
+            "1С всего",
+            fmt_int(all_count),
             "сч.",
-            f"{fmt_int(v.get('ONEC_UNPAID_RECENT30_TOTAL', 0))} ₽ · окно 45д: {fmt_int(v.get('ONEC_UNPAID_COUNT'))} сч.",
+            f"{fmt_int(all_total)} ₽ · 45д: {fmt_int(onec_count)} сч. · 30д: {fmt_int(v.get('ONEC_UNPAID_RECENT30', onec_count))} сч.",
         ))
     elif onec_status:
         cells.append((
