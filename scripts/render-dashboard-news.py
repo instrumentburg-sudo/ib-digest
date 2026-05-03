@@ -3,6 +3,7 @@
 import re
 import sys
 import html
+import json
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
@@ -26,9 +27,21 @@ def parse_js_vars(text: str) -> dict:
             out[name] = []
             continue
         items = []
+        try:
+            parsed = json.loads(f"[{raw}]")
+            if isinstance(parsed, list):
+                out[name] = [str(x) for x in parsed]
+                continue
+        except json.JSONDecodeError:
+            pass
         for part in re.finditer(r"'((?:[^'\\]|\\.)*)'", raw):
             items.append(part.group(1).replace("\\'", "'"))
         out[name] = items
+    for m in re.finditer(r'var\s+([A-Z_]+)\s*=\s*("(?:[^"\\]|\\.)*")\s*;', text):
+        try:
+            out[m.group(1)] = json.loads(m.group(2))
+        except json.JSONDecodeError:
+            pass
     for m in re.finditer(r"var\s+([A-Z_]+)\s*=\s*'((?:[^'\\]|\\.)*)'\s*;", text):
         out[m.group(1)] = m.group(2).replace("\\'", "'")
     for m in re.finditer(r"var\s+([A-Za-z_][\w,=\.\- ]*?)\s*;", text):
@@ -90,6 +103,18 @@ def render_insight(text: str, kind: str) -> str:
     label = {"action": "→ Что делать", "marketing": "Маркетинг"}.get(kind, "")
     prefix = f'<strong>{html.escape(label)}:</strong> ' if label else ""
     return f'<div class="card {css}"><p>{emoji_html}{prefix}{body_html}</p></div>'
+
+
+def render_stale_banner(v: dict) -> str:
+    status = str(v.get("LIVE_SKLAD_STATUS") or "ok")
+    if status == "ok":
+        return ""
+    message = str(v.get("LIVE_SKLAD_MESSAGE") or "LiveSklad stale — данные заказов могут быть устаревшими")
+    return (
+        '<div class="card warn"><p>⚠️ '
+        f'{metricize(html.escape(message))}'
+        '</p></div>'
+    )
 
 
 def render_summary(v: dict) -> str:
@@ -235,7 +260,7 @@ def main():
             text += p.read_text() + "\n"
     v = parse_js_vars(text)
 
-    summary = render_summary(v)
+    summary = render_stale_banner(v) + render_summary(v)
     insights = render_list(v.get("INSIGHTS", []), "insight")
     actions = render_list(v.get("ACTIONS", []), "action")
     marketing = render_list(v.get("MARKETING", []), "marketing")
