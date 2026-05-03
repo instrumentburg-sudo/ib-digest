@@ -117,6 +117,18 @@ def render_stale_banner(v: dict) -> str:
     )
 
 
+def render_onec_banner(v: dict) -> str:
+    status = str(v.get("ONEC_UNPAID_STATUS") or "")
+    if not status or status == "ok":
+        return ""
+    message = str(v.get("ONEC_UNPAID_MESSAGE") or "1С Fresh stale — данные по счетам могут быть устаревшими")
+    return (
+        '<div class="card warn"><p>⚠️ '
+        f'{metricize(html.escape(message))}'
+        '</p></div>'
+    )
+
+
 def render_summary(v: dict) -> str:
     cells = [
         ("Сегодня", fmt_int(v.get("TODAY_REV")), "₽", f"{v.get('TODAY_ORDERS', 0)} заказов"),
@@ -134,6 +146,21 @@ def render_summary(v: dict) -> str:
             f"Закрыто: {v.get('TODAY_CLOSED', 0)}",
         ),
     ]
+    onec_status = str(v.get("ONEC_UNPAID_STATUS") or "")
+    if onec_status == "ok":
+        cells.append((
+            "1С 30д",
+            fmt_int(v.get("ONEC_UNPAID_RECENT30", v.get("ONEC_UNPAID_COUNT"))),
+            "сч.",
+            f"{fmt_int(v.get('ONEC_UNPAID_RECENT30_TOTAL', 0))} ₽ · окно 45д: {fmt_int(v.get('ONEC_UNPAID_COUNT'))} сч.",
+        ))
+    elif onec_status:
+        cells.append((
+            "1С счета",
+            onec_status,
+            "",
+            "stale/error — нули не считаем фактом",
+        ))
     parts = ['<div class="kpi-grid">']
     for label, value, unit, sub in cells:
         value_cls = ""
@@ -260,7 +287,7 @@ def main():
             text += p.read_text() + "\n"
     v = parse_js_vars(text)
 
-    summary = render_stale_banner(v) + render_summary(v)
+    summary = render_stale_banner(v) + render_onec_banner(v) + render_summary(v)
     insights = render_list(v.get("INSIGHTS", []), "insight")
     actions = render_list(v.get("ACTIONS", []), "action")
     marketing = render_list(v.get("MARKETING", []), "marketing")
