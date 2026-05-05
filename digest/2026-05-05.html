@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-05-05 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-05-05</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw v2026.5.4-beta.2:</h2>
+<ul class="bullets">
+<li>Вышел ночной бета-релиз с упором на голос: заметно ускорили Google Meet/Twilio-связку, добавили защиту от перегруза аудиопотока и улучшили поведение realtime-агентов.</li>
+<li>Параллельно подчистили болезненные места: меньше зависаний при WebSocket/SSE, лучше диагностика cron/session, аккуратнее обновления плагинов и меньше ложных «здоровых» статусов.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> если продолжим голосовых и Telegram-агентов, стоит обновляться именно ради realtime/cron/plugin fixes, а не только ради новых фич.</blockquote>
+<h2>🤖 Claude Code v2.1.128:</h2>
+<ul class="bullets">
+<li>Добавили полезные мелочи для боевой работы: случайный цвет сессии, счётчик tools у MCP, zip-плагины, более внятный /model picker.</li>
+<li>Самое практичное — поправили параллельные shell-вызовы, зацикливание субагентов, большие stdin, обновление npm-плагинов и шум от OTEL в дочерних процессах.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> релиз снижает трение в длинных агентных сессиях и работе с MCP/плагинами; особенно полезно там, где много параллельных инструментов и подпроцессов.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Ruflo взлетел в GitHub Trending</h3>
+<p><span class="hint">Что случилось</span> в daily trending резко выстрелил ruvnet/ruflo — платформа для оркестрации агентных swarm-сценариев под Claude с упором на многоагентные цепочки и разговорные системы.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/ruvnet/ruflo" target="_blank" rel="noopener">https://github.com/ruvnet/ruflo</a></p>
+<blockquote><strong>👉 Как применить:</strong> посмотреть как они упаковывают роутинг ролей, память и orchestration UX — это прям в нашу тему topic=контекст, agent=роль.</blockquote>
+<h3 class="numbered" data-n="2">Browserbase Skills — лёгкий мост между агентом и браузером</h3>
+<p><span class="hint">Что случилось</span> в trending поднялся browserbase/skills — SDK с браузерным инструментом для Claude-агентов, то есть не просто чат, а агент с управляемым вебом.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/browserbase/skills" target="_blank" rel="noopener">https://github.com/browserbase/skills</a></p>
+<blockquote><strong>👉 Как применить:</strong> полезно для наших сценариев с SPA, тендерами и кабинетами, где обычного fetch уже мало, а нужен воспроизводимый браузерный проход.</blockquote>
+<h3 class="numbered" data-n="3">RCFlow — оркестратор сессий для Claude Code</h3>
+<p><span class="hint">Что случилось</span> на r/ClaudeAI за последние сутки обсуждают open source инструмент для управления несколькими сессиями Claude Code, Codex и OpenCode в одном интерфейсе.</p>
+<p><span class="hint">Живой пример</span> <a href="https://www.reddit.com/r/ClaudeAI/comments/1t3oylg/i_built_rcflow_an_opensource_orchestrator_for" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeAI/comments/1t3oylg/i_built_rcflow_an_opensource_orchestrator_for</a></p>
+<blockquote><strong>👉 Как применить:</strong> это хороший референс для нашего контура, где одна задача часто распадается на несколько ролей и дочерних прогонов.</blockquote>
+<h3 class="numbered" data-n="4">Patina чинит «гниющий» CLAUDE.md</h3>
+<p><span class="hint">Что случилось</span> ещё один живой кейс с r/ClaudeAI — retro loop, который держит проектный CLAUDE.md в актуальном состоянии, чтобы агент не опирался на устаревший контекст.</p>
+<p><span class="hint">Живой пример</span> <a href="https://www.reddit.com/r/ClaudeAI/comments/1t3eurx/your_claudemd_is_rotting_i_built_a_retro_loop" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeAI/comments/1t3eurx/your_claudemd_is_rotting_i_built_a_retro_loop</a></p>
+<blockquote><strong>👉 Как применить:</strong> нам это прямо бьётся с STATE/MEMORY/MOC — можно усилить автоматическое обновление контекста по завершённым задачам и крону.</blockquote>
+<h3 class="numbered" data-n="5">Agent Skills = дисциплина для кодовых агентов</h3>
+<p><span class="hint">Что случилось</span> на Hacker News активно обсуждают Agent Skills от Addy Osmani — не набор правил, а пошаговые workflow для спеки, плана, тестов, ревью и релиза, чтобы агент не срезал углы.</p>
+<p><span class="hint">Живой пример</span> <a href="https://addyosmani.com/blog/agent-skills/" target="_blank" rel="noopener">https://addyosmani.com/blog/agent-skills/</a></p>
+<blockquote><strong>👉 Как применить:</strong> это подтверждает наш подход «черновик → ревью → финал»; можно жёстче формализовать exit criteria для агентных задач и КП.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
