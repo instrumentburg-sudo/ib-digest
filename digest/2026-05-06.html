@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-05-06 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-05-06</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw v2026.5.4:</h2>
+<ul class="bullets">
+<li>Главный сдвиг — Google Meet/Twilio voice bridge: живой голосовой агент стал заметно отзывчивее, с буферизацией без залипаний и нормальной обработкой перебиваний.</li>
+<li>Плюс много практичных фиксов: загрузка generation-плагинов после рестарта, защита от зацикленных tool-run&#x27;ов после compaction, стабильнее Telegram/Discord/Slack, быстрее startup gateway.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> можно смелее тестировать голосовые сценарии и cron/subagent-контур — релиз больше про надёжность продового контура, чем про косметику.</blockquote>
+<h2>🤖 Claude Code v2.1.129:</h2>
+<ul class="bullets">
+<li>Появился флаг <code>--plugin-url</code> для быстрой подгрузки zip-плагинов в текущую сессию.</li>
+<li>Добавили фоновое автообновление через package manager и починили несколько раздражающих багов: скрытие панели subagents, OAuth refresh race после сна, ложные cache-miss и шумный <code>/context</code>.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> меньше ручной возни с плагинами и стабильнее длинные рабочие сессии с агентами.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">ruflo взлетел в GitHub Trending</h3>
+<p><span class="hint">Что случилось</span> orchestration-платформа для Claude и multi-agent swarm за сутки стала одним из самых заметных AI-репозиториев дня.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/ruvnet/ruflo" target="_blank" rel="noopener">https://github.com/ruvnet/ruflo</a></p>
+<blockquote><strong>👉 Как применить:</strong> подсмотреть паттерны координации swarm-агентов и сравнить с нашей схемой topic = контекст, agent = роль.</blockquote>
+<h3 class="numbered" data-n="2">context-mode — практичная оптимизация окна контекста</h3>
+<p><span class="hint">Что случилось</span> репозиторий обещает до 98% снижения мусорного tool-output в контексте для coding-агентов и тоже попал в daily trending.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/mksglu/context-mode" target="_blank" rel="noopener">https://github.com/mksglu/context-mode</a></p>
+<blockquote><strong>👉 Как применить:</strong> взять идеи для более агрессивной фильтрации шумных логов и длинных tool traces в OpenClaw-сценариях.</blockquote>
+<h3 class="numbered" data-n="3">Airbyte Agents запустили контекстный слой для агентов поверх бизнес-данных</h3>
+<p><span class="hint">Что случилось</span> Airbyte представил Agents + Context Store — единый индекс по данным из CRM, helpdesk, GitHub, Stripe и других систем вместо десятков прямых вызовов API на каждом шаге.</p>
+<p><span class="hint">Живой пример</span> <a href="https://airbyte.com/blog/airbyte-agents" target="_blank" rel="noopener">https://airbyte.com/blog/airbyte-agents</a></p>
+<blockquote><strong>👉 Как применить:</strong> это сильный ориентир для нашей памяти и интеграций — держать агентам не только инструменты, но и заранее собранный searchable context.</blockquote>
+<h3 class="numbered" data-n="4">Reflex посчитал цену browser/computer-use агентов</h3>
+<p><span class="hint">Что случилось</span> в их бенчмарке GUI-автоматизация через vision/computer use оказалась примерно в 45 раз дороже структурированных API на одной и той же CRUD-задаче.</p>
+<p><span class="hint">Живой пример</span> <a href="https://reflex.dev/blog/computer-use-is-45x-more-expensive-than-structured-apis/" target="_blank" rel="noopener">https://reflex.dev/blog/computer-use-is-45x-more-expensive-than-structured-apis/</a></p>
+<blockquote><strong>👉 Как применить:</strong> где у нас есть API, не надо строить browser-first автоматизацию; browser оставлять только как fallback для закрытых или кривых интерфейсов.</blockquote>
+<h3 class="numbered" data-n="5">Google ускорил Gemma 4 через multi-token prediction drafters</h3>
+<p><span class="hint">Что случилось</span> Google показал более быструю инференс-схему для Gemma 4, чтобы локальные и серверные прогоны работали бодрее без смены всей модели.</p>
+<p><span class="hint">Живой пример</span> <a href="https://blog.google/technology/developers/gemma-4-faster-inference-with-multi-token-prediction-drafters/" target="_blank" rel="noopener">https://blog.google/technology/developers/gemma-4-faster-inference-with-multi-token-prediction-drafters/</a></p>
+<blockquote><strong>👉 Как применить:</strong> следить за этим подходом для дешёвых локальных рантаймов и фоновых агентов, где важнее скорость и себестоимость, чем максимум качества.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
