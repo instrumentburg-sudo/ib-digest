@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-05-07 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-05-07</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw v2026.5.6:</h2>
+<ul class="bullets">
+<li>Починили опасный регресс: <code>doctor --fix</code> больше не ломает OAuth-маршрут для <code>openai-codex/*</code> и не переводит GPT-5.5 на неверный путь.</li>
+<li>Ещё закрыли сбои в plugin/runtime fetch и зависания <code>web_fetch</code> после таймаутов.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> можно спокойнее обновляться, если у нас Codex-маршруты и веб-инструменты в проде; особенно полезно для стабильности gateway.</blockquote>
+<h2>🤖 Claude Code v2.1.132:</h2>
+<ul class="bullets">
+<li>Добавили <code>CLAUDE_CODE_SESSION_ID</code> в Bash tool и флаг <code>CLAUDE_CODE_DISABLE_ALTERNATE_SCREEN=1</code> для работы без полноэкранного режима.</li>
+<li>Большой пакет фиксов по <code>--resume</code>, пасте, скроллу, SSH/disconnect, plan-mode и утечкам памяти у MCP.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> это прямое улучшение надёжности для длинных сессий, tmux/IDE и агентных пайплайнов с MCP.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Cloudflare докрутили агентов до реальных действий</h3>
+<p><span class="hint">Что случилось</span> в обсуждении на Hacker News активно разбирают сценарий, где агент уже не только пишет код, а сам создаёт аккаунты Cloudflare, покупает домены и выкатывает проект.</p>
+<p><span class="hint">Живой пример</span> <a href="https://blog.cloudflare.com/agents-stripe-projects/" target="_blank" rel="noopener">https://blog.cloudflare.com/agents-stripe-projects/</a></p>
+<blockquote><strong>👉 Как применить:</strong> это хороший ориентир для наших агентных пайплайнов — двигаться от “подсказчика” к исполнителю с чёткими правами и шагами подтверждения.</blockquote>
+<h3 class="numbered" data-n="2">ruflo резко выстрелил на GitHub Trending</h3>
+<p><span class="hint">Что случилось</span> orchestration-платформа для Claude с multi-agent swarm, RAG и native Claude Code/Codex integration набрала 2192 звезды за день.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/ruvnet/ruflo" target="_blank" rel="noopener">https://github.com/ruvnet/ruflo</a></p>
+<blockquote><strong>👉 Как применить:</strong> можно подсмотреть, как они упаковывают координацию нескольких агентов и memory/tool gateway в один продуктовый слой.</blockquote>
+<h3 class="numbered" data-n="3">deer-flow от ByteDance попал в дневной тренд</h3>
+<p><span class="hint">Что случилось</span> open-source harness для long-horizon задач — агент исследует, пишет код и создаёт артефакты через sandboxes, memories, tools, skills и subagents.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/bytedance/deer-flow" target="_blank" rel="noopener">https://github.com/bytedance/deer-flow</a></p>
+<blockquote><strong>👉 Как применить:</strong> почти в лоб бьётся с нашей архитектурой OpenClaw; полезно сравнить их модель long-running задач и изоляцию песочниц.</blockquote>
+<h3 class="numbered" data-n="4">Tilde.run на HN — песочница под агентные задачи</h3>
+<p><span class="hint">Что случилось</span> Show HN про sandbox с транзакционной и версионируемой файловой системой для агентных запусков собрал заметное обсуждение.</p>
+<p><span class="hint">Живой пример</span> <a href="https://tilde.run/" target="_blank" rel="noopener">https://tilde.run/</a></p>
+<blockquote><strong>👉 Как применить:</strong> идея сильная для безопасных пробных прогонов — откат после неудачного действия и чище воспроизводимость для агентов.</blockquote>
+<h3 class="numbered" data-n="5">Simon Willison зафиксировал сдвиг от «вайб-кодинга» к инженерии с агентами</h3>
+<p><span class="hint">Что случилось</span> большой тред на HN вокруг тезиса, что без дисциплины агентный кодинг быстро превращается в хрупкий хаос.</p>
+<p><span class="hint">Живой пример</span> <a href="https://simonwillison.net/2026/May/6/vibe-coding-and-agentic-engineering/" target="_blank" rel="noopener">https://simonwillison.net/2026/May/6/vibe-coding-and-agentic-engineering/</a></p>
+<blockquote><strong>👉 Как применить:</strong> нам это подтверждает текущую ставку на роли, оркестрацию, ревью-гейты и память вместо «пусть агент сам всё сделает».</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
