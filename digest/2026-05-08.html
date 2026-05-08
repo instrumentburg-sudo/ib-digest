@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-05-08 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-05-08</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw v2026.5.7:</h2>
+<ul class="bullets">
+<li>Починили контур релизов и публикации плагинов, добавили статус в JSON для cron, подчистили sessions/skills после /new и reset, а ещё закрыли несколько неприятных кейсов в Telegram delivery и approvals.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> полезно для наших cron-джобов, диагностики зависаний и Telegram-контуров — меньше ложных «успехов» и проще разбирать статусы.</blockquote>
+<h2>🤖 Claude Code v2.1.133:</h2>
+<ul class="bullets">
+<li>Вернули управляемую базу для новых рабочих веток, починили гонку токена с 401 в параллельных сессиях, улучшили память под нагрузкой и исправили потерю skills у subagents.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> меньше шансов словить мёртвые параллельные сессии и проще держать стабильную работу изолированных агентов.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Local Deep Research выстрелил в GitHub Trending</h3>
+<p><span class="hint">Что случилось</span> локальный исследовательский агент вышел в ежедневные тренды. Обещает приватный deep research на своих или облачных моделях, с цитатами, 10+ поисковиками и своей базой знаний.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/LearningCircuit/local-deep-research" target="_blank" rel="noopener">https://github.com/LearningCircuit/local-deep-research</a></p>
+<blockquote><strong>👉 Как применить:</strong> можно разобрать как эталон для нашего исследовательского контура — локальный поиск, цитирование и работа с приватными документами без утечки наружу.</blockquote>
+<h3 class="numbered" data-n="2">Open Agents от Vercel показывает зрелую схему фоновых код-агентов</h3>
+<p><span class="hint">Что случилось</span> в трендах всплыл open source шаблон, где агент живёт отдельно от песочницы: web → workflow → sandbox VM. Это уже не чатик, а нормальный контур длительных запусков.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/vercel-labs/open-agents" target="_blank" rel="noopener">https://github.com/vercel-labs/open-agents</a></p>
+<blockquote><strong>👉 Как применить:</strong> полезный референс для нашей архитектуры topic=контекст / agent=роль, особенно для долгих задач, возобновления сессий и изоляции исполнения.</blockquote>
+<h3 class="numbered" data-n="3">На Hacker News обсуждают жёсткое управление шагами вместо «магии промптов»</h3>
+<p><span class="hint">Что случилось</span> заметный тред за последние часы — тезис простой: сложные агенты упираются не в слабые промпты, а в отсутствие детерминированного контура, проверок и явных переходов состояний.</p>
+<p><span class="hint">Живой пример</span> <a href="https://bsuh.bearblog.dev/agents-need-control-flow/" target="_blank" rel="noopener">https://bsuh.bearblog.dev/agents-need-control-flow/</a></p>
+<blockquote><strong>👉 Как применить:</strong> это прямо бьётся с нашим опытом — критичные cron и многошаговые агенты надо собирать через state machine, валидации и явные checkpoints.</blockquote>
+<h3 class="numbered" data-n="4">AlphaEvolve снова в центре внимания как код-агент для реальных задач</h3>
+<p><span class="hint">Что случилось</span> Google DeepMind выпустил свежий материал о том, как их код-агент AlphaEvolve уже применяют шире математики — от инфраструктуры вычислений до задач в энергетике и науке.</p>
+<p><span class="hint">Живой пример</span> <a href="https://deepmind.google/blog/alphaevolve-impact/" target="_blank" rel="noopener">https://deepmind.google/blog/alphaevolve-impact/</a></p>
+<blockquote><strong>👉 Как применить:</strong> хороший сигнал, что ценность сейчас не в «универсальном боте», а в агенте под узкий контур с измеримым эффектом.</blockquote>
+<h3 class="numbered" data-n="5">Reddit / LocalLLaMA: контекстная компакция уже стала болевой точкой агентных стеков</h3>
+<p><span class="hint">Что случилось</span> в свежем треде обсуждают, что llama.cpp, opencode и другие агентные инструменты массово упираются в compaction context и потерю качества на длинных циклах.</p>
+<p><span class="hint">Живой пример</span> <a href="https://www.reddit.com/r/LocalLLaMA/comments/1t6czex/llamacpp_opencode_pi_basically_all_agents_context/" target="_blank" rel="noopener">https://www.reddit.com/r/LocalLLaMA/comments/1t6czex/llamacpp_opencode_pi_basically_all_agents_context/</a></p>
+<blockquote><strong>👉 Как применить:</strong> нам стоит и дальше держать память и compaction как отдельный системный слой, а не надеяться, что одна модель «сама вывезет» длинный контекст.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
