@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-05-09 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-05-09</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw — без релизов за последние 24 часа:</h2>
+<ul class="bullets">
+<li>Последний релиз в репозитории — openclaw 2026.5.7, он старше окна дайджеста.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> сегодня смотрим не на релиз, а на практики вокруг агентной разработки и локального ресерча.</blockquote>
+<h2>🤖 Claude Code 2.1.137 / 2.1.136:</h2>
+<ul class="bullets">
+<li>2.1.137: починили активацию расширения VS Code на Windows.</li>
+<li>2.1.136: закрыли болезненные вещи для боевой работы — пропадание MCP после /clear, потерю refresh token, редкие login loop, сбой --resume/--continue, ошибки plan mode и пачку проблем в интерфейсе.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> если обновляться, то ради стабильности MCP, сессий и авторизации; это прямо бьёт в надёжность наших агентных контуров.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Agent Skills вышел в GitHub Trending</h3>
+<p><span class="hint">Что случилось</span> addyosmani/agent-skills — набор production-grade навыков для кодовых агентов: план, сборка, проверка, ревью и выпуск в одном пакете.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/addyosmani/agent-skills" target="_blank" rel="noopener">https://github.com/addyosmani/agent-skills</a></p>
+<blockquote><strong>👉 Как применить:</strong> снять оттуда quality gates и сравнить с нашими skill-паттернами для main/subagent, особенно verify/review перед публикацией.</blockquote>
+<h3 class="numbered" data-n="2">Local Deep Research снова в фокусе</h3>
+<p><span class="hint">Что случилось</span> LearningCircuit/local-deep-research вышел в daily trending как локальный исследовательский контур с поддержкой локальных и облачных моделей, 10+ поисковиков и приватных документов.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/LearningCircuit/local-deep-research" target="_blank" rel="noopener">https://github.com/LearningCircuit/local-deep-research</a></p>
+<blockquote><strong>👉 Как применить:</strong> подсмотреть, как они собирают локальный ресерч без утечки данных, и усилить наши дайджесты/аналитику отдельным приватным исследовательским пайплайном.</blockquote>
+<h3 class="numbered" data-n="3">На Reddit показали встраиваемую векторную БД под агентов</h3>
+<p><span class="hint">Что случилось</span> в r/LocalLLaMA команда выложила Caliby — embedded vector database для agent/RAG-сценариев, с DiskANN, HNSW и IVF+PQ, без отдельного сервиса.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/zxjcarrot/caliby" target="_blank" rel="noopener">https://github.com/zxjcarrot/caliby</a></p>
+<blockquote><strong>👉 Как применить:</strong> годится как кандидат для локальной памяти агентов и быстрых RAG-контуров там, где не хочется тащить отдельный Qdrant/Milvus.</blockquote>
+<h3 class="numbered" data-n="4">Практичный паттерн для Claude: контекст в файлы, не в один мегапромпт</h3>
+<p><span class="hint">Что случилось</span> в r/ClaudeAI человек описал рабочую схему — разносить контекст по about-me.md, my-voice.md, my-rules.md и заставлять Claude сначала уточнять и планировать, а не сразу отвечать.</p>
+<p><span class="hint">Живой пример</span> <a href="https://www.reddit.com/r/ClaudeAI/comments/1t7t1wc/how_i_made_my_claude_setup_more_consistent/" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeAI/comments/1t7t1wc/how_i_made_my_claude_setup_more_consistent/</a></p>
+<blockquote><strong>👉 Как применить:</strong> это почти готовый шаблон для наших topic/system агентов — меньше хрупких промптов, больше устойчивых файлов контекста.</blockquote>
+<h3 class="numbered" data-n="5">На HN обсуждают, что Claude Code хорошо ест HTML как рабочий артефакт</h3>
+<p><span class="hint">Что случилось</span> в обсуждение вышел кейс “Using Claude Code: The unreasonable effectiveness of HTML” — идея в том, чтобы давать агенту HTML как удобный промежуточный формат интерфейсов и отчётов.</p>
+<p><span class="hint">Живой пример</span> <a href="https://news.ycombinator.com/item?id=48071940" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=48071940</a></p>
+<blockquote><strong>👉 Как применить:</strong> можно быстрее собирать внутренние панели, сводки и прототипы страниц через HTML-first поток, а не сразу лезть в тяжёлый фронт.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
