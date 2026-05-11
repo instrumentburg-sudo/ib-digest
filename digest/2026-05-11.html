@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-05-11 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-05-11</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw v2026.5.10-beta.3:</h2>
+<ul class="bullets">
+<li>За последние 24 часа вышли beta.1, beta.2 и beta.3. Самое полезное: автозапуск локальных model-серверов через provider-level localService, новая команда /context map с картой контекста, сильная зачистка багов по Telegram/Slack/Codex/OpenRouter и уменьшение системного промпта ради экономии токенов.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> можно упростить запуск локальных моделей, быстрее ловить раздувание контекста и смелее обновляться ради фиксов Telegram/Codex.</blockquote>
+<h2>🤖 Claude Code:</h2>
+<ul class="bullets">
+<li>За последние 24 часа новых релизов не было.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> ничего срочного, просто держим в фоне.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">UI-TARS Desktop снова резко пошёл вверх</h3>
+<p><span class="hint">Что случилось</span> в GitHub Trending за сутки выстрелил открытый стек мультимодального агента от ByteDance: локальный и удалённый оператор компьютера и браузера, плюс CLI/Web UI для GUI-задач.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/bytedance/UI-TARS-desktop" target="_blank" rel="noopener">https://github.com/bytedance/UI-TARS-desktop</a></p>
+<blockquote><strong>👉 Как применить:</strong> посмотреть как они упаковали компьютер-оператора и удалённый браузер — это полезные паттерны для наших агентных сценариев и демонстраций.</blockquote>
+<h3 class="numbered" data-n="2">Пакеты навыков для кодовых агентов стали отдельным трендом</h3>
+<p><span class="hint">Что случилось</span> в GitHub Trending высоко поднялся репозиторий с production-grade навыками для кодовых агентов: планирование, сборка, проверка, ревью и выпуск как воспроизводимые инструкции.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/addyosmani/agent-skills" target="_blank" rel="noopener">https://github.com/addyosmani/agent-skills</a></p>
+<blockquote><strong>👉 Как применить:</strong> подсмотреть структуру готовых навыков и усилить наши SKILL.md для стабильного качества по повторяемым задачам.</blockquote>
+<h3 class="numbered" data-n="3">На HN обсуждают ревью кода через несколько агентов, а не один проход</h3>
+<p><span class="hint">Что случилось</span> Show HN про adamsreview — конвейер ревью для Claude Code с параллельными линзами, повторной проверкой, автоисправлениями и циклом отката регрессий.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/adamjgmiller/adamsreview" target="_blank" rel="noopener">https://github.com/adamjgmiller/adamsreview</a></p>
+<blockquote><strong>👉 Как применить:</strong> взять идею «несколько независимых проверок + дедупликация + повторная проверка после автофикса» для наших проверок задач и PR.</blockquote>
+<h3 class="numbered" data-n="4">Локальные модели на обычном ноутбуке уже дают практический минимум</h3>
+<p><span class="hint">Что случилось</span> на HN живо обсуждают реальный сетап на MacBook M4 24GB: Qwen 3.5 9B в квантизации 4b даёт около 40 токенов/с, 128K контекст и рабочий tool use для пошаговых задач.</p>
+<p><span class="hint">Живой пример</span> <a href="https://jola.dev/posts/running-local-models-on-m4" target="_blank" rel="noopener">https://jola.dev/posts/running-local-models-on-m4</a></p>
+<blockquote><strong>👉 Как применить:</strong> держать локальную модель как резерв для черновиков, ресерча и пошаговой разработки без зависимости от облака.</blockquote>
+<h3 class="numbered" data-n="5">Цена активной агентной работы снова упёрлась в лимиты</h3>
+<p><span class="hint">Что случилось</span> в X у поддерживающих OpenClaw обсуждение упёрлось в расход лимитов — Frank написал, что сжёг две pro-подписки за два дня и докупал кредиты.</p>
+<p><span class="hint">Живой пример</span> X digest, посты @frankekn от 2026-05-11 02:37Z и 00:55Z</p>
+<blockquote><strong>👉 Как применить:</strong> внимательнее смотреть на токен-бюджет тяжёлых цепочек, особенно там, где можно сократить промпт, контекст и лишние проходы.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
