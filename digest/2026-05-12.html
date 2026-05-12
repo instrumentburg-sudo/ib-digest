@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-05-12 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-05-12</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw v2026.5.10-beta.5:</h2>
+<ul class="bullets">
+<li>За последние 24 часа вышла серия beta.3 → beta.5. Главный сигнал: подтянули контроль долгих агентных цепочек, добавили /context map, улучшили работу с локальными сервисами моделей и сильно добили надёжность Telegram/Cron/Codex.</li>
+<li>В свежем beta.5 отдельно полезны: больше глубина agent-to-agent, картинка контекста сессии, правки памяти и диагностики, плюс фиксы зависаний и потери контекста в долгих сессиях.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> можно спокойнее растить многоагентные сценарии и cron-контур; особенно важно для наших Telegram-цепочек, памяти и фоновых задач.</blockquote>
+<h2>🤖 Claude Code v2.1.139:</h2>
+<ul class="bullets">
+<li>Добавили список всех агентных сессий через <code>claude agents</code>, команду <code>/goal</code> для доведения задачи до условия завершения, детали по плагинам и кучу фиксов по хукам, MCP и прокрутке/интерфейсу.</li>
+<li>Самый сильный сигнал — Claude Code явно двигается в сторону управляемых долгих задач, а не просто чата в терминале.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> идеи для OpenClaw очевидные — единый обзор агентных сессий, явные критерии завершения и лучшее управление долгими проходами.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">UI-TARS-desktop выстрелил в трендах GitHub</h3>
+<p><span class="hint">Что случилось</span> multimodal desktop agent stack от ByteDance стал одним из самых заметных AI-репозиториев дня. Это уже не игрушка, а готовая база для desktop-агентов с упором на реальное управление интерфейсом.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/bytedance/UI-TARS-desktop" target="_blank" rel="noopener">https://github.com/bytedance/UI-TARS-desktop</a></p>
+<blockquote><strong>👉 Как применить:</strong> смотреть как референс для наших сценариев браузерной и десктопной автоматизации, особенно для сложных SPA и операторских интерфейсов.</blockquote>
+<h3 class="numbered" data-n="2">MartinLoop — «поводок» для кодящих агентов</h3>
+<p><span class="hint">Что случилось</span> на r/ClaudeAI обсуждают open source control plane для AI coding agents с жёсткими лимитами бюджета, kill-switch, audit log и verifier-этапами. Это реакция на реальную боль: агенты жгут токены и уходят в бесконечные циклы.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/Keesan12/Martin-Loop" target="_blank" rel="noopener">https://github.com/Keesan12/Martin-Loop</a></p>
+<blockquote><strong>👉 Как применить:</strong> взять идеи лимитов по деньгам/итерациям и обязательной верификации перед финалом для наших длинных агентных задач и cron-джобов.</blockquote>
+<h3 class="numbered" data-n="3">Sandra даёт Claude долговременную память через MCP</h3>
+<p><span class="hint">Что случилось</span> на r/ClaudeAI показали graph+vector memory backend, где факты пишутся как связи и потом нормально извлекаются между сессиями. Есть MCP-подключение и демо.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/everdreamsoft/sandra" target="_blank" rel="noopener">https://github.com/everdreamsoft/sandra</a></p>
+<blockquote><strong>👉 Как применить:</strong> подсмотреть модель графовой памяти и способы хранения фактов/связей для развития нашей memory-архитектуры без разрастания плоских заметок.</blockquote>
+<h3 class="numbered" data-n="4">OpenGravity — браузерная среда для vibe coding без установки</h3>
+<p><span class="hint">Что случилось</span> на Hacker News обсуждают open source клон Antigravity: чистый браузер, свой ключ, терминал и быстрый запуск без локальной настройки.</p>
+<p><span class="hint">Живой пример</span> <a href="https://opengravity.pages.dev" target="_blank" rel="noopener">https://opengravity.pages.dev</a></p>
+<blockquote><strong>👉 Как применить:</strong> сильная идея для лёгких одноразовых рабочих сред — быстро поднимать песочницу под задачу, демо или проверку гипотезы без полноценного деплоя.</blockquote>
+<h3 class="numbered" data-n="5">AI за вечер собрал систему, которая нашла причину ночных пробуждений</h3>
+<p><span class="hint">Что случилось</span> на Hacker News обсуждают реальный кейс, где coding agent за несколько часов собрал связку Raspberry Pi + микрофоны + Home Assistant + дашборд, чтобы понять, что будит человека ночью.</p>
+<p><span class="hint">Живой пример</span> <a href="https://martin.sh/i-let-ai-build-a-tool-to-help-me-figure-out-what-was-waking-me-up-at-night" target="_blank" rel="noopener">https://martin.sh/i-let-ai-build-a-tool-to-help-me-figure-out-what-was-waking-me-up-at-night</a></p>
+<blockquote><strong>👉 Как применить:</strong> это хороший шаблон для наших прикладных микро-систем — агент быстро собирает узкий инструмент вокруг конкретной боли вместо долгой ручной разработки.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
