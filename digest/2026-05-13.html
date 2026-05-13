@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-05-13 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-05-13</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw v2026.5.12-beta.4:</h2>
+<ul class="bullets">
+<li>За последние 24 часа вышли сразу три beta-сборки: beta.2, beta.3 и beta.4.</li>
+<li>В beta.4 закрыли неприятные хвосты для Codex-рантайма, Telegram/WhatsApp, фоновых subagent-сессий и ошибок автоответа без видимого текста.</li>
+<li>Добавили точечные улучшения для cron: теперь можно смотреть job по id, а долгие ручные прогоны меньше теряются из task registry.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> можно смелее обновляться на свежую beta на тестовом контуре — там много именно операционных фиксов, которые бьют по нашим кронам и агентам.</blockquote>
+<h2>🤖 Claude Code v2.1.140:</h2>
+<ul class="bullets">
+<li>Свежий релиз за последние 24 часа один: v2.1.140.</li>
+<li>Починили подвисание /goal, лишние wakeup у /loop, сбои hot-reload у symlink-настроек и падение bg-сервиса при idle-exit.</li>
+<li>Отдельно исправили зависания на Windows и валидацию Read tool с нестандартным offset.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> релиз полезный прежде всего тем, кто много гоняет фоновые задачи и управляемые хуки — меньше ложных зависаний и тише сервисный контур.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">agentmemory взлетел в GitHub Trending</h3>
+<p><span class="hint">Что случилось</span> в daily trending резко выстрелил agentmemory — слой постоянной памяти для кодовых агентов, уже с бенчмарками на реальных сценариях.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/rohitg00/agentmemory" target="_blank" rel="noopener">https://github.com/rohitg00/agentmemory</a></p>
+<blockquote><strong>👉 Как применить:</strong> подсмотреть их подход к долговременной памяти и сверить с нашей typed-memory архитектурой: где у нас сильнее граф, а где можно упростить recall для агентных задач.</blockquote>
+<h3 class="numbered" data-n="2">react-doctor — проверка React-кода, написанного агентом</h3>
+<p><span class="hint">Что случилось</span> в trending пошёл react-doctor с простым оффером: ловить плохие паттерны, которые оставляют AI-агенты в React-проектах.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/millionco/react-doctor" target="_blank" rel="noopener">https://github.com/millionco/react-doctor</a></p>
+<blockquote><strong>👉 Как применить:</strong> взять как идею для внутреннего пост-прохода после агентной генерации UI — отдельный автоматический контроль качества до коммита.</blockquote>
+<h3 class="numbered" data-n="3">Needle показал маленькую модель для tool calling на HN</h3>
+<p><span class="hint">Что случилось</span> на Hacker News в топ вышел Show HN про Needle — авторы дистиллировали Gemini tool calling в компактную модель 26M.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/cactus-compute/needle" target="_blank" rel="noopener">https://github.com/cactus-compute/needle</a></p>
+<blockquote><strong>👉 Как применить:</strong> следить за этим классом маленьких специализированных моделей для дешёвых маршрутизаторов, классификаторов и диспетчеров, где не нужен большой общий LLM.</blockquote>
+<h3 class="numbered" data-n="4">Появился agentic-интерфейс для мейнфреймов и COBOL</h3>
+<p><span class="hint">Что случилось</span> на Hacker News обсуждают Hopper — интерфейс, который даёт агенту работать с legacy-стеком mainframe и COBOL, а не только с современным вебом.</p>
+<p><span class="hint">Живой пример</span> <a href="https://www.hypercubic.ai/hopper" target="_blank" rel="noopener">https://www.hypercubic.ai/hopper</a></p>
+<blockquote><strong>👉 Как применить:</strong> это хороший сигнал, что агентные интерфейсы быстро уходят в старые корпоративные системы; нам стоит так же думать про 1С, LiveSklad и прочие неидеальные бизнес-среды как про first-class target.</blockquote>
+<h3 class="numbered" data-n="5">На X у OpenClaw живой сигнал по стабильности</h3>
+<p><span class="hint">Что случилось</span> утром maintainer Frank прямо написал, что OpenClaw стал заметно стабильнее, комментируя возврат пользователя с Hermes.</p>
+<p><span class="hint">Живой пример</span> внутренний digest X-ленты за сегодня, источник — @frankekn</p>
+<blockquote><strong>👉 Как применить:</strong> держать beta-канал в поле зрения — судя по тону maintainer-а, сейчас идёт фаза быстрого допиливания стабильности, и полезные фиксы приходят пачками в течение суток.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
