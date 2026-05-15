@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-05-15 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-05-15</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw v2026.5.14-beta.1 / v2026.5.12:</h2>
+<ul class="bullets">
+<li>За сутки вышли 4 релиза, включая свежую бету и стабильный v2026.5.12.</li>
+<li>Самое полезное: задачи <code>sessions_spawn</code> теперь видны прямо в первой реплике дочерней сессии, у WhatsApp появились нормальные статус-реакции по ходу работы, heartbeat получил метку <code>isHeartbeat</code>, а Telegram стал заметно устойчивее за счёт isolated polling и локального spool.</li>
+<li>Много фиксов вокруг Codex, cron, памяти, Gateway и безопасной обработки кривых payload.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновление выглядит сильным именно для наших болячек — cron/heartbeat, Telegram, subagents. Стоит планировать апдейт после бэкапа и короткого smoke-теста.</blockquote>
+<h2>🤖 Claude Code v2.1.142:</h2>
+<ul class="bullets">
+<li>Добавили новые флаги для <code>claude agents</code>: можно точнее задавать каталог, настройки, MCP, модель, effort и режим разрешений для фоновых сессий.</li>
+<li>Fast mode теперь по умолчанию на Opus 4.7.</li>
+<li>Починили таймауты MCP, работу фоновых сессий с существующими worktree, восстановление после sleep/wake на macOS и несколько сбоев daemon/background agents.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> фоновые агентные сессии становятся практичнее и надёжнее; особенно полезны явные флаги модели/разрешений и фикс залипаний.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">agentmemory резко выстрелил на GitHub Trending</h3>
+<p><span class="hint">Что случилось</span> репозиторий persistent memory для coding-агентов набрал 1 879 звёзд за день. Позиционируется как память для агентов на реальных бенчмарках.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/rohitg00/agentmemory" target="_blank" rel="noopener">https://github.com/rohitg00/agentmemory</a></p>
+<blockquote><strong>👉 Как применить:</strong> сравнить их схему памяти и retrieval с нашей typed-memory архитектурой — можно подсмотреть идеи для recall, тестов и оценки качества памяти.</blockquote>
+<h3 class="numbered" data-n="2">skills от Matt Pocock снова в топе</h3>
+<p><span class="hint">Что случилось</span> репозиторий с инженерными skills для Claude/агентов набрал 2 987 звёзд за день. Видно, что рынок быстро стандартизует reusable-skills как базовый слой разработки.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/mattpocock/skills" target="_blank" rel="noopener">https://github.com/mattpocock/skills</a></p>
+<blockquote><strong>👉 Как применить:</strong> пройтись по структуре их skills и усилить наши публичные/внутренние навыки — особенно review, onboarding и repeatable workflows.</blockquote>
+<h3 class="numbered" data-n="3">Codex пришёл в мобильный ChatGPT</h3>
+<p><span class="hint">Что случилось</span> OpenAI выкатили мобильное управление Codex — с телефона можно следить за живыми задачами, давать указания, подтверждать действия и смотреть diff/логи/скриншоты с удалённой машины.</p>
+<p><span class="hint">Живой пример</span> <a href="https://openai.com/index/work-with-codex-from-anywhere/" target="_blank" rel="noopener">https://openai.com/index/work-with-codex-from-anywhere/</a></p>
+<blockquote><strong>👉 Как применить:</strong> это прямой ориентир для нашего контура Telegram + approvals + long-running jobs. Сигнал простой: рулить агентами с телефона становится обязательной нормой.</blockquote>
+<h3 class="numbered" data-n="4">Rust обсуждает жёсткую политику по LLM-вкладу</h3>
+<p><span class="hint">Что случилось</span> в rust-forge подняли policy PR для использования LLM при вкладах в <code>rust-lang/rust</code>, потому что проект захлестнули low-effort PR от моделей. На HN это уже обсуждают как практический шаблон для open-source.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/rust-lang/rust-forge/pull/1040" target="_blank" rel="noopener">https://github.com/rust-lang/rust-forge/pull/1040</a></p>
+<blockquote><strong>👉 Как применить:</strong> нам тоже полезно формализовать правила для AI-правок в репах — что можно, что нельзя, где обязателен human review, как помечать агентные изменения.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
