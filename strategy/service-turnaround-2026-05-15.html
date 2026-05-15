@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Антикризисный план сервиса · 2026-05-15</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+  <style>
+    .container.wide { max-width: 1080px; }
+    .hero-grid, .metric-grid, .review-grid, .priority-grid, .eisenhower-grid, .week-grid, .policy-grid {
+      display: grid;
+      gap: 1px;
+      background: var(--border);
+      border: var(--hairline);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .hero-grid { grid-template-columns: 1.35fr 0.85fr; margin-bottom: 28px; }
+    .metric-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 18px 0 8px; }
+    .review-grid, .eisenhower-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .priority-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 14px; }
+    .week-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .policy-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .panel, .metric, .review, .priority, .quad, .week, .policy {
+      background: var(--bg-raised);
+      padding: 18px 20px;
+    }
+    .panel.lead {
+      padding: 26px 26px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      min-height: 100%;
+    }
+    .hero-line {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4.4vw, 3.6rem);
+      line-height: 0.96;
+      letter-spacing: -0.035em;
+      max-width: 12ch;
+    }
+    .hero-line strong { color: var(--accent-hi); font-weight: 400; }
+    .hero-summary { font-size: 16px; color: var(--fg-2); max-width: 42rem; }
+    .micro-label {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--fg-3);
+      margin-bottom: 10px;
+      display: block;
+    }
+    .big-number {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      color: var(--fg);
+      margin-bottom: 12px;
+    }
+    .big-number .unit { color: var(--accent-hi); font-size: 0.62em; }
+    .subtle { color: var(--fg-2); font-size: 14px; }
+    .metric-value {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3.2vw, 2.7rem);
+      line-height: 1;
+      letter-spacing: -0.035em;
+      margin-bottom: 8px;
+      color: var(--fg);
+    }
+    .metric-value.good { color: var(--good); }
+    .metric-value.warn { color: var(--warn); }
+    .metric-value.bad { color: var(--bad); }
+    .metric p, .review p, .priority p, .quad p, .week p, .policy p { color: var(--fg-2); font-size: 14px; }
+    .review-title, .quad-title, .week-title, .policy-title {
+      font-family: var(--serif);
+      font-size: 24px;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+    .review.good { border-top: 2px solid var(--good); }
+    .review.warn { border-top: 2px solid var(--warn); }
+    .review.bad { border-top: 2px solid var(--bad); }
+    .priority {
+      position: relative;
+      min-height: 184px;
+      border-left: 3px solid var(--border-hi);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .priority.p0 { border-left-color: var(--bad); }
+    .priority.p1 { border-left-color: var(--warn); }
+    .priority.p2 { border-left-color: var(--accent); }
+    .priority.p3 { border-left-color: var(--good); }
+    .priority-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .rank {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--fg-3);
+    }
+    .priority-name {
+      font-family: var(--serif);
+      font-size: 26px;
+      line-height: 1.02;
+      letter-spacing: -0.025em;
+      max-width: 13ch;
+    }
+    .badge {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--fg);
+      background: rgba(212,165,116,0.08);
+      border: 1px solid rgba(212,165,116,0.22);
+      border-radius: 999px;
+      padding: 4px 8px;
+      white-space: nowrap;
+    }
+    .badge.red { border-color: rgba(228,122,122,0.35); background: rgba(228,122,122,0.08); }
+    .badge.green { border-color: rgba(124,201,143,0.35); background: rgba(124,201,143,0.08); }
+    .checkline {
+      margin-top: auto;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+      font-family: var(--mono);
+      font-size: 11.5px;
+      line-height: 1.45;
+      color: var(--fg-3);
+    }
+    .decision-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 4px;
+      font-size: 14px;
+      background: var(--bg-raised);
+      border: var(--hairline);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .decision-table th, .decision-table td {
+      text-align: left;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .decision-table th {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--fg-3);
+      background: var(--bg-elev);
+    }
+    .decision-table td { color: var(--fg-2); }
+    .decision-table td:first-child { color: var(--fg); font-weight: 600; white-space: nowrap; }
+    .decision-table tr:last-child td { border-bottom: 0; }
+    .num { font-family: var(--mono); color: var(--accent-hi); white-space: nowrap; }
+    .stop-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .stop {
+      padding: 16px 18px;
+      border: 1px solid rgba(228,122,122,0.25);
+      background: rgba(228,122,122,0.055);
+      border-radius: 8px;
+      color: var(--fg-2);
+      font-size: 14px;
+    }
+    .stop strong { color: var(--fg); }
+    .bottom-line {
+      margin-top: 34px;
+      padding: 24px;
+      border: 1px solid rgba(212,165,116,0.22);
+      border-radius: 8px;
+      background: linear-gradient(180deg, rgba(212,165,116,0.08), rgba(212,165,116,0.03)), var(--bg-raised);
+    }
+    .bottom-line h2 { margin-top: 0; }
+    .bottom-line h2::after { width: 42px; }
+    .bottom-line p {
+      font-family: var(--serif);
+      font-size: clamp(1.35rem, 2.5vw, 2rem);
+      line-height: 1.16;
+      letter-spacing: -0.02em;
+      max-width: 34ch;
+    }
+    .source-note {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--fg-4);
+      margin-top: 18px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+    @media (max-width: 900px) {
+      .hero-grid, .metric-grid, .review-grid, .priority-grid, .eisenhower-grid, .week-grid, .policy-grid, .stop-list { grid-template-columns: 1fr; }
+      .decision-table { display: block; overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="../digest/">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+      <a href="./" class="active">Стратегия</a>
+    </nav>
+  </div>
+  <div class="container wide">
+    <header class="page-header">
+      <div class="kicker">Стратегический разбор · ПТ 15.05.2026</div>
+      <h1>Антикризисный план <em>сервиса</em></h1>
+      <div class="meta">
+        <a href="./">Все разборы</a>
+        <span class="sep">·</span>
+        <a href="../dashboard-news/2026-05-15.html">Dashboard News 15.05</a>
+        <a href="service-direction-2026-04-19.html">Старый разбор</a>
+      </div>
+    </header>
+
+    <section class="hero-grid">
+      <div class="panel lead">
+        <span class="micro-label">Главный вывод ревью</span>
+        <div class="hero-line">Рост сейчас начинается не с <strong>новой точки</strong>.</div>
+        <p class="hero-summary">Раздел стратегии от 19.04 в целом попал в диагноз: ремонт — ядро, B2B уже есть, потолок в людях и процессе. Но свежие данные 15.05 делают вывод жёстче: первая задача — не расширяться, а разморозить деньги, поднять чек и поставить кассовые правила. Иначе новый пункт проката, город или мастер просто ускорят хаос.</p>
+      </div>
+      <div class="panel">
+        <span class="micro-label">Текущий темп</span>
+        <div class="big-number">726<span class="unit">k ₽/мес</span></div>
+        <p class="subtle">Прогнозный run-rate против точки безубыточности <strong>1,037 млн ₽</strong>. Разрыв до нуля — <strong>310,6k ₽/мес</strong>. До целевой модели <strong>2,319 млн ₽/мес</strong> не хватает <strong>1,59 млн ₽</strong>.</p>
+      </div>
+    </section>
+
+    <section class="metric-grid">
+      <div class="metric">
+        <span class="micro-label">Закрыто за 30 дней</span>
+        <div class="metric-value">242</div>
+        <p>124 ремонта и 118 прокатов. Поток есть, вопрос в цене и скорости превращения в деньги.</p>
+      </div>
+      <div class="metric">
+        <span class="micro-label">Средний чек</span>
+        <div class="metric-value warn">2 803 ₽</div>
+        <p>Ремонт ~2 943 ₽, прокат ~2 655 ₽. Для безубыточности при текущем объёме нужен чек около 4,0–4,3k ₽.</p>
+      </div>
+      <div class="metric">
+        <span class="micro-label">Очередь и WIP</span>
+        <div class="metric-value bad">24</div>
+        <p>Заказа ждут просчёта; в дашборде 34 в работе и 130 готовых. Это не «админка», это замороженная касса.</p>
+      </div>
+      <div class="metric">
+        <span class="micro-label">Запчасти</span>
+        <div class="metric-value bad">335</div>
+        <p>Позиций в pending, 6 overdue, 29 заказов ждут запчасти. Без предоплаты физиков сервис кредитует клиентов.</p>
+      </div>
+    </section>
+
+    <h2>Ревью старого strategy-раздела</h2>
+    <section class="review-grid">
+      <div class="review good">
+        <span class="micro-label">Что было верно</span>
+        <div class="review-title">Спрос не главный дефицит</div>
+        <p>Сервис уже создаёт поток, B2B не гипотеза, прокат полезен как усилитель. Проблема не в том, что «нечего продавать», а в том, что текущая система медленно закрывает деньги.</p>
+      </div>
+      <div class="review warn">
+        <span class="micro-label">Что устарело</span>
+        <div class="review-title">«Путь к миллиону» слишком дальний</div>
+        <p>Сейчас важнее не мечтать про 1 млн чистыми, а перейти с 24,2k ₽/день к минимуму 34,6k ₽/день. Сначала ноль и кассовая устойчивость, потом сценарии 2028.</p>
+      </div>
+      <div class="review bad">
+        <span class="micro-label">Что надо добавить</span>
+        <div class="review-title">Слой cash-conversion</div>
+        <p>В стратегии не хватало отдельного слоя: готовые заказы, старые согласования, запчасти, предоплата, кредитные лимиты, актирование B2G. Это сейчас главная операционная стратегия.</p>
+      </div>
+    </section>
+
+    <h2>Что делать сначала — приоритетная ТЧ</h2>
+    <table class="decision-table">
+      <thead>
+        <tr>
+          <th>Очередь</th>
+          <th>Действие</th>
+          <th>Почему сейчас</th>
+          <th>Проверка результата</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>00 · Сегодня</td>
+          <td>Разобрать 130 готовых и 24 просчёта: звонки, дедлайны, закрытие/выдача/отказ.</td>
+          <td>Это ближайшие деньги без новых лидов. Старые хвосты 23–115 дней уже портят кассу и картину загрузки.</td>
+          <td><span class="num">30+</span> контактов, список «заберёт / отказ / хранение / закрыть».</td>
+        </tr>
+        <tr>
+          <td>01 · Эта неделя</td>
+          <td>Ввести 100% предоплату запчастей для физиков и стоп бесплатному кредитованию.</td>
+          <td>335 pending-позиций показывают, что снабжение стало финансовой дырой, а не только процессом.</td>
+          <td>Новая фраза приёмки, шаблон сообщения, запрет заказа деталей без оплаты.</td>
+        </tr>
+        <tr>
+          <td>02 · Эта неделя</td>
+          <td>Поднять минимальный чек: ремонт 3,5–4,9k ₽, крупное/проф — диагностика 3,5–5k ₽.</td>
+          <td>При текущем среднем чеке 2,8k ₽ объём не вытягивает фикс. Рост через дешёвые заказы ухудшает загрузку.</td>
+          <td>Новый прайс-минимум в приёмке и калькуляторе; исключения только вручную.</td>
+        </tr>
+        <tr>
+          <td>03 · Эта неделя</td>
+          <td>Ограничить WIP: просчёты максимум 8–10, активная работа 12–15, выездные кейсы максимум 4.</td>
+          <td>Без лимитов новый заказ не усиливает бизнес, а добавляет ещё один незакрытый хвост.</td>
+          <td>Ежедневный список «в работе / ждёт решения / закрыть» вместо бесконечной очереди.</td>
+        </tr>
+        <tr>
+          <td>04 · 2 недели</td>
+          <td>Нанимать сначала координатора/диспетчера, не мастера.</td>
+          <td>Узкое место — согласования, детали, выдача, документы. Новый мастер без координатора увеличит незавершёнку.</td>
+          <td>Роль, KPI, 10 кандидатов, 3 собеседования, тестовая неделя.</td>
+        </tr>
+        <tr>
+          <td>05 · 2 недели</td>
+          <td>Карта 44/223-ФЗ контрактов: этапы, акты, лимит дебиторки, финансирование деталей.</td>
+          <td>Предоплаты нет по закону. Значит контракт — это кредитный продукт с 30–60 днями кассового разрыва.</td>
+          <td>По каждому контракту: сумма, маржа, актирование, срок денег, стоп-условия.</td>
+        </tr>
+        <tr>
+          <td>06 · 30 дней</td>
+          <td>Прокат расширять только MVP-точкой в районе, не городом и не полноценным филиалом.</td>
+          <td>Прокат даёт быстрые деньги, но новая точка без учёта залога, логистики и источника заявок съест кассу.</td>
+          <td>1 район, партнёрская выдача/микро-склад, лимит вложений, отдельный P&L.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <section class="priority-grid">
+      <div class="priority p0">
+        <div class="priority-head">
+          <div><div class="rank">P0 · cash now</div><div class="priority-name">Разморозить готовые</div></div>
+          <span class="badge red">сегодня</span>
+        </div>
+        <p>Готовые, старые согласования и просчёты — самый дешёвый источник денег. Это не «потом», это первая смена фокуса.</p>
+        <div class="checkline">Метрика: 130 ready → сегментированы; старше 14 дней — действие; старше 30 дней — решение.</div>
+      </div>
+      <div class="priority p0">
+        <div class="priority-head">
+          <div><div class="rank">P0 · policy</div><div class="priority-name">Запчасти только по оплате</div></div>
+          <span class="badge red">сразу</span>
+        </div>
+        <p>Для физиков — 100% предоплата деталей. Для юрлиц — лимит и короткий срок. Для 44/223-ФЗ — отдельная карта финансирования.</p>
+        <div class="checkline">Метрика: 0 новых pending без решения «оплачено / не заказывать / закрыть».</div>
+      </div>
+      <div class="priority p1">
+        <div class="priority-head">
+          <div><div class="rank">P1 · price</div><div class="priority-name">Средний чек выше 4k</div></div>
+          <span class="badge">эта неделя</span>
+        </div>
+        <p>Цель ближайшего уровня — не больше заказов, а больше денег за мастер-час. Ремонт ниже минималки брать только как осознанное исключение.</p>
+        <div class="checkline">Метрика: средний чек ремонта ≥ 3,8–4,5k ₽; полевая диагностика от 7,5k ₽.</div>
+      </div>
+      <div class="priority p1">
+        <div class="priority-head">
+          <div><div class="rank">P1 · throughput</div><div class="priority-name">WIP-лимиты и SLA</div></div>
+          <span class="badge">эта неделя</span>
+        </div>
+        <p>Очередь должна быть управляемым конвейером, а не кладбищем обещаний. Просчёт 48 часов, потом клиентское решение или закрытие.</p>
+        <div class="checkline">Метрика: needs_estimation ≤ 10; детали старше 7 дней — с решением.</div>
+      </div>
+      <div class="priority p2">
+        <div class="priority-head">
+          <div><div class="rank">P2 · people</div><div class="priority-name">Координатор раньше мастера</div></div>
+          <span class="badge">2 недели</span>
+        </div>
+        <p>Мастера чинят. Координатор вынимает деньги из согласований, деталей, выдачи и документов. Сейчас бизнесу больнее второе.</p>
+        <div class="checkline">Метрика: описание роли + KPI + воронка кандидатов + тестовая неделя.</div>
+      </div>
+      <div class="priority p2">
+        <div class="priority-head">
+          <div><div class="rank">P2 · contracts</div><div class="priority-name">B2G как кредитный контур</div></div>
+          <span class="badge">2 недели</span>
+        </div>
+        <p>Тендеры на 8 млн ₽ могут быть ростом, но без актирования и лимита дебиторки станут кассовой ловушкой.</p>
+        <div class="checkline">Метрика: по каждому тендеру есть карта «работа → акт → деньги».</div>
+      </div>
+    </section>
+
+    <h2>Матрица Eisenhower по Ris weekly planning</h2>
+    <section class="eisenhower-grid">
+      <div class="quad">
+        <span class="micro-label">Важное + срочное</span>
+        <div class="quad-title">Антон сегодня</div>
+        <p>Кассовые правила, стоп исключениям, решение по минимальному чеку, старые готовые и спорные заказы.</p>
+      </div>
+      <div class="quad">
+        <span class="micro-label">Важное + не срочное</span>
+        <div class="quad-title">Запланировать на W21</div>
+        <p>Координатор, карта 44/223-ФЗ, WIP-лимиты, отдельный P&L проката, dashboard-метрики по закрытию.</p>
+      </div>
+      <div class="quad">
+        <span class="micro-label">Срочное + делегируемое</span>
+        <div class="quad-title">Агент / команда</div>
+        <p>Шаблоны сообщений клиентам, список хвостов, скрипт обзвона, таблица кандидатов, сбор карт контрактов.</p>
+      </div>
+    </section>
+
+    <h2>Стоп-лист на ближайшие 30 дней</h2>
+    <div class="stop-list">
+      <div class="stop"><strong>Не открывать город.</strong> Сначала районный MVP проката с лимитом вложений и отдельным P&L.</div>
+      <div class="stop"><strong>Не нанимать мастера первым.</strong> Без координатора новый мастер добавит незавершёнку.</div>
+      <div class="stop"><strong>Не финансировать детали физикам.</strong> Предоплата — не жадность, а защита оборотки.</div>
+      <div class="stop"><strong>Не брать постоплату без лимита.</strong> Даже хороший B2B-клиент должен иметь лимит, срок и стоп-условия.</div>
+    </div>
+
+    <h2>План W21: проверяемые outcomes</h2>
+    <section class="week-grid">
+      <div class="week">
+        <span class="micro-label">O1 · касса</span>
+        <div class="week-title">Хвосты превращены в деньги или закрыты</div>
+        <p>К пятнице есть сегментация ready/stale, сделаны звонки, у каждого старого заказа есть следующий шаг: выдача, отказ, хранение, закрытие.</p>
+      </div>
+      <div class="week">
+        <span class="micro-label">O2 · правила</span>
+        <div class="week-title">Предоплата запчастей внедрена</div>
+        <p>У приёмки есть текст, у калькулятора/шаблонов — правило, новые детали физикам не уходят в заказ без оплаты.</p>
+      </div>
+      <div class="week">
+        <span class="micro-label">O3 · чек</span>
+        <div class="week-title">Минималки утверждены</div>
+        <p>Ремонт, крупное оборудование и выездка получили нижнюю цену. Исключения фиксируются как управленческое решение, а не привычка.</p>
+      </div>
+      <div class="week">
+        <span class="micro-label">O4 · B2G</span>
+        <div class="week-title">Контрактная карта собрана</div>
+        <p>Для тендеров 44/223-ФЗ есть карта актирования, сроков оплаты, дебиторского лимита и источника финансирования деталей.</p>
+      </div>
+    </section>
+
+    <div class="bottom-line">
+      <h2>Итоговое решение</h2>
+      <p>Сначала кассовая дисциплина и пропускная способность, потом масштабирование. Новая точка, новый город и новый мастер имеют смысл только после того, как текущий поток перестал превращаться в хвосты.</p>
+    </div>
+
+    <div class="source-note">Источники: LiveSklad/Convex-снимок 15.05.2026; Dashboard News 15.05; финмодель сервиса 2026; weekly-planning / ris-prioritize формат штаба.</div>
+
+    <footer class="page-footer">
+      <span>ib-digest / strategy / service-turnaround-2026-05-15</span>
+      <a href="./">К стратегии</a>
+    </footer>
+  </div>
+</body>
+</html>
