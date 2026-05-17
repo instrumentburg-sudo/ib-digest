@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-05-17 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-05-17</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw v2026.5.16-beta.4:</h2>
+<ul class="bullets">
+<li>За последние 24 часа вышли три беты: <code>v2026.5.16-beta.2</code>, <code>beta.3</code>, <code>beta.4</code>. Из полезного: <code>openclaw cron run --wait</code>, вход в xAI Grok по OAuth без <code>XAI_API_KEY</code>, кэш <code>resolvedSkills</code>, фоновые задачи генерации медиа, трассировка рестартов и большой пакет фиксов по Telegram, Codex, памяти и сессиям.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> можно делать более надёжные cron-цепочки с ожиданием завершения, а ещё стоит проверить, закрывают ли свежие фиксы наши хвосты по Telegram, delivery и compaction.</blockquote>
+<h2>🤖 Claude Code:</h2>
+<ul class="bullets">
+<li>За последние 24 часа новых релизов не было. Последний релиз <code>v2.1.143</code> вышел 2026-05-15 22:28 UTC, это старше суточного окна.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> срочных действий нет, просто держим в фоне и ждём следующий changelog.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">codegraph — локальный граф кода для Claude Code</h3>
+<p><span class="hint">Что случилось</span> в GitHub Trending всплыл <code>colbymchenry/codegraph</code> — прединдексированный граф кода, который режет расход токенов и число обходов по репозиторию.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/colbymchenry/codegraph" target="_blank" rel="noopener">https://github.com/colbymchenry/codegraph</a></p>
+<blockquote><strong>👉 Как применить:</strong> полезно на больших репах ИБ, где агент часто тратит лишние ходы на навигацию и поиск связей.</blockquote>
+<h3 class="numbered" data-n="2">Open-Generative-AI — self-hosted студия для картинок и видео</h3>
+<p><span class="hint">Что случилось</span> в Trending резко вырос <code>Anil-matcha/Open-Generative-AI</code> — локальная студия с 200+ моделями для генерации изображений и видео.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/Anil-matcha/Open-Generative-AI" target="_blank" rel="noopener">https://github.com/Anil-matcha/Open-Generative-AI</a></p>
+<blockquote><strong>👉 Как применить:</strong> можно поднять отдельный контур для баннеров, карточек Авито и быстрых креативов без завязки на один провайдер.</blockquote>
+<h3 class="numbered" data-n="3">WebCLI — текстовый браузер для Claude через MCP</h3>
+<p><span class="hint">Что случилось</span> в свежем треде r/ClaudeAI показали <code>andycufari/webcli</code> — браузерный доступ через текст и DOM, без скриншотов.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/andycufari/webcli" target="_blank" rel="noopener">https://github.com/andycufari/webcli</a></p>
+<blockquote><strong>👉 Как применить:</strong> для наших агентных сценариев это потенциально дешевле и стабильнее, чем тяжелый браузерный контур там, где нужен текст и структура страницы.</blockquote>
+<h3 class="numbered" data-n="4">Zerostack — unix-style агент для кодинга на Rust</h3>
+<p><span class="hint">Что случилось</span> на Hacker News в топ вышел <code>zerostack</code> — агент для разработки на чистом Rust с упором на простую unix-подобную архитектуру.</p>
+<p><span class="hint">Живой пример</span> <a href="https://crates.io/crates/zerostack/1.0.0" target="_blank" rel="noopener">https://crates.io/crates/zerostack/1.0.0</a></p>
+<blockquote><strong>👉 Как применить:</strong> стоит посмотреть его устройство как источник идей для лёгких исполнителей и CLI-агентов без тяжёлой оркестрации.</blockquote>
+<h3 class="numbered" data-n="5">SANA-WM — open-source world model для минутного 720p видео</h3>
+<p><span class="hint">Что случилось</span> на Hacker News обсуждают <code>SANA-WM</code> от NVIDIA — открытую world model на 2.6B, умеющую строить минутное 720p видео.</p>
+<p><span class="hint">Живой пример</span> <a href="https://nvlabs.github.io/Sana/WM/" target="_blank" rel="noopener">https://nvlabs.github.io/Sana/WM/</a></p>
+<blockquote><strong>👉 Как применить:</strong> пока не в прод сразу, но это реальный сигнал, что open-source видео стало ближе к нормальным демо и рекламным сценариям.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
