@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-05-18 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-05-18</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw v2026.5.16-beta.6:</h2>
+<ul class="bullets">
+<li>За сутки вышли beta.5 и beta.6; в beta.6 подтянули самый болезненный контур: доставка ответов, подагенты, Telegram verbose, перезапуск gateway и контекст Codex/OpenAI.</li>
+<li>Появился \<code>defineToolPlugin\</code> + \<code>openclaw plugins build/validate/init\</code> для типизированных простых tool-плагинов.</li>
+<li>Усилили QA-Lab: parity-сценарии, покрытие tools и live-only canary.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> можно смелее собирать свои tool-плагины и обновлять контур, если упираемся в delivery/timeout и Telegram verbose.</blockquote>
+<h2>🤖 Claude Code:</h2>
+<ul class="bullets">
+<li>За последние 24 часа новых релизов не было.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> без срочных действий; ориентиром остаётся 2.1.143 от 15 мая с улучшениями agent view, worktree и расчёта контекста.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">codegraph резко выстрелил в GitHub Trending</h3>
+<p><span class="hint">Что случилось</span> локальный граф кода для Claude Code, Codex и Cursor; обещают меньше токенов и меньше поисковых вызовов. 857 звёзд за день.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/colbymchenry/codegraph" target="_blank" rel="noopener">https://github.com/colbymchenry/codegraph</a></p>
+<blockquote><strong>👉 Как применить:</strong> проверить как слой поверх наших больших реп с длинным контекстом и частыми \<code>rg\</code>/read циклами.</blockquote>
+<h3 class="numbered" data-n="2">CLI-Anything в трендах GitHub</h3>
+<p><span class="hint">Что случилось</span> авторы толкают идею «весь софт агент-нативный через CLI»; проект быстро набирает внимание.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/HKUDS/CLI-Anything" target="_blank" rel="noopener">https://github.com/HKUDS/CLI-Anything</a></p>
+<blockquote><strong>👉 Как применить:</strong> подсмотреть, как они нормализуют CLI-интерфейсы под агентов, и упростить наши внутренние утилиты и скрипты под такой же контракт.</blockquote>
+<h3 class="numbered" data-n="3">Semble попал в Hacker News</h3>
+<p><span class="hint">Что случилось</span> кодовый поиск для агентов с заявкой на 98% меньше токенов, чем у \<code>grep\</code>; это один из немногих реально прикладных AI-тредов за ночь.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/MinishLab/semble" target="_blank" rel="noopener">https://github.com/MinishLab/semble</a></p>
+<blockquote><strong>👉 Как применить:</strong> если подтвердится на наших репах, это кандидат на дешёвый pre-search перед тяжёлыми чтениями и подагентами.</blockquote>
+<h3 class="numbered" data-n="4">В свежей Reddit-выдаче по r/ClaudeAI тащат простой 3-агентный каркас</h3>
+<p><span class="hint">Что случилось</span> обсуждают репозиторий three-man-team — архитектор, сборщик и ревьюер — как замену хаотичной одиночной работе с Claude Code.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/russelleNVy/three-man-team" target="_blank" rel="noopener">https://github.com/russelleNVy/three-man-team</a></p>
+<blockquote><strong>👉 Как применить:</strong> полезно не как готовый стек, а как минимальный шаблон ролей для наших черновых orchestration-паттернов.</blockquote>
+<h3 class="numbered" data-n="5">В свежей Reddit-выдаче по r/LocalLLaMA всплыл локальный стек OpenClaw + Qwen</h3>
+<p><span class="hint">Что случилось</span> обсуждают запуск своего агента локально на OpenClaw с Qwen 3.5; сигнал, что локальные сборки снова интересны не только энтузиастам.</p>
+<p><span class="hint">Живой пример</span> <a href="https://www.reddit.com/r/LocalLLaMA/comments/1rpx19g/how_to_run_your_own_ai_agent_openclaw_qwen_35/" target="_blank" rel="noopener">https://www.reddit.com/r/LocalLLaMA/comments/1rpx19g/how_to_run_your_own_ai_agent_openclaw_qwen_35/</a></p>
+<blockquote><strong>👉 Как применить:</strong> держать под рукой как запасной маршрут для дешёвых локальных исполнителей и изолированных сервисных ролей.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
