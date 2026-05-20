@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-05-20 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-05-20</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw v2026.5.19-alpha.1:</h2>
+<ul class="bullets">
+<li>За последние 24 часа вышли v2026.5.19-beta.2 и v2026.5.19-alpha.1 с одним пакетом изменений: быстрее рестарт gateway за счёт параллельного старта sidecar/plugin-service, появились диалоги в browser snapshot и ответ на modal через dialog API, добавили typed tool plugins и команды <code>/codex plugins</code>.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> можно быстрее диагностировать рестарты, надёжнее автоматизировать сайты с модалками и упростить свои плагины/скиллы без ручной возни с манифестами.</blockquote>
+<h2>🤖 Claude Code v2.1.145:</h2>
+<ul class="bullets">
+<li>За сутки вышли v2.1.144 и v2.1.145. Главное: <code>claude agents --json</code> для скриптов и статус-баров, в spans добавили <code>agent_id</code>/parent trace для фоновых subagent&#x27;ов, Read tool теперь отдаёт частичный первый кусок вместо жёсткой ошибки на больших файлах, закрыт bypass permission-prompt через bare env assignment.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> проще вешать мониторинг на живые сессии, лучше видеть трассировку подагентов и меньше тупиков на больших файлах и спорных shell-командах.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">CLI-Anything</h3>
+<p><span class="hint">Что случилось</span> в daily trending резко выстрелил CLI-Anything — идея “делать весь софт agent-native” через единый CLI-hub; сегодня +1038 stars.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/HKUDS/CLI-Anything" target="_blank" rel="noopener">https://github.com/HKUDS/CLI-Anything</a></p>
+<blockquote><strong>👉 Как применить:</strong> подсмотреть паттерны для наших agent-first CLI вокруг OpenClaw, cron и внутренних интеграций.</blockquote>
+<h3 class="numbered" data-n="2">codegraph</h3>
+<p><span class="hint">Что случилось</span> в trending поднялся local code knowledge graph для Claude Code, Codex, Cursor и OpenCode; обещают меньше tool calls и токенов за счёт прединдексации. Сегодня +1850 stars.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/colbymchenry/codegraph" target="_blank" rel="noopener">https://github.com/colbymchenry/codegraph</a></p>
+<blockquote><strong>👉 Как применить:</strong> годится как ориентир для ускорения больших реп и для наших идей вокруг памяти/графа знаний в workspace.</blockquote>
+<h3 class="numbered" data-n="3">Forge</h3>
+<p><span class="hint">Что случилось</span> в HN обсуждают open source guardrails-подход, где 8B-модель на agentic tasks подняли с 53% до 99% за счёт формализованных ограничителей и проверок.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/antoinezambelli/forge" target="_blank" rel="noopener">https://github.com/antoinezambelli/forge</a></p>
+<blockquote><strong>👉 Как применить:</strong> полезный ориентир для опасных мест в наших агентах — cron, внешние действия, multi-step automation и антизацикливание.</blockquote>
+<h3 class="numbered" data-n="4">SynthID для AI-картинок у OpenAI</h3>
+<p><span class="hint">Что случилось</span> OpenAI принял SynthID от Google и выкатил инструмент верификации происхождения AI-изображений; тема активно обсуждается на HN.</p>
+<p><span class="hint">Живой пример</span> <a href="https://openai.com/index/advancing-content-provenance/" target="_blank" rel="noopener">https://openai.com/index/advancing-content-provenance/</a></p>
+<blockquote><strong>👉 Как применить:</strong> можно держать в уме для баннеров, карточек и промо-креативов, где потом понадобится доказуемое происхождение изображения.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
