@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-05-21 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-05-21</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw 2026.5.19 / 2026.5.20-beta.1:</h2>
+<ul class="bullets">
+<li>В стабильный релиз вошли фиксы для Telegram topics, изоляции cron-сессий, background image generation и ускорения рестартов gateway.</li>
+<li>В beta добавили policy plugin, device-code OAuth для xAI, прокинули профильные файлы в voice realtime и добили пачку cron/subagent/diagnostics фиксов.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> главный сигнал здесь — cron и Telegram стали надёжнее; это стоит проверить на нашем контуре, где ещё висят <code>Bad Request</code>, <code>delivery failed</code> и timeout.</blockquote>
+<h2>🤖 Claude Code v2.1.146:</h2>
+<ul class="bullets">
+<li>Команда <code>/simplify</code> переименована в <code>/code-review</code> с уровнем усилия.</li>
+<li>Исправили потерю MCP-списков после первой страницы, прокинули <code>CLAUDE_CODE_SUBAGENT_MODEL</code> в дочерние процессы и сняли часть проблем с background/permissions.</li>
+<li>Ускорили рендер больших diff.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> полезно для наших multi-agent и MCP-heavy сценариев; особенно важны фиксы пагинации и дочерних агентов.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">codegraph взлетел в GitHub Trending</h3>
+<p><span class="hint">Что случилось</span> pre-indexed code knowledge graph для Claude Code, Codex, Cursor и OpenCode; обещает меньше токенов и меньше tool calls, всё локально.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/colbymchenry/codegraph" target="_blank" rel="noopener">https://github.com/colbymchenry/codegraph</a></p>
+<blockquote><strong>👉 Как применить:</strong> протестировать на больших репах ИнструментБург как прослойку перед агентами, чтобы сократить чтение кода по кругу.</blockquote>
+<h3 class="numbered" data-n="2">Sarathi AI: DOM-агент для браузера без скриншотов</h3>
+<p><span class="hint">Что случилось</span> на Reddit выстрелил open-source агент, который ходит по DOM и делает формы, почту и веб-задачи без screenshot-loop.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/sarathisahoo/sarathi-ai-agent" target="_blank" rel="noopener">https://github.com/sarathisahoo/sarathi-ai-agent</a></p>
+<blockquote><strong>👉 Как применить:</strong> посмотреть подход для наших веб-автоматизаций, где сейчас тяжело и дорого гонять визуальный браузерный цикл.</blockquote>
+<h3 class="numbered" data-n="3">Git-stint: разведение нескольких AI-агентов по одному репо</h3>
+<p><span class="hint">Что случилось</span> в r/ClaudeAI обсуждают open-source инструмент для параллельной работы нескольких Claude Code агентов без постоянных конфликтов.</p>
+<p><span class="hint">Живой пример</span> <a href="https://www.reddit.com/r/ClaudeAI/comments/1rj9i82/gitstint_with_claude_code_to_manage_multiple_ai/" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeAI/comments/1rj9i82/gitstint_with_claude_code_to_manage_multiple_ai/</a></p>
+<blockquote><strong>👉 Как применить:</strong> снять часть ручной координации в наших multi-agent задачах и сравнить с текущей схемой через topic/role orchestration.</blockquote>
+<h3 class="numbered" data-n="4">Qwen3.7-Max: агентный упор и большой отклик на HN</h3>
+<p><span class="hint">Что случилось</span> в HN активно обсуждают Qwen3.7-Max как модель с акцентом на агентные сценарии; это не теория, а свежий публичный запуск с живым сравнением в поле.</p>
+<p><span class="hint">Живой пример</span> <a href="https://news.ycombinator.com/item?id=48205626" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=48205626</a></p>
+<blockquote><strong>👉 Как применить:</strong> держать как внешний ориентир по качеству агентных циклов и подсмотреть, какие сценарии люди реально проверяют первыми.</blockquote>
+<h3 class="numbered" data-n="5">100K строк Rust с AI: практический отчёт вместо маркетинга</h3>
+<p><span class="hint">Что случилось</span> на HN поднялся подробный разбор, как автор довёл крупную Rust-кодовую базу с помощью Claude Code/Codex и что реально сработало в spec-driven workflow.</p>
+<p><span class="hint">Живой пример</span> <a href="https://zfhuang99.github.io/rust/claude%20code/codex/contracts/spec-driven%20development/2025/12/01/rust-with-ai.html" target="_blank" rel="noopener">https://zfhuang99.github.io/rust/claude%20code/codex/contracts/spec-driven%20development/2025/12/01/rust-with-ai.html</a></p>
+<blockquote><strong>👉 Как применить:</strong> взять у автора практики по жёсткому разбиению задач, слотам контракта и циклам оптимизации — это ближе к нашему стилю, чем абстрактные “AI best practices”.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
