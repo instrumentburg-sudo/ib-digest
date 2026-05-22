@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-05-22 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-05-22</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw 2026.5.20:</h2>
+<ul class="bullets">
+<li>Вышел стабильный релиз: добавили Policy plugin для проверок политики/doctor, ужесточили approvals для skill-файлов, дали \<code>localModelLean\</code> на уровне конкретного агента и device-code логин для xAI.</li>
+<li>Поправили cron и агентный контур: доставка финального вывода scheduled run, зависания \<code>cron show\</code>, stale subagent completion, heartbeat-шум и JSON-режим \<code>nodes\</code>.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> это релиз прямо под наш стек \<code>cron + multi-agent + Telegram/Discord\</code>; особенно полезны фиксы cron-доставки и stale completion.</blockquote>
+<h2>🤖 Claude Code 2.1.148 / 2.1.147:</h2>
+<ul class="bullets">
+<li>2.1.148 срочно чинит регрессию: Bash tool у части пользователей возвращал \<code>127\</code> почти на любую команду.</li>
+<li>2.1.147 усилил фоновые сессии: pinned background sessions теперь живут в idle, \<code>/simplify\</code> заменён на \<code>/code-review\</code>, починены пагинация MCP, вставка текста и повторные permission prompts.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> если где-то используется 2.1.147, обновляться стоит сразу; pinned sessions и \<code>/code-review\</code> хорошо ложатся на агентный workflow.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">codegraph взлетел на GitHub Trending</h3>
+<p><span class="hint">Что случилось</span> репозиторий с прединдексированным графом кода для Claude Code, Codex, Cursor и OpenCode получил 4 294 звезды за день. Идея простая: меньше токенов и меньше tool calls за счёт локальной карты кода.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/colbymchenry/codegraph" target="_blank" rel="noopener">https://github.com/colbymchenry/codegraph</a></p>
+<blockquote><strong>👉 Как применить:</strong> прогнать на наших больших репах и сравнить против текущего \<code>rg + read\</code> по скорости поиска контекста и стоимости длинных сессий.</blockquote>
+<h3 class="numbered" data-n="2">forge тоже выстрелил на Trending</h3>
+<p><span class="hint">Что случилось</span> Python-фреймворк для self-hosted LLM tool-calling и многошаговых agentic workflow набрал 398 звёзд за день.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/antoinezambelli/forge" target="_blank" rel="noopener">https://github.com/antoinezambelli/forge</a></p>
+<blockquote><strong>👉 Как применить:</strong> использовать как референс, если захотим выносить часть внутренних исполнителей из OpenClaw в отдельные self-hosted воркеры.</blockquote>
+<h3 class="numbered" data-n="3">Runtime вышел в топ обсуждений Hacker News</h3>
+<p><span class="hint">Что случилось</span> YC-проект показал sandboxed coding agents for teams с упором на безопасный запуск агентов и управляемые рабочие окружения.</p>
+<p><span class="hint">Живой пример</span> <a href="https://news.ycombinator.com/item?id=48225040" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=48225040</a></p>
+<blockquote><strong>👉 Как применить:</strong> посмотреть их guardrails и сравнить с нашей схемой \<code>topic = контекст\</code>, \<code>agent = роль\</code>, чтобы усилить командную безопасность и управляемость.</blockquote>
+<h3 class="numbered" data-n="4">На HN обсуждают локальную индексацию года видео на MacBook</h3>
+<p><span class="hint">Что случилось</span> автор прогнал индексирование годового видеоархива локально на MacBook 2021 через Gemma4-31B с 50 ГБ swap.</p>
+<p><span class="hint">Живой пример</span> <a href="https://blog.simbastack.com/indexed-a-year-of-video-locally/" target="_blank" rel="noopener">https://blog.simbastack.com/indexed-a-year-of-video-locally/</a></p>
+<blockquote><strong>👉 Как применить:</strong> ориентир для дешёвых локальных batch-задач без облака, если захотим разбирать большие архивы медиа, звонков или записей экранов.</blockquote>
+<h3 class="numbered" data-n="5">OpenAI показал Goal mode для Codex</h3>
+<p><span class="hint">Что случилось</span> в X OpenAI анонсировал Goal mode для Codex app/IDE/CLI, где задача может крутиться часами или днями без постоянного участия человека.</p>
+<p><span class="hint">Живой пример</span> <a href="https://x.com/OpenAI" target="_blank" rel="noopener">https://x.com/OpenAI</a></p>
+<blockquote><strong>👉 Как применить:</strong> полезный бенчмарк для наших долгих фоновых задач и wake/heartbeat-механики, особенно в сценариях «поставил цель и ушёл».</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
