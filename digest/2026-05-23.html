@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-05-23 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-05-23</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw — без релизов за последние 24 часа:</h2>
+<ul class="bullets">
+<li>Последний публичный релиз был раньше окна наблюдения, за сутки новых тегов не вышло.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> можно не отвлекаться на срочное обновление, смотреть следующий релиз уже по факту changelog.</blockquote>
+<h2>🤖 Claude Code v2.1.150 / v2.1.149:</h2>
+<ul class="bullets">
+<li>v2.1.150 — только внутренние улучшения инфраструктуры, без изменений для пользователя.</li>
+<li>v2.1.149 — появился разбор лимитов по категориям в <code>/usage</code>: навыки, субагенты, плагины и MCP-серверы.</li>
+<li>В этом же релизе закрыли несколько дыр и сбоев: обход ограничений в PowerShell, лишнюю запись в worktree, зависания интерфейса и ошибки со старыми compacted-сессиями.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> это прямой сигнал обновлять Claude Code ради наблюдаемости затрат и более безопасной работы с worktree и sandbox.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Claude Plugins Official взлетел в GitHub Trending</h3>
+<p><span class="hint">Что случилось</span> официальный каталог плагинов Anthropic набрал 2549 звёзд за день, значит рынок быстро смещается от одиночных промптов к переиспользуемым расширениям для кодовых агентов.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/anthropics/claude-plugins-official" target="_blank" rel="noopener">https://github.com/anthropics/claude-plugins-official</a></p>
+<blockquote><strong>👉 Как применить:</strong> оформить наши повторяемые сценарии как плагины вместо разрозненных скриптов и держать их как управляемый каталог.</blockquote>
+<h3 class="numbered" data-n="2">CodeGraph тоже в тренде: граф кода для агентов</h3>
+<p><span class="hint">Что случилось</span> <code>codegraph</code> получил 3684 звезды за день и обещает локальный индекс графа кода, чтобы агент делал меньше tool calls и тратил меньше токенов.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/colbymchenry/codegraph" target="_blank" rel="noopener">https://github.com/colbymchenry/codegraph</a></p>
+<blockquote><strong>👉 Как применить:</strong> полезно для больших репозиториев ИБ, где агент часто тратит время на повторное чтение дерева и поиск связей между модулями.</blockquote>
+<h3 class="numbered" data-n="3">На Hacker News обсуждают KanBots — канбан, где по карточкам бегут параллельные агенты</h3>
+<p><span class="hint">Что случилось</span> проект вышел на HN и показывает внятную модель работы: отдельный worktree на задачу, автопилот до 4 ролей, бюджет по затратам и draft PR по кнопке.</p>
+<p><span class="hint">Живой пример</span> <a href="https://www.kanbots.dev/" target="_blank" rel="noopener">https://www.kanbots.dev/</a></p>
+<blockquote><strong>👉 Как применить:</strong> это близко к нашей схеме «агент = роль, контекст = тема»; можно забрать идеи по бюджетам, decision prompts и безопасной публикации через draft PR.</blockquote>
+<h3 class="numbered" data-n="4">Models.dev выстрелил на Hacker News как открытая база моделей</h3>
+<p><span class="hint">Что случилось</span> отдельный проект собирает характеристики, цены и возможности моделей в одном открытом API и репозитории, без ручной сверки по десяткам страниц.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/anomalyco/models.dev" target="_blank" rel="noopener">https://github.com/anomalyco/models.dev</a></p>
+<blockquote><strong>👉 Как применить:</strong> можно использовать как слой справочника при роутинге моделей и при выборе цены/контекста для разных агентов без ручного обновления таблиц.</blockquote>
+<h3 class="numbered" data-n="5">На Reddit пошли практичные сборки вокруг «агентной непрерывности», а не просто чатиков</h3>
+<p><span class="hint">Что случилось</span> за последние сутки обсуждали как минимум два прикладных кейса: open-source AI teammate для GitHub/GitLab с PR review и QA, и RMUX — мультиплексор терминалов, где агенты обсуждают задачу параллельно.</p>
+<p><span class="hint">Живой пример</span> <a href="https://www.reddit.com/r/OpenSourceeAI/comments/1tkddef/ive_been_building_an_opensource_ai_teammate_for/" target="_blank" rel="noopener">https://www.reddit.com/r/OpenSourceeAI/comments/1tkddef/ive_been_building_an_opensource_ai_teammate_for/</a> и <a href="https://www.reddit.com/r/LLMDevs/comments/1tkpb5z/i_made_a_tool_to_allow_ai_agents_deliberate_in/" target="_blank" rel="noopener">https://www.reddit.com/r/LLMDevs/comments/1tkpb5z/i_made_a_tool_to_allow_ai_agents_deliberate_in/</a></p>
+<blockquote><strong>👉 Как применить:</strong> спрос сместился в сторону «агент доводит рабочий цикл до результата». Нам это подтверждает курс на persistent state, роли и наблюдаемую оркестрацию, а не на ещё один чат-бот.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
