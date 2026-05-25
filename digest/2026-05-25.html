@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-05-25 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-05-25</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw v2026.5.24-beta.2:</h2>
+<ul class="bullets">
+<li>За сутки вышли сразу две беты: <code>v2026.5.24-beta.1</code> и <code>v2026.5.24-beta.2</code>.</li>
+<li>В фокусе не косметика, а рабочие вещи: лайв-управление активным запуском из WebUI и Discord voice, заметки встреч из Discord voice, настройка качества изображений, заметное ускорение gateway hot paths.</li>
+<li>Для нашего контура особенно важны фиксы вокруг Telegram и доставки: защита от дублей при replay, перезапуск молчащего polling worker, длиннее таймаут для видимых <code>message</code>-отправок, безопаснее auth/failover и меньше лишних повторных загрузок плагинов.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> стоит планировать обновление после короткой проверки cron, Telegram-топиков и доставки сообщений — это бьёт ровно в наши текущие боли.</blockquote>
+<h2>🤖 Claude Code — без обновлений:</h2>
+<ul class="bullets">
+<li>За последние 24 часа новых релизов не было.</li>
+<li>Последний релиз в списке — <code>v2.1.150</code> от 2026-05-23, и он без пользовательских изменений.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> сегодня смотреть нечего, достаточно держать в уме предыдущие улучшения по <code>/usage</code>, diff и правам.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Understand-Anything взлетел в GitHub Trending</h3>
+<p><span class="hint">Что случилось</span> в daily trending резко пошёл репозиторий, который превращает кодовую базу в интерактивный граф знаний для навигации, поиска и вопросов поверх кода.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/Lum1104/Understand-Anything" target="_blank" rel="noopener">https://github.com/Lum1104/Understand-Anything</a></p>
+<blockquote><strong>👉 Как применить:</strong> полезно как быстрый слой обзора над большими репами и агентными проектами, особенно когда нужно быстрее входить в чужой код.</blockquote>
+<h3 class="numbered" data-n="2">codegraph снова подтверждает спрос на локальный граф кода</h3>
+<p><span class="hint">Что случилось</span> в daily trending снова высоко репозиторий с прединдексированным графом знаний по коду для Claude Code, Codex и Cursor; упор на локальность, меньше токенов и меньше tool calls.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/colbymchenry/codegraph" target="_blank" rel="noopener">https://github.com/colbymchenry/codegraph</a></p>
+<blockquote><strong>👉 Как применить:</strong> хорошая идея для наших тяжёлых рабочих пространств, где агентам дорого каждый раз заново обходить дерево проекта.</blockquote>
+<h3 class="numbered" data-n="3">На Reddit показали живой кейс: Claude Code довёл продукт до 1500+ пользователей</h3>
+<p><span class="hint">Что случилось</span> автор из r/ClaudeAI рассказал, что собрал через Claude Code iPhone-приложение, Apple Watch-приложение и лендинг, а продукт уже дошёл до 1500+ пользователей.</p>
+<p><span class="hint">Живой пример</span> <a href="https://www.reddit.com/r/ClaudeAI/comments/1tmwizd/i_used_claude_code_to_build_an_iphone_app_apple/" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeAI/comments/1tmwizd/i_used_claude_code_to_build_an_iphone_app_apple/</a></p>
+<blockquote><strong>👉 Как применить:</strong> это сильный сигнал не про демо, а про доведение до рынка; значит, для узких внутренних продуктов можно смелее давать агенту полный контур от прототипа до запуска.</blockquote>
+<h3 class="numbered" data-n="4">На LocalLLaMA выкатили кастомный C++-движок для MiniCPM-V 4.6 на Orange Pi AIPro</h3>
+<p><span class="hint">Что случилось</span> автор обошёл overhead стандартных фреймворков и выжал около 2x ускорения, подняв генерацию примерно с 2.88 до 5.90 ток/с на дешёвой edge-плате; репозиторий открыт.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/lvyufeng/minicpm-v-4.6-orangepi" target="_blank" rel="noopener">https://github.com/lvyufeng/minicpm-v-4.6-orangepi</a></p>
+<blockquote><strong>👉 Как применить:</strong> если когда-нибудь упираться в дешёвый edge для локального зрения или киосков, low-level путь даёт реальный выигрыш, а не только академический.</blockquote>
+<h3 class="numbered" data-n="5">На Hacker News обсуждают Reasonix — терминальный coding agent под DeepSeek</h3>
+<p><span class="hint">Что случилось</span> на HN в топе обсуждение DeepSeek-native coding agent с упором на высокий cache hit и низкую цену, то есть ставку не на “самый умный”, а на дешёвый ежедневный контур.</p>
+<p><span class="hint">Живой пример</span> <a href="https://news.ycombinator.com/item?id=48256953" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=48256953</a></p>
+<blockquote><strong>👉 Как применить:</strong> это прямой сигнал смотреть не только на качество модели, но и на стоимость постоянного агентного цикла; для рутины дешёвый агент может быть выгоднее “топового” по экономике.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
