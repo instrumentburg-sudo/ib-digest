@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-05-29 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-05-29</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw 2026.5.28-beta.1:</h2>
+<ul class="bullets">
+<li>Вышли сразу beta и stable за сутки: усилили восстановление Codex/subagent runtime, разделение cwd/workspace, таймауты больше не держат lock, а delivery по каналам стало надёжнее.</li>
+<li>Важное для нас: меньше ложных зависаний в cron/session, аккуратнее restart continuation, лучше переживаются сбои app-server/helper.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> можно планировать обновление на свежий stable после короткой проверки cron-контуров и topic delivery; это бьёт ровно в наши текущие боли по timeout/delivery.</blockquote>
+<h2>🤖 Claude Code v2.1.156:</h2>
+<ul class="bullets">
+<li>Хотфикс для Opus 4.8: исправили порчу thinking-блоков, из-за которой летели API errors.</li>
+<li>Днём раньше в v2.1.154 включили Dynamic Workflows, быстрый режим Opus 4.8, фоновые shell-сессии в agents и улучшили защиту от эксфильтрации.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> если гонять длинные агентные пайплайны или фоновые задачи, стоит держаться не ниже v2.1.156; workflows интересны для крупных разветвлённых задач, но без фанатизма и только там, где есть проверка результата.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Understand Anything взлетел в GitHub Trending</h3>
+<p><span class="hint">Что случилось</span> репозиторий с интерактивным графом по коду для Claude Code/Codex/Cursor набрал около 3.7k звёзд за день. Смысл простой: превращает кодовую базу в исследуемый граф вместо линейного чтения файлов.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/Lum1104/Understand-Anything" target="_blank" rel="noopener">https://github.com/Lum1104/Understand-Anything</a></p>
+<blockquote><strong>👉 Как применить:</strong> полезно для быстрых разборов чужих репозиториев и онбординга новых агентов, где сейчас мы тратим время на ручную навигацию.</blockquote>
+<h3 class="numbered" data-n="2">На HN обсуждают утилиту для Claude Code hooks без лишней обвязки</h3>
+<p><span class="hint">Что случилось</span> свежий репозиторий claude-hook-utils оборачивает JSON stdin/stdout, типы и схемы ответов для PreToolUse, PostToolUse, UserPromptSubmit, SessionStart.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/RasmusGodske/claude-hook-utils" target="_blank" rel="noopener">https://github.com/RasmusGodske/claude-hook-utils</a></p>
+<blockquote><strong>👉 Как применить:</strong> можно быстрее собирать свои policy-hooks и валидаторы вместо ручного парсинга, особенно если захотим жёстче фильтровать опасные команды и правки.</blockquote>
+<h3 class="numbered" data-n="3">В ClaudeAI пошла живая обратная связь по Opus 4.8 и Dynamic Workflows</h3>
+<p><span class="hint">Что случилось</span> в свежих тредах пользователи пишут, что Opus 4.8 лучше держит длинные coding-задачи и рефакторинги, а Dynamic Workflows реально интересны для больших раскладок на десятки сабагентов, но многим не нравится, что функция закрыта старшими тарифами.</p>
+<p><span class="hint">Живой пример</span> <a href="https://www.reddit.com/r/ClaudeAI/comments/1tq9ofy/introducing_dynamic_workflows_in_claude_code/" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeAI/comments/1tq9ofy/introducing_dynamic_workflows_in_claude_code/</a></p>
+<blockquote><strong>👉 Как применить:</strong> сам подход подтверждает наш курс на orchestration, но ещё раз показывает правило: массовый fan-out нужен только там, где есть дешёвая верификация и жёсткое ограничение write-scope.</blockquote>
+<h3 class="numbered" data-n="4">На HN выстрелила мини-игра про fatigue от агентных approvals</h3>
+<p><span class="hint">Что случилось</span> Continue? Y/N за 60 секунд симулирует поток разрешений и показывает, как быстро человек начинает либо всё одобрять, либо всё рубить без разбора.</p>
+<p><span class="hint">Живой пример</span> <a href="https://llmgame.scalex.dev" target="_blank" rel="noopener">https://llmgame.scalex.dev</a></p>
+<blockquote><strong>👉 Как применить:</strong> хороший обучающий артефакт для настройки внутренних guardrails. Нам полезно как аргумент в пользу deny-with-reason, allowlist и снижения количества бессмысленных approval-шагов.</blockquote>
+<h3 class="numbered" data-n="5">На HN разбирают, почему Hy3 внезапно лезет в топ OpenRouter</h3>
+<p><span class="hint">Что случилось</span> разбор показывает, что в 2026 победу модели всё чаще решает не “IQ модели”, а экономика длинного контекста и prompt caching. Hy3 выглядит сильнее в рейтингах не из-за магии, а из-за цены и паттерна использования.</p>
+<p><span class="hint">Живой пример</span> <a href="https://minimaxir.com/2026/05/openrouter-hy3/" target="_blank" rel="noopener">https://minimaxir.com/2026/05/openrouter-hy3/</a></p>
+<blockquote><strong>👉 Как применить:</strong> при подборе дешёвых моделей для batch-задач и длинных цепочек надо смотреть не только price/1M, а effective cost с учётом cache read и входного трафика.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
