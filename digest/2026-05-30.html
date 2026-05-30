@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-05-30 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-05-30</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw v2026.5.28-beta.4:</h2>
+<ul class="bullets">
+<li>Вышли три беты за сутки, последняя — с упором на надёжность агентов: стабильнее восстановление runtime, меньше зависаний и потерь контекста у subagents/Codex.</li>
+<li>Добавили retry для recurring cron-задач после rate limit и preflight fallback-моделей, чтобы задачи не молча пропускались.</li>
+<li>Появились GitHub Copilot agent runtime и Codex Supervisor plugin path для делегированных Codex-сценариев.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновление прямо бьёт в наши боли по cron, delivery и подвисающим агентам; стоит прогнать на тестовом контуре после выхода stable.</blockquote>
+<h2>🤖 Claude Code v2.1.158:</h2>
+<ul class="bullets">
+<li>В 2.1.158 включили Auto mode для Bedrock, Vertex и Foundry на Opus 4.7/4.8 через <code>CLAUDE_CODE_ENABLE_AUTO_MODE=1</code>.</li>
+<li>В 2.1.157 плагины из <code>.claude/skills</code> теперь грузятся автоматически, появился <code>claude plugin init</code>, починили worktree, <code>claude agents</code> и ряд дорогих зависаний.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> автоматическая загрузка локальных плагинов и фиксы worktree полезны для наших skill/plugin-пайплайнов; Auto mode можно держать как отдельный эксперимент для корпоративных провайдеров.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Compound Engineering plugin быстро выстрелил в trending</h3>
+<p><span class="hint">Что случилось</span> официальный плагин Compound Engineering для Claude Code, Codex и Cursor набрал 353 звезды за день.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/EveryInc/compound-engineering-plugin" target="_blank" rel="noopener">https://github.com/EveryInc/compound-engineering-plugin</a></p>
+<blockquote><strong>👉 Как применить:</strong> посмотреть их структуру plugin/skill-поставки как референс для наших внутренних плагинов и marketplace-подачи.</blockquote>
+<h3 class="numbered" data-n="2">Навык для Claude/Codex, который сначала ищет похожие репозитории</h3>
+<p><span class="hint">Что случилось</span> на r/ClaudeAI показали skill <code>advise-project-approach</code>, который перед советом по стеку сначала ищет сопоставимые реальные репозитории.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/AaravKashyap12/advise-project-approach" target="_blank" rel="noopener">https://github.com/AaravKashyap12/advise-project-approach</a></p>
+<blockquote><strong>👉 Как применить:</strong> этот паттерн хорошо ложится на наши агентные ТЗ и аудит задач, где опасно советовать архитектуру без проверки живых аналогов.</blockquote>
+<h3 class="numbered" data-n="3">Локальный inference ускорили до 3.34x на Gemma 4 и Qwen 3.6</h3>
+<p><span class="hint">Что случилось</span> автор с RTX 6000 PRO сравнил MTP в vLLM и llama.cpp, получил до 132.52 tok/s и выложил конфиги, скрипты и результаты.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/lukaLLM/llamacpp-vllm-mtp-setup-and-speed-benchmark-qwen3.6-gemma4" target="_blank" rel="noopener">https://github.com/lukaLLM/llamacpp-vllm-mtp-setup-and-speed-benchmark-qwen3.6-gemma4</a></p>
+<blockquote><strong>👉 Как применить:</strong> если поднимать локальные inference-контуры для агентов, MTP уже выглядит не теорией, а прямой экономией железа и задержки.</blockquote>
+<h3 class="numbered" data-n="4">Durable workflows на SQLite снова набирают инерцию</h3>
+<p><span class="hint">Что случилось</span> на Hacker News в топ вышел разбор, что для устойчивых workflow во многих случаях хватает SQLite вместо тяжёлой оркестрации.</p>
+<p><span class="hint">Живой пример</span> <a href="https://obeli.sk/blog/sqlite-is-all-you-need-for-durable-workflows/" target="_blank" rel="noopener">https://obeli.sk/blog/sqlite-is-all-you-need-for-durable-workflows/</a></p>
+<blockquote><strong>👉 Как применить:</strong> полезный ориентир для наших служебных очередей и stateful cron-процессов, где сейчас много сложности ради простых гарантий.</blockquote>
+<h3 class="numbered" data-n="5">Tiny-vLLM и VT Code показывают сдвиг к более лёгким агентным рантаймам</h3>
+<p><span class="hint">Что случилось</span> на HN одновременно обсуждают tiny-vLLM на C++/CUDA и VT Code — open source terminal coding agent на Rust.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/jmaczan/tiny-vllm" target="_blank" rel="noopener">https://github.com/jmaczan/tiny-vllm</a></p>
+<blockquote><strong>👉 Как применить:</strong> держать в поле зрения лёгкие рантаймы и Rust-агенты как альтернативу тяжёлым стеклам для узких внутренних контуров.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
