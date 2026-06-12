@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-06-12 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-06-12</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw v2026.6.6-beta.2:</h2>
+<ul class="bullets">
+<li>За последние 24 часа вышел <code>v2026.6.6-beta.2</code>: сильно ужесточили границы безопасности в транскриптах, sandbox/MCP, browser и approval-flow; отдельно поправили Telegram-доставку, восстановление iMessage и ускорили первый ответ UI.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> меньше странных сбоев в каналах, безопаснее cron/агенты и меньше риска протечки контекста между сессиями.</blockquote>
+<h2>🤖 Claude Code v2.1.175:</h2>
+<ul class="bullets">
+<li>За последние 24 часа вышли <code>v2.1.174</code> и <code>v2.1.175</code>: managed allowlist теперь ограничивает и Default-модель; починили утечки <code>ANTHROPIC_*</code> в background sessions, шумный hot-reload skills, <code>/model</code> picker и детализацию usage.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> если держим управляемые списки моделей и фоновые сессии, поведение станет предсказуемее и безопаснее.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Iris для Claude Code проверяет реальное приложение, а не верит снимку экрана</h3>
+<p><span class="hint">Что случилось</span> в r/ClaudeAI за последние часы показали MCP-сервер <code>@syrin/iris</code>, который отдаёт агенту verdict <code>pass/fail + evidence</code> прямо из работающего приложения. Автор заявляет кратное снижение токенов против full-tree snapshot.</p>
+<p><span class="hint">Живой пример</span> <a href="https://www.reddit.com/r/ClaudeAI/comments/1u3mqds/i_built_a_way_for_claude_code_to_verify_its_own/" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeAI/comments/1u3mqds/i_built_a_way_for_claude_code_to_verify_its_own/</a></p>
+<blockquote><strong>👉 Как применить:</strong> взять идею как стандарт для наших агентских пайплайнов: не принимать <code>done</code> без машинной проверки результата в рантайме.</blockquote>
+<h3 class="numbered" data-n="2">На Fable за пару дней собрали полноценную MMO и выложили код</h3>
+<p><span class="hint">Что случилось</span> в r/ClaudeAI появился кейс <code>World of ClaudeCraft</code> с публичной демкой и открытым репозиторием; это уже не “лендинг за вечер”, а полноценный игровой контур с живым продуктом.</p>
+<p><span class="hint">Живой пример</span> <a href="https://worldofclaudecraft.com/" target="_blank" rel="noopener">https://worldofclaudecraft.com/</a></p>
+<blockquote><strong>👉 Как применить:</strong> использовать как аргумент в пользу быстрых вертикальных прототипов, когда нужно проверить механику сервиса до нормальной инженерной сборки.</blockquote>
+<h3 class="numbered" data-n="3">NVIDIA вытащила в тренды SkillSpector — сканер уязвимостей для агентских skills</h3>
+<p><span class="hint">Что случилось</span> репозиторий <code>NVIDIA/SkillSpector</code> поднялся в GitHub Trending сегодня; это отдельный сигнал, что рынок начал проверять skills не только на пользу, но и на вредоносные паттерны.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/NVIDIA/SkillSpector" target="_blank" rel="noopener">https://github.com/NVIDIA/SkillSpector</a></p>
+<blockquote><strong>👉 Как применить:</strong> прогонять свои skills и внешние заготовки перед установкой, особенно если они трогают браузер, файлы и сообщения.</blockquote>
+<h3 class="numbered" data-n="4">Agentsview взлетел как локальная аналитика по coding agents</h3>
+<p><span class="hint">Что случилось</span> <code>kenn-io/agentsview</code> сегодня в трендах GitHub как local-first аналитика и сессии для Claude Code, Codex и ещё десятков агентов; позиционируется как быстрый слой наблюдаемости вместо сырого логгинга.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/kenn-io/agentsview" target="_blank" rel="noopener">https://github.com/kenn-io/agentsview</a></p>
+<blockquote><strong>👉 Как применить:</strong> подсмотреть подход к трекингу сессий, стоимости и узких мест у нас, не городя тяжёлую BI-обвязку.</blockquote>
+<h3 class="numbered" data-n="5">На Hacker News обсуждают, как агент сам разорил оператора неудачным сканированием</h3>
+<p><span class="hint">Что случилось</span> пост <code>AI Agent Bankrupted Their Operator While Trying to Scan DN42</code> вышел час назад на HN и быстро набрал обсуждение; живой пример того, что автономность без бюджетов и guardrails бьёт по кошельку, а не только по качеству.</p>
+<p><span class="hint">Живой пример</span> <a href="https://lantian.pub/en/article/fun/ai-agent-bankrupted-their-operator-scan-dn42lantian.lantian/" target="_blank" rel="noopener">https://lantian.pub/en/article/fun/ai-agent-bankrupted-their-operator-scan-dn42lantian.lantian/</a></p>
+<blockquote><strong>👉 Как применить:</strong> везде, где агент может ходить в сеть или к платным API, держать жёсткие лимиты на бюджет, глубину действий и обязательный stop-condition.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
