@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-07-20 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-07-20</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw: без релиза за 24 часа</h2>
+<ul class="bullets">
+<li>Новых релизов нет.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> ничего не обновлять, остаёмся на текущей версии.</blockquote>
+<h2>🤖 Claude Code: без релиза за 24 часа</h2>
+<ul class="bullets">
+<li>Новых релизов нет.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> срочных изменений нет, обновление не требуется.</blockquote>
+<h2>📡 Что нового в ИИ:</h2>
+<h3 class="numbered" data-n="1">Claude Code уже месяц работает на Bun, переписанном на Rust</h3>
+<p><span class="hint">Что случилось</span> 19 июля Саймон Уиллисон проверил бинарник Claude Code и подтвердил, что начиная с версии 2.1.181 внутри используется Rust-версия Bun. По данным автора Bun, запуск на Linux ускорился примерно на 10%. На момент сбора обсуждение на Hacker News набрало 463 балла и 619 комментариев.</p>
+<p><span class="hint">Живой пример</span> <a href="https://simonwillison.net/2026/Jul/19/claude-code-in-bun-in-rust/" target="_blank" rel="noopener">https://simonwillison.net/2026/Jul/19/claude-code-in-bun-in-rust/</a></p>
+<blockquote><strong>👉 Как применить:</strong> отдельной миграции не нужно. Для серверных заданий Claude Code можно просто обновлять штатно; выигрыш будет заметен прежде всего на частых холодных запусках.</blockquote>
+<h3 class="numbered" data-n="2">Code Review Graph резко вырос в GitHub Trending</h3>
+<p><span class="hint">Что случилось</span> репозиторий получил 663 звезды за сутки и дошёл до 21 709. Инструмент строит локальный граф кода через Tree-sitter и SQLite, а затем отдаёт агенту через MCP только затронутые файлы и зависимости. Заявленные авторами тесты показывают сокращение контекста в 38–528 раз, но это ещё надо проверять на наших репозиториях.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/tirth8205/code-review-graph" target="_blank" rel="noopener">https://github.com/tirth8205/code-review-graph</a></p>
+<blockquote><strong>👉 Как применить:</strong> провести пробный разбор одного изменения в репозитории InstrumentBurg — обычным способом и через граф. Сравнить расход контекста, время и пропущенные зависимости; только после этого подключать постоянно.</blockquote>
+<h3 class="numbered" data-n="3">Wigolo — локальный поиск и сбор данных для агентов без платного API</h3>
+<p><span class="hint">Что случилось</span> проект получил 595 звёзд за сутки и вырос до 2 025. Он объединяет поиск, загрузку страниц, обход сайтов, извлечение данных и кэш через MCP; базовые функции работают локально без ключей. Проект пока в открытой бета-версии, требует Node.js 20+ и около 1,5 ГБ на диске.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/KnockOutEZ/wigolo" target="_blank" rel="noopener">https://github.com/KnockOutEZ/wigolo</a></p>
+<blockquote><strong>👉 Как применить:</strong> проверить как резервный источник для ежедневного дайджеста — сегодня облачные web_search и web_extract не работали без Firecrawl. Сначала прогнать на отдельной машине и сравнить полноту, свежесть и количество блокировок.</blockquote>
+<h3 class="numbered" data-n="4">Headroom сжимает контекст перед отправкой агенту</h3>
+<p><span class="hint">Что случилось</span> в X разошёлся открытый слой для сжатия журналов, ответов инструментов, JSON и фрагментов базы знаний. Авторы заявляют экономию 60–95% токенов на JSON и 15–20% в задачах программирования; есть локальный прокси и MCP, исходные данные можно вернуть из кэша.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/headroomlabs-ai/headroom" target="_blank" rel="noopener">https://github.com/headroomlabs-ai/headroom</a></p>
+<p><span class="hint">Источник</span> <a href="https://x.com/xnone_l/status/2079084210942341238" target="_blank" rel="noopener">https://x.com/xnone_l/status/2079084210942341238</a></p>
+<blockquote><strong>👉 Как применить:</strong> испытать на одном длинном задании со сводкой или журналами. Критерий — реальная экономия токенов без потери чисел и ссылок; оборачивать все рабочие агенты до такого теста рано.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
