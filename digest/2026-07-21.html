@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-07-21 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-07-21</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw:</h2>
+<ul class="bullets">
+<li>За последние 24 часа релизов нет.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновление не требуется; остаёмся на проверенной версии.</blockquote>
+<h2>🤖 Claude Code v2.1.216:</h2>
+<ul class="bullets">
+<li>Исправлено квадратичное замедление длинных сессий: нормализация сообщений больше не должна давать многосекундные паузы и медленное возобновление работы.</li>
+<li>Возобновлённые фоновые агенты теперь сохраняют исходный системный запрос и ограничения инструментов. Усилена изоляция рабочих деревьев Git.</li>
+<li>Исправлены ошибки HTTP 401 после смены OAuth-токена, потеря текущего сообщения при перезапуске облачного контейнера и несколько проблем с правами доступа и символическими ссылками.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновить после короткой проверки. Версия закрывает именно те сбои, которые опасны для длительных фоновых задач и параллельных агентов.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Cursor разделил рой агентов на планировщиков и исполнителей</h3>
+<p><span class="hint">Что случилось</span> новый рой Cursor строил SQLite на Rust только по документации. С Grok 4.5 он прошёл 80% отложенных SQL-тестов за четыре часа; старая схема сорвалась и была остановлена до конца второго часа. Разные сочетания моделей дали близкое качество, но сильно разную стоимость. Обсуждение на Hacker News: 164 балла и 77 комментариев на момент сбора.</p>
+<p><span class="hint">Живой пример</span> <a href="https://cursor.com/blog/agent-swarm-model-economics" target="_blank" rel="noopener">https://cursor.com/blog/agent-swarm-model-economics</a></p>
+<blockquote><strong>👉 Как применить:</strong> в сложных задачах Hermes оставить сильной модели декомпозицию и итоговую проверку, а узкие независимые подзадачи отдавать более дешёвым исполнителям. Сначала проверить на одном реальном процессе, а не размножать агентов ради количества.</blockquote>
+<h3 class="numbered" data-n="2">code-review-graph сокращает контекст для разбора больших репозиториев</h3>
+<p><span class="hint">Что случилось</span> проект вышел в дневные лидеры GitHub — 1 833 звезды за сутки и 23 691 звезда всего на момент сбора. Он строит локальный граф кода через Tree-sitter и отдаёт агентам точечный контекст через MCP. Авторы заявляют медианное сокращение контекста в 82 раза на шести репозиториях; максимум 528 раз, но сами предупреждают, что сравнение с чтением всего репозитория завышает эффект.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/tirth8205/code-review-graph" target="_blank" rel="noopener">https://github.com/tirth8205/code-review-graph</a></p>
+<blockquote><strong>👉 Как применить:</strong> испытать на крупном репозитории InstrumentBurg в режиме только чтения. Сравнить расход токенов, время и найденные связи на одном и том же разборе; подключать постоянно только при измеримом выигрыше.</blockquote>
+<h3 class="numbered" data-n="3">GPT-5.6 нашёл цепочку удалённого выполнения кода в WordPress за 25 долларов</h3>
+<p><span class="hint">Что случилось</span> исследователь дал четырём агентам исходники WordPress, запретил искать подсказки в истории и интернете и потребовал вести несколько независимых направлений с взаимной проверкой. За запуск стоимостью 25 долларов модель нашла цепочку от неавторизованного запроса до выполнения кода. Обсуждение на Hacker News: 388 баллов и 212 комментариев на момент сбора.</p>
+<p><span class="hint">Живой пример</span> <a href="https://slcyber.io/research-center/exploit-brokers-pay-500000-for-a-wordpress-rce-i-found-one-with-gpt5-6/" target="_blank" rel="noopener">https://slcyber.io/research-center/exploit-brokers-pay-500000-for-a-wordpress-rce-i-found-one-with-gpt5-6/</a></p>
+<blockquote><strong>👉 Как применить:</strong> провести такой же ограниченный аудит OpenCart на локальной копии или стенде: исходники без секретов, четыре независимых направления, обязательная ручная проверка каждой находки. На рабочем сайте ничего не эксплуатировать.</blockquote>
+<h3 class="numbered" data-n="4">ECC собрал большую библиотеку рабочих модулей для агентных сред</h3>
+<p><span class="hint">Что случилось</span> свежая публикация в X снова подняла Everything Claude Code, сейчас проект называется ECC. В актуальном README указаны 67 агентов, 278 навыков и 94 совместимых команды для Claude Code, Codex, OpenCode и других сред; репозиторий обновлялся в пределах суток. Сам проект отдельно предупреждает не смешивать несколько способов установки — это создаёт дубли навыков и обработчиков.</p>
+<p><span class="hint">Источник</span> <a href="https://x.com/himarre/status/2079240331560911246" target="_blank" rel="noopener">https://x.com/himarre/status/2079240331560911246</a></p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/affaan-m/ECC" target="_blank" rel="noopener">https://github.com/affaan-m/ECC</a></p>
+<blockquote><strong>👉 Как применить:</strong> не ставить весь пакет. Выбрать и сравнить с нашей системой 2–3 узких модуля: проверку безопасности, оптимизацию параллельной работы и контроль качества. Забрать только то, что закрывает конкретный пробел.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
