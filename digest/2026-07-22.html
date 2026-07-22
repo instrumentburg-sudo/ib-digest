@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-07-22 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-07-22</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw: без релиза за 24 часа</h2>
+<ul class="bullets">
+<li>Новых версий в GitHub Releases нет.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> ничего не обновлять; дождаться заявленного выпуска с упором на стабильность.</blockquote>
+<h2>🤖 Claude Code v2.1.217:</h2>
+<ul class="bullets">
+<li>Параллельные субагенты теперь ограничены 20 процессами, а вложенный запуск субагентов выключен по умолчанию. Ограничение бюджета останавливает уже работающие фоновые задачи, а не только запрещает новые.</li>
+<li>Исправлены утечка памяти на обрезанных ответах MCP и выход фоновых сессий за рабочую папку через символические ссылки.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновить Claude Code перед следующей большой параллельной разработкой; старые сценарии с вложенными субагентами проверить отдельно.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Google выпустил Gemini 3.6 Flash и 3.5 Flash-Lite</h3>
+<p><span class="hint">Что случилось</span> 3.6 Flash стоит $1,50 за 1 млн входных и $7,50 за 1 млн выходных токенов. Google заявляет на 17% меньше выходных токенов против 3.5 Flash и рост DeepSWE с 37% до 49%. Flash-Lite выдаёт до 350 токенов/с и стоит $0,30/$2,50 за 1 млн токенов.</p>
+<p><span class="hint">Живой пример</span> <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/" target="_blank" rel="noopener">https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/</a></p>
+<blockquote><strong>👉 Как применить:</strong> провести слепое сравнение Flash-Lite с текущей дешёвой моделью на сортировке почты, извлечении позиций из прайсов и массовой обработке карточек. На ответы клиентам не ставить до проверки качества.</blockquote>
+<h3 class="numbered" data-n="2">Claude Code получил «глаза» через обычную камеру</h3>
+<p><span class="hint">Что случилось</span> разработчик собрал навык примерно из 100 строк Bash и SKILL.md. Claude Code берёт кадр со старого Android-телефона или IP-камеры, замечает дефекты дисплея и проводки, правит код, перепрошивает устройство и проверяет результат повторно. Репозиторий создан 21 июля; автор отдельно предусмотрел отказ от вывода при мутном или слишком далёком кадре.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/fcavalcantirj/claude-code-eyes" target="_blank" rel="noopener">https://github.com/fcavalcantirj/claude-code-eyes</a></p>
+<blockquote><strong>👉 Как применить:</strong> испытать на одном ремонтном стенде для проверки экранов, индикаторов и результата прошивки. Решения о включении оборудования и безопасности проводки оставлять мастеру.</blockquote>
+<h3 class="numbered" data-n="3">Headroom добавил сетевое сжатие контекста для агентских шлюзов</h3>
+<p><span class="hint">Что случилось</span> свежий коммит добавил <code>/v1/compress</code> как отдельный модуль за LiteLLM или Kong. В проверочных примерах авторы получили сокращение JSON на 32,0%, журналов на 22,0% и поисковой выдачи на 33,6%; 23 целевых теста прошли. Проект локальный и поддерживает Claude Code, Codex, OpenClaw и MCP.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/headroomlabs-ai/headroom/commit/1329ed7f1a8d7a018042ecbe41804b0be971792e" target="_blank" rel="noopener">https://github.com/headroomlabs-ai/headroom/commit/1329ed7f1a8d7a018042ecbe41804b0be971792e</a></p>
+<blockquote><strong>👉 Как применить:</strong> прогнать отдельный тест на длинных ответах LiveSklad, 1С и GitHub. Подключать к основному Hermes только после сравнения стоимости, точности и возможности восстановить исходные данные.</blockquote>
+<h3 class="numbered" data-n="4">Code Review Graph вышел в лидеры GitHub Trending</h3>
+<p><span class="hint">Что случилось</span> проект набрал 1 925 звёзд за сутки. Он строит локальный граф функций, вызовов и тестов через Tree-sitter и отдаёт агенту только затронутые файлы. Авторы заявляют медианное сокращение контекста в 82 раза на шести открытых репозиториях; это их воспроизводимый тест, а не наша проверка.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/tirth8205/code-review-graph" target="_blank" rel="noopener">https://github.com/tirth8205/code-review-graph</a></p>
+<blockquote><strong>👉 Как применить:</strong> проверить на одном крупном модуле InstrumentBurg и сравнить полноту разбора изменений с обычным чтением репозитория. Если не пропускает зависимости, добавить как инструмент предварительного анализа.</blockquote>
+<h3 class="numbered" data-n="5">OpenClaw растёт, но команда признаёт проблемы со стабильностью</h3>
+<p><span class="hint">Что случилось</span> представитель сообщества сообщил о росте загрузок npm примерно со 176 тыс. в день в феврале–апреле до 422 тыс. в июне–июле. Одновременно он признал, что обновления весной и летом ломали установку и доверие; следующий выпуск обещают посвятить упрощению запуска и стабильности. Это заявление команды, не независимая статистика.</p>
+<p><span class="hint">Живой пример</span> <a href="https://x.com/oceanavekid/status/2079716204793798838" target="_blank" rel="noopener">https://x.com/oceanavekid/status/2079716204793798838</a></p>
+<blockquote><strong>👉 Как применить:</strong> не переносить рабочие процессы обратно в OpenClaw на обещаниях. Вернуться к сравнению с Hermes после стабильного релиза и отдельного недельного испытания.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
