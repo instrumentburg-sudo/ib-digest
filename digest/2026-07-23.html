@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-07-23 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-07-23</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw: без релиза за 24 часа</h2>
+<ul class="bullets">
+<li>Новых выпусков в окне с 22 июля 06:01 UTC по 23 июля 06:01 UTC нет.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> ничего не обновлять, остаёмся на проверенной версии.</blockquote>
+<h2>🤖 Claude Code v2.1.218:</h2>
+<ul class="bullets">
+<li><code>/code-review</code> теперь работает фоновым субагентом и не забивает основной разговор результатами проверки.</li>
+<li>Усилена безопасность: хуки из файлов агентов запускаются только после доверия к их папке; улучшены ограничения песочницы и диагностика ошибок MCP.</li>
+<li>Исправлены потеря событий запросов на слияние, повреждение Windows-путей, гонки истории и сбои возобновлённых сессий.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновить Claude Code после короткой проверки; фоновая проверка кода пригодится для параллельной работы над репозиториями ИнструментБург.</blockquote>
+<h2>📡 Что нового в ИИ:</h2>
+<h3 class="numbered" data-n="1">Граф кода сокращает контекст для проверки изменений</h3>
+<p><span class="hint">Что случилось</span> <code>tirth8205/code-review-graph</code> набрал 882 звезды за день в GitHub Trending. Он локально строит граф проекта через Tree-sitter и подключается к Claude Code, Codex и другим агентам через MCP. В своём тесте авторы заявляют: из контекста исключено более 27 700 файлов, агенту потребовалось прочитать около 15; независимо результат не проверялся.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/tirth8205/code-review-graph" target="_blank" rel="noopener">https://github.com/tirth8205/code-review-graph</a></p>
+<blockquote><strong>👉 Как применить:</strong> проверить на копии большого репозитория ИнструментБург и сравнить расход контекста и качество разбора с обычным режимом. Не подключать сразу ко всем проектам.</blockquote>
+<h3 class="numbered" data-n="2">Один шлюз маршрутизирует запросы между моделями</h3>
+<p><span class="hint">Что случилось</span> <code>diegosouzapw/OmniRoute</code> получил 1 651 звезду за день. Проект обещает единый адрес для 250 провайдеров, автоматический переход при исчерпании квоты и совместимость с Claude Code, Codex и Cursor. Цифры по экономии токенов — заявления авторов.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/diegosouzapw/OmniRoute" target="_blank" rel="noopener">https://github.com/diegosouzapw/OmniRoute</a></p>
+<blockquote><strong>👉 Как применить:</strong> протестировать только в изолированной среде без рабочих ключей. Потенциальная польза — резервный маршрут для агентов-разработчиков; риск — доверить стороннему шлюзу ключи и код.</blockquote>
+<h3 class="numbered" data-n="3">Claude распознаёт документы и пакетно приводит имена файлов в порядок</h3>
+<p><span class="hint">Что случилось</span> в свежем ролике из практики японского налогового офиса Claude по изображению определяет содержимое документов и формирует понятные имена для целой пачки файлов.</p>
+<p><span class="hint">Живой пример</span> <a href="https://x.com/AIkenkyuFM/status/2080171299977216505" target="_blank" rel="noopener">https://x.com/AIkenkyuFM/status/2080171299977216505</a></p>
+<blockquote><strong>👉 Как применить:</strong> сделать локальный сценарий для фотографий инструмента, актов и обезличенных чеков: распознать тип документа, дату и номер заказа, затем переименовать после проверки человеком. Паспорта и персональные документы в облако не загружать.</blockquote>
+<h3 class="numbered" data-n="4">GigaToken ускоряет токенизацию больших массивов текста</h3>
+<p><span class="hint">Что случилось</span> проект собрал 436 баллов и 94 комментария на Hacker News на момент сбора. Авторы заявляют скорость на порядки выше Hugging Face Tokenizers, совместимость с Hugging Face и <code>tiktoken</code>, а максимальные «около 1 000 раз» достигаются только через собственный интерфейс; независимо результат не проверялся.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/marcelroed/gigatoken" target="_blank" rel="noopener">https://github.com/marcelroed/gigatoken</a></p>
+<p><span class="hint">Источник</span> <a href="https://news.ycombinator.com/item?id=49010167" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49010167</a></p>
+<blockquote><strong>👉 Как применить:</strong> пока наблюдать. Тест имеет смысл только при массовой индексации архива документов, когда замеры покажут, что узкое место именно в токенизации, а не в модели или диске.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
