@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-07-24 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-07-24</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw: без релиза за 24 часа</h2>
+<ul class="bullets">
+<li>В окне с 23 июля 06:02 UTC по 24 июля 06:02 UTC новых выпусков нет. Последняя доступная версия — v2026.7.2-beta.3 от 18 июля.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> ничего не обновлять, остаёмся на проверенной версии.</blockquote>
+<h2>🤖 Claude Code: без релиза за 24 часа</h2>
+<ul class="bullets">
+<li>Новых выпусков в заданном окне нет. Последняя доступная версия — v2.1.218 от 22 июля; она вышла примерно за 8 часов 38 минут до границы дайджеста.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> сегодняшнего повода для обновления нет.</blockquote>
+<h2>📡 Что нового в ИИ:</h2>
+<h3 class="numbered" data-n="1">Buzz объединяет людей и агентов в одном журнале работы</h3>
+<p><span class="hint">Что случилось</span> <code>block/buzz</code> получил 2 162 звезды за день в GitHub Trending и выпустил v0.4.24. В Buzz агент работает под собственным ключом, видит только разрешённые каналы и оставляет отдельный журнал действий. Ветку разработки можно превратить в комнату, где вместе хранятся изменения, проверки, обсуждение и решение о слиянии.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/block/buzz" target="_blank" rel="noopener">https://github.com/block/buzz</a></p>
+<blockquote><strong>👉 Как применить:</strong> пока наблюдать. Идея полезна для общей комнаты Hermes, Claude Code и человека, но переносить туда рабочие ключи и код стоит только после проверки модели доступа и развёртывания на своей машине.</blockquote>
+<h3 class="numbered" data-n="2">Open Code Review делает проверку кода более предсказуемой</h3>
+<p><span class="hint">Что случилось</span> <code>alibaba/open-code-review</code> набрал 180 звёзд за день. Проект сначала детерминированно выбирает и группирует изменённые файлы, затем раздаёт группы изолированным субагентам и привязывает замечания к строкам. Встроены проверки на XSS, SQL-инъекции, ошибки многопоточности и обращения к пустым значениям; заявление о работе «в масштабе Alibaba» независимо не проверялось.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/alibaba/open-code-review" target="_blank" rel="noopener">https://github.com/alibaba/open-code-review</a></p>
+<blockquote><strong>👉 Как применить:</strong> прогнать как вторую независимую проверку на одном запросе на слияние калькулятора или сводки. Сравнить найденные ошибки, ложные срабатывания и расход токенов с текущим разбором, не давать права на запись.</blockquote>
+<h3 class="numbered" data-n="3">OneCLI закрывает секреты от ИИ-агентов на уровне сети</h3>
+<p><span class="hint">Что случилось</span> OneCLI v1.42.0 добавил единый порядок правил и закрыл обход, при котором ключ подставлялся для альтернативного адреса сервиса, а запрет не срабатывал. Шлюз хранит секреты зашифрованными, подставляет их только в разрешённые запросы и поддерживает отдельные права для каждого агента. Обсуждение на Hacker News набрало 88 баллов и 29 комментариев на момент сбора.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/onecli/onecli" target="_blank" rel="noopener">https://github.com/onecli/onecli</a></p>
+<p><span class="hint">Источник</span> <a href="https://news.ycombinator.com/item?id=49023427" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49023427</a></p>
+<blockquote><strong>👉 Как применить:</strong> проверить на отдельном тестовом ключе для Hermes или Claude Code. Если правила действительно держатся при вызовах через MCP, CLI и <code>curl</code>, это сильнее нынешней раздачи секретов через переменные окружения; рабочие ключи не переносить до проверки обходов и журналирования.</blockquote>
+<h3 class="numbered" data-n="4">Klura превращает повторяемое действие в браузере в готовую возможность MCP</h3>
+<p><span class="hint">Что случилось</span> в r/ClaudeAI показали Klura: инструмент наблюдает реальные запросы, ответы и токены во время одного прохода по сайту, а затем сохраняет стабильный сценарий как повторно используемую возможность MCP. Вместо нового обхода интерфейса агент вызывает уже найденную цепочку запросов.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/klura-ai/klura" target="_blank" rel="noopener">https://github.com/klura-ai/klura</a></p>
+<p><span class="hint">Источник</span> <a href="https://www.reddit.com/r/ClaudeAI/comments/1v52nqb/i_built_klura_an_mcp_for_claude_that_turns/" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeAI/comments/1v52nqb/i_built_klura_an_mcp_for_claude_that_turns/</a></p>
+<blockquote><strong>👉 Как применить:</strong> испытать на некритичном кабинете поставщика для скачивания одного отчёта. Если повторный запуск проходит без обхода страниц, можно сократить время и расход токенов; с рабочими кабинетами не связывать, пока не проверено хранение сеансовых данных и токенов.</blockquote>
+<h3 class="numbered" data-n="5">OpenClaw превращает ошибки Sentry в проверяемые запросы на слияние</h3>
+<p><span class="hint">Что случилось</span> разработчик показал связку, где агент OpenClaw принимает оповещение Sentry, готовит исправление и открывает запрос на слияние, а человек проверяет результат и даёт обратную связь. Ключевой элемент — автоматизировано исправление, но не решение о публикации.</p>
+<p><span class="hint">Живой пример</span> <a href="https://x.com/victorquinn/status/2080458173719470374" target="_blank" rel="noopener">https://x.com/victorquinn/status/2080458173719470374</a></p>
+<blockquote><strong>👉 Как применить:</strong> собрать пробный маршрут для ошибок сайта или калькулятора: лог → задача → отдельная ветка → запрос на слияние. Слияние и развёртывание оставить человеку; начать с ошибок, для которых уже есть воспроизводимый тест.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
