@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-07-25 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-07-25</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw — без релиза за 24 часа:</h2>
+<ul class="bullets">
+<li>Новых опубликованных версий в точном окне 24 часов нет.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> ничего не обновлять; остаёмся на проверенной версии.</blockquote>
+<h2>🤖 Claude Code v2.1.220:</h2>
+<ul class="bullets">
+<li>v2.1.220 — исправления ошибок и надёжности: <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.220" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/releases/tag/v2.1.220</a></li>
+<li>Главный выпуск суток — v2.1.219: Opus 5 стал основным Opus с контекстом 1 млн токенов; появился строгий сетевой список разрешённых узлов, вложенные субагенты до глубины 3 и ограничение рекомендуемого рабочего процесса до 15 агентов. <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.219" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/releases/tag/v2.1.219</a></li>
+<li>Запуск Opus 5 собрал на Hacker News 1 440 баллов и 790 комментариев на момент сбора — интерес высокий, но обсуждение спорное. <a href="https://news.ycombinator.com/item?id=49038433" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49038433</a></li>
+</ul>
+<blockquote><strong>→ Нам:</strong> сначала прогнать обновление на тестовом репозитории. Для рабочих запусков включить строгий сетевой список; вложенность агентов оставить только там, где она реально нужна.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Anthropic сократила системную подсказку Claude Code более чем на 80%</h3>
+<p><span class="hint">Что случилось</span> для Opus 5 и Fable 5 команда убрала большую часть глобальных правил без измеримой потери на проверках кода. Подробные инструкции по проверке и разбору кода вынесли в навыки, которые загружаются по необходимости.</p>
+<p><span class="hint">Живой пример</span> <a href="https://x.com/i/status/2080710971228918066" target="_blank" rel="noopener">https://x.com/i/status/2080710971228918066</a></p>
+<blockquote><strong>👉 Как применить:</strong> провести ревизию глобальных инструкций Hermes и Claude Code: оставить ограничения и особенности проекта, а длинные процедуры держать в навыках. Не сокращать всё подряд — сначала сравнить качество и расход контекста на одинаковых задачах.</blockquote>
+<h3 class="numbered" data-n="2">ego lite: отдельные пространства браузера для AI-агентов</h3>
+<p><span class="hint">Что случилось</span> проект набрал 880 звёзд за сутки и 2 806 всего. Агент получает отдельное пространство с текущими входами в сервисы и не перехватывает вкладки пользователя; заявлен локальный режим. Сейчас приложение работает только на macOS, ускорение до 2,5 раза — заявление авторов, а не наша проверка.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/citrolabs/ego-lite" target="_blank" rel="noopener">https://github.com/citrolabs/ego-lite</a></p>
+<blockquote><strong>👉 Как применить:</strong> пока наблюдать, а не внедрять: на нашем Linux-сервере поддержки нет. Вернуться к испытанию после выхода Linux-версии, если авторизация в браузере останется узким местом.</blockquote>
+<h3 class="numbered" data-n="3">Магазин целиком отдали агенту через MCP</h3>
+<p><span class="hint">Что случилось</span> в r/ClaudeAI показали рабочий магазин на 30 000+ футболок. Claude ищет товар по описанию и бюджету, создаёт индивидуальный дизайн, собирает корзину и выдаёт ссылку на оплату прямо из диалога.</p>
+<p><span class="hint">Живой пример</span> <a href="https://www.reddit.com/r/ClaudeAI/comments/1v5zlfr/i_turned_our_whole_store_into_an_mcp_claude_can/" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeAI/comments/1v5zlfr/i_turned_our_whole_store_into_an_mcp_claude_can/</a></p>
+<blockquote><strong>👉 Как применить:</strong> сделать пробный MCP только на чтение для каталога проката: подобрать инструмент под задачу, проверить цену и наличие, собрать черновик брони или КП. Оплату и окончательное бронирование без подтверждения не автоматизировать.</blockquote>
+<h3 class="numbered" data-n="4">cc-audit показывает стоимость и лишний контекст Claude Code</h3>
+<p><span class="hint">Что случилось</span> на Hacker News вышел открытый локальный анализатор истории Claude Code. Он считает расходы по моделям, стоимость постоянных CLAUDE.md/навыков/MCP и контекст, который можно было сбросить через <code>/compact</code> или <code>/clear</code>; обычный запуск не отправляет данные наружу.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/pa-arth/cc-audit" target="_blank" rel="noopener">https://github.com/pa-arth/cc-audit</a></p>
+<blockquote><strong>👉 Как применить:</strong> испытать на локальной истории Claude Code и проверить три цифры: дорогие сессии, постоянный «налог» контекста и долю задач, где хватило бы более дешёвой модели. Не включать <code>--judge</code> и <code>--open</code> до проверки состава выгружаемых данных.</blockquote>
+<h3 class="numbered" data-n="5">OmniRoute собирает сотни AI-провайдеров за одним адресом</h3>
+<p><span class="hint">Что случилось</span> шлюз набрал 1 841 звезду за сутки и 29 148 всего. Авторы заявляют 43 пула, 516 моделей, автоматическое переключение при лимитах и локальное хранение ключей; часть провайдеров отдельно помечена как риск по условиям использования.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/diegosouzapw/OmniRoute" target="_blank" rel="noopener">https://github.com/diegosouzapw/OmniRoute</a></p>
+<blockquote><strong>👉 Как применить:</strong> не ставить в рабочий контур. Проверить в изолированной среде только сценарий резервного переключения дешёвых моделей для некритичных задач; клиентские данные и основные ключи не передавать до разбора кода, лицензий и условий провайдеров.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
