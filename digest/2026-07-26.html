@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-07-26 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-07-26</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw:</h2>
+<ul class="bullets">
+<li>За последние 24 часа релизов не было.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновление не требуется.</blockquote>
+<h2>🤖 Claude Code:</h2>
+<ul class="bullets">
+<li>За последние 24 часа релизов не было.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> остаёмся на текущей версии, без лишнего обновления.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Claude 5 лучше работает с меньшим количеством инструкций</h3>
+<p><span class="hint">Что случилось</span> сегодня на Hacker News главным обсуждением про агентов стала практика Anthropic: команда убрала более 80% системной инструкции Claude Code без измеримого ухудшения результатов на задачах программирования. Вместо повторов и жёстких правил — короткий CLAUDE.md, отдельные навыки, постепенная загрузка контекста и проверка по критериям. Обсуждение набрало 256 баллов и 164 комментария.</p>
+<p><span class="hint">Живой пример</span> <a href="https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models" target="_blank" rel="noopener">https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models</a></p>
+<p>Обсуждение: <a href="https://news.ycombinator.com/item?id=49051361" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49051361</a></p>
+<blockquote><strong>👉 Как применить:</strong> проверить наши длинные инструкции и навыки на повторы и противоречия. Начать с одного рабочего агента: сократить базовый контекст, а проверку, маркетинг и работу с файлами оставить отдельными навыками. Эффект мерить по числу ошибок и расходу токенов, а не по ощущению.</blockquote>
+<h3 class="numbered" data-n="2">ego-lite разделяет браузер между человеком и агентами</h3>
+<p><span class="hint">Что случилось</span> ego-lite вышел в суточный GitHub Trending — 986 звёзд за день. Агент получает отдельное пространство в браузере, но использует реальные входы, данные сеансов и вкладки пользователя; несколько агентов могут работать параллельно и не перехватывать мышь. Авторы заявляют до 2,5 раза более быстрое выполнение сложных сценариев. Сейчас поддерживается только macOS, Linux и Windows пока в плане.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/citrolabs/ego-lite" target="_blank" rel="noopener">https://github.com/citrolabs/ego-lite</a></p>
+<blockquote><strong>👉 Как применить:</strong> на сервер пока не ставить. Следить за версией для Linux; после выхода проверить на одном повторяемом сценарии — сбор цен конкурентов или работа с сайтом поставщика после входа. Критерии: время, число ручных вмешательств и расход токенов.</blockquote>
+<h3 class="numbered" data-n="3">Alibaba открыла промышленный AI-разбор кода</h3>
+<p><span class="hint">Что случилось</span> OpenCodeReview набрал 431 звезду за день и вошёл в GitHub Trending. Инструмент сочетает жёсткий конвейер отбора файлов с языковой моделью, ставит замечания к конкретным строкам и работает с Claude Code, Codex и конвейерами проверки. В собственном испытании авторов: 50 открытых репозиториев, 200 запросов на слияние, 10 языков и 1 505 размеченных дефектов; расход токенов — около 1/9 от универсального агента при более высокой точности, но меньшем охвате.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/alibaba/open-code-review" target="_blank" rel="noopener">https://github.com/alibaba/open-code-review</a></p>
+<blockquote><strong>👉 Как применить:</strong> провести пробный разбор на одном реальном запросе на слияние ИнструментБург и сравнить с текущей проверкой: найденные реальные ошибки, ложные замечания, время и токены. В основной конвейер не включать до этого сравнения — цифры пока заявлены самими авторами.</blockquote>
+<h3 class="numbered" data-n="4">Языковая модель на микроконтроллере за $8</h3>
+<p><span class="hint">Что случилось</span> разработчик запустил модель на 28,9 млн параметров прямо на ESP32-S3 без сервера и сети. Размер после 4-битного сжатия — 14,9 МБ, скорость — около 9,5 токена в секунду. Демонстрация набрала 132 балла и 28 комментариев на Hacker News. Ограничение честное: модель обучена на TinyStories, пишет простые истории и пока не умеет отвечать на вопросы или выполнять инструкции.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/slvDev/esp32-ai" target="_blank" rel="noopener">https://github.com/slvDev/esp32-ai</a></p>
+<p>Обсуждение: <a href="https://news.ycombinator.com/item?id=49050512" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49050512</a></p>
+<blockquote><strong>👉 Как применить:</strong> в сервисный центр сейчас не внедрять. Сигнал в другом: простая локальная обработка текста на дешёвом устройстве уже технически возможна. Следить за инструкционными моделями такого класса — тогда появятся автономные подсказки и классификация событий без облака.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
