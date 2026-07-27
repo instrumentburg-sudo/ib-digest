@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-07-27 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-07-27</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw:</h2>
+<ul class="bullets">
+<li>Без релиза за последние 24 часа.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновлять ничего не нужно.</blockquote>
+<h2>🤖 Claude Code:</h2>
+<ul class="bullets">
+<li>Без релиза за последние 24 часа.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> текущую установку не трогаем.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Open Code Review 1.7.17: отдельный инструмент для разбора кода</h3>
+<p><span class="hint">Что случилось</span> Alibaba выпустила версию 1.7.17 с поддержкой OpenCode, проверками корректности макросов Rust и файлов Julia. Репозиторий набрал 832 звезды за сутки и 14 101 звезду всего. Авторы строят проверку в два слоя: жёсткий отбор файлов и правил плюс агент для поиска контекста. По их тесту на 200 реальных запросах на слияние такой подход тратит примерно в девять раз меньше токенов, чем универсальный агент, но пропускает больше дефектов.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/alibaba/open-code-review/releases/tag/v1.7.17" target="_blank" rel="noopener">https://github.com/alibaba/open-code-review/releases/tag/v1.7.17</a></p>
+<blockquote><strong>👉 Как применить:</strong> прогнать инструмент на одном нашем запросе на слияние и сравнить найденные дефекты, ложные срабатывания и расход токенов с текущим разбором через Claude Code. Пока не внедрять в обязательную проверку.</blockquote>
+<h3 class="numbered" data-n="2">Buzz добавил прямой запуск Hermes Agent и OpenClaw</h3>
+<p><span class="hint">Что случилось</span> в Buzz появился единый слой ACP для разных агентов. В готовые варианты включили Hermes Agent, OpenClaw, Claude Code, Codex, OpenCode и Kimi; свои варианты можно задавать через JSON. Изменение прошло 1 701 тест Rust и 3 605 тестов настольного приложения. Сам Buzz сегодня набрал 1 710 звёзд на GitHub Trending.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/block/buzz/commit/95fdf978800982389b120c66ff5e766d785419c7" target="_blank" rel="noopener">https://github.com/block/buzz/commit/95fdf978800982389b120c66ff5e766d785419c7</a></p>
+<blockquote><strong>👉 Как применить:</strong> следить, а не переносить туда работу сейчас. Buzz интересен как единый журнал для людей и нескольких агентов, но наш штаб уже живёт в Telegram, GitHub и Hermes. Возвращаться к пробе стоит, когда параллельных агентов станет столько, что начнут теряться решения и история согласований.</blockquote>
+<h3 class="numbered" data-n="3">cctalk показал нормальную защиту для агента из мессенджера</h3>
+<p><span class="hint">Что случилось</span> за сутки появился мост WhatsApp с Claude Code. Ценность не в WhatsApp, а в защите: неизвестным отправителям не отвечает вообще, роли разделены на чтение и полный доступ, а отдельный PreToolUse-перехватчик запрещает лишние инструменты, выход за разрешённые папки и чтение секретов. Автор прямо предупреждает, что неофициальный клиент WhatsApp может привести к блокировке номера.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/badnikhil/cctalk" target="_blank" rel="noopener">https://github.com/badnikhil/cctalk</a></p>
+<p>Свежий анонс в X: <a href="https://x.com/badnikhill/status/2081489951661985971" target="_blank" rel="noopener">https://x.com/badnikhill/status/2081489951661985971</a></p>
+<blockquote><strong>👉 Как применить:</strong> WhatsApp не ставить. Взять его трёхслойную защиту как список проверки для наших Telegram-агентов: белый список, роли, отдельный перехватчик действий с запретом по умолчанию.</blockquote>
+<h3 class="numbered" data-n="4">Маркетинговая память Claude Code в Git, а не в длинном промпте</h3>
+<p><span class="hint">Что случилось</span> автор из r/ClaudeAI показал рабочую систему, где Claude Code ведёт маркетинг проекта. Позиционирование, площадки, контакты и очередь публикаций лежат в типизированных Markdown-файлах внутри Git; схема проверяет структуру, а история изменений не даёт памяти расползаться. Это живой пример того, что инструкции и рабочее состояние лучше хранить раздельно.</p>
+<p><span class="hint">Живой пример</span> <a href="https://www.reddit.com/r/ClaudeAI/comments/1v7nrzg/i_run_my_projects_marketing_with_claude_code_the/" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeAI/comments/1v7nrzg/i_run_my_projects_marketing_with_claude_code_the/</a></p>
+<blockquote><strong>👉 Как применить:</strong> собрать такой же реестр для ИнструментБург: кампания, площадка, дата публикации, результат, повторный контакт и причина решения. Claude Code должен читать факты из файлов, а не восстанавливать их по переписке.</blockquote>
+<h3 class="numbered" data-n="5">AI ускоряет запуск, но плодит недоделанные проекты</h3>
+<p><span class="hint">Что случилось</span> обсуждение на Hacker News набрало 186 голосов и 54 комментария к моменту сбора. Автор держал больше 100 идей статей и 50 проектов, запускал Claude короткими пятиминутными подходами и в итоге получил перегруз вместо освобождённого времени. В комментариях повторяется тот же рабочий перекос: быстрый прототип теперь легко выдать за понимание задачи, а сложность и сопровождение всплывают позже.</p>
+<p><span class="hint">Живой пример</span> <a href="https://news.ycombinator.com/item?id=49057877" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49057877</a></p>
+<blockquote><strong>👉 Как применить:</strong> держать правило «одна главная задача и две малые». Новую автоматизацию не начинать, пока предыдущая не даёт проверяемый результат и не назначен человек, который будет её сопровождать.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
