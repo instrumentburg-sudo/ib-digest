@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-07-28 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-07-28</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw v2026.7.2-beta.5:</h2>
+<ul class="bullets">
+<li>Появилось восстановление состояния после повреждения базы и сбоев SQLite.</li>
+<li>Принятые сообщения Telegram и других каналов теперь переживают перезапуск шлюза: добавлены общая очередь входящих и восстановление неразобранных сообщений.</li>
+<li>Починены одноразовые и догоняющие задания cron, сохранение состояния заданий и зависание быстрых задач за медленными.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> релиз бьёт точно в два наших риска — потерю входящих после рестарта и сбои расписания. Но это предварительная версия: сначала проверка на копии профиля, боевого бота не обновлять вслепую.</blockquote>
+<p>  Релиз: <a href="https://github.com/openclaw/openclaw/releases/tag/v2026.7.2-beta.5" target="_blank" rel="noopener">https://github.com/openclaw/openclaw/releases/tag/v2026.7.2-beta.5</a></p>
+<h2>🤖 Claude Code:</h2>
+<ul class="bullets">
+<li>Без релиза за последние 24 часа. Последняя версия v2.1.220 опубликована 25 июля.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновлять нечего; текущую установку не трогаем.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Alibaba Open Code Review вышел в лидеры GitHub Trending</h3>
+<p><span class="hint">Что случилось</span> репозиторий набрал 979 звёзд за сутки и 15 100 всего на момент сбора. Инструмент сочетает жёсткий конвейер проверки с LLM-агентом и ставит комментарии к конкретным строкам. Авторы проверяли его на 200 запросах на слияние из 50 репозиториев и заявляют примерно девятикратную экономию токенов по сравнению с универсальным агентом; это их замер, мы его не воспроизводили.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/alibaba/open-code-review" target="_blank" rel="noopener">https://github.com/alibaba/open-code-review</a></p>
+<blockquote><strong>👉 Как применить:</strong> прогнать один реальный запрос на слияние калькулятора или сводки параллельно с нашим обычным разбором. Сравнить найденные дефекты, ложные тревоги, время и расход токенов; внедрять только после такого сравнения.</blockquote>
+<h3 class="numbered" data-n="2">Impeccable превращает дизайн-проверку агента в повторяемый процесс</h3>
+<p><span class="hint">Что случилось</span> проект набрал 847 звёзд за сутки и 51 780 всего. Внутри 23 команды для проектирования и проверки интерфейса, а также 60 детерминированных правил, которые работают без модели и ключа API. Есть отдельные проверки доступности, адаптивности, переполнения текста и типичных шаблонов AI-дизайна.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/pbakaus/impeccable" target="_blank" rel="noopener">https://github.com/pbakaus/impeccable</a></p>
+<blockquote><strong>👉 Как применить:</strong> проверить на одной странице публичной сводки перед следующим переделыванием интерфейса. Полезнее всего команды <code>audit</code>, <code>critique</code> и <code>harden</code>; глобально ставить пока рано.</blockquote>
+<h3 class="numbered" data-n="3">ctx ищет решения и провалы во всей локальной истории агентов</h3>
+<p><span class="hint">Что случилось</span> свежая публикация в X снова подняла существующий проект ctx. Он индексирует локальные истории Hermes, Claude Code, Codex и других агентов в SQLite, затем возвращает найденные фрагменты с привязкой к исходной сессии. Репозиторий обновлён сегодня, в нём 976 звёзд; облако и ключи модели не нужны.</p>
+<p><span class="hint">Живой пример</span> <a href="https://x.com/ara_shell/status/2081878800976240952" target="_blank" rel="noopener">https://x.com/ara_shell/status/2081878800976240952</a> — репозиторий: <a href="https://github.com/ctxrs/ctx" target="_blank" rel="noopener">https://github.com/ctxrs/ctx</a></p>
+<blockquote><strong>👉 Как применить:</strong> пробно проиндексировать рабочие истории и сравнить поиск старых решений с текущим поиском по сессиям Hermes. Перед публикацией результатов обязательно проверять фрагменты: локальный индекс сохраняет пути и строки, похожие на секреты.</blockquote>
+<h3 class="numbered" data-n="4">Claude Opus 5 дал повышенные ошибки почти на 63 минуты</h3>
+<p><span class="hint">Что случилось</span> 27 июля Claude API, Claude Code, claude.ai и Cowork работали с повышенной долей ошибок с 11:27 до 12:30 UTC. Инцидент закрыт; обсуждение на Hacker News собрало 99 баллов и 72 комментария на момент сбора.</p>
+<p><span class="hint">Живой пример</span> <a href="https://status.claude.com/incidents/mfdtrknpxghq" target="_blank" rel="noopener">https://status.claude.com/incidents/mfdtrknpxghq</a> — обсуждение: <a href="https://news.ycombinator.com/item?id=49068029" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49068029</a></p>
+<blockquote><strong>👉 Как применить:</strong> критичные задания не должны зависеть от одного Opus. Для сборки, проверки и публикации держать явный запасной маршрут через Codex и отличать сбой модели от сбоя нашего конвейера.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
