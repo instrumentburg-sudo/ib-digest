@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-07-30 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-07-30</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw:</h2>
+<ul class="bullets">
+<li>За последние 24 часа релизов нет. Последний — v2026.7.2-beta.5 от 28 июля, он не входит в окно.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> Обновлять нечего; пробную версию не ставим.</blockquote>
+<h2>🤖 Claude Code:</h2>
+<ul class="bullets">
+<li>За последние 24 часа релизов нет. Последний — v2.1.220 от 25 июля.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> Ничего не меняем, текущие процессы продолжают работать на установленной версии.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Alibaba выложила специализированную проверку кода</h3>
+<p><span class="hint">Что случилось</span> OpenCodeReview набрал 359 звёзд за день и 16 195 всего на момент сбора. Инструмент сочетает жёсткий отбор файлов с LLM-проверкой по строкам. Авторы заявляют тест на 200 реальных запросах на слияние из 50 проектов и расход около 1/9 токенов по сравнению с универсальным агентом на той же модели.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/alibaba/open-code-review" target="_blank" rel="noopener">https://github.com/alibaba/open-code-review</a></p>
+<blockquote><strong>👉 Как применить:</strong> Прогнать его вторым независимым проверяющим на одном рабочем репозитории. Считать найденные реальные дефекты, ложные срабатывания и расход токенов; текущую проверку до сравнения не заменять.</blockquote>
+<h3 class="numbered" data-n="2">Постоянный контекст может съедать треть окна модели</h3>
+<p><span class="hint">Что случилось</span> Автор свежего разбора Claude Code насчитал 71 000 токенов постоянной нагрузки на каждое сообщение. Один отключённый, но всё ещё загружаемый плагин стоил 8 800 токенов. После чистки нагрузка снизилась до 44 000 токенов, или на 38%. Это измерения автора, не универсальный результат.</p>
+<p><span class="hint">Живой пример</span> <a href="https://www.reddit.com/r/ClaudeAI/comments/1vafcf4/audit_found_an_unused_skill_and_took_action_it/" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeAI/comments/1vafcf4/audit_found_an_unused_skill_and_took_action_it/</a></p>
+<blockquote><strong>👉 Как применить:</strong> Проверить Claude и Hermes по формуле «размер × частота загрузки». В первую очередь — описания всех навыков, отключённые плагины и дубли правил. Удалять не на глаз, а после замера фактически загружаемого контекста.</blockquote>
+<h3 class="numbered" data-n="3">Минимальный шлюз для локальных LLM без Redis и PostgreSQL</h3>
+<p><span class="hint">Что случилось</span> Автор smol-llm-proxy показал шлюз примерно на 1 100 строках Python и SQLite: отдельные ключи пользователей, учёт токенов, маршрутизация моделей и ограничения RPM/TPM. По его замерам, логика добавляет 0,13 мс, полный проход — около 1 мс, память — примерно 53 МБ на процесс.</p>
+<p><span class="hint">Живой пример</span> <a href="https://www.reddit.com/r/LocalLLaMA/comments/1va9lut/a_minimal_proxy_i_wrote_for_local_llamaservers/" target="_blank" rel="noopener">https://www.reddit.com/r/LocalLLaMA/comments/1va9lut/a_minimal_proxy_i_wrote_for_local_llamaservers/</a></p>
+<p><span class="hint">Источник</span> <a href="https://github.com/robolamp/smol-llm-proxy" target="_blank" rel="noopener">https://github.com/robolamp/smol-llm-proxy</a></p>
+<blockquote><strong>👉 Как применить:</strong> Взять на заметку для общего доступа к нашим локальным моделям. Ставить только после проверки авторизации, хранения ключей и поведения при превышении лимитов; сейчас это молодой проект без звёзд.</blockquote>
+<h3 class="numbered" data-n="4">Локальная очередь слияния для параллельных Claude Code</h3>
+<p><span class="hint">Что случилось</span> На Hacker News показали claude-code-merge-queue: каждый агент работает в отдельном git worktree, а проверки, перебазирование и отправка изменений проходят последовательно через общую очередь. На момент сбора — 26 голосов и 8 комментариев; у проекта нет зависимостей во время работы.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/funador/claude-code-merge-queue" target="_blank" rel="noopener">https://github.com/funador/claude-code-merge-queue</a></p>
+<p><span class="hint">Источник</span> <a href="https://news.ycombinator.com/item?id=49104747" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49104747</a></p>
+<blockquote><strong>👉 Как применить:</strong> Проверить на одном проекте, где два агента действительно меняют код параллельно. Ценность — убрать гонки при отправке и повторные тяжёлые сборки; без сильного набора тестов очередь сама качество не гарантирует.</blockquote>
+<h3 class="numbered" data-n="5">Документ может переносить скрытую атаку между AI-сессиями</h3>
+<p><span class="hint">Что случилось</span> В свежем обсуждении Hacker News — 359 голосов и 279 комментариев на момент сбора — разобрали самораспространяющуюся инструкцию в Word. Скрытый белым текстом запрос попадал в Copilot, менял числа в создаваемом документе и копировал себя дальше. Автор воспроизвёл сценарий после обновления модели до GPT-5.6; надёжного пользовательского исправления на дату публикации не было.</p>
+<p><span class="hint">Живой пример</span> <a href="https://news.ycombinator.com/item?id=49096188" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49096188</a></p>
+<p><span class="hint">Источник</span> <a href="https://enklypesalt.com/posts/context-collapse-part3-ai-worming-through-word/" target="_blank" rel="noopener">https://enklypesalt.com/posts/context-collapse-part3-ai-worming-through-word/</a></p>
+<blockquote><strong>👉 Как применить:</strong> Для Claude Cowork, юридических материалов и КП считать все внешние документы недоверенными. Перед загрузкой извлекать и просматривать скрытый текст, а созданные числа и формулировки сверять с первоисточником; автоматическую цепочку «чужой документ → готовый документ» не разрешать.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
