@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-07-31 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-07-31</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw:</h2>
+<ul class="bullets">
+<li>За последние 24 часа релизов нет. Последняя версия — v2026.7.2-beta.5 от 28 июля, поэтому в текущие обновления её не включаю.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> ничего не обновлять.</blockquote>
+<h2>🤖 Claude Code:</h2>
+<ul class="bullets">
+<li>За последние 24 часа релизов нет. Последняя версия — v2.1.220 от 25 июля.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> ничего не обновлять.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">OpenWork выпустил экспериментальную сборку и вышел в GitHub Trending</h3>
+<p><span class="hint">Что случилось</span> OpenWork — открытая замена Claude Cowork с общими навыками и MCP для Claude Code, Codex и других агентов — выпустил Knoppers 4. Сборка исправляет два сломанных установщика, проверяет импорт сервера из готового app.asar и прошла проверку подписи, холодного запуска и перезапуска на macOS arm64. На момент сбора у проекта 18 920 звёзд, из них 915 — за сутки.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/different-ai/openwork/releases/tag/knoppers-4-experimental" target="_blank" rel="noopener">https://github.com/different-ai/openwork/releases/tag/knoppers-4-experimental</a></p>
+<blockquote><strong>👉 Как применить:</strong> пока не ставить в рабочий контур — это экспериментальная ветка только для macOS arm64. Но подход с единым MCP для раздачи навыков команде стоит проверить отдельно: он может упростить перенос наших процедур между Hermes, Claude Code и Codex.</blockquote>
+<h3 class="numbered" data-n="2">agent-manager v0.13.1 собирает разных кодовых агентов в одном терминале</h3>
+<p><span class="hint">Что случилось</span> менеджер запускает Claude Code, Codex, OpenCode, Grok и Gemini CLI в отдельных сессиях tmux, показывает их состояние, нагрузку и изменения по файлам. Можно отправлять задания без входа в сессию и возвращать замечания по строкам одним сообщением. Релиз v0.13.1 вышел ночью; обсуждение на Hacker News набрало 95 баллов и 75 комментариев на момент сбора.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/YoanWai/agent-manager/releases/tag/v0.13.1" target="_blank" rel="noopener">https://github.com/YoanWai/agent-manager/releases/tag/v0.13.1</a></p>
+<blockquote><strong>👉 Как применить:</strong> протестировать на отдельной машине как пульт для параллельных задач Claude Code и Codex. В рабочую схему пускать только после проверки потребления памяти и корректного восстановления сессий — сами авторы пока не добавили создание git-worktree и учёт стоимости.</blockquote>
+<h3 class="numbered" data-n="3">Автономный GPT-5.6 Sol запустили управлять реальным бизнесом — результат оказался убыточным</h3>
+<p><span class="hint">Что случилось</span> агент получил Mac mini, почту, банковский счёт и задачу «максимально вырастить бизнес» на 24 часа. За 320,7 млн входных токенов и 1 129 вызовов инструментов он не заработал ничего, потратил 99,50 доллара из доступных денег, купил 50 тестировщиков, начал массовую рассылку и шесть раз менял цену продукта. Обсуждение на Hacker News набрало 344 балла и 201 комментарий.</p>
+<p><span class="hint">Живой пример</span> <a href="https://www.bottlenecklabs.com/blog/autonomously-run-businesses" target="_blank" rel="noopener">https://www.bottlenecklabs.com/blog/autonomously-run-businesses</a></p>
+<blockquote><strong>👉 Как применить:</strong> не давать маркетинговому агенту право самостоятельно отправлять письма, менять цены и тратить деньги. Сбор данных и подготовка действий — автоматически; публикация, расход и изменение условий — только после подтверждения Антона.</blockquote>
+<h3 class="numbered" data-n="4">Шестидневные исследования OpenClaw показали предел автономных агентов</h3>
+<p><span class="hint">Что случилось</span> CRUX дал двум связкам OpenClaw + Claude Opus 4.8 по шесть дней, до 3 000 долларов API-бюджета, GPU и закрытые исследовательские задачи. Агенты без помощи выполнили инженерную часть, но обе итоговые работы авторы исходных исследований однозначно отклонили. Повтор на Codex + GPT-5.6 Sol воспроизвёл те же проблемы: слабое суждение, плохой возврат из тупиков, непонимание бюджета и уход от инструкций.</p>
+<p><span class="hint">Живой пример</span> <a href="https://cruxevals.com/crux/can-ai-agents-conduct-research/" target="_blank" rel="noopener">https://cruxevals.com/crux/can-ai-agents-conduct-research/</a></p>
+<p>Источник в X: <a href="https://x.com/PKirgis/status/2082883344673767747" target="_blank" rel="noopener">https://x.com/PKirgis/status/2082883344673767747</a></p>
+<blockquote><strong>👉 Как применить:</strong> длинные автономные задачи дробить на этапы с проверяемым результатом и человеческим решением на развилках. Агенту можно отдавать поиск, расчёты и сборку артефакта; выбор стратегии и оценку «достаточно хорошо» оставлять человеку.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
