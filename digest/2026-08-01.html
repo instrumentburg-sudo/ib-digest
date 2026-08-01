@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-08-01 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-08-01</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw v2026.7.2-beta.6:</h2>
+<ul class="bullets">
+<li>Бета вышла в 05:34 UTC — за 28 минут до сбора дайджеста. Главный практический блок: принятые сообщения теперь восстанавливаются после перезапуска шлюза и локального сбоя; это касается Telegram, Signal, Slack и ещё шести каналов.</li>
+<li>Добавили аварийно-восстанавливаемые снимки SQLite, перемотку и ветвление диалогов, интерактивные MCP-приложения и структурированные запросы подтверждения.</li>
+<li>Исправили потерю входящих Telegram-сообщений при перезапуске, пропуски одноразовых и догоняющих заданий расписания, а также зависание завершённых заданий за медленными пакетами.</li>
+<li>Релиз: <a href="https://github.com/openclaw/openclaw/releases/tag/v2026.7.2-beta.6" target="_blank" rel="noopener">https://github.com/openclaw/openclaw/releases/tag/v2026.7.2-beta.6</a></li>
+</ul>
+<blockquote><strong>→ Нам:</strong> в основную установку сразу не обновляться — это бета. Через 24–48 часов проверить отдельным профилем именно восстановление Telegram и заданий расписания; если стабильно, планировать обновление.</blockquote>
+<h2>🤖 Claude Code:</h2>
+<ul class="bullets">
+<li>Без релиза за последние 24 часа. Последний опубликованный релиз v2.1.220 вышел 25 июля и в строгий интервал не входит.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновление не требуется.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">qm: общий агент для компании с раздельными правами</h3>
+<p><span class="hint">Что случилось</span> 31 июля вышел qm v0.1.4. Репозиторий создан 29 июля и уже набрал 2 697 звёзд; обсуждение на Hacker News получило 524 балла и 110 комментариев на момент сбора. Для каждого сотрудника и чата qm отделяет память, файлы, ключи, права, задания расписания и рабочее окружение; ядро поддерживает Codex, Claude Code, OpenCode и Pi.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/yc-software/qm" target="_blank" rel="noopener">https://github.com/yc-software/qm</a> — обсуждение: <a href="https://news.ycombinator.com/item?id=49126604" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49126604</a></p>
+<blockquote><strong>👉 Как применить:</strong> не разворачивать вслепую, а забрать модель разграничения прав для корпоративных агентов ИнструментБург: отдельные области сотрудника, отдела и общего чата, без доступа ко всем ключам сразу.</blockquote>
+<h3 class="numbered" data-n="2">Параллельные агенты ускоряют проверку в 4 раза, но вложенный запуск сжигает лимиты</h3>
+<p><span class="hint">Что случилось</span> в одном свежем опыте три Claude Code-агента в отдельных рабочих деревьях Git сократили проверку старого и нового кода с 6 часов до 90 минут. В другом шесть агентов породили ещё три, сделали около 70 проходов и потратили 2,76 млн токенов на репозитории в 597 тыс. строк; часть процессов продолжала работать ещё 40 минут после фактического отказа.</p>
+<p><span class="hint">Живой пример</span> <a href="https://www.reddit.com/r/ClaudeAI/comments/1vbyw1w/ran_3_claude_code_agents_in_3_separate_git/" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeAI/comments/1vbyw1w/ran_3_claude_code_agents_in_3_separate_git/</a> — аварийный случай: <a href="https://www.reddit.com/r/ClaudeAI/comments/1vce5x3/be_careful_running_claude_code_subagents/" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeAI/comments/1vce5x3/be_careful_running_claude_code_subagents/</a></p>
+<blockquote><strong>👉 Как применить:</strong> закрепить для наших проверок максимум три параллельных агента, отдельное рабочее дерево каждому, запрет на порождение вложенных агентов и обязательную остановку незавершённых процессов. Параллельность полезна только вместе с изоляцией и пределами.</blockquote>
+<h3 class="numbered" data-n="3">last30days-skill собрал поиск по живым источникам в один навык</h3>
+<p><span class="hint">Что случилось</span> репозиторий получил 658 звёзд за сутки на GitHub Trending и 56 342 звезды всего; последнее изменение отправлено 1 августа в 02:15 UTC. Навык параллельно собирает Reddit, Hacker News, GitHub и другие источники, а X подключает отдельно; авторы заявляют работу Reddit через RSS и Arctic Shift без ключа.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/mvanhorn/last30days-skill" target="_blank" rel="noopener">https://github.com/mvanhorn/last30days-skill</a></p>
+<blockquote><strong>👉 Как применить:</strong> прогнать его параллельно с нашим дайджестом на одной неделе и сравнить три вещи: сколько подтверждённых новостей он находит, сколько даёт ложных срабатываний и насколько хорошо соблюдает точные 24 часа. Не заменять текущий сбор до проверки ссылок и дат.</blockquote>
+<h3 class="numbered" data-n="4">OpenWork выносит общие навыки и подключения в один MCP</h3>
+<p><span class="hint">Что случилось</span> OpenWork получил 806 звёзд за сутки на GitHub Trending и достиг 19 647 звёзд. 31 июля вышло несколько альфа-сборок 0.18.13. Удалённый MCP показывает агентам только два инструмента — поиск доступных возможностей и их запуск, а сами навыки, подключения и права назначаются централизованно.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/different-ai/openwork" target="_blank" rel="noopener">https://github.com/different-ai/openwork</a></p>
+<blockquote><strong>👉 Как применить:</strong> пока наблюдать, не внедрять. Архитектура пригодна как ориентир для единого каталога возможностей ИнструментБург, который можно подключать к Hermes, Codex и Claude Code без копирования десятков настроек между ними.</blockquote>
+<h3 class="numbered" data-n="5">video-shotcraft превратил производство коротких роликов в набор проверяемых сцен</h3>
+<p><span class="hint">Что случилось</span> публикация в X от 05:52 UTC снова подняла репозиторий video-shotcraft. Внутри 104 карточки сцен, 161 анимированный пример и готовый шаблон ролика на 36,2 секунды из 10 сцен; репозиторий набрал 3 062 звезды. Это не новый релиз, а свежий практический сигнал вокруг проекта от 19 июля.</p>
+<p><span class="hint">Живой пример</span> <a href="https://vincentwei1021.github.io/video-shotcraft/" target="_blank" rel="noopener">https://vincentwei1021.github.io/video-shotcraft/</a> — источник: <a href="https://x.com/Formulasearch/status/2083430525595685094" target="_blank" rel="noopener">https://x.com/Formulasearch/status/2083430525595685094</a></p>
+<blockquote><strong>👉 Как применить:</strong> взять не весь стек, а библиотеку сцен и собрать один пробный 30–40-секундный ролик о ремонте инструмента: реальные фото и экранные записи, без клиентских данных. Сравнить с нашим текущим производством по времени, качеству движения и числу ручных правок.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
