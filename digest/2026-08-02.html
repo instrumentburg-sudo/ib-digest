@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-08-02 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-08-02</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw: без релиза за 24 часа</h2>
+<ul class="bullets">
+<li>Последний выпуск вышел до точной отсечки и в этот дайджест не попал.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновлять нечего.</blockquote>
+<h2>🤖 Claude Code: без релиза за 24 часа</h2>
+<ul class="bullets">
+<li>За последние 24 часа новых выпусков нет.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновлять нечего.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">YC открыла qm — общий агент для команды</h3>
+<p><span class="hint">Что случилось</span> В X за последние сутки разошёлся новый открытый проект YC. qm даёт каждому сотруднику и рабочему каналу отдельные память, файлы, ключи, права, расписания и изолированную среду, но сохраняет совместную работу в Slack и веб-интерфейсе. Репозиторий набрал 5 336 звёзд и 549 ответвлений на момент сбора.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/yc-software/qm" target="_blank" rel="noopener">https://github.com/yc-software/qm</a></p>
+<p><span class="hint">Источник</span> <a href="https://x.com/yusei_moriwaki/status/2083678258395312302" target="_blank" rel="noopener">https://x.com/yusei_moriwaki/status/2083678258395312302</a></p>
+<blockquote><strong>👉 Как применить:</strong> Не тащить платформу целиком. Забрать модель разграничения прав и памяти по людям и рабочим каналам для наших агентов в Telegram — это важнее очередного «умного» промпта.</blockquote>
+<h3 class="numbered" data-n="2">Память агента научили закрывать устаревшие факты</h3>
+<p><span class="hint">Что случилось</span> В r/ClaudeAI показали локальный MCP-сервер Ultimate Memory. Новый факт не просто добавляется рядом со старым: противоречащая запись получает статус устаревшей и срок действия. Источник истины остаётся в читаемых Markdown-файлах; Qdrant, Neo4j и SQLite усиливают поиск. По данным автора, решение обошло A-MEM в трёх из четырёх категорий LoCoMo, но уступило в многошаговых вопросах.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/Cookie-Cat21/ultimate-memory" target="_blank" rel="noopener">https://github.com/Cookie-Cat21/ultimate-memory</a></p>
+<p><span class="hint">Источник</span> <a href="https://www.reddit.com/r/ClaudeAI/comments/1vd8xwp/built_a_local_memory_server_for_claude_code_that/" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeAI/comments/1vd8xwp/built_a_local_memory_server_for_claude_code_that/</a></p>
+<blockquote><strong>👉 Как применить:</strong> Проверить на копии нашей памяти механизм <code>SUPERSEDES</code> и сроки действия. Это может убрать старые настройки и факты, которые сейчас продолжают всплывать после изменений.</blockquote>
+<h3 class="numbered" data-n="3">Появился шлюз между внешними материалами и навыками агента</h3>
+<p><span class="hint">Что случилось</span> На Hacker News показали свежий evidence-to-skill. Репозиторий создан 1 августа: внешние документы сначала попадают в карантин и журнал доказательств, затем проходят проверку, и только после этого правило можно перенести в навык. Внутри — пять регрессионных тестов и отдельный аудит без печати найденных секретов.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/Sanexxxx777/evidence-to-skill" target="_blank" rel="noopener">https://github.com/Sanexxxx777/evidence-to-skill</a></p>
+<p><span class="hint">Источник</span> <a href="https://news.ycombinator.com/item?id=49138808" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49138808</a></p>
+<blockquote><strong>👉 Как применить:</strong> Встроить такую проверку в создание наших навыков из репозиториев и инструкций. Это прямое средство против тихого внедрения чужих инструкций и неподтверждённых команд в постоянные правила агента.</blockquote>
+<h3 class="numbered" data-n="4">На GitHub вырос интерес к общей памяти для команды агентов</h3>
+<p><span class="hint">Что случилось</span> TencentDB Agent Memory попал в дневной GitHub Trending и получил 227 звёзд за сутки, всего — 10 405. Система собирает четыре вида активов: память диалогов, навыки, базу знаний и граф кода; доступ разделён на личный, командный и ограниченный. В README заявлена совместимость с OpenClaw и Hermes.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/TencentCloud/TencentDB-Agent-Memory" target="_blank" rel="noopener">https://github.com/TencentCloud/TencentDB-Agent-Memory</a></p>
+<blockquote><strong>👉 Как применить:</strong> Сравнить с нашей связкой памяти, навыков и CodeGraph. Ценность не в ещё одной базе, а в панели, где видно владельца, версию, доступ и назначение каждого знания конкретному агенту.</blockquote>
+<h3 class="numbered" data-n="5">Калькулятор считает полную стоимость работы AI-агента</h3>
+<p><span class="hint">Что случилось</span> На Hacker News запустили CostPerPrompt: цены более чем 232 моделей и отдельные расчёты для многошаговых агентов, повторных запросов, схем инструментов, кэша и пакетной обработки. На момент сбора обсуждение набрало 12 голосов и 5 комментариев.</p>
+<p><span class="hint">Живой пример</span> <a href="https://costperprompt.com/" target="_blank" rel="noopener">https://costperprompt.com/</a></p>
+<p><span class="hint">Источник</span> <a href="https://news.ycombinator.com/item?id=49140340" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49140340</a></p>
+<blockquote><strong>👉 Как применить:</strong> Перед массовыми задачами — обработкой почты, тендеров и карточек — считать не цену одного запроса, а весь цикл с инструментами и повторами. Это даст нормальный лимит затрат по каждой автоматизации.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
