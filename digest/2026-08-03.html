@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-08-03 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-08-03</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw v2026.7.2-beta.7:</h2>
+<ul class="bullets">
+<li>Бета-релиз вышел 2 августа в 08:11 UTC — внутри точного окна 24 часа. Главные изменения: аварийно восстанавливаемые снимки SQLite, защита от потери данных при обновлении схемы, восстановление принятых сообщений после перезапуска шлюза, перемотка и ветвление диалогов, интерактивные MCP-приложения и исправления планировщика.</li>
+<li>Отдельно закрыли потери входящих сообщений Telegram при перезапуске и ряд сбоев одноразовых и догоняющих заданий.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> релиз полезный именно для надёжности Telegram и расписаний, но это бета. Сначала короткая проверка на отдельной установке: приём сообщения → перезапуск шлюза → восстановление очереди; затем проверка ежедневного задания. [Релиз](<a href="https://github.com/openclaw/openclaw/releases/tag/v2026.7.2-beta.7" target="_blank" rel="noopener">https://github.com/openclaw/openclaw/releases/tag/v2026.7.2-beta.7</a>)</blockquote>
+<h2>🤖 Claude Code:</h2>
+<ul class="bullets">
+<li>За последние 24 часа релизов нет. Последний опубликованный релиз — v2.1.220 от 25 июля, поэтому в сегодняшний выпуск его не подтягиваю.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновляться сегодня не из-за чего.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Qwen3.8-Max показали на длинной автономной разработке</h3>
+<p><span class="hint">Что случилось</span> Qwen выпустила Qwen3.8-Max — 2,4 трлн параметров, из которых 95 млрд активны; открытые веса обещаны на следующей неделе. В официальном примере модель около 16 дней развивала проект без ручной разработки: 265 коммитов, 127 запросов на слияние и 151 задача. На Hacker News новость набрала 343 балла и 126 комментариев на момент сбора. Цифры автономного прогона — данные автора, не независимая проверка.</p>
+<p><span class="hint">Живой пример</span> [oh-my-cli — полный след автономной разработки](<a href="https://github.com/qwen-code-dev-bot/oh-my-cli" target="_blank" rel="noopener">https://github.com/qwen-code-dev-bot/oh-my-cli</a>) · [анонс Qwen](<a href="https://qwen.ai/blog?id=qwen3.8" target="_blank" rel="noopener">https://qwen.ai/blog?id=qwen3.8</a>) · [обсуждение HN](<a href="https://news.ycombinator.com/item?id=49150470" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49150470</a>)</p>
+<blockquote><strong>👉 Как применить:</strong> после появления API или весов прогнать один изолированный длинный заказ на копии репозитория HQ и сравнить с Claude/Codex по трём метрикам: дошёл ли до готового результата, сколько потребовал ручных исправлений, сколько стоил. В рабочие репозитории без такой проверки не пускать.</blockquote>
+<h3 class="numbered" data-n="2">TencentDB Agent Memory — память с возвратом к первоисточнику</h3>
+<p><span class="hint">Что случилось</span> репозиторий набрал 602 звезды за сутки и 11 374 всего. Он раскладывает память агента по слоям: исходные диалоги и журналы → факты → сценарии → профиль, а длинные промежуточные результаты выносит из контекста с возможностью провалиться обратно к доказательству. Авторы заявляют до 61,38% экономии токенов и рост успешности WideSearch с 33% до 50%; это их собственный тест.</p>
+<p><span class="hint">Живой пример</span> [TencentDB-Agent-Memory](<a href="https://github.com/TencentCloud/TencentDB-Agent-Memory" target="_blank" rel="noopener">https://github.com/TencentCloud/TencentDB-Agent-Memory</a>)</p>
+<blockquote><strong>👉 Как применить:</strong> взять один длинный процесс TenderPlan и сравнить с текущей памятью Hermes: расход токенов, число повторных запросов контекста, доля завершённых шагов. Решение о внедрении — только после проверки приватности и воспроизводимости заявленных цифр.</blockquote>
+<h3 class="numbered" data-n="3">OpenWork быстро растёт как открытая альтернатива Claude Cowork</h3>
+<p><span class="hint">Что случилось</span> OpenWork поднялся в GitHub Trending — 280 звёзд за сутки, 20 478 всего; основная ветка обновлялась около восьми часов назад. Это бесплатное настольное приложение для обмена рабочими сценариями AI: отдельное рабочее пространство необязательно, а один MCP позволяет использовать назначенные навыки, подключения и сервисы из Claude Code, Codex, Cursor и других совместимых агентов.</p>
+<p><span class="hint">Живой пример</span> [different-ai/openwork](<a href="https://github.com/different-ai/openwork" target="_blank" rel="noopener">https://github.com/different-ai/openwork</a>)</p>
+<blockquote><strong>👉 Как применить:</strong> не заменять им Hermes, а разобрать как источник интерфейсных решений для Hermes Desktop — единый каталог возможностей, поиск назначенных инструментов, запуск через одну точку и границы рабочего пространства. Если найдётся конкретно лучший сценарий, перенести его отдельно, без второго параллельного контура.</blockquote>
+<h3 class="numbered" data-n="4">MicroCodex упаковал кодирующего агента в архив меньше 0,5 МБ</h3>
+<p><span class="hint">Что случилось</span> в течение окна вышел v0.1.9-alpha. Архивы занимают 324–406 КБ; внутри C++-агент для терминала с локальными инструментами, сохранением диалогов, сжатием контекста и поддержкой тех же SKILL.md, что у Codex. У проекта пока нет MCP, а запрет опасных команд прямо назван не песочницей. Обсуждение Show HN набрало 18 баллов и 12 комментариев.</p>
+<p><span class="hint">Живой пример</span> [MicroCodex v0.1.9-alpha](<a href="https://github.com/paoloanzn/microcodex/releases/tag/v0.1.9-alpha" target="_blank" rel="noopener">https://github.com/paoloanzn/microcodex/releases/tag/v0.1.9-alpha</a>) · [обсуждение HN](<a href="https://news.ycombinator.com/item?id=49147842" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49147842</a>)</p>
+<blockquote><strong>👉 Как применить:</strong> в основной контур не ставить. Сохранить как кандидат на сверхлёгкий аварийный агент для чистого контейнера; возвращаться к тесту после появления MCP и нормальной песочницы.</blockquote>
+<h3 class="numbered" data-n="5">В X снова подняли ECC — набор практик уже поддерживает Hermes</h3>
+<p><span class="hint">Что случилось</span> свежий пост в X 2 августа снова привлёк внимание к ECC. Сам проект не новый: репозиторий создан в январе, но обновлялся в последние сутки и уже имеет отдельную цель установки для Hermes. Сейчас в дереве 894 файла SKILL.md, 67 файлов агентов и 94 команды; часть SKILL.md — переводы и варианты, поэтому это не число уникальных навыков. У репозитория около 237 тыс. звёзд.</p>
+<p><span class="hint">Живой пример</span> [пост в X](<a href="https://x.com/DivyanshT91162/status/2083898529869943046" target="_blank" rel="noopener">https://x.com/DivyanshT91162/status/2083898529869943046</a>) · [актуальный репозиторий ECC](<a href="https://github.com/affaan-m/ECC" target="_blank" rel="noopener">https://github.com/affaan-m/ECC</a>)</p>
+<blockquote><strong>👉 Как применить:</strong> не устанавливать всё скопом. Сверить с нашими навыками только три блока: межагентная память, проверка безопасности изменений и обязательная самопроверка результата; забрать лишь отсутствующие приёмы.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
