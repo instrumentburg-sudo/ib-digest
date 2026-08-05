@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-08-05 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-08-05</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw — без релиза за 24 часа:</h2>
+<ul class="bullets">
+<li>Последний стабильный релиз опубликован до контрольного окна, поэтому не считаю его сегодняшним обновлением.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> ничего не обновлять ради шума; ждём следующий выпуск.</blockquote>
+<h2>🤖 Claude Code 2.1.222:</h2>
+<ul class="bullets">
+<li>Закрыты два опасных сценария: изолированные worktree-сессии и их субагенты больше не могут затронуть основной checkout разрушительными git-командами, а <code>PreToolUse</code>-хуки больше не обходят ограничения инструментов в фоновых задачах.</li>
+<li>Исправлены работа через HTTPS-прокси, завышенная атрибуция расхода MCP-серверам и запуск Remote Control из настроек репозитория.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновление приоритетное — у нас активно используются субагенты, worktree и MCP. После обновления проверить один изолированный прогон и отчёт <code>/usage</code>.</blockquote>
+<h2>📡 Что нового в ИИ:</h2>
+<h3 class="numbered" data-n="1">Cloudflare превратила инженерные правила в исполняемую систему для агентов</h3>
+<p><span class="hint">Что случилось</span> за четыре месяца агент проверки кода Cloudflare отметил около 230 000 нарушений и остановил почти 16 000 слияний. Более 60 RFC переводятся в структурированные правила <code>SHOULD</code>/<code>MUST</code>; сначала правило работает как рекомендация, затем после отдельного утверждения начинает блокировать. Отдельный агент уже проверил почти 600 технических спецификаций.</p>
+<p><span class="hint">Живой пример</span> <a href="https://blog.cloudflare.com/engineering-standards-enforcement/" target="_blank" rel="noopener">https://blog.cloudflare.com/engineering-standards-enforcement/</a></p>
+<blockquote><strong>👉 Как применить:</strong> собрать небольшой «кодекс ИнструментБург» из 10–15 проверяемых правил для агентов и публикаций: секреты, приватные данные, свежесть источников, выборочная подготовка файлов к коммиту, обязательная внешняя проверка. Сначала только предупреждать, блокировать — после проверки ложных срабатываний.</blockquote>
+<h3 class="numbered" data-n="2">Warp выпустил отдельного агента для командной строки с работой через SSH</h3>
+<p><span class="hint">Что случилось</span> новый Warp Agent CLI сохраняет сессию при смене каталогов, управляет полноэкранными программами и интерактивными оболочками, запускается через SSH без установки программы на удалённой машине и умеет передавать задачу облачному агенту. Обсуждение на Hacker News набрало 98 баллов и 60 комментариев на момент сбора.</p>
+<p><span class="hint">Живой пример</span> <a href="https://news.ycombinator.com/item?id=49171766" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49171766</a></p>
+<blockquote><strong>👉 Как применить:</strong> не мигрировать, а взять как контрольный образец для Hermes — особенно для удалённой работы по SSH, PTY и передачи долгих задач между локальным и облачным исполнением.</blockquote>
+<h3 class="numbered" data-n="3">pdf-inspector быстро отделяет обычные PDF от сканов до запуска OCR</h3>
+<p><span class="hint">Что случилось</span> проект поднялся в GitHub Trending на 2 540 звёзд за день и обновлялся внутри контрольного окна. Rust-библиотека за 10–50 мс классифицирует страницы как текстовые, сканированные, графические или смешанные, затем извлекает структуру в Markdown. Авторы заявляют обработку обычного PDF менее чем за 200 мс и утверждают, что около 54% документов можно пропускать без дорогого OCR.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/firecrawl/pdf-inspector" target="_blank" rel="noopener">https://github.com/firecrawl/pdf-inspector</a></p>
+<blockquote><strong>👉 Как применить:</strong> прогнать на выборке тендерных PDF и документов для КП. Текстовые страницы разбирать локально, в OCR отправлять только сканы и смешанные страницы — это должно сократить время и стоимость распознавания.</blockquote>
+<h3 class="numbered" data-n="4">В GitHub Trending вышел общий слой памяти для разных ИИ-агентов</h3>
+<p><span class="hint">Что случилось</span> TencentDB Agent Memory получил 1 111 звёзд за день и 14,1 тыс. всего. Он автоматически превращает диалоги, документы и код в четыре переносимых актива: Chat Memory, Skill, LLM-Wiki и Code-Graph; заявлена совместимость с Hermes и OpenClaw.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/TencentCloud/TencentDB-Agent-Memory" target="_blank" rel="noopener">https://github.com/TencentCloud/TencentDB-Agent-Memory</a></p>
+<blockquote><strong>👉 Как применить:</strong> пока не внедрять. Сначала сравнить с нашей связкой Hermes Memory + Skills + CodeGraph на обезличенном проекте: проверить переносимость, качество автоматического выделения навыков и где физически хранятся данные.</blockquote>
+<h3 class="numbered" data-n="5">В X обсуждают открытую Python-реализацию цикла Claude Code</h3>
+<p><span class="hint">Что случилось</span> свежая публикация подняла <code>clawcodex</code> — не новый проект, а активно развиваемую реализацию агентского цикла на Python. Репозиторий поддерживает несколько поставщиков моделей и обещает существенную экономию за счёт стабильного кэширования префикса; цифра «до 200×» — заявление автора, независимой проверки нет. Внутри контрольного окна проект также исправил обход каталогов при загрузке сессий.</p>
+<p><span class="hint">Живой пример</span> <a href="https://x.com/i/status/2084684190789038185" target="_blank" rel="noopener">https://x.com/i/status/2084684190789038185</a> — репозиторий: <a href="https://github.com/agentforce314/clawcodex" target="_blank" rel="noopener">https://github.com/agentforce314/clawcodex</a></p>
+<blockquote><strong>👉 Как применить:</strong> не заменять Claude Code. Взять 10 типовых обезличенных задач и сравнить стоимость, долю успешных прогонов и качество проверки результата; без такого теста обещание экономии ничего не стоит.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
