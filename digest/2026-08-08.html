@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-08-08 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-08-08</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw: без релиза за последние 24 часа.</h2>
+<h2>🤖 Claude Code 2.1.225–2.1.226:</h2>
+<ul class="bullets">
+<li>В 2.1.225 добавили понятные предупреждения о лимите расходов шлюза: размер ограничения, время сброса и сообщение оператора.</li>
+<li><code>claude agents</code> теперь запрашивает доверие к рабочей папке. Исправлены сбои долгоживущих OAuth-токенов в фоновых сессиях и серии ошибок 401 у MCP OAuth на macOS.</li>
+<li>Сессии Remote Control могут первыми писать сессиям на других машинах через <code>SendMessage</code>; фотографии из приложения Claude передаются модели напрямую. В 2.1.226 — исправления ошибок и надёжности.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновляться сразу до 2.1.226 и после обновления отдельно проверить фоновые сессии, MCP OAuth и Remote Control.</blockquote>
+<blockquote><strong>→</strong> Релиз: <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.225" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/releases/tag/v2.1.225</a></blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Prime Agent вынес «самообучение» рабочего контура в отдельный механизм</h3>
+<p><span class="hint">Что случилось</span> PrimeIntellect-ai/prime-agent поднялся на первое место GitHub Trending — 2 293 звезды за сутки, 6 994 всего. Агент хранит цели, навыки и подагентов между сессиями, а команда <code>/refine</code> вносит небольшие изменения в рабочие правила с историей и откатом. Важное ограничение: это не песочница, команды выполняются с правами пользователя.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/PrimeIntellect-ai/prime-agent" target="_blank" rel="noopener">https://github.com/PrimeIntellect-ai/prime-agent</a></p>
+<blockquote><strong>👉 Как применить:</strong> забрать идею контролируемого улучшения навыков — только небольшие правки, доказательство пользы и обязательный откат. Сам Prime Agent пока не ставить в рабочий контур: сначала сравнить его с Hermes на отдельном репозитории.</blockquote>
+<h3 class="numbered" data-n="2">Для Claude Code показали готовый конвейер «спецификация → параллельные агенты → проверка»</h3>
+<p><span class="hint">Что случилось</span> свежая демонстрация The Agentic Startup в X набрала 7 349 просмотров и 118 закладок. Репозиторий делит задачи на три уровня сложности: простое исполнение, поэтапная работа и параллельная «фабрика»; перед кодом создаёт требования и техническое решение, после — запускает тесты и разбор несколькими агентами.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/rsmdt/the-startup" target="_blank" rel="noopener">https://github.com/rsmdt/the-startup</a></p>
+<blockquote><strong>👉 Как применить:</strong> сравнить их классификатор сложности с нашим маршрутом Hermes/Codex. Полезная часть — не «команда агентов», а автоматический выбор: простую правку делать одним агентом, крупную — дробить на независимые блоки с отдельными критериями приёмки.</blockquote>
+<h3 class="numbered" data-n="3">Cloudflare показала браузер для агентов, который требует в 3–7 раз меньше памяти и процессора</h3>
+<p><span class="hint">Что случилось</span> обсуждение Kitesurf за сутки набрало 180 баллов и 48 комментариев на Hacker News. Браузер работает в изолятах V8, поддерживает Chrome DevTools Protocol, Playwright и MCP, а в бета-версии доступен бесплатно через Browser Run. Публикация вышла раньше, но именно за последние 24 часа получила заметный отклик на HN.</p>
+<p><span class="hint">Живой пример</span> <a href="https://news.ycombinator.com/item?id=49208393" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49208393</a></p>
+<blockquote><strong>👉 Как применить:</strong> проверить Kitesurf на одном безопасном сценарии без авторизации — сбор карточек конкурентов или снимков страниц. Если совместимость достаточная, это может снизить стоимость массовых браузерных проверок; авторизованные кабинеты пока не переносить.</blockquote>
+<h3 class="numbered" data-n="4">Databricks описала рабочую схему контроля расходов на программирующих агентов</h3>
+<p><span class="hint">Что случилось</span> материал от 7 августа набрал 207 баллов и 192 комментария на Hacker News. Вместо жёсткого общего лимита Databricks предлагает четыре рычага: более дешёвые модели, маршрутизацию по сложности задачи, видимость расходов с поэтапными ограничениями и сокращение лишнего контекста.</p>
+<p><span class="hint">Живой пример</span> <a href="https://www.databricks.com/blog/managing-ai-coding-costs-scale" target="_blank" rel="noopener">https://www.databricks.com/blog/managing-ai-coding-costs-scale</a></p>
+<blockquote><strong>👉 Как применить:</strong> считать расходы не только по модели, а по типу задания и результату. Для рутины — дешёвая модель или Ollama; дорогая — только после неудачи или для сложного разбора. Перед полным отключением вводить предупреждение и автоматическое переключение на более дешёвую модель.</blockquote>
+<p>Источник Reddit в этом выпуске не использован: публичные страницы всех четырёх выбранных сообществ вернули HTTP 403.</p>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
