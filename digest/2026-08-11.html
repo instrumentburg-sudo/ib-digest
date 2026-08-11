@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-08-11 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-08-11</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw:</h2>
+<ul class="bullets">
+<li>Без релиза за последние 24 часа.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> ничего не обновлять; текущий последний релиз вышел 8 августа и в сегодняшнее окно не входит.</blockquote>
+<h2>🤖 Claude Code v2.1.227:</h2>
+<ul class="bullets">
+<li>Исправлена поломка, из-за которой все Bash-команды падали в <code>claude-code-action</code> с <code>allowed_non_write_users</code> на GitHub-hosted runners.</li>
+<li>Исправлена неверная оценка тарифа при старте с просроченным токеном: пользователей Max могло ошибочно просить включить платные кредиты для Fable.</li>
+<li>Снижены задержки цикла событий при подсказках отсутствующих файлов и проверках размера упоминаний.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновить Claude Code перед следующей автоматизацией через GitHub Actions; главный практический фикс — восстановление Bash-команд в action.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Meta выпустила локальную агентную модель MuseGlimmer</h3>
+<p><span class="hint">Что случилось</span> открыты веса 30-миллиардной модели под Apache 2.0. Квантизированная сборка занимает около 17 ГБ, рассчитана на 24–32 ГБ памяти, поддерживает вызов инструментов, изображения и работу в OpenClaw. На Hacker News — 1 083 балла и 592 комментария на момент сбора.</p>
+<p><span class="hint">Живой пример</span> официальный анонс — <a href="https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model" target="_blank" rel="noopener">https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model</a></p>
+<blockquote><strong>👉 Как применить:</strong> в прод не тащить. Когда появится обещанная сборка для Ollama, прогнать на отдельном GPU-узле тест вызова наших инструментов и сравнить с текущими облачными моделями по точности, скорости и цене.</blockquote>
+<h3 class="numbered" data-n="2">Needle 2 уместил вызов инструментов в 14 МБ</h3>
+<p><span class="hint">Что случилось</span> открытая модель на 45 млн параметров работает в 28 МБ оперативной памяти и выдаёт, по данным авторов, около 500 токенов в секунду на Raspberry Pi 5. Она не ведёт свободный диалог, а выбирает функции и заполняет строгие схемы — именно поэтому такая маленькая.</p>
+<p><span class="hint">Живой пример</span> браузерная песочница и код — <a href="https://cactuscompute.com/needle" target="_blank" rel="noopener">https://cactuscompute.com/needle</a></p>
+<blockquote><strong>👉 Как применить:</strong> проверить узкий офлайн-прототип на Raspberry Pi — голосовая команда или короткая фраза превращается в строго заданное действие. Для сервиса это интереснее как локальный диспетчер оборудования, а не как чат-бот.</blockquote>
+<h3 class="numbered" data-n="3">Prime Agent вышел в лидеры GitHub Trending</h3>
+<p><span class="hint">Что случилось</span> агент для длительных задач набрал 2 642 звезды за сутки и 13 340 всего на момент сбора. Внутри — постоянная Python-среда, встроенные субагенты, фоновые сессии, цели, расписания, бюджеты и проверяемое самообновление инструкций через <code>/refine</code>.</p>
+<p><span class="hint">Живой пример</span> репозиторий — <a href="https://github.com/PrimeIntellect-ai/prime-agent" target="_blank" rel="noopener">https://github.com/PrimeIntellect-ai/prime-agent</a></p>
+<blockquote><strong>👉 Как применить:</strong> Hermes не менять. Взять Prime Agent как контрольного соперника и на одноразовой копии репозитория сравнить длительную задачу с одинаковым бюджетом и обязательным проверочным шлюзом; отдельно посмотреть, что можно забрать из <code>/refine</code> и постоянных целей.</blockquote>
+<h3 class="numbered" data-n="4">Практический шаблон для многошаговых диалогов Claude</h3>
+<p><span class="hint">Что случилось</span> автор диагностического сервиса показал три рабочих наблюдения: условия остановки надо формулировать глаголами действия, интерфейс надёжнее строить из итогового JSON, а не из промежуточных тегов, и сценарные многошаговые тесты ловят ошибки, невидимые в одиночном запросе.</p>
+<p><span class="hint">Живой пример</span> разбор и открытый системный промпт — <a href="https://www.reddit.com/r/ClaudeAI/comments/1vl55zc/what_i_learned_building_multiturn_conversational/" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeAI/comments/1vl55zc/what_i_learned_building_multiturn_conversational/</a></p>
+<p><span class="hint">Источник</span> системный промпт — <a href="http://isthisaproduct.com/api/prompt" target="_blank" rel="noopener">http://isthisaproduct.com/api/prompt</a></p>
+<blockquote><strong>👉 Как применить:</strong> перенести шаблон в бота онбординга и квалификацию заявок: явные условия немедленной остановки, один финальный JSON-контракт и набор заранее записанных диалогов для регрессионной проверки.</blockquote>
+<h3 class="numbered" data-n="5">Снова всплыл правильный шлюз для длинных задач Claude Code</h3>
+<p><span class="hint">Что случилось</span> свежая публикация в X вернула внимание к майскому демонстрационному репозиторию Anthropic — это не новый релиз. Полезная часть: все критерии по умолчанию имеют статус FAIL, отдельный оценщик без Write/Edit проверяет результат в свежем контексте, а передача между сессиями идёт через <code>PROGRESS.md</code> и git.</p>
+<p><span class="hint">Источник</span> свежая публикация — <a href="https://x.com/gippp69/status/2086741147611758804" target="_blank" rel="noopener">https://x.com/gippp69/status/2086741147611758804</a></p>
+<p><span class="hint">Живой пример</span> репозиторий — <a href="https://github.com/anthropics/cwc-long-running-agents" target="_blank" rel="noopener">https://github.com/anthropics/cwc-long-running-agents</a></p>
+<blockquote><strong>👉 Как применить:</strong> формализовать этот шлюз для задач Hermes, где агент сейчас сам себя проверяет: исполнитель создаёт артефакт и доказательства, отдельный оценщик только читает и выдаёт PASS или NEEDS_WORK. Это дешевле повторной переделки после самопроверки в том же контексте.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
