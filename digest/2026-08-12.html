@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-08-12 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-08-12</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw:</h2>
+<ul class="bullets">
+<li>За последние 24 часа релизов нет. Последний выпуск v2026.6.34 опубликован 8 августа и в сегодняшнее окно не входит.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновляться сегодня не на что; рабочую установку не трогаем.</blockquote>
+<h2>🤖 Claude Code 2.1.228:</h2>
+<ul class="bullets">
+<li>Исправлена очистка сессий, которая могла удалить содержимое папки памяти проекта. Устранены остановки перерисовки терминала, сбои обмена сообщениями между сессиями и завершение собственного исполнителя между фоновой задачей и следующим ходом.</li>
+<li>Усилена защита навыков, синхронизированных с claude.ai: они больше не перекрывают локальные команды и MCP-промпты, а их описания очищаются. Также исправлено смешивание пользовательских заголовков между уровнями настроек маркетплейсов.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновление ставить. Для наших долгих задач и набора локальных навыков это не косметика, а защита памяти, настроек и фоновых сессий.</blockquote>
+<p>Релиз: <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.228" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/releases/tag/v2.1.228</a></p>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">h5i изолирует Claude Code и Codex от основной машины</h3>
+<p><span class="hint">Что случилось</span> в r/ClaudeAI показали локальную песочницу h5i для агентов. Она помещает рабочую копию, оболочку, зависимости, сервер разработки и браузер в одно одноразовое окружение. Доступны уровни от отдельной рабочей копии Git до контейнера без root-прав и микровиртуальной машины; на выходе — проверяемый патч и журнал команд. Репозиторий обновлён сегодня, 522 звезды на момент сбора.</p>
+<p><span class="hint">Живой пример</span> обсуждение — <a href="https://www.reddit.com/r/ClaudeAI/comments/1vm2w0e/a_lightweight_rootless_container_sandbox_for/" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeAI/comments/1vm2w0e/a_lightweight_rootless_container_sandbox_for/</a> ; репозиторий — <a href="https://github.com/h5i-dev/h5i" target="_blank" rel="noopener">https://github.com/h5i-dev/h5i</a></p>
+<blockquote><strong>👉 Как применить:</strong> протестировать на одном автономном задании Hermes или Claude Code с чужими зависимостями. Главная ценность — агент не получает домашний каталог и постоянные ключи, а результат забирается отдельным патчем.</blockquote>
+<h3 class="numbered" data-n="2">Prime Agent вышел в лидеры суточного рейтинга GitHub</h3>
+<p><span class="hint">Что случилось</span> Prime Agent набрал 1 138 звёзд за сутки и 14 390 всего на момент сбора. Это открытый агент для долгих задач с постоянным Python-окружением, встроенными субагентами, фоновыми сессиями, целями, расписанием и механизмом <code>/refine</code>, который сохраняет небольшие подтверждённые улучшения в памяти и навыках. Сам проект честно предупреждает: это не песочница, команды выполняются с правами пользователя.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/PrimeIntellect-ai/prime-agent" target="_blank" rel="noopener">https://github.com/PrimeIntellect-ai/prime-agent</a></p>
+<blockquote><strong>👉 Как применить:</strong> не переносить платформу целиком, а сравнить её непрерывные цели, фоновое продолжение и обновление навыков с Hermes. Запускать пробу только в отдельной рабочей копии или h5i.</blockquote>
+<h3 class="numbered" data-n="3">OpenClaude 0.28.0: любой провайдер и более надёжные долгие сессии</h3>
+<p><span class="hint">Что случилось</span> свежий выпуск открытого терминального агента добавил ApiSmart, бесплатную Ling 3.0 Tiny до 13 августа и сделал GPT-5.6 Sol моделью по умолчанию для планирования в Codex. Практичнее другое: обновление сериализует OAuth-обновление MCP между процессами, делает замену расшифровок сессий устойчивой к падению и устраняет квадратичное замедление списка моделей. Репозиторий собрал 30 628 звёзд; выпуск подтверждён официальным релизом и свежей публикацией в X.</p>
+<p><span class="hint">Живой пример</span> релиз — <a href="https://github.com/Gitlawb/openclaude/releases/tag/v0.28.0" target="_blank" rel="noopener">https://github.com/Gitlawb/openclaude/releases/tag/v0.28.0</a> ; источник в X — <a href="https://x.com/gitlawb/status/2087170542944276687" target="_blank" rel="noopener">https://x.com/gitlawb/status/2087170542944276687</a></p>
+<blockquote><strong>👉 Как применить:</strong> следить, но не переезжать. Для Hermes полезны три конкретных решения: блокировка параллельного обновления OAuth, аварийно-безопасная запись истории и проверка сложности каталогов моделей.</blockquote>
+<h3 class="numbered" data-n="4">Узкое место разработки с AI сместилось с написания кода на проверку</h3>
+<p><span class="hint">Что случилось</span> Google опубликовал разбор, почему Go удобен для работы с агентами: единый форматтер, быстрый компилятор, встроенные тесты, типы и небольшая зависимость от внешних пакетов сокращают пространство для случайных решений модели. Обсуждение на Hacker News набрало 326 голосов и 381 комментарий на момент сбора.</p>
+<p><span class="hint">Живой пример</span> статья — <a href="https://developers.googleblog.com/why-go-is-an-ideal-language-for-ai-assisted-software-engineering/" target="_blank" rel="noopener">https://developers.googleblog.com/why-go-is-an-ideal-language-for-ai-assisted-software-engineering/</a> ; обсуждение — <a href="https://news.ycombinator.com/item?id=49261133" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49261133</a></p>
+<blockquote><strong>👉 Как применить:</strong> не переписывать сервисы на Go ради моды. Но новые автономные утилиты проектировать с теми же свойствами: один формат, строгие типы или схемы, быстрые локальные проверки, минимум зависимостей и обязательная проверка результата до отчёта об успехе.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
