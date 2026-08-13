@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-08-13 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-08-13</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw: без релиза за 24 часа</h2>
+<ul class="bullets">
+<li>Последний выпуск v2026.6.34 опубликован 8 августа — за пределами окна дайджеста.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновление не ставим, текущую конфигурацию не трогаем.</blockquote>
+<h2>🤖 Claude Code v2.1.229:</h2>
+<ul class="bullets">
+<li>Исправили пропадающие и дублирующиеся части длинных ответов, зависания интерфейса при тысячах диагностик IDE и несколько аварий при <code>--resume</code>.</li>
+<li>Для долгих размышлений через Vertex и Bedrock добавили SSE-пинги: шлюз больше не должен обрывать соединение по тайм-ауту бездействия.</li>
+<li>Параллельные однотипные агенты теперь запускаются со сдвигом, чтобы повторно использовать кэш префикса и не платить за один контекст несколько раз. Команды с <code>--force</code>, <code>--amend</code> и <code>--no-verify</code> в <code>/commit-push-pr</code> больше не получают автоматическое разрешение.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновлять стоит. Особенно полезны устойчивые длинные сессии и экономия на параллельных агентах; защита опасных Git-команд снижает риск ночных автономных запусков.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Агентные циклы вместо одиночных запросов</h3>
+<p><span class="hint">Что случилось</span> свежая публикация в X показала готовые циклы «разобрать очередь → выполнить → проверить → повторить» для Claude Code, Codex и других агентов. Проверенный репозиторий <code>loop-engineering</code> обновлён сегодня, набрал 10 296 звёзд; установщик поддерживает шаблоны ежедневного разбора, контроля CI и сопровождения PR.</p>
+<p><span class="hint">Живой пример</span> репозиторий и команда <code>npx @cobusgreyling/loop-init --pattern daily-triage --tool claude-code</code> — <a href="https://github.com/cobusgreyling/loop-engineering" target="_blank" rel="noopener">https://github.com/cobusgreyling/loop-engineering</a></p>
+<blockquote><strong>👉 Как применить:</strong> взять не весь набор, а один цикл для утренней проверки наших автоматизаций: входные данные → действие → тест → отчёт об исключениях. Это полезнее очередного «умного промпта», потому что проверка встроена в процесс.</blockquote>
+<h3 class="numbered" data-n="2">Claude нашёл скрытый дефект сразу в 11 браузерных играх</h3>
+<p><span class="hint">Что случилось</span> автор TENKAY прогнал четырёх исследовательских агентов примерно по 90 источникам, затем поручил им построчно проверить движок. Из 15 замечаний одно оказалось рабочим дефектом: на iPhone звук не запускался из-за <code>touchstart</code>. Исправление перенесли на все 11 игр за день; сама игра — один HTML-файл размером 434 КБ без зависимостей.</p>
+<p><span class="hint">Живой пример</span> пост с разбором и работающая игра — <a href="https://www.reddit.com/r/ClaudeAI/comments/1vmzdtk/my_dice_game_tenkay_has_12_rivals_with_different/" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeAI/comments/1vmzdtk/my_dice_game_tenkay_has_12_rivals_with_different/</a></p>
+<blockquote><strong>👉 Как применить:</strong> для калькулятора и публичных страниц запускать не общий «проверь код», а параллельную проверку по источникам: мобильные браузеры, доступность, формы и сетевые сбои. Затем требовать список проверяемых дефектов и реальный прогон.</blockquote>
+<h3 class="numbered" data-n="3">Инструмент для схем набрал 2 855 звёзд за день</h3>
+<p><span class="hint">Что случилось</span> <code>diagram-design</code> вышел в лидеры GitHub Trending. Внутри 29 типов схем для Claude Code и Codex, самостоятельные HTML+SVG, настройка цветов по сайту и встроенная проверка контраста WCAG AA. Репозиторий обновлён сегодня; всего у него 11 547 звёзд на момент сбора.</p>
+<p><span class="hint">Живой пример</span> галерея и установка — <a href="https://github.com/cathrynlavery/diagram-design" target="_blank" rel="noopener">https://github.com/cathrynlavery/diagram-design</a></p>
+<blockquote><strong>👉 Как применить:</strong> протестировать на одной схеме процесса ремонта или движения заявки. Если результат читается быстрее текущих блок-схем, добавить как штатный инструмент для регламентов и презентаций.</blockquote>
+<h3 class="numbered" data-n="4">Агенты начали покупать услуги у агентов — пока как опытный образец</h3>
+<p><span class="hint">Что случилось</span> в Show HN появился рынок, где агент получает HTTP 402, подписывает оплату USDC и покупает структурированное извлечение данных без участия человека. Деньги идут напрямую исполнителю; результат проверяется по JSON Schema, источнику и ограничениям. На момент сбора обсуждение набрало 6 баллов и 5 комментариев — сигнал ранний, не массовый.</p>
+<p><span class="hint">Живой пример</span> действующий каталог и MCP-подключение — <a href="https://aaas-marketplace-1089237826218.asia-northeast1.run.app" target="_blank" rel="noopener">https://aaas-marketplace-1089237826218.asia-northeast1.run.app</a></p>
+<blockquote><strong>👉 Как применить:</strong> платежи агентам нам сейчас не нужны. Полезная часть — контракт результата: схема, сверка с источником и запрет исполнять ответ поставщика как инструкцию. Этот принцип стоит перенести в сбор цен и тендерные цепочки.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
