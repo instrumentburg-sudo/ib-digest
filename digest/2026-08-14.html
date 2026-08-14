@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-08-14 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-08-14</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw: без релиза за 24 часа</h2>
+<ul class="bullets">
+<li>Новых выпусков в точном 24-часовом окне нет.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> ничего не обновлять.</blockquote>
+<h2>🤖 Claude Code v2.1.232 / v2.1.231:</h2>
+<ul class="bullets">
+<li>Подагенты типа <code>fork</code> теперь по умолчанию наследуют весь диалог и кэш запроса; обычные подагенты в интерактивных сессиях запускаются в фоне.</li>
+<li>Через <code>@имя</code> можно передать сообщение другой активной сессии Claude Code на том же компьютере. Это уже рабочий механизм координации нескольких агентов, а не ручное копирование контекста.</li>
+<li>Закрыли обходы разрешений в PowerShell, Git Bash, вложенных репозиториях и песочнице Linux; добавили маскирование семейств токенов GitLab. В v2.1.231 отдельно исправили вход MCP OAuth для серверов с заранее зарегистрированным клиентом.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновлять после короткой проверки Remote Control и MCP. Главная польза — общение параллельных сессий; главная причина не тянуть — исправления песочницы и разрешений.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">GLM-5.3 вышел для агентов, но веса пока не опубликованы</h3>
+<p><span class="hint">Что случилось</span> Z.ai выпустила GLM-5.3 для Coding Plan и ZCode. По данным самой компании, модель получила 28,3 балла в Terminal Bench 3.0 против 4,6 у GLM-5.2 и прибавила 50% во внутреннем тесте программирования. Веса обещают через две недели после проверки безопасности. Обсуждение на Hacker News набрало 136 баллов и 39 комментариев на момент сбора.</p>
+<p><span class="hint">Живой пример</span> официальный разбор — <a href="https://z.ai/blog/glm-5.3" target="_blank" rel="noopener">https://z.ai/blog/glm-5.3</a></p>
+<p><span class="hint">Источник</span> обсуждение — <a href="https://news.ycombinator.com/item?id=49294997" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49294997</a></p>
+<blockquote><strong>👉 Как применить:</strong> не трогать локальный сервер до публикации весов, размера и лицензии. Через API прогнать сравнительный тест на 10 наших задачах: исправление кода, работа с файлами, длинная цепочка инструментов и проверка результата.</blockquote>
+<h3 class="numbered" data-n="2">NVIDIA показала единый маршрутизатор для Claude Code, Codex и OpenClaw</h3>
+<p><span class="hint">Что случилось</span> Switchyard поднялся в GitHub Trending: 408 звёзд за день и 1 303 всего на момент сбора. Прокси переводит запросы между форматами OpenAI и Anthropic, направляет их в Ollama, vLLM, NVIDIA NIM или OpenRouter и собирает метрики задержки, ошибок и токенов. Авторы прямо помечают проект как предварительную версию, не для продакшена.</p>
+<p><span class="hint">Живой пример</span> репозиторий и команды запуска — <a href="https://github.com/NVIDIA-NeMo/Switchyard" target="_blank" rel="noopener">https://github.com/NVIDIA-NeMo/Switchyard</a></p>
+<blockquote><strong>👉 Как применить:</strong> не внедрять в рабочий контур. Проверить в песочнице один сценарий: дешёвая модель выполняет обычный шаг, сильная подключается после ошибки или по решению проверяющей модели. Сравнить с уже встроенной маршрутизацией Hermes по цене и числу сбоев.</blockquote>
+<h3 class="numbered" data-n="3">Память агента начали проверять на устаревание по коду</h3>
+<p><span class="hint">Что случилось</span> свежий разбор на Reddit снова поднял mex — локальную вики проекта, связанную с точными символами кода. Tree-sitter и SQLite строят граф, а <code>mex check</code> ищет перемещённые, удалённые и устаревшие ссылки. У репозитория 1 436 звёзд; заявленные 916-кратное сжатие контекста и 100% полнота поиска получены только на собственном тестовом репозитории, поэтому это ориентир, не доказанный общий результат.</p>
+<p><span class="hint">Живой пример</span> репозиторий — <a href="https://github.com/mex-memory/mex" target="_blank" rel="noopener">https://github.com/mex-memory/mex</a></p>
+<p><span class="hint">Источник</span> свежий разбор — <a href="https://www.reddit.com/r/ClaudeAI/comments/1vnio9l/we_gave_coding_agents_persistent_project_memory/" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeAI/comments/1vnio9l/we_gave_coding_agents_persistent_project_memory/</a></p>
+<blockquote><strong>👉 Как применить:</strong> рядом с CodeGraph вслепую не ставить. На одном проекте проверить, ловит ли mex устаревшие инструкции после переименования файлов и функций лучше текущего контура памяти. Если нет — не плодить второй индекс.</blockquote>
+<h3 class="numbered" data-n="4">Контекст до запуска сократил расход агента примерно на 70%</h3>
+<p><span class="hint">Что случилось</span> автор на Reddit дважды дал Opus 5 один запрос — собрать двумерную игру. Запуск с предварительным исследованием занял около 10 минут и 30 000 выходных токенов; запуск с голым запросом — 1,5 часа и более 100 000 токенов. Это единичный пользовательский опыт, но причина описана конкретно: во втором запуске токены ушли на догадки и повторные исправления.</p>
+<p><span class="hint">Живой пример</span> запрос, видео и сравнение двух запусков — <a href="https://www.reddit.com/r/ClaudeAI/comments/1vngeqv/same_prompt_same_ai_model_twice_10_minutes_and/" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeAI/comments/1vngeqv/same_prompt_same_ai_model_twice_10_minutes_and/</a></p>
+<blockquote><strong>👉 Как применить:</strong> перед сложной разработкой сохранять нынешний порядок: найти текущую реализацию и ограничения, сформировать короткий пакет контекста, затем запускать агента. Для повторяющихся задач измерять не только время, но и токены до зелёных тестов.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
