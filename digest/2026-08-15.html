@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-08-15 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-08-15</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw v2026.8.1-beta.2:</h2>
+<ul class="bullets">
+<li>Вышла бета с привязкой секретов к конкретным HTTPS-хостам: подстановка секрета без разрешённого адресата теперь прекращается до отправки открытого значения.</li>
+<li>Появились проверяемые снимки SQLite: <code>openclaw backup sqlite create|list|verify|restore</code>. Добавлены GPT-5.6 Ultra и согласованное переключение модели, среды и глубины рассуждения.</li>
+<li>Релиз опубликован 15 августа в 05:36 UTC. У npm-пакета нет подтверждения происхождения через OIDC: авторы объясняют это тайм-аутом основного процесса публикации, подпись и целостность пакета проверены отдельно.</li>
+</ul>
+<p><span class="hint">Живой пример</span> релиз — <a href="https://github.com/openclaw/openclaw/releases/tag/v2026.8.1-beta.2" target="_blank" rel="noopener">https://github.com/openclaw/openclaw/releases/tag/v2026.8.1-beta.2</a></p>
+<blockquote><strong>→ Нам:</strong> рабочую установку на бету не обновлять. На отдельной копии проверить <code>openclaw backup sqlite verify</code> и восстановление в пустую базу; привязку секретов к хостам взять в обязательную проверку перед стабильным релизом.</blockquote>
+<h2>🤖 Claude Code v2.1.233:</h2>
+<ul class="bullets">
+<li>Для команд Bash в Linux добавлен лимит памяти через <code>CLAUDE_CODE_TOOL_MEMORY_LIMIT</code>, чтобы тяжёлая сборка не подвешивала сессию.</li>
+<li>Исправлены бесконечные переподключения MCP v2 и случай с одним ядром CPU на 100% в простаивающей Linux-сессии с песочницей.</li>
+<li>На новых моделях инструменты Todo/Task теперь выключены по умолчанию; временно вернуть их можно через <code>CLAUDE_CODE_ENABLE_TODO_TOOLS=1</code>.</li>
+</ul>
+<p><span class="hint">Живой пример</span> релиз — <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.233" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/releases/tag/v2.1.233</a></p>
+<blockquote><strong>→ Нам:</strong> обновить сначала одну тестовую среду, поставить лимит памяти для длительных сборок и проверить, что наши сценарии не завязаны на Todo/Task.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Anthropic показала, где Claude Code съедает лишние токены</h3>
+<p><span class="hint">Что случилось</span> практическая инструкция от 14 августа набрала на Hacker News 171 балл и 110 комментариев на момент сбора. Чтение кэша стоит 0,1 от обычного входного токена, а смена модели или <code>/effort</code> посреди разговора сбрасывает кэш. Anthropic советует <code>/clear</code> между задачами, <code>@</code>-упоминание файлов, тихий вывод команд и <code>/context</code> в начале сессии.</p>
+<p><span class="hint">Живой пример</span> статья — <a href="https://claude.com/blog/maximizing-the-value-of-your-claude-code-sessions" target="_blank" rel="noopener">https://claude.com/blog/maximizing-the-value-of-your-claude-code-sessions</a></p>
+<p>Обсуждение — <a href="https://news.ycombinator.com/item?id=49300800" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49300800</a></p>
+<blockquote><strong>👉 Как применить:</strong> закрепить эти пять правил в нашем сценарии Claude Code. Главный эффект даст разделение задач по сессиям и запрет шумного вывода сборок в основной контекст.</blockquote>
+<h3 class="numbered" data-n="2">Diagram Design резко вырос в суточном рейтинге GitHub</h3>
+<p><span class="hint">Что случилось</span> репозиторий набрал 3 646 звёзд за сутки и 17 534 всего на момент сбора. Внутри — навык для Claude Code и Codex, который делает автономные HTML/SVG-диаграммы; 14 августа добавлены именованные профили оформления для разных клиентов.</p>
+<p><span class="hint">Живой пример</span> репозиторий — <a href="https://github.com/cathrynlavery/diagram-design" target="_blank" rel="noopener">https://github.com/cathrynlavery/diagram-design</a></p>
+<blockquote><strong>👉 Как применить:</strong> не ставить вслепую. Сравнить на одной реальной схеме — например, «заявка → ремонт → выдача» — с нашим текущим генератором диаграмм; оставить только если текст читается лучше и результат не требует ручной доводки.</blockquote>
+<h3 class="numbered" data-n="3">Браузер с отдельными рабочими пространствами для агентов попал в суточный рейтинг GitHub</h3>
+<p><span class="hint">Что случилось</span> ego-lite набрал 165 звёзд за сутки и 10 472 всего. Он переносит существующие входы Chrome в отдельные пространства для Claude Code и Codex; авторы заявляют до 2,5 раза более быстрое выполнение сложных браузерных задач. Сейчас приложение доступно только для macOS, а сам браузер поставляется отдельно от MIT-репозитория.</p>
+<p><span class="hint">Живой пример</span> репозиторий и демонстрация — <a href="https://github.com/citrolabs/ego-lite" target="_blank" rel="noopener">https://github.com/citrolabs/ego-lite</a></p>
+<blockquote><strong>👉 Как применить:</strong> пока не внедрять — наш рабочий контур Linux не поддерживается. Забрать идею изоляции браузерных пространств для авторизованных Ozon/WB-сессий и вернуться к проверке после выхода Linux-версии.</blockquote>
+<h3 class="numbered" data-n="4">Mole: исследовательский агент с жёстким бюджетом и проверкой цитат</h3>
+<p><span class="hint">Что случилось</span> свежий Show HN набрал 63 балла и 10 комментариев. Mole резервирует стоимость каждого вызова до запуска, отбрасывает цитаты, которых дословно нет в источнике, и выпускает локальные данные наружу только в виде агрегатов. В демонстрации указаны 39 проверенных утверждений, два противоречия и стоимость 0,0149 доллара — это данные автора, не наш замер.</p>
+<p><span class="hint">Живой пример</span> репозиторий — <a href="https://github.com/lajosdeme/mole" target="_blank" rel="noopener">https://github.com/lajosdeme/mole</a></p>
+<p>Обсуждение — <a href="https://news.ycombinator.com/item?id=49303046" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49303046</a></p>
+<blockquote><strong>👉 Как применить:</strong> провести один сравнительный тест на исследовании поставщика или тендера с лимитом 0,50 доллара. Критерии — доля подтверждённых выводов, время и стоимость против текущего сценария Hermes.</blockquote>
+<p>X: недоступен (нужен hermes auth add xai-oauth)</p>
+<p>Reddit: запросы к указанным сообществам вернули 403, материалы не включены.</p>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
