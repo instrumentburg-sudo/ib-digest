@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-08-16 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-08-16</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw: без релиза за 24 часа.</h2>
+<ul class="bullets">
+<li>Ближайший релиз вышел за 24-часовое окно, поэтому в сегодняшний выпуск не включён.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновление не запускать, ждать следующую проверенную сборку.</blockquote>
+<h2>🤖 Claude Code: без релиза за 24 часа.</h2>
+<ul class="bullets">
+<li>Новых версий в официальном репозитории нет.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> изменений в рабочем контуре не требуется.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<p>X: недоступен — xAI вернул лимит 0 запросов в минуту. Поиск не подменялся; авторизацию можно проверить командой hermes auth add xai-oauth.</p>
+<h3 class="numbered" data-n="1">Yadda 3: Claude Code модернизировал старую библиотеку примерно за день</h3>
+<p><span class="hint">Что случилось</span> автор перевёл библиотеку поведенческих тестов на современный Node.js, Playwright, Puppeteer и TypeScript почти без ручного вмешательства. Ключевой приём — агент не менял рабочий код и соответствующие тесты в одном шаге, поэтому зелёные тесты оставались независимой проверкой. Обсуждение на Hacker News набрало 59 баллов и 27 комментариев на момент сбора.</p>
+<p><span class="hint">Живой пример</span> разбор выпуска — <a href="http://www.stephen-cresswell.com/2026/08/15/Yadda-3.0.0-BDD-in-the-Age-of-AI-Agents.html" target="_blank" rel="noopener">http://www.stephen-cresswell.com/2026/08/15/Yadda-3.0.0-BDD-in-the-Age-of-AI-Agents.html</a></p>
+<blockquote><strong>👉 Как применить:</strong> закрепить это правило в наших задачах для Codex и Claude Code — сначала отдельная спецификация или тест, затем реализация, затем независимая проверка. Не разрешать агенту одновременно переписывать критерий успеха и код.</blockquote>
+<h3 class="numbered" data-n="2">Рой агентов полезен только там, где работу можно безопасно разделить</h3>
+<p><span class="hint">Что случилось</span> в свежем обсуждении Anthropic показал опыт с 45 агентами и 15 проектами. Координируемый рой нашёл 266 уязвимостей за 27 млн токенов, независимые агенты — 21 за 6,5 млн; совпали только 12 находок. На общей кодовой базе десятки агентов чаще создавали конфликты и незакрытые запросы на слияние.</p>
+<p><span class="hint">Живой пример</span> исследование и цифры — <a href="https://www.anthropic.com/research/multiagent-systems" target="_blank" rel="noopener">https://www.anthropic.com/research/multiagent-systems</a></p>
+<blockquote><strong>👉 Как применить:</strong> использовать параллельных агентов для независимых проверок — безопасность, тесты, документация, анализ источников. Общий файл или одну функцию отдавать одному владельцу, а финальное решение — отдельному проверяющему агенту или человеку.</blockquote>
+<h3 class="numbered" data-n="3">ProofRun проверяет, действительно ли агент запускал тесты на текущем коде</h3>
+<p><span class="hint">Что случилось</span> новый локальный инструмент сохраняет результат команды вместе с отпечатком коммита, незакоммиченных и новых файлов. После любого изменения статус PASS автоматически становится STALE. Проект обновлён сегодня; сейчас у него 29 звёзд, поэтому это ранний инструмент, а не готовый стандарт.</p>
+<p><span class="hint">Живой пример</span> репозиторий и команды proofrun run, status, report — <a href="https://github.com/yebiguo/ProofRun" target="_blank" rel="noopener">https://github.com/yebiguo/ProofRun</a></p>
+<blockquote><strong>👉 Как применить:</strong> проверить на одном небольшом репозитории как дополнительный шлюз перед коммитом. Польза конкретная: агент больше не сможет сослаться на тесты, запущенные до последней правки.</blockquote>
+<h3 class="numbered" data-n="4">Агентский браузер с отдельными рабочими пространствами набирает внимание</h3>
+<p><span class="hint">Что случилось</span> ego-lite попал в суточный GitHub Trending со 104 новыми звёздами и обновлением внутри 24-часового окна. Он даёт каждому агенту отдельное пространство внутри браузера и доступ к уже открытым сессиям; заявленное ускорение до 2,5 раза пока подтверждено только авторами. Сейчас поддерживается лишь macOS.</p>
+<p><span class="hint">Живой пример</span> репозиторий и демонстрация — <a href="https://github.com/citrolabs/ego-lite" target="_blank" rel="noopener">https://github.com/citrolabs/ego-lite</a></p>
+<blockquote><strong>👉 Как применить:</strong> пока не внедрять. Взять сам принцип — изолированные вкладки и отдельные браузерные пространства для параллельных задач. К продукту вернуться после версии для Linux и проверки границ доступа к авторизованным сессиям.</blockquote>
+<h3 class="numbered" data-n="5">Diagram Design снова в суточном GitHub Trending</h3>
+<p><span class="hint">Что случилось</span> набор из 27 типов самодостаточных HTML/SVG-диаграмм получил 1 607 звёзд за сутки. Он умеет брать цвета и шрифты с сайта, перерисовывать Mermaid и draw.io, а результат открывается без сборки.</p>
+<p><span class="hint">Живой пример</span> галерея и установка для Claude Code/Codex — <a href="https://github.com/cathrynlavery/diagram-design" target="_blank" rel="noopener">https://github.com/cathrynlavery/diagram-design</a></p>
+<blockquote><strong>👉 Как применить:</strong> протестировать на одной схеме процесса ремонта или воронки КП. Если результат читается быстрее текущих диаграмм, использовать для регламентов, презентаций и визуальных объяснений клиентам.</blockquote>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
