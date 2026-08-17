@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-08-17 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-08-17</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw pr-124528-profiles:</h2>
+<ul class="bullets">
+<li>За последние 24 часа продуктовой версии не вышло. Опубликован технический архив к исправлению Gateway: при 12 одновременных ходах задержки проверки готовности доходили до 5,4 секунды; после исправления максимум составил 380 мс, ошибок проб — 0. PR уже влит.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновление имеет смысл после попадания исправления в обычный релиз — оно снижает риск зависания шлюза при параллельной работе агентов. Сейчас ставить служебный тег не нужно.</blockquote>
+<p>  Источник: <a href="https://github.com/openclaw/openclaw/pull/124528" target="_blank" rel="noopener">https://github.com/openclaw/openclaw/pull/124528</a></p>
+<h2>🤖 Claude Code:</h2>
+<ul class="bullets">
+<li>Без релиза за последние 24 часа. Последняя версия — v2.1.233 от 14 августа, поэтому в сегодняшний выпуск её изменения не включаю.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> ничего обновлять из-за сегодняшнего дайджеста не требуется.</blockquote>
+<p>  Источник: <a href="https://github.com/anthropics/claude-code/releases" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/releases</a></p>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Наблюдаемость Hermes Agent через Grafana</h3>
+<p><span class="hint">Что случилось</span> на Hacker News показали подключаемый модуль grafana-agento11y-hermes. Он пишет вызовы моделей и инструментов как трассировки OpenTelemetry; свежая версия 0.9.0 связывает вызов инструмента с породившим его ответом модели. На момент сбора обсуждение набрало 27 баллов. Важная оговорка: по умолчанию наружу уходит полный текст; безопасный режим — AGENTO11Y_CONTENT_CAPTURE_MODE=metadata_only.</p>
+<p><span class="hint">Живой пример</span> репозиторий и инструкция — <a href="https://github.com/alexander-akhmetov/grafana-agento11y-hermes" target="_blank" rel="noopener">https://github.com/alexander-akhmetov/grafana-agento11y-hermes</a></p>
+<blockquote><strong>👉 Как применить:</strong> протестировать на отдельном профиле Hermes в режиме только метаданных. Это даст реальные цифры по длительности, ошибкам инструментов и расходу моделей для ежедневных агентов без утечки переписки.</blockquote>
+<h3 class="numbered" data-n="2">Needle 2: локальный вызов инструментов в 14 МБ</h3>
+<p><span class="hint">Что случилось</span> Needle 2 попал в GitHub Trending и получил 443 звезды за сутки. Авторы заявляют 45 млн параметров, файл 14 МБ, около 28 МБ оперативной памяти, структурированный JSON и порог уверенности для передачи сомнительных случаев большой модели.</p>
+<p><span class="hint">Живой пример</span> код, установка и пример функции-инструмента — <a href="https://github.com/cactus-compute/needle" target="_blank" rel="noopener">https://github.com/cactus-compute/needle</a></p>
+<blockquote><strong>👉 Как применить:</strong> не тащить в основного ассистента. Проверить как дешёвый локальный классификатор для маршрутизации писем, заявок и простого извлечения полей; решения и ответы клиентам оставить большим моделям.</blockquote>
+<h3 class="numbered" data-n="3">Unsloth снова в дневном тренде GitHub</h3>
+<p><span class="hint">Что случилось</span> репозиторий получил 572 звезды за сутки. Это не новый релиз: свежий интерес пришёл к настольному приложению, которое запускает локальные модели, отдаёт совместимый с OpenAI API и подключает Claude Code, Codex и MCP. Проект насчитывает 72 792 звезды и обновлялся сегодня.</p>
+<p><span class="hint">Живой пример</span> репозиторий и варианты установки — <a href="https://github.com/unslothai/unsloth" target="_blank" rel="noopener">https://github.com/unslothai/unsloth</a></p>
+<blockquote><strong>👉 Как применить:</strong> наблюдать, но не заменять рабочий Ollama. Практический тест оправдан только для одного сценария: единый экран для локальных моделей и MCP без ручной сборки окружения.</blockquote>
+<h3 class="numbered" data-n="4">«Пишет человек, проверяет агент» вместо слепого вайб-кодинга</h3>
+<p><span class="hint">Что случилось</span> на Hacker News обсуждают рабочую схему из двух этапов — человек пишет код, AI проверяет его как рецензент. Обсуждение набрало 81 балл и 48 комментариев на момент сбора. Главный довод: быстро сгенерированный код невозможно внимательно проверять строка за строкой, поэтому роли лучше перевернуть.</p>
+<p><span class="hint">Живой пример</span> статья с разбором процесса — <a href="https://peterbloem.nl/blog/craft-coding" target="_blank" rel="noopener">https://peterbloem.nl/blog/craft-coding</a></p>
+<blockquote><strong>👉 Как применить:</strong> для критичных частей калькулятора, оплат и синхронизации заказов закрепить режим «человек или один агент пишет — другой агент ищет ошибки», с тестами до публикации. Для типовой вёрстки и одноразовых сценариев нынешний быстрый режим можно оставить.</blockquote>
+<p>Доступность источников: X недоступен — xAI вернул лимит 0 запросов в минуту; Reddit закрыл машинные запросы кодом 403. Посты из этих источников не подменялись пересказами из поиска.</p>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
