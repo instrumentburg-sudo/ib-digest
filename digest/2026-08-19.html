@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-08-19 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-08-19</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw:</h2>
+<ul class="bullets">
+<li>За последние 24 часа релизов нет.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> не обновлять; установленная версия остаётся без изменений.</blockquote>
+<h2>🤖 Claude Code v2.1.235:</h2>
+<ul class="bullets">
+<li>Исправлена потеря всего кэша промпта при переподключении языкового сервера, снижена нагрузка на память и процессор от фоновых облачных сессий, а SendMessage теперь сразу отклоняет слишком большие межсессионные сообщения вместо тихой потери.</li>
+<li>Закрыта опасная ошибка: Shift+Tab в поле комментария к разрешению мог одобрить правку и выдать доступ на всю сессию.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновить с установленной v2.1.232 до v2.1.235 — это три выпуска отставания и несколько полезных исправлений для параллельных агентов.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">ai-memory v1.28.1: память между Claude Code, Codex и другими агентами</h3>
+<p><span class="hint">Что случилось</span> свежий выпуск вышел 18 августа в 16:27 UTC и одновременно набрал 648 звёзд за сутки в GitHub Trending. Исправлен запуск безопасно опубликованного Docker-контейнера, обновлена уязвимая зависимость h2 до 0.4.16, расширено скрытие токенов GitHub, AWS, Stripe, Telegram и других сервисов.</p>
+<p><span class="hint">Живой пример</span> выпуск и установка — <a href="https://github.com/akitaonrails/ai-memory/releases/tag/v1.28.1" target="_blank" rel="noopener">https://github.com/akitaonrails/ai-memory/releases/tag/v1.28.1</a></p>
+<blockquote><strong>👉 Как применить:</strong> не ставить сразу в рабочий контур. Проверить в отдельном репозитории передачу незавершённой задачи Claude Code → Codex и сравнить качество с текущей памятью Hermes; отдельно забрать идеи по скрытию секретов.</blockquote>
+<h3 class="numbered" data-n="2">Munder Difflin: локальный «офис» из терминальных агентов</h3>
+<p><span class="hint">Что случилось</span> проект вошёл в GitHub Trending с 306 звёздами за сутки. Он запускает Claude Code, Codex, Grok, OpenCode и другие консольные агенты как отдельные процессы, добавляет им почту, долговременную память и общий экран; авторы честно помечают продукт как рабочий прототип.</p>
+<p><span class="hint">Живой пример</span> репозиторий и видеодемонстрация — <a href="https://github.com/chaitanyagiri/munder-difflin" target="_blank" rel="noopener">https://github.com/chaitanyagiri/munder-difflin</a></p>
+<blockquote><strong>👉 Как применить:</strong> не внедрять. Сравнить его маршрутизацию задач и видимость зависших агентов с нашей связкой Hermes + фоновые агенты; полезные механики перенести без тяжёлого Electron-интерфейса.</blockquote>
+<h3 class="numbered" data-n="3">csift: поиск и восстановление данных из сессий Claude Code</h3>
+<p><span class="hint">Что случилось</span> свежая демонстрация на Hacker News показывает локальный инструмент на Rust, который читает JSONL-сессии Claude Code, ищет по 25 типам записей, восстанавливает удалённые файлы, извлекает изображения и строит дерево субагентов. Автор заявляет 94,9% покрытия тестами; внешняя база и векторный поиск не нужны.</p>
+<p><span class="hint">Живой пример</span> репозиторий с командами и примером восстановления — <a href="https://github.com/wdhwg001/csift" target="_blank" rel="noopener">https://github.com/wdhwg001/csift</a></p>
+<blockquote><strong>👉 Как применить:</strong> поставить в изолированной среде и проверить на копии старых сессий Claude. Если восстановление файлов байт-в-байт подтверждается, использовать как аварийный инструмент, а не как штатную память.</blockquote>
+<h3 class="numbered" data-n="4">Дизайн через управляемый HTML-прототип вместо бесконечных правок промпта</h3>
+<p><span class="hint">Что случилось</span> пользователь Claude Code показал рабочий процесс: агент собирает все страницы и элементы проекта в один HTML-прототип с регуляторами отступов, шрифтов и цветов; после ручной настройки токены и снимки экрана возвращаются агенту для переноса в продукт.</p>
+<p><span class="hint">Живой пример</span> пост с галереей прототипа — <a href="https://www.reddit.com/r/ClaudeAI/comments/1vsdtfw/redesigning_your_vibe_coding_project_an_approach/" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeAI/comments/1vsdtfw/redesigning_your_vibe_coding_project_an_approach/</a></p>
+<blockquote><strong>👉 Как применить:</strong> для следующего редизайна калькулятора или сводки сначала собрать такой «пульт дизайна», утвердить визуальную систему один раз и только потом менять рабочий интерфейс.</blockquote>
+<p>X: недоступен — x_search вернул лимит xAI 0/0; другими способами X не подменялся.</p>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
