@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-08-21 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-08-21</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw:</h2>
+<ul class="bullets">
+<li>Без релиза за последние 24 часа.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> ничего не обновлять; последний выпуск остаётся за пределами окна.</blockquote>
+<h2>🤖 Claude Code v2.1.238:</h2>
+<ul class="bullets">
+<li>Исправили неограниченный рост памяти в долгих интерактивных сессиях: результаты подагентов теперь освобождаются после выхода из недавнего окна вывода.</li>
+<li>Межсессионные сообщения больше не пропадают молча при отказе получателя, переполненной очереди или ограничении частоты; также исправили ряд сбоев Remote Control и преждевременный запуск ленивых MCP-серверов.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновление полезно для длинных агентных задач и параллельных сессий. Ставить после обычной проверки текущей версии, без срочного раскатывания на все машины.</blockquote>
+<p>  Релиз: <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.238" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/releases/tag/v2.1.238</a></p>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">ai-memory снова поднялся в GitHub Trending</h3>
+<p><span class="hint">Что случилось</span> проект набрал 332 звезды за сутки и 3 731 звезду суммарно на момент сбора. Это общая память для Claude Code, Codex, OpenClaw и других агентов: наблюдения сворачиваются в обычную Markdown-вики под Git, а незавершённая работа передаётся следующему агенту без повторного пересказа контекста.</p>
+<p><span class="hint">Живой пример</span> репозиторий и сценарий перехода Claude Code → Codex — <a href="https://github.com/akitaonrails/ai-memory" target="_blank" rel="noopener">https://github.com/akitaonrails/ai-memory</a></p>
+<blockquote><strong>👉 Как применить:</strong> не ставить поверх Hermes вслепую. Проверить на одном отдельном репозитории, улучшает ли он передачу задач между Claude Code и Codex по сравнению с текущими skills и памятью Hermes.</blockquote>
+<h3 class="numbered" data-n="2">Huzzah предлагает хранить намерение разработчика рядом с кодом</h3>
+<p><span class="hint">Что случилось</span> экспериментальный редактор заменяет длинные одноразовые запросы постоянными файлами псевдокода. При сохранении Huzzah берёт разницу в таком файле как запрос к модели и перегенерирует затронутый код. Обсуждение на Hacker News собрало 263 балла и 146 комментариев на момент сбора.</p>
+<p><span class="hint">Живой пример</span> демонстрация с <code>fizz_buzz.hz</code>, корзиной и списком задач — <a href="https://www.danielvaughn.dev/posts/huzzah/" target="_blank" rel="noopener">https://www.danielvaughn.dev/posts/huzzah/</a></p>
+<blockquote><strong>👉 Как применить:</strong> сам редактор пока сырой, внедрять рано. Но подход годный: хранить PRD, ограничения и ожидаемое поведение в репозитории как постоянный источник истины, а не оставлять их в исчезающем чате агента.</blockquote>
+<h3 class="numbered" data-n="3">career-ops показывает рабочий шаблон агентной воронки с ручным решением</h3>
+<p><span class="hint">Что случилось</span> репозиторий набрал 816 звёзд за сутки и 66 901 суммарно на момент сбора. Система сканирует источники, оценивает варианты по рубрике A–F и шкале 1,0–5,0, готовит документы и ведёт статусы, но не отправляет заявки без человека. Автор заявляет о 740+ разобранных вакансиях и 100+ персонализированных резюме.</p>
+<p><span class="hint">Живой пример</span> открытый конвейер для Claude Code, Codex и других агентных CLI — <a href="https://github.com/santifer/career-ops" target="_blank" rel="noopener">https://github.com/santifer/career-ops</a></p>
+<blockquote><strong>👉 Как применить:</strong> взять не продукт, а схему для тендеров и закупок: автоматический сбор → формальная оценка → короткий список → подготовка документов → обязательное решение Антона перед внешним действием.</blockquote>
+<p>X: недоступен (нужен hermes auth add xai-oauth; текущий x_search вернул лимит 0/0).</p>
+<p>Reddit: RSS вернул HTTP 429, поэтому непроверенные посты в выпуск не включены.</p>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
