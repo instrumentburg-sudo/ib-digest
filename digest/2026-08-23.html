@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-08-23 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-08-23</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw:</h2>
+<ul class="bullets">
+<li>Без релиза за последние 24 часа. Последний опубликованный выпуск, v2026.8.1-beta.2, вышел 15 августа и в текущий выпуск не попадает.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> ничего не обновлять.</blockquote>
+<h2>🤖 Claude Code v2.1.241:</h2>
+<ul class="bullets">
+<li>За сутки вышли две версии: v2.1.240 в 14:45 UTC 22 августа и v2.1.241 в 00:52 UTC 23 августа. В обоих описаниях только исправления ошибок и повышение надёжности, без перечня изменений.</li>
+<li>Релиз: <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.241" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/releases/tag/v2.1.241</a></li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновлять после короткой проверки команд, хуков и MCP. По таким пустым примечаниям нельзя оценить риск поломок.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Munder Difflin v0.4.5: локальный диспетчер нескольких кодовых агентов</h3>
+<p><span class="hint">Что случилось</span> выпуск опубликован 22 августа в 07:11 UTC. Авторы исправили межагентную почту, которая теряла сообщения, добавили сторож для зависших входящих, атомарную отправку вебхуков и ограничение очереди команд. Ещё починили учёт расходов после перезапуска и семантическую память на Apple Silicon; в выпуск вошли 23 внешних PR. Обсуждение на Hacker News набрало 270 баллов и 117 комментариев на момент сбора.</p>
+<p><span class="hint">Живой пример</span> выпуск и сборки для Linux, macOS и Windows — <a href="https://github.com/chaitanyagiri/munder-difflin/releases/tag/v0.4.5" target="_blank" rel="noopener">https://github.com/chaitanyagiri/munder-difflin/releases/tag/v0.4.5</a></p>
+<blockquote><strong>👉 Как применить:</strong> не тащить приложение в рабочий контур вслепую. Сначала забрать четыре проверенных приёма для наших агентов: журнал расходов вместо счётчика сессии, возврат письма при отсутствующем адресате, сторож непрочитанных входящих и атомарную доставку вебхуков.</blockquote>
+<h3 class="numbered" data-n="2">AI-Infra-Guard снова поднялся в GitHub Trending</h3>
+<p><span class="hint">Что случилось</span> проект Tencent получил 150 звёзд за день. Сам выпуск не новый: v4.5.2 вышел 17 августа. Практическая часть — отдельные проверки навыков, MCP-серверов и агентов; сканер навыков ищет перехват инструкций, отравление памяти, загрузку внешнего кода, подмену инструментов и небезопасные зависимости. Заявленные F1 до 0,9848 и база из 2 000+ правил CVE — цифры авторов, мы их не воспроизводили.</p>
+<p><span class="hint">Живой пример</span> код и команды запуска — <a href="https://github.com/Tencent/AI-Infra-Guard" target="_blank" rel="noopener">https://github.com/Tencent/AI-Infra-Guard</a></p>
+<blockquote><strong>👉 Как применить:</strong> прогнать пробную проверку на внешних навыках Hermes до установки. Если шум приемлемый, поставить её отдельным шлюзом для новых навыков и MCP-конфигураций, а не разворачивать открытую панель в интернет: у проекта нет встроенной аутентификации.</blockquote>
+<h3 class="numbered" data-n="3">Почему одна и та же локальная модель даёт разный результат</h3>
+<p><span class="hint">Что случилось</span> свежая ветка на Hacker News собрала 265 баллов и 86 комментариев. Автор на живых опытах показывает, что квантование, шаблон чата, настройки выборки и конкретный движок меняют распределение следующего токена. Главный практический вывод: три промпта при temperature=0 ничего не доказывают; для агентов нужны длинный контекст, вызовы инструментов и проверка на своей задаче.</p>
+<p><span class="hint">Живой пример</span> разбор с настройками и методикой — <a href="https://forum.level1techs.com/t/why-your-local-llm-feels-dumber-than-it-is/253917" target="_blank" rel="noopener">https://forum.level1techs.com/t/why-your-local-llm-feels-dumber-than-it-is/253917</a></p>
+<blockquote><strong>👉 Как применить:</strong> для GLM и других локальных моделей завести один контрольный набор из реальных задач Hermes: длинный контекст, два-три инструмента, точный формат ответа. Сравнивать вместе модель, квант, шаблон чата и движок; иначе сравнение будет кривым.</blockquote>
+<p>X: недоступен — x_search вернул нулевой лимит запросов xAI. Reddit: свежие списки заблокированы или не дали проверяемых записей, поэтому посты оттуда не включены.</p>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
