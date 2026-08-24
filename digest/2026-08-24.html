@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-08-24 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-08-24</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw v2026.8.1-beta.3:</h2>
+<ul class="bullets">
+<li>Добавили поддержку GPT-5.6 Sol, Terra, Luna и Ultra, CDP-мост для подключённых сессий Chrome, контролируемый перезапуск внешнего Gateway, проверяемые резервные копии SQLite и постоянные мониторы входящих каналов. Релиз опубликован 24 августа в 04:40 UTC; все 89 официальных npm-плагинов проверены на той же версии.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> CDP-мост и постоянные мониторы входящих прямо попадают в наши задачи с браузерными сессиями и Telegram. Но это beta: сначала проверить на отдельном профиле, не обновлять рабочий Hermes вслепую.</blockquote>
+<p>Релиз: <a href="https://github.com/openclaw/openclaw/releases/tag/v2026.8.1-beta.3" target="_blank" rel="noopener">https://github.com/openclaw/openclaw/releases/tag/v2026.8.1-beta.3</a></p>
+<h2>🤖 Claude Code:</h2>
+<ul class="bullets">
+<li>Без релиза за последние 24 часа. Последний v2.1.241 вышел 23 августа в 00:52 UTC, до границы текущего окна.</li>
+</ul>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Практичный agent.md вместо повторных замечаний агенту</h3>
+<p><span class="hint">Что случилось</span> Фабьен Санглард опубликовал свой набор правил для кодовых агентов: не трогать посторонний код, сначала писать падающий тест, не пробивать слои архитектуры, не менять видимость без разрешения. На Hacker News материал набрал 252 балла и 101 комментарий на момент сбора.</p>
+<p><span class="hint">Живой пример</span> статья и готовый файл — <a href="https://fabiensanglard.net/agent.md/index.html" target="_blank" rel="noopener">https://fabiensanglard.net/agent.md/index.html</a></p>
+<blockquote><strong>👉 Как применить:</strong> сверить эти правила с нашими инструкциями для Codex и Claude Code. Особенно полезны запрет лишних изменений и обязательный тест до исправления; это снижает риск, что агент разнесёт соседние части проекта.</blockquote>
+<h3 class="numbered" data-n="2">Apache Maka хранит работу агента как журнал событий</h3>
+<p><span class="hint">Что случилось</span> в GitHub Trending вошёл локальный агентский рабочий стол Apache Maka. Сообщения модели, вызовы инструментов, результаты, разрешения и завершения пишутся в неизменяемый журнал; интерфейс, восстановление и контекст строятся поверх него. Сегодня репозиторий получил 51 звезду, всего 2 444.</p>
+<p><span class="hint">Живой пример</span> репозиторий и схема Runtime Host — <a href="https://github.com/apache/maka" target="_blank" rel="noopener">https://github.com/apache/maka</a></p>
+<blockquote><strong>👉 Как применить:</strong> не ставить Maka целиком, а забрать архитектурный принцип в Hermes: единый журнал фактов выполнения, из которого восстанавливаются сессия, статус задачи и аудит внешних действий.</blockquote>
+<h3 class="numbered" data-n="3">Библиотека GPT Image 2 собрала 526 воспроизводимых примеров</h3>
+<p><span class="hint">Что случилось</span> awesome-gpt-image-2 поднялся в GitHub Trending на 401 звезду за день. Внутри 526 разобранных примеров и больше 20 шаблонов; отдельно есть 40 сценариев для товаров, 52 для инфографики и готовый skill.</p>
+<p><span class="hint">Живой пример</span> галерея, шаблоны и skill — <a href="https://github.com/freestylefly/awesome-gpt-image-2" target="_blank" rel="noopener">https://github.com/freestylefly/awesome-gpt-image-2</a></p>
+<blockquote><strong>👉 Как применить:</strong> взять 5–10 товарных шаблонов и проверить на фото ремонта, карточках запчастей и обложках кейсов ИнструментБург. Нужен короткий тест на единообразие серий, а не импорт всей библиотеки.</blockquote>
+<h3 class="numbered" data-n="4">Технические документы превращают в навыки с подгрузкой по главам</h3>
+<p><span class="hint">Что случилось</span> book-to-skill получил 417 звёзд за день. Конвертер принимает PDF, EPUB, DOCX, Markdown и другие форматы, создаёт SKILL.md, главы, словарь и памятку; автор заявляет экономию 24–51 раз по токенам против повторной загрузки всей книги в контекст.</p>
+<p><span class="hint">Живой пример</span> код, методика замера и команда установки — <a href="https://github.com/virgiliojr94/book-to-skill" target="_blank" rel="noopener">https://github.com/virgiliojr94/book-to-skill</a></p>
+<blockquote><strong>👉 Как применить:</strong> проверить на одном нашем документе, например руководстве LiveSklad или регламенте TenderPlan. Если ответы с цитатами и контрольными вопросами не хуже исходника, использовать для внутренних инструкций; цифры экономии пока считать заявлением автора.</blockquote>
+<p>Источники за окно:</p>
+<ul class="bullets">
+<li>Reddit: новые записи запрошенных сабреддитов не удалось проверить, публичный JSON вернул HTTP 403; сомнительные результаты исключены.</li>
+<li>X: недоступен, x_search вернул лимит 0 RPM; посты не подменялись обычным веб-поиском.</li>
+</ul>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
