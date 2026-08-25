@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-08-25 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-08-25</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw v2026.8.1-beta.3:</h2>
+<ul class="bullets">
+<li>Новых релизов за последние 24 часа нет. v2026.8.1-beta.3 вышел 24 августа в 04:40 UTC и уже был в прошлом дайджесте.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> рабочий контур не трогаем; beta с CDP-мостом и мониторами входящих сначала проверять на отдельном профиле.</blockquote>
+<h2>🤖 Claude Code v2.1.245:</h2>
+<ul class="bullets">
+<li>Anthropic исправила падение при запуске на Linux с glibc 2.44, включая Arch Linux, CachyOS и Fedora Rawhide. Релиз опубликован 25 августа в 05:13 UTC.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновление нужно только машинам с glibc 2.44. На текущем сервере сначала проверить версию glibc; обновляться ради одного исправления на стабильной системе незачем.</blockquote>
+<p>Релиз: <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.245" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/releases/tag/v2.1.245</a></p>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Headlong: агент, который продолжает думать без новых сообщений</h3>
+<p><span class="hint">Что случилось</span> Laude Institute и MIT открыли Headlong, агентский каркас менее чем на 10 000 строк Bash. Агент ведёт непрерывную траекторию мыслей, сам возвращается к старым задачам и сжимает историю слоями. В их испытании Audel самостоятельно нашёл неработающий процесс памяти, исправил его и проверил результат за 48 минут. Цена постоянного фонового мышления у авторов — $1–2 в час; за несколько недель агент трижды останавливал собственный сервис, поэтому запускать такое без песочницы нельзя.</p>
+<p><span class="hint">Живой пример</span> <a href="https://www.laude.org/updates/headlong-a-microharness-for-persistent-agents" target="_blank" rel="noopener">https://www.laude.org/updates/headlong-a-microharness-for-persistent-agents</a></p>
+<blockquote><strong>👉 Как применить:</strong> не ставить Headlong. Забрать в Hermes две механики: затухающую частоту фоновых проверок и историю с разной детализацией. Самовольный бесконечный цикл нам не нужен: он жрёт деньги и увеличивает радиус ошибки.</blockquote>
+<h3 class="numbered" data-n="2">Ambient Context пишет рабочий день в Markdown без снимков экрана</h3>
+<p><span class="hint">Что случилось</span> новый открытый проект для macOS читает текст только из активного окна через Accessibility API и складывает его в дневной Markdown. Одинаковые строки сохраняются один раз; приватные окна, менеджеры паролей и защищённые поля исключены. Проект появился 25 августа и пока сырой: 8 звёзд, 3 коммита, готовых релизов нет.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/dragthelake/ambient-context" target="_blank" rel="noopener">https://github.com/dragthelake/ambient-context</a></p>
+<blockquote><strong>👉 Как применить:</strong> сама программа нам не подходит, сервер работает на Linux. Но принцип полезен для дашборда: собирать не скриншоты, а компактный текстовый журнал действий и отдавать агенту один дневной файл.</blockquote>
+<h3 class="numbered" data-n="3">Вывод модели может атаковать сам сервер инференса</h3>
+<p><span class="hint">Что случилось</span> разбор на Hacker News напомнил о CVE-2025-9141 в vLLM: XML-парсер вызовов инструментов Qwen3 Coder передавал аргументы в eval(), поэтому специально сформированный вывод модели мог выполнить код на хосте. Материал набрал 117 баллов и 59 комментариев к моменту сбора. Это уже не гипотетическая инъекция в промпт, а подтверждённый класс RCE в слое, который разбирает токены модели.</p>
+<p><span class="hint">Живой пример</span> <a href="https://boydkane.com/essays/llms-could-control-their-host-machines-by-exploiting-inference-engines" target="_blank" rel="noopener">https://boydkane.com/essays/llms-could-control-their-host-machines-by-exploiting-inference-engines</a></p>
+<blockquote><strong>👉 Как применить:</strong> локальные vLLM/SGLang считать недоверенным контуром, не давать GPU-хосту доступ к секретам и внутренней сети, обновлять парсеры отдельно от моделей. Для Ollama этот конкретный CVE не заявлен, но правило изоляции остаётся.</blockquote>
+<h3 class="numbered" data-n="4">Навыки агентов становятся переносимым слоем между платформами</h3>
+<p><span class="hint">Что случилось</span> awesome-agent-skills вышел в GitHub Trending с 602 звёздами за день. В каталоге уже больше 1 497 навыков от Anthropic, Google Labs, Vercel, Stripe, Cloudflare и других команд; один формат используют Claude Code, Codex, Gemini CLI, Cursor и OpenCode. Каталог отдельно требует короткое описание, подгрузку больших справочников по запросу и минимальные права инструментов.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/VoltAgent/awesome-agent-skills" target="_blank" rel="noopener">https://github.com/VoltAgent/awesome-agent-skills</a></p>
+<blockquote><strong>👉 Как применить:</strong> сверить наши часто используемые skills с этими тремя критериями. Импортировать каталог целиком нельзя: 1 497 непроверенных инструкций только засорят выбор и расширят поверхность атаки.</blockquote>
+<p>Источники за окно:</p>
+<ul class="bullets">
+<li>Reddit: в заданных сабреддитах не нашлось новых постов с проверяемым живым кейсом; старые и нерелевантные результаты исключены.</li>
+<li>X: недоступен, x_search вернул лимит 0 RPM; посты не подменялись обычным веб-поиском.</li>
+</ul>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
