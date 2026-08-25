@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Акт ревизии: владельцы процессов и мотивация — ИнструментБург</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+:root{
+  --paper:#f2ede2;
+  --paper-dark:#e9e2d2;
+  --ink:#211d17;
+  --ink-soft:#5b5346;
+  --rule:#c9bfa8;
+  --stamp:#c22f11;
+  --steel:#2e5f6e;
+  --ok:#3a6b35;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --sans:'IBM Plex Sans',sans-serif;
+  --disp:'Unbounded',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper-dark);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;line-height:1.55;
+  padding:24px 12px 80px;
+}
+/* бланк */
+.sheet{
+  max-width:880px;margin:0 auto;background:var(--paper);
+  border:1px solid var(--rule);
+  box-shadow:0 2px 0 rgba(33,29,23,.08),0 24px 60px rgba(33,29,23,.18);
+  position:relative;
+  padding:0 0 56px 0;
+  background-image:
+    repeating-linear-gradient(0deg,transparent 0 31px,rgba(33,29,23,.045) 31px 32px);
+}
+/* перфорация подшивки */
+.sheet::before{
+  content:"";position:absolute;top:0;bottom:0;left:34px;width:0;
+  border-left:1px dashed rgba(194,47,17,.45);
+}
+.holes{position:absolute;top:0;bottom:0;left:10px;width:16px;
+  background:radial-gradient(circle 6px at 8px 60px,var(--paper-dark) 5px,transparent 6px);
+  background-size:16px 180px;background-repeat:repeat-y;}
+main{padding-left:64px;padding-right:48px}
+@media(max-width:640px){main{padding-left:52px;padding-right:20px}}
+
+/* шапка */
+header{padding:44px 48px 28px 64px;border-bottom:3px double var(--ink)}
+@media(max-width:640px){header{padding-left:52px;padding-right:20px}}
+.form-no{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--ink-soft);text-transform:uppercase;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+h1{font-family:var(--disp);font-weight:800;font-size:clamp(22px,4.4vw,38px);line-height:1.12;margin:18px 0 10px;text-transform:uppercase;letter-spacing:.01em}
+.sub{font-size:15px;color:var(--ink-soft);max-width:56ch}
+.stamp{
+  position:absolute;top:34px;right:30px;transform:rotate(7deg);
+  border:3px solid var(--stamp);color:var(--stamp);
+  font-family:var(--mono);font-weight:600;font-size:12px;letter-spacing:.18em;
+  padding:8px 14px;text-transform:uppercase;text-align:center;line-height:1.5;
+  border-radius:4px;opacity:.85;
+  mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.92'/%3E%3C/svg%3E");
+  mask-size:60px 60px;
+}
+@media(max-width:640px){.stamp{position:static;display:inline-block;margin-top:14px;transform:rotate(-2deg)}}
+
+/* секции */
+section{margin-top:44px}
+h2{
+  font-family:var(--disp);font-weight:600;font-size:15px;letter-spacing:.08em;
+  text-transform:uppercase;display:flex;align-items:baseline;gap:14px;margin-bottom:18px;
+}
+h2 .idx{font-family:var(--mono);color:var(--stamp);font-size:13px}
+h2::after{content:"";flex:1;border-bottom:1px solid var(--ink);transform:translateY(-4px)}
+
+/* резюме — крупные цифры */
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+@media(max-width:700px){.kpis{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:440px){.kpis{grid-template-columns:1fr}}
+.kpi{background:var(--paper);padding:16px 16px 14px}
+.kpi b{display:block;font-family:var(--mono);font-weight:600;font-size:clamp(20px,3vw,28px);letter-spacing:-.02em}
+.kpi.warn b{color:var(--stamp)}
+.kpi.good b{color:var(--ok)}
+.kpi span{font-size:12.5px;color:var(--ink-soft);line-height:1.4;display:block;margin-top:4px}
+
+p{margin-bottom:12px;max-width:72ch}
+.lead{font-size:17px;font-weight:500}
+em{font-style:italic}
+strong{font-weight:600}
+
+/* журнал чата */
+.log{border-left:3px solid var(--steel);padding:6px 0 6px 18px;margin:16px 0;font-size:14.5px}
+.log .row{display:grid;grid-template-columns:52px 110px 1fr;gap:10px;padding:3px 0}
+.log .t{font-family:var(--mono);font-size:12px;color:var(--ink-soft);padding-top:2px}
+.log .who{font-weight:600;font-size:13.5px}
+.log .anton .who{color:var(--stamp)}
+.note{font-size:13px;color:var(--ink-soft);font-style:italic;margin-top:8px}
+
+/* таблица-ведомость */
+table{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0 4px}
+th{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:8px 10px;border-bottom:2px solid var(--ink)}
+td{padding:9px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+td.num,th.num{text-align:right;font-family:var(--mono);white-space:nowrap}
+tr.hot td{background:rgba(194,47,17,.07)}
+tr.hot td:first-child{border-left:3px solid var(--stamp)}
+tfoot td{border-bottom:none;border-top:2px solid var(--ink);font-weight:600}
+
+/* бары */
+.bar{height:12px;background:var(--paper-dark);border:1px solid var(--rule);position:relative;min-width:120px}
+.bar i{position:absolute;top:0;bottom:0;left:0;background:var(--steel)}
+.bar u{position:absolute;top:0;bottom:0;background:var(--stamp);text-decoration:none;opacity:.85}
+
+/* сверка */
+.check{border:2px solid var(--ink);padding:18px 20px;margin-top:10px;position:relative}
+.check::before{content:"СВЕРКА";position:absolute;top:-11px;left:14px;background:var(--paper);padding:0 8px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--stamp)}
+.check ul{list-style:none}
+.check li{padding:7px 0 7px 26px;position:relative;font-size:14.5px}
+.check li::before{content:"⊕";position:absolute;left:0;color:var(--stamp);font-family:var(--mono)}
+
+/* карточки схемы */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px}
+.card{border:1px solid var(--ink);padding:16px 18px 14px;position:relative;background:var(--paper)}
+.card h3{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;display:flex;justify-content:space-between;gap:8px}
+.card h3 .tag{color:var(--ok);font-size:10.5px;border:1px solid var(--ok);padding:1px 7px;border-radius:3px;letter-spacing:.14em;white-space:nowrap;transform:rotate(-1deg)}
+.card p{font-size:14px;margin-bottom:8px}
+.card .money{font-family:var(--mono);font-size:13px;color:var(--ink-soft);border-top:1px dashed var(--rule);padding-top:8px}
+
+/* правила */
+ol.rules{counter-reset:r;list-style:none}
+ol.rules li{counter-increment:r;padding:10px 0 10px 54px;position:relative;border-bottom:1px dotted var(--rule);font-size:15px;max-width:72ch}
+ol.rules li::before{
+  content:"§"counter(r);position:absolute;left:0;top:8px;
+  font-family:var(--disp);font-weight:600;font-size:15px;color:var(--stamp);
+}
+
+/* календарь */
+.tl{border-left:2px solid var(--ink);margin-left:6px}
+.tl .ev{position:relative;padding:0 0 20px 26px}
+.tl .ev::before{content:"";position:absolute;left:-6px;top:5px;width:10px;height:10px;background:var(--paper);border:2px solid var(--ink);border-radius:50%}
+.tl .ev.key::before{background:var(--stamp);border-color:var(--stamp)}
+.tl .d{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--stamp);text-transform:uppercase}
+.tl .ev p{font-size:14.5px;margin:2px 0 0}
+.tl .own{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft)}
+
+/* альтернативы */
+.alts .alt{display:grid;grid-template-columns:110px 1fr;gap:14px;padding:12px 0;border-bottom:1px solid var(--rule);font-size:14.5px}
+.alt .verdict{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.alt .verdict.no{color:var(--stamp)}
+.alt .verdict.cond{color:var(--steel)}
+
+/* объявление */
+.copybox{background:var(--ink);color:var(--paper);padding:22px 24px;font-size:14.5px;line-height:1.65}
+.copybox .cb-h{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#d9b48f;margin-bottom:12px}
+.copybox p{margin-bottom:10px;max-width:none}
+
+footer{margin-top:52px;padding-top:16px;border-top:3px double var(--ink);font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.sig{text-align:right}
+.sig .line{display:inline-block;width:180px;border-bottom:1px solid var(--ink);margin-left:8px}
+@media print{body{padding:0;background:var(--paper)}.sheet{box-shadow:none;border:none}}
+</style>
+</head>
+<body>
+<div class="sheet">
+<div class="holes" aria-hidden="true"></div>
+
+<header>
+  <div class="form-no"><span>ИнструментБург · сервис и прокат · Екатеринбург</span><span>Форма ОТК-25/08 · 25 августа 2026</span></div>
+  <h1>Акт ревизии:<br>владельцы процессов<br>и мотивация</h1>
+  <p class="sub">По материалам: MAX-чаты 09–25.08 (1 158 сообщений), реестр ошибок ib-memory (17 дней), фактические зарплатные начисления LiveSklad за 1–25 августа.</p>
+  <div class="stamp">Сверено<br>по данным</div>
+</header>
+
+<main>
+
+<section>
+  <h2><span class="idx">01</span>Резюме в шести цифрах</h2>
+  <div class="kpis">
+    <div class="kpi warn"><b>973 387 ₽</b><span>заморожено в «Готов» + «Готов к выдаче» — 114 заказов на 25.08</span></div>
+    <div class="kpi warn"><b>70 писем</b><span>писем-решений без ответа; рост с 50 за 12 дней без единого дня снижения</span></div>
+    <div class="kpi warn"><b>0 ₽</b><span>переменка сметчика в LiveSklad за август — правило 5% не сработало ни разу</span></div>
+    <div class="kpi"><b>~30 из 36</b><span>сообщений Антона за 25.08 — диспетчеризация: приоритеты, цены, пинки</span></div>
+    <div class="kpi good"><b>13 / 13</b><span>кассовый отчёт сдан каждый рабочий день — единственный процесс с владельцем, форматом и временем</span></div>
+    <div class="kpi"><b>13 дней</b><span>от найденного поставщика до заказа детали (кейс «корпус крыльчатки», заказ 24205)</span></div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="idx">02</span>Диагноз</h2>
+  <p class="lead">«Хата с краю» — не черта характера сотрудников. Это архитектура: у дневной очереди нет владельца, у конфликтов приоритетов нет правил-дефолтов, а деньги платятся за вход в воронку, а не за выход из неё.</p>
+  <p>Эпизод 25.08, 13:38–14:03 — трое взрослых людей не могут распределить день одного мастера без собственника:</p>
+  <div class="log">
+    <div class="row"><span class="t">13:27</span><span class="who">Юлия</span><span>Саш, попроси Володю отдефектовать Тагил… срочно нужно</span></div>
+    <div class="row"><span class="t">13:38</span><span class="who">Александр</span><span>У нас просрочка по частникам, список выданный утром Володе закончится — приступит к ним</span></div>
+    <div class="row"><span class="t">13:59</span><span class="who">Андрей</span><span>…Если физы в приоритете, тогда переключусь</span></div>
+    <div class="row anton"><span class="t">13:39</span><span class="who">Антон</span><span>Давай частников добивать. Потом МРСК</span></div>
+  </div>
+  <p class="note">Арбитром выступил собственник — потому что ни у кого нет права решить. Это не лень, это отсутствие полномочий.</p>
+  <p>Паттерн «написал и жду» — системный, у всех: крыльчатка — 13 дней от «на Дядько появилась» до заказа там же (Александр); газонокосилка Zimani — одна попытка связи, дальше тишина до пинка (Александр); A023301 и A023795 — 167 и 113 дней без сметы (Игорь); письма-решения растут у всех. И контрпример: кассовый отчёт, где есть формат и срок, — 13/13 без сбоев. <strong>Команда точно исполняет ту систему, которая есть.</strong></p>
+</section>
+
+<section>
+  <h2><span class="idx">03</span>Сверка чисел</h2>
+  <div class="check">
+    <ul>
+      <li><strong>973 387 ₽ / 114 заказов</strong> — сумма двух статусов на 25.08: «Готов» (55 шт / 348 717 ₽) + «Готов к выдаче» (59 шт / 624 670 ₽). Дайджест и снапшот LiveSklad сходятся.</li>
+      <li><strong>Лаг «Готов → Выдан»</strong>: в обычном режиме медиана ~3 дня. Но дважды за период завал копился и разгребался батчем — 82 заказа выданы разом с лагом 12–13 дней (22–23.08). Проблема не средняя скорость, а периодическое накопление: сейчас накоплено снова.</li>
+      <li><strong>Переменка Бухаленко</strong>: в LiveSklad — 0 ₽ (правило «5% маржи заказа» не срабатывает: менеджером заказа всегда числится приёмщик). Реальная переменка — комиссия калькулятора 5% от маржи смет, платится исправно. Значит мотивация привязана к марже созданного, но не к скорости просчёта и не к факту согласования.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2><span class="idx">04</span>Ведомость: факт августа (1–25.08)</h2>
+  <table>
+    <thead><tr><th>Сотрудник</th><th class="num">Оклад</th><th class="num">Переменка</th><th class="num">Итого</th><th>Структура</th></tr></thead>
+    <tbody>
+      <tr><td>Скалдин Евгений</td><td class="num">32 258</td><td class="num">49 242</td><td class="num">81 500</td><td><div class="bar"><i style="width:40%"></i><u style="left:40%;width:60%"></u></div></td></tr>
+      <tr><td>Легков Евгений</td><td class="num">32 258</td><td class="num">43 052</td><td class="num">75 310</td><td><div class="bar"><i style="width:43%"></i><u style="left:43%;width:57%"></u></div></td></tr>
+      <tr><td>Оплетаев Игорь</td><td class="num">47 550</td><td class="num">18 008</td><td class="num">65 558</td><td><div class="bar"><i style="width:72%"></i><u style="left:72%;width:28%"></u></div></td></tr>
+      <tr><td>Колупаев Александр</td><td class="num">37 057</td><td class="num">25 557</td><td class="num">62 614</td><td><div class="bar"><i style="width:59%"></i><u style="left:59%;width:41%"></u></div></td></tr>
+      <tr><td>Букин Владимир</td><td class="num">37 165</td><td class="num">22 547</td><td class="num">59 712</td><td><div class="bar"><i style="width:62%"></i><u style="left:62%;width:38%"></u></div></td></tr>
+      <tr><td>Седяева Юлия</td><td class="num">56 452</td><td class="num">0</td><td class="num">56 452</td><td><div class="bar"><i style="width:100%"></i></div></td></tr>
+      <tr><td>Пастухов Дмитрий</td><td class="num">0</td><td class="num">47 880</td><td class="num">47 880</td><td><div class="bar"><u style="left:0;width:100%"></u></div></td></tr>
+      <tr><td>Чуденовский Андрей</td><td class="num">23 226</td><td class="num">11 018</td><td class="num">34 243</td><td><div class="bar"><i style="width:68%"></i><u style="left:68%;width:32%"></u></div></td></tr>
+      <tr class="hot"><td><strong>Бухаленко Андрей</strong></td><td class="num">29 745</td><td class="num">0*</td><td class="num">29 745*</td><td><div class="bar"><i style="width:100%"></i></div></td></tr>
+    </tbody>
+    <tfoot><tr><td>ФОТ периода (без собственника)</td><td class="num"></td><td class="num"></td><td class="num">≈ 513 016</td><td></td></tr></tfoot>
+  </table>
+  <p class="note">* в LiveSklad; комиссия калькулятора (5% маржи смет) платится отдельно и исправно. Синее — оклад, красное — переменка. Ревеню-премии августа начисляются в конце месяца. Через сметчика прошло ~1,19 млн ₽ смет за 17 дней.</p>
+</section>
+
+<section>
+  <h2><span class="idx">05</span>Новая схема мотивации</h2>
+  <p>Принцип один: <strong>переменка платится за этап, который принят следующим этапом.</strong> Решения собственника зафиксированы 25.08 — отмечены штампом.</p>
+  <div class="cards">
+    <div class="card">
+      <h3>Колупаев — старший по очереди <span class="tag">утверждено</span></h3>
+      <p>Существующая доплата 15 000 ₽/мес становится условной: 3 750 ₽/нед при трёх бинарных критериях — вечерний отчёт каждый день · 0 задач &gt;24 ч без движения · ≤5 вопросов Антону.</p>
+      <p class="money">К ФОТ: +0 (те же деньги, но за результат). Провал недели — недоплата.</p>
+    </div>
+    <div class="card">
+      <h3>Приёмщики — скорость выдачи</h3>
+      <p>+100 ₽, если платный заказ выдан ≤3 дней после «Готов». Бонус качества 3 000 ₽ перепривязывается с «0 жалоб» на «0 задач &gt;24 ч».</p>
+      <p class="money">К ФОТ: +2 200…7 400 ₽/мес на двоих.</p>
+    </div>
+    <div class="card">
+      <h3>Бухаленко — скорость просчёта <span class="tag">утверждено</span></h3>
+      <p>Комиссия калькулятора 5% остаётся как есть. Сверху: 1 500 ₽/нед, если все вердикты недели просчитаны ≤48 часов.</p>
+      <p class="money">К ФОТ: +0…6 000 ₽/мес.</p>
+    </div>
+    <div class="card">
+      <h3>Мастера — пустая красная зона <span class="tag">утверждено</span></h3>
+      <p>+1 000 ₽/нед за пустую красную зону на вечер пятницы. Штрафного компонента нет — решение собственника.</p>
+      <p class="money">К ФОТ: +0…4 000 ₽/мес каждому.</p>
+    </div>
+  </div>
+  <p style="margin-top:14px"><strong>Итог по ФОТ: +15 600…29 400 ₽/мес (~3–6%)</strong> при полном выполнении — против 973 387 ₽, замороженных в готовых заказах. Точные цифры фиксируются после пересчёта по полному августу (01.09).</p>
+</section>
+
+<section>
+  <h2><span class="idx">06</span>Правила, объявляемые вместе с деньгами</h2>
+  <ol class="rules">
+    <li>Владелец дневной очереди — Александр: порядок работ мастеров, приоритеты, споры «что раньше». Антон меняет приоритеты только через него.</li>
+    <li>Дефолты приоритета: просрочка SLA бьёт всё → выдача готовых и деньги бьют новые просчёты → срочные юрики — фиксированный слот мастера 1,5–2 ч/день → цена из прайса/калькулятора не спрашивается → не покрыто правилом — решает Александр.</li>
+    <li>Вопрос без адресата не существует: каждый вопрос — конкретному человеку с @. Вопрос «в воздух» возвращается автору.</li>
+    <li>Правило 24 часов: «написал и жду» без движения сутки → повторное действие или строка «застряло» в вечернем отчёте.</li>
+    <li>Личные аккаунты: в рабочей группе все пишут от себя. Рабочий номер «ИнструментБург» — только для клиентов.</li>
+    <li>Владелец почты-решений — Юлия. Цель: 70 → ≤20 писем за две недели.</li>
+    <li>К Антону идут только: лимиты, скидки сверх правил, кадровые, конфликтные клиенты, необратимые решения.</li>
+  </ol>
+</section>
+
+<section>
+  <h2><span class="idx">07</span>Календарь внедрения</h2>
+  <div class="tl">
+    <div class="ev key"><div class="d">Вт 26.08</div><p>Разговоры: с Александром — доплата 15 000 становится условной, критерии (20 мин); с Андреем — скоростной бонус поверх комиссии, личный аккаунт (15 мин). Все переходят на личные аккаунты в группе.</p><div class="own">Антон</div></div>
+    <div class="ev key"><div class="d">Ср 27.08</div><p>Объявление правил в группу (текст готов, ниже). Юлия принимает почту-решения.</p><div class="own">Антон · Юлия</div></div>
+    <div class="ev"><div class="d">Чт 28.08</div><p>Автоскоринг: cron по ib-memory + LiveSklad — отчёт сдан? задачи &gt;24 ч? вопросы Антону? красная зона? → пятничная сводка в Telegram.</p><div class="own">AI</div></div>
+    <div class="ev"><div class="d">Пт 29.08</div><p>Первый пятничный скоринг + чек-ин 15 минут строго по цифрам.</p><div class="own">Антон · Александр</div></div>
+    <div class="ev"><div class="d">Пн 01.09</div><p>Пересчёт модели по полному августу, фиксация цифр мотивации. Бонусы — через LiveSklad с проверкой read-after-write.</p><div class="own">AI · Антон</div></div>
+    <div class="ev"><div class="d">Пт 05.09</div><p>Второй скоринг. Решение по найму сметчика — по цифрам очереди, не по ощущению.</p><div class="own">Антон</div></div>
+    <div class="ev key"><div class="d">Пт 12.09</div><p>Итог теста: Александр подтверждён — или переведён на простую роль с меньшими деньгами; тогда кандидат — Игорь.</p><div class="own">Антон</div></div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="idx">08</span>Альтернативы</h2>
+  <div class="alts">
+    <div class="alt"><span class="verdict cond">условно</span><div><strong>Совет / планёрка.</strong> Только как 15-минутный пятничный разбор скоринга по цифрам (Антон + Александр). Полноформатный совет всех со всеми противоречит операционной модели собственника и станет устной версией того же чата.</div></div>
+    <div class="alt"><span class="verdict no">отклонено</span><div><strong>Перестройка оргструктуры.</strong> Схема ролей рабочая; болят стыки и деньги, а не квадратики. Урок Константина: властная надстройка без знания процессов проваливается.</div></div>
+    <div class="alt"><span class="verdict cond">по цифрам</span><div><strong>Найм сметчика.</strong> Не сейчас. Критерий на 05.09: если после разгрузки Андрея очередь «на просчёт» растёт и SLA-просрочка смет устойчиво &gt;10 — нанимать. Затык 25.08 был из-за падения калькулятора, а не мощности.</div></div>
+    <div class="alt"><span class="verdict no">отклонено</span><div><strong>Автоматизация без смены правил.</strong> Автоматизация без владельца, обязательного процесса, проверки и последствий решением не считается.</div></div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="idx">09</span>Текст объявления в группу</h2>
+  <div class="copybox">
+    <div class="cb-h">Скопировать и отправить · MAX · рабочая группа</div>
+    <p>Коллеги, меняем правила работы, с завтрашнего дня.</p>
+    <p>1. Старший по дневной очереди — Александр. Порядок работ мастеров, приоритеты дня, спорные ситуации «что раньше» — решает он. Ко мне эти вопросы больше не идут.</p>
+    <p>2. Любой вопрос в чате — конкретному человеку через @. Вопрос без адресата считается не заданным.</p>
+    <p>3. Написал клиенту/поставщику и нет ответа — через день повторный запрос или звонок, без напоминаний. Задача твоя, пока не передал её по имени.</p>
+    <p>4. Цены и сроки смотрим в LiveSklad и калькуляторе. Если срок знаю только я — я записываю его в заказ.</p>
+    <p>5. В этой группе пишем с личных аккаунтов. Рабочий номер — только для клиентов.</p>
+    <p>6. Саша вечером кроме кассы шлёт: выдано/готово, что застряло, что решил сам, что нужно от меня. Я читаю это — и не читаю всё остальное.</p>
+    <p>Ко мне остаются: лимиты, скидки сверх правил, кадровые, конфликтные клиенты. У всего остального теперь есть владелец.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div>Источники: LiveSklad salary events (подписанный контур) · снапшоты заказов ib-memory 09–25.08 · MAX-лог 1 158 сообщений · «Память дня» 25.08<br>План: instrumentburg/docs/plans/2026-08-25-ownership-motivation-rollout.md</div>
+  <div class="sig">Собственник: <span class="line"></span><br><br>Дата: 25.08.2026</div>
+</footer>
+</div>
+</body>
+</html>
