@@ -58,12 +58,12 @@ header{padding:44px 48px 28px 64px;border-bottom:3px double var(--ink)}
 h1{font-family:var(--disp);font-weight:800;font-size:clamp(22px,4.4vw,38px);line-height:1.12;margin:18px 0 10px;text-transform:uppercase;letter-spacing:.01em}
 .sub{font-size:15px;color:var(--ink-soft);max-width:56ch}
 .stamp{
-  position:absolute;top:34px;right:30px;transform:rotate(7deg);
+  position:absolute;top:74px;right:44px;transform:rotate(7deg);
   border:3px solid var(--stamp);color:var(--stamp);
   font-family:var(--mono);font-weight:600;font-size:12px;letter-spacing:.18em;
   padding:8px 14px;text-transform:uppercase;text-align:center;line-height:1.5;
-  border-radius:4px;opacity:.85;
-  mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.92'/%3E%3C/svg%3E");
+  border-radius:4px;opacity:.9;
+  mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='.45' intercept='.62'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
   mask-size:60px 60px;
 }
 @media(max-width:640px){.stamp{position:static;display:inline-block;margin-top:14px;transform:rotate(-2deg)}}
