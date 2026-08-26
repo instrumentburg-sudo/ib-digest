@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-08-26 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-08-26</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw:</h2>
+<ul class="bullets">
+<li>Без релиза за последние 24 часа. Последний v2026.8.1-beta.3 опубликован 24 августа и уже был в дайджесте.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> ничего не обновлять; ждём стабильный выпуск или исправление, которое решает нашу конкретную проблему.</blockquote>
+<h2>🤖 Claude Code v2.1.246:</h2>
+<ul class="bullets">
+<li>Anthropic исправила несколько сбоев фоновых агентов: прерванный MCP-вызов теперь возвращает явную ошибку вместо ложного «выполнено без результата», завершившиеся субагенты больше не перезапускаются молча, а частичный результат при maxTurns помечается как неполный. Заодно закрыли риск Bash-правил с wildcard перед подкомандой и утечку ключа стороннего шлюза в телеметрию Anthropic.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновиться после короткой проверки. Исправления попадают ровно в наш контур с MCP, фоновыми сессиями и сторонними провайдерами.</blockquote>
+<p>Релиз: <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.246" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/releases/tag/v2.1.246</a></p>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Apache Maka хранит работу агента как журнал событий</h3>
+<p><span class="hint">Что случилось</span> Apache Maka поднялся в GitHub Trending на 543 звезды за день. Сообщения модели, вызовы инструментов, решения по правам и завершения пишутся в append-only журнал; графовые задачи запускаются в отдельных Git-worktree, а оценка хранит попытки, стоимость, длительность и причины сбоев. Проект пока ранний: готовой одобренной сборки нет, основной путь — сборка из исходников.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/apache/maka" target="_blank" rel="noopener">https://github.com/apache/maka</a></p>
+<blockquote><strong>👉 Как применить:</strong> Maka не ставить в прод. Сравнить его журнал восстановления и модель попыток с Hermes: особенно полезны явные причины остановки, неизменяемые записи запусков и повтор только сбойной ветки.</blockquote>
+<h3 class="numbered" data-n="2">claude-obsidian превращает базу знаний в проверяемую транзакцию</h3>
+<p><span class="hint">Что случилось</span> проект набрал 813 звёзд за день в GitHub Trending. Внутри 15 навыков для загрузки, поиска и проверки заметок; параллельные агенты возвращают только черновики, а один оркестратор применяет изменение после проверки SHA-256. При конфликте файл не перезаписывается молча, операция откатывается из журнала.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/AgriciDaniel/claude-obsidian" target="_blank" rel="noopener">https://github.com/AgriciDaniel/claude-obsidian</a></p>
+<blockquote><strong>👉 Как применить:</strong> взять не весь плагин, а контракт записи для нашей Obsidian-памяти: preview → hash approval → одна атомарная запись → проверка ссылок. Это снижает риск, что два агента одновременно испортят одну заметку.</blockquote>
+<h3 class="numbered" data-n="3">Локальный Qwen 35B на Raspberry Pi работает с 745-страничным руководством</h3>
+<p><span class="hint">Что случилось</span> CarWatch набрал 81 балл и 15 комментариев на Hacker News на момент сбора. Автор запускает Qwen3.6-35B-A3B в квантизации 14,3 ГБ на Raspberry Pi 5 с 16 ГБ памяти: 3,5 токена/с при генерации и больше 25 токенов/с на входе. Ассистент отвечает по 745-страничному руководству с указанием страниц; чтение реального OBD пока проверено только на имитаторе.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/ThinkOffApp/CarWatch" target="_blank" rel="noopener">https://github.com/ThinkOffApp/CarWatch</a></p>
+<blockquote><strong>👉 Как применить:</strong> проверить тот же принцип на руководствах по генераторам и компрессорам. Не тащить модель на каждый пост: один локальный сервер, поиск по PDF с цитатой страницы и честный отказ, если инструкции в документе нет.</blockquote>
+<h3 class="numbered" data-n="4">GPT Image 2 превращают из набора промптов в повторяемые шаблоны</h3>
+<p><span class="hint">Что случилось</span> awesome-gpt-image-2 вышел на первое место GitHub Trending с 1 698 звёздами за день. Авторы разобрали больше 530 примеров и собрали свыше 20 шаблонов «промпт как код», чтобы фиксировать композицию, стиль и ограничения, а не сочинять запрос заново для каждой картинки.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/freestylefly/awesome-gpt-image-2" target="_blank" rel="noopener">https://github.com/freestylefly/awesome-gpt-image-2</a></p>
+<blockquote><strong>👉 Как применить:</strong> взять 3–5 схем под наши карточки услуг и запчастей, прогнать на одном товаре и сравнить стабильность серии. Репозиторий китайскоязычный и непроверенный, поэтому сначала читать шаблоны, а не подключать его навыки целиком.</blockquote>
+<p>Источники за окно:</p>
+<ul class="bullets">
+<li>Reddit: свежие публикации из заданных сабреддитов не удалось подтвердить по времени через прямой источник; результаты исключены.</li>
+<li>X: недоступен, x_search вернул лимит 0 RPM; посты не подменялись веб-поиском.</li>
+</ul>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
