@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-08-27 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-08-27</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw:</h2>
+<ul class="bullets">
+<li>За последние 24 часа релизов нет. Последний v2026.8.1-beta.3 опубликован 24 августа и уже попадал в дайджест.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> ничего не обновлять; ждём стабильный выпуск или исправление под конкретную проблему.</blockquote>
+<h2>🤖 Claude Code v2.1.247:</h2>
+<ul class="bullets">
+<li>Anthropic исправила падение субагентов при первом ответе модели 404: теперь срабатывает цепочка запасных моделей, а родитель получает тип ошибки, код, идентификатор запроса и имя модели. Огромный вывод фоновой задачи больше не переполняет контекст до «Prompt is too long». Починили сочетания Ctrl при русской раскладке, восстановление облачной сессии после перезапуска контейнера и зависшие фоновые агенты. Добавили <code>/claude-api cost-optimize</code> для разбора расходов API.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновиться после короткой проверки. Релиз закрывает реальные риски нашего контура: субагенты, длинные логи, фоновые сессии и русская раскладка.</blockquote>
+<p>Релиз: <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.247" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/releases/tag/v2.1.247</a></p>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">GLM-5.3-Flash: сильная модель с 18 млрд активных параметров</h3>
+<p><span class="hint">Что случилось</span> Z.ai выпустила открытую мультимодальную модель на 320 млрд параметров, из которых на токен работают 18 млрд. Производитель заявляет 63,4 против 46,2 у GLM-5.2 на DeepSWE и 48,8 против 26,2 на AutomationBench; стоимость задачи в их сравнении — $0,045. Веса доступны на Hugging Face, заявлена поддержка vLLM и SGLang. Цифры пока вендорские, поэтому верить им без нашей проверки рано.</p>
+<p><span class="hint">Живой пример</span> <a href="https://z.ai/blog/glm-5.3-flash" target="_blank" rel="noopener">https://z.ai/blog/glm-5.3-flash</a></p>
+<blockquote><strong>👉 Как применить:</strong> прогнать 20 наших задач из Hermes и Codex на текущей модели и GLM-5.3-Flash. Сравнить не «ощущения», а долю завершённых задач, цену, время и число ручных вмешательств; только после этого менять маршрутизацию.</blockquote>
+<h3 class="numbered" data-n="2">Qwen3.8-Flash-Next: 125 млрд параметров, активны 6 млрд</h3>
+<p><span class="hint">Что случилось</span> Qwen выпустила открытую мультимодальную MoE-модель с контекстом 262 тыс. токенов. Рецепт vLLM подтверждает 125 млрд параметров, 6 млрд активных и запуск FP8 минимум на двух ускорителях класса GB300; для миллиона токенов нужен YaRN. Сообщество оценивает 4-битную сборку примерно в 80–90 ГБ, поэтому «лёгкая» здесь означает дешёвый расчёт на токен, а не запуск на обычном компьютере.</p>
+<p><span class="hint">Живой пример</span> <a href="https://recipes.vllm.ai/Qwen/Qwen3.8-Flash-Next" target="_blank" rel="noopener">https://recipes.vllm.ai/Qwen/Qwen3.8-Flash-Next</a></p>
+<blockquote><strong>👉 Как применить:</strong> локально пока не тащить. Добавить в список облачных рабочих моделей и проверить на длинных технических документах, где важны 262 тыс. токенов и вызовы инструментов.</blockquote>
+<h3 class="numbered" data-n="3">Сайт может отдавать агенту Markdown по тому же адресу</h3>
+<p><span class="hint">Что случилось</span> проект Accept: text/markdown показал простой договор: браузер получает обычный HTML, а агент с заголовком <code>Accept: text/markdown</code> — чистый Markdown без меню, скриптов и вёрстки. На Hacker News тема набрала 94 балла и 55 комментариев за шесть часов.</p>
+<p><span class="hint">Живой пример</span> <a href="https://acceptmarkdown.com/" target="_blank" rel="noopener">https://acceptmarkdown.com/</a></p>
+<blockquote><strong>👉 Как применить:</strong> проверить на одной странице InstrumentBurg. Если поисковые и закупочные агенты читают её точнее и тратят меньше токенов, добавить Markdown-представление для страниц услуг, цен и технических статей.</blockquote>
+<h3 class="numbered" data-n="4">OpenHuman перестал скрывать смерть субагента</h3>
+<p><span class="hint">Что случилось</span> OpenHuman поднялся в дневном GitHub Trending на 542 звезды. В свежем исправлении остановка по лимиту стала обязательной для запуска новых субагентов, а аварийное завершение резервного процесса теперь показывается пользователю вместо молчаливого проглатывания. Это не новая красивая функция, а нормальная наблюдаемость оркестратора.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/tinyhumansai/openhuman/commit/348f0b4d8021704aa59cb5c201f35afa4adf683f" target="_blank" rel="noopener">https://github.com/tinyhumansai/openhuman/commit/348f0b4d8021704aa59cb5c201f35afa4adf683f</a></p>
+<blockquote><strong>👉 Как применить:</strong> проверить Hermes Kanban на два инварианта: после паузы новые исполнители не стартуют; гибель исполнителя всегда оставляет явную причину в задаче и уведомлении.</blockquote>
+<p>Источники за окно:</p>
+<ul class="bullets">
+<li>Reddit: свежие публикации из заданных сабреддитов не удалось надёжно подтвердить прямым источником; результаты исключены.</li>
+<li>X: недоступен, x_search вернул лимит 0 RPM; посты не подменялись веб-поиском.</li>
+</ul>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
