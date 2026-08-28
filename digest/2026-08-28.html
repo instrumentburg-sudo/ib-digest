@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-08-28 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-08-28</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw v2026.8.1-beta.3:</h2>
+<ul class="bullets">
+<li>За последние 24 часа новых релизов нет. Последний — v2026.8.1-beta.3 от 24 августа.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновляться сегодня не на что; остаёмся на текущей проверенной версии.</blockquote>
+<h2>🤖 Claude Code v2.1.250 / v2.1.248:</h2>
+<ul class="bullets">
+<li>v2.1.250 — только исправления и повышение надёжности.</li>
+<li>В v2.1.248 появился <code>--restricted</code>: агенту можно отключить выполнение команд и WebFetch, ограничить файловые операции рабочей папкой и запретить обход разрешений.</li>
+<li>Добавлены сообщения между сессиями на одной машине, настраиваемый TTL кэша для агентов и диагностика серверных настроек. Исправлена потеря кэша и контекста расширенного мышления примерно раз в час после обновления OAuth-токена.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> <code>--restricted</code> стоит проверить для агентов, которые читают входящие документы и внешние репозитории. Межсессионные сообщения — полезный ориентир для Hermes, но сначала нужен тест доставки и изоляции.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Дешёвые модели доросли до регулярной операционки</h3>
+<p><span class="hint">Что случилось</span> на Hacker News обсуждают практический тест GPT-5.6 Luna: около 100 токенов/с, сложный персональный новостной агент обходится примерно в $0,10 вместо порядка $1 на моделях прошлого поколения. Главный вывод автора: большинство ежедневной работы — не «IQ 180», а быстрые повторяемые действия.</p>
+<p><span class="hint">Живой пример</span> <a href="https://calv.info/small-models-have-arrived" target="_blank" rel="noopener">https://calv.info/small-models-have-arrived</a></p>
+<blockquote><strong>👉 Как применить:</strong> вынести сортировку почты, первичную классификацию заявок, сводки и мониторинги на дешёвую модель, а дорогую оставлять для решений и сложного анализа. Делать только через контрольную выборку по качеству и стоимости.</blockquote>
+<h3 class="numbered" data-n="2">Открытый шлюз сам подбирает модель по цене и качеству</h3>
+<p><span class="hint">Что случилось</span> Experiential выпустил открытый шлюз для облачных, локальных и собственных моделей. Он собирает OpenTelemetry-трассы реальных задач, прогоняет симуляции и строит маршрутизацию по Парето «стоимость/качество». Авторы заявляют менее 1 мс накладных расходов при собственных ключах и отсутствие наценки на токены.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/experientiallabs/experiential" target="_blank" rel="noopener">https://github.com/experientiallabs/experiential</a></p>
+<blockquote><strong>👉 Как применить:</strong> не ставить в прод вслепую, а взять идею для Hermes: логировать тип задачи, модель, цену, задержку и результат; затем автоматически отправлять типовые задачи на минимально достаточную модель.</blockquote>
+<h3 class="numbered" data-n="3">Агент находит реальные ошибки по записям пользовательских сессий</h3>
+<p><span class="hint">Что случилось</span> Opslane опубликовал движок, который анализирует записи реальных сессий, выделяет воспроизводимые ошибки и готовит исправление на ревью. Проект свежий и пока маленький — 4 звезды, поэтому это скорее рабочий образец подхода, чем готовая инфраструктура.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/opslane/opslane" target="_blank" rel="noopener">https://github.com/opslane/opslane</a></p>
+<blockquote><strong>👉 Как применить:</strong> для внутренних панелей ИнструментБург связать ошибки фронта, шаги пользователя и версию интерфейса. Агент должен готовить воспроизведение и патч, но с обязательным человеческим ревью и тестами.</blockquote>
+<h3 class="numbered" data-n="4">GitHub Trending: архитектурные диаграммы стали агентским навыком</h3>
+<p><span class="hint">Что случилось</span> <code>tt-a1i/archify</code> набрал 4 239 звёзд за день. Навык строит проверяемые архитектурные, процессные и sequence-диаграммы в самодостаточном HTML с экспортом. Рядом растёт <code>JetBrains/go-modern-guidelines</code> — правила для современных Go-решений у кодовых агентов.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/tt-a1i/archify" target="_blank" rel="noopener">https://github.com/tt-a1i/archify</a></p>
+<blockquote><strong>👉 Как применить:</strong> сравнить Archify с нашим <code>architecture-diagram</code> на одном реальном процессе — например, цепочке TenderPlan или HQ. Забирать только то, что улучшит проверяемость схем и экспорт, без дублирования ещё одного набора навыков.</blockquote>
+<h3 class="numbered" data-n="5">AI-фаззер нашёл деление на ноль в FFmpeg</h3>
+<p><span class="hint">Что случилось</span> автор собрал фаззер с помощью кодового агента и нашёл конкретный дефект FFmpeg. Обсуждение на Hacker News упирается в правильную границу: агенту дешёво поручить широкий поиск, но проверка находки, устранение ложных срабатываний и регрессий остаются главной работой.</p>
+<p><span class="hint">Живой пример</span> <a href="https://code.ffmpeg.org/FFmpeg/FFmpeg/issues/24290" target="_blank" rel="noopener">https://code.ffmpeg.org/FFmpeg/FFmpeg/issues/24290</a></p>
+<blockquote><strong>👉 Как применить:</strong> запускать кодовых агентов на ночной поиск краевых случаев в калькуляторе и интеграциях, но принимать результат только вместе с воспроизводящим тестом.</blockquote>
+<p>X: недоступен — xAI вернул лимит 0/0 для поисковой модели. Посты из X не подменялись веб-поиском.</p>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
