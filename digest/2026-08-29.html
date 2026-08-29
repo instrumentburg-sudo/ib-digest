@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-08-29 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-08-29</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw v2026.9.1-beta.1:</h2>
+<ul class="bullets">
+<li>Бета сохраняет уже принятые задания при повторных перезапусках шлюза: выполнение продолжается с контрольной точки и доходит до финальной доставки.</li>
+<li>Починили восстановление зависших воркеров, надёжность записи конфигурации, сохранение файлов в панели управления и выбор стабильного Node.js 24 при установке на Linux. Встроенный Codex обновлён до 0.150.1.[1]</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> хороший ориентир для Hermes — задания после рестарта должны не просто «воскресать», а явно завершаться результатом или ошибкой. Саму бету в рабочий контур без отдельной проверки не ставить.</blockquote>
+<h2>🤖 Claude Code v2.1.251:</h2>
+<ul class="bullets">
+<li>Добавлены хуки <code>PreModelSwitch</code> и <code>PostModelSwitch</code>, показатели кэша промптов в <code>/cost</code>, лимит расходов в <code>/usage</code> и поток инструментальных вызовов активного субагента в Remote Control.</li>
+<li>Закрыта пачка дыр вокруг симлинков и обхода путей: файловые инструменты, Grep/Glob, Workflow и команды плагинов больше не должны выходить за разрешённые каталоги. Также исправлена доставка финального ответа агента руководителю команды и зависания MCP при потерянном подтверждении.[2]</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновление полезное и по безопасности, и для оркестрации. Особенно важны защита рабочих каталогов и нормальная доставка результата субагента — это можно брать в ближайший безопасный цикл обновления Claude Code.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">SpaceX купила Cursor, OpenAI прекращает поставку моделей</h3>
+<p><span class="hint">Что случилось</span> OpenAI уведомила SpaceX, что планирует отключить свои модели в Cursor 12 ноября 2026 года после смены контроля. Новые модели OpenAI в Cursor также не появятся; причина — риск нарушения условий использования.[3] Тема сразу вышла на главную Hacker News.[4]</p>
+<p><span class="hint">Живой пример</span> <a href="https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/" target="_blank" rel="noopener">https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/</a></p>
+<blockquote><strong>👉 Как применить:</strong> не привязывать критические процессы к каталогу моделей одного редактора. Наш текущий подход с отдельными Claude Code, Codex и Hermes правильный: провайдера можно менять без переноса всей рабочей среды.</blockquote>
+<h3 class="numbered" data-n="2">Archify взлетел на GitHub Trending</h3>
+<p><span class="hint">Что случилось</span> skill для проверяемых архитектурных, последовательностных и процессных диаграмм набрал 4 562 звезды за сутки и возглавил дневной рейтинг GitHub. Он делает автономные HTML-схемы с анимацией и экспортом; проект обновлялся в последние 24 часа.[5][6]</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/tt-a1i/archify" target="_blank" rel="noopener">https://github.com/tt-a1i/archify</a></p>
+<blockquote><strong>👉 Как применить:</strong> прогнать на одном реальном процессе ИнструментБург — например, «тендер → расчёт → КП → согласование». Если результат читается лучше нашей текущей схемы и воспроизводится без ручной правки, забрать подход; иначе это просто красивый шум.</blockquote>
+<h3 class="numbered" data-n="3">GitNexus — локальный граф кода прямо в браузере</h3>
+<p><span class="hint">Что случилось</span> GitNexus снова в дневном Trending. Он строит граф репозитория локально в браузере, использует Tree-sitter и встроенную графовую базу, даёт поиск и Graph RAG без отдельного сервера. За сутки проект получил 202 звезды и обновлялся в пределах окна дайджеста.[5][7]</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/abhigyanpatwari/GitNexus" target="_blank" rel="noopener">https://github.com/abhigyanpatwari/GitNexus</a></p>
+<blockquote><strong>👉 Как применить:</strong> мигрировать с уже установленного CodeGraph смысла нет. Полезен только как наглядный браузерный слой для разбора незнакомого репозитория; сравнивать надо на одном проекте по времени поиска зависимостей и точности карты.</blockquote>
+<p>X: недоступен — xAI вернул лимит запросов 0/0. Посты не подменял веб-поиском.</p>
+<p>Reddit: подтверждённых свежих кейсов за 24 часа не найдено; старые результаты отброшены.</p>
+<p>## Sources</p>
+<p>[1] <a href="https://github.com/openclaw/openclaw/releases/tag/v2026.9.1-beta.1" target="_blank" rel="noopener">https://github.com/openclaw/openclaw/releases/tag/v2026.9.1-beta.1</a> — OpenClaw v2026.9.1-beta.1</p>
+<p>[2] <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.251" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/releases/tag/v2.1.251</a> — Claude Code v2.1.251</p>
+<p>[3] <a href="https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex" target="_blank" rel="noopener">https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex</a> — OpenAI: decision on Cursor after SpaceX acquisition</p>
+<p>[4] <a href="https://news.ycombinator.com/item?id=49486172" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49486172</a> — Hacker News discussion: Cursor and OpenAI</p>
+<p>[5] <a href="https://github.com/trending?since=daily" target="_blank" rel="noopener">https://github.com/trending?since=daily</a> — GitHub Trending daily</p>
+<p>[6] <a href="https://github.com/tt-a1i/archify" target="_blank" rel="noopener">https://github.com/tt-a1i/archify</a> — Archify</p>
+<p>[7] <a href="https://github.com/abhigyanpatwari/GitNexus" target="_blank" rel="noopener">https://github.com/abhigyanpatwari/GitNexus</a> — GitNexus</p>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
