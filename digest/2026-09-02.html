@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-09-02 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-09-02</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw 2026.8.2:</h2>
+<ul class="bullets">
+<li>Появилось настольное приложение для Linux: <code>.deb</code> и AppImage, подключение к локальному или удалённому шлюзу, быстрый чат из системного трея.</li>
+<li>Усилили обновления и восстановление: новая конфигурация не затирается старой, шлюз поднимается после неудачного обновления только при проверенной установке или откате.</li>
+<li>Починили две вещи, важные для автоматики: задания по расписанию сохраняются при миграциях и отдают честный итог; после работы с инструментами агент снова завершает ответом, а не зависает на сыром выводе.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> установлен OpenClaw 2026.6.5, отстаёт на два месячных выпуска. Обновлять только с резервной копией и проверкой шлюза; релиз крупный, слепой автоапдейт здесь лишний.</blockquote>
+<h2>🤖 Claude Code 2.1.258:</h2>
+<ul class="bullets">
+<li>В 2.1.257 добавили Claude Fable 5.1: контекст 1 млн токенов, цена $10/$50 за млн входных/выходных токенов, чтение кэша — $0,25 за млн. Для долгих агентных задач Anthropic заявляет экономию до 45% относительно Fable 5.</li>
+<li>Появилась настройка часового пояса и формата времени, принудительная единая модель для всех субагентов, защита чтения за пределами рабочих каталогов. Исправлены зависания фоновых и запланированных сессий, потери правил запрета после перезагрузки настроек и ряд обходов песочницы.</li>
+<li>2.1.258 чинит запуск на macOS 12 и ошибку удалённых или запланированных сессий после повторного подтверждения разрешения.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> установлен Claude Code 2.1.232. Обновление имеет смысл: разрыв 26 версий, а исправления напрямую касаются фоновых агентов, расписаний и разрешений. После обновления прогнать один фоновый запуск и одну задачу по расписанию.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Агент сам монтирует видео из исходников</h3>
+<p><span class="hint">Что случилось</span> <code>browser-use/video-use</code> вышел в суточный GitHub Trending, набрав 472 звезды за день. Это открытый набор сценариев: кладём исходники в папку, агент собирает <code>final.mp4</code>; поддерживаются Claude Code, Codex, Hermes и OpenClaw.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/browser-use/video-use" target="_blank" rel="noopener">https://github.com/browser-use/video-use</a></p>
+<blockquote><strong>👉 Как применить:</strong> проверить на одном реальном ролике из сервиса. Если монтаж не разваливает факты и темп, можно собрать повторяемый конвейер для коротких видео ИнструментБург без ручной нарезки каждого кадра.</blockquote>
+<h3 class="numbered" data-n="2">Быстрая развилка «текстовый PDF или скан»</h3>
+<p><span class="hint">Что случилось</span> <code>firecrawl/pdf-inspector</code> набрал 541 звезду за день. Библиотека на Rust проверяет структуру PDF, видит текстовые операторы и изображения, после чего выбирает обычное извлечение текста или распознавание скана.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/firecrawl/pdf-inspector" target="_blank" rel="noopener">https://github.com/firecrawl/pdf-inspector</a></p>
+<blockquote><strong>👉 Как применить:</strong> поставить перед распознаванием тендерных документов. Текстовые PDF не гонять через тяжёлое распознавание, сканы сразу отправлять в нужный маршрут; меньше времени и меньше испорченных таблиц.</blockquote>
+<h3 class="numbered" data-n="3">Автономные агенты оценивают результат снаружи, а не верят собственному отчёту</h3>
+<p><span class="hint">Что случилось</span> на Hacker News обсуждают рабочую схему автономного цикла: отдельный агент меняет продукт, второй пользуется им как клиент, проверяющий оценивает фактический результат, а контроллер выбирает следующий разрыв. Инфраструктурные сбои не засчитываются как провал продукта.</p>
+<p><span class="hint">Живой пример</span> <a href="https://jx0.ca/building-autonomous-goal-loops-that-deliver/" target="_blank" rel="noopener">https://jx0.ca/building-autonomous-goal-loops-that-deliver/</a></p>
+<blockquote><strong>👉 Как применить:</strong> перенести схему в наши задания по расписанию и калькулятор: после изменения не читать красивый отчёт агента, а запускать внешний контроль результата через реальный файл, страницу или API. Это ровно тот слой проверки, которого обычно не хватает автономной работе.</blockquote>
+<h3 class="numbered" data-n="4">Модель на 104 ГБ запускают на Mac с 48 ГБ памяти</h3>
+<p><span class="hint">Что случилось</span> <code>slotstream</code> показал запуск Qwen3.8-Flash-Next 125B в 4-битном виде, подгружая экспертов с SSD. Демонстрация получила 187 баллов и 91 комментарий на Hacker News за 13 часов; автор заявляет около 12 токенов/с и совместимый с Ollama API.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/carloslfu/slotstream" target="_blank" rel="noopener">https://github.com/carloslfu/slotstream</a></p>
+<blockquote><strong>👉 Как применить:</strong> сейчас не внедрять, у нас другой контур. Но подход стоит держать в уме для локальных MoE-моделей: узкое место можно переносить из оперативной памяти в быстрый SSD, если допустима задержка.</blockquote>
+<p>X: недоступен — xAI вернул лимит 0 запросов в минуту. Посты не подменял веб-поиском.</p>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
