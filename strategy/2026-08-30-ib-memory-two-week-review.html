@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#171711">
+<title>14 дней в чёрном ящике: разбор памяти ИнструментБург</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alumni+Sans:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=PT+Sans:wght@400;700&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+:root {
+  --bg: oklch(0.15 0.012 90);
+  --bg-raised: oklch(0.195 0.014 90);
+  --bg-soft: oklch(0.235 0.017 90);
+  --ink: oklch(0.94 0.018 88);
+  --muted: oklch(0.72 0.025 88);
+  --rule: oklch(0.38 0.025 88);
+  --signal: oklch(0.79 0.17 72);
+  --danger: oklch(0.66 0.22 30);
+  --ok: oklch(0.84 0.16 130);
+  --cold: oklch(0.76 0.12 220);
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+  --sans: "PT Sans", sans-serif;
+  --display: "Alumni Sans", sans-serif;
+  --radius: 0.35rem;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  min-width: 20rem;
+  background:
+    linear-gradient(oklch(0.15 0.012 90 / 0.95), oklch(0.15 0.012 90 / 0.98)),
+    repeating-linear-gradient(90deg, transparent 0 5.95rem, oklch(0.82 0.04 85 / 0.055) 5.95rem 6rem),
+    repeating-linear-gradient(0deg, transparent 0 5.95rem, oklch(0.82 0.04 85 / 0.055) 5.95rem 6rem);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 1rem;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a { color: inherit; text-underline-position: from-font; text-decoration-thickness: from-font; }
+a:focus-visible { outline: 0.18rem solid var(--signal); outline-offset: 0.25rem; }
+.skip-link {
+  position: fixed;
+  inset-block-start: 0.75rem;
+  inset-inline-start: 0.75rem;
+  z-index: 20;
+  transform: translateY(-180%);
+  background: var(--signal);
+  color: var(--bg);
+  padding: 0.7rem 1rem;
+  font: 600 0.8rem var(--mono);
+}
+.skip-link:focus { transform: translateY(0); }
+::selection { background: var(--signal); color: var(--bg); }
+.frame { width: min(100% - 2rem, 74rem); margin-inline: auto; }
+.masthead {
+  min-height: 41rem;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding-block: 1.4rem 2rem;
+  border-inline: 1px solid var(--rule);
+  position: relative;
+  overflow: hidden;
+}
+.masthead::before {
+  content: "REC 14D";
+  position: absolute;
+  inset-inline-end: -1.6rem;
+  inset-block-start: 5.1rem;
+  color: oklch(0.94 0.018 88 / 0.035);
+  font: 800 clamp(8rem, 23vw, 18rem)/0.72 var(--display);
+  letter-spacing: -0.06em;
+  writing-mode: vertical-rl;
+  user-select: none;
+}
+.topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  padding-inline: clamp(1rem, 4vw, 3rem);
+  font: 500 0.7rem/1.5 var(--mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.rec { display: inline-flex; align-items: center; gap: 0.55rem; color: var(--danger); }
+.rec::before {
+  content: "";
+  width: 0.55rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 1rem currentColor;
+}
+.hero {
+  align-self: center;
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(16rem, 0.6fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  padding: 4rem clamp(1rem, 4vw, 3rem) 3rem;
+  position: relative;
+  z-index: 1;
+}
+.eyebrow {
+  color: var(--signal);
+  font: 600 0.72rem/1.3 var(--mono);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+}
+h1, h2, h3 { margin: 0; text-wrap: balance; }
+h1 {
+  max-width: 11ch;
+  font: 800 clamp(4.5rem, 11vw, 8.8rem)/0.74 var(--display);
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+}
+.deck {
+  max-width: 37rem;
+  margin: 1.7rem 0 0;
+  color: var(--muted);
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+.verdict {
+  align-self: end;
+  background: var(--signal);
+  color: var(--bg);
+  padding: 1.35rem 1.4rem 1.5rem;
+  box-shadow: 0.65rem 0.65rem 0 var(--danger);
+  transform: rotate(-1.2deg);
+}
+.verdict small {
+  display: block;
+  font: 600 0.67rem var(--mono);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.7rem;
+}
+.verdict strong { display: block; font: 700 clamp(2.1rem, 5vw, 3.4rem)/0.92 var(--display); text-transform: uppercase; }
+.verdict p { margin: 0.8rem 0 0; font-size: 0.95rem; line-height: 1.4; }
+.index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1.25rem;
+  padding: 1rem clamp(1rem, 4vw, 3rem) 0;
+  border-top: 1px solid var(--rule);
+  font: 500 0.67rem var(--mono);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.index a { text-decoration-color: transparent; transition: color 120ms ease-out, text-decoration-color 120ms ease-out; }
+.index a:hover { color: var(--signal); text-decoration-color: currentColor; }
+main { border-inline: 1px solid var(--rule); }
+section { padding: clamp(3.5rem, 8vw, 7rem) clamp(1rem, 4vw, 3rem); scroll-margin-top: 1rem; }
+section + section { border-top: 1px solid var(--rule); }
+.section-head {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  gap: 1.2rem;
+  margin-bottom: clamp(2rem, 5vw, 4rem);
+}
+.section-no { color: var(--signal); font: 600 0.75rem var(--mono); letter-spacing: 0.13em; }
+h2 { font: 700 clamp(2.7rem, 6vw, 5rem)/0.88 var(--display); letter-spacing: -0.025em; text-transform: uppercase; }
+.section-note { max-width: 45rem; color: var(--muted); margin: 1rem 0 0; text-wrap: pretty; }
+.kpis { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border: 1px solid var(--rule); }
+.kpi {
+  min-height: 10.8rem;
+  padding: 1.1rem;
+  background: var(--bg-raised);
+  position: relative;
+}
+.kpi + .kpi { border-inline-start: 1px solid var(--rule); }
+.kpi b {
+  display: block;
+  color: var(--signal);
+  font: 700 clamp(2.4rem, 5vw, 4.3rem)/0.95 var(--display);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.035em;
+}
+.kpi.danger b { color: var(--danger); }
+.kpi.ok b { color: var(--ok); }
+.kpi span { display: block; margin-top: 0.65rem; color: var(--muted); font-size: 0.82rem; line-height: 1.38; }
+.kpi code { position: absolute; inset-block-end: 0.7rem; inset-inline-end: 0.75rem; color: var(--rule); font: 0.62rem var(--mono); }
+.callout {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.55fr);
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+.callout > div { background: var(--bg-raised); padding: clamp(1.2rem, 3vw, 2rem); }
+.callout .claim { font: 600 clamp(1.75rem, 3.5vw, 2.7rem)/1.05 var(--display); text-transform: uppercase; }
+.callout p { margin: 0; color: var(--muted); max-width: 66ch; }
+.incident {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(2rem, 6vw, 5rem);
+}
+.incident-summary {
+  align-self: start;
+  position: sticky;
+  inset-block-start: 1rem;
+}
+.incident-summary .code {
+  color: var(--danger);
+  font: 700 clamp(4rem, 9vw, 7rem)/0.85 var(--display);
+}
+.incident-summary h3 { margin-top: 0.6rem; font: 700 2.2rem/1 var(--display); text-transform: uppercase; }
+.incident-summary p { color: var(--muted); max-width: 32rem; }
+.timeline { position: relative; padding-inline-start: 2.2rem; }
+.timeline::before { content: ""; position: absolute; inset-block: 0.4rem; inset-inline-start: 0.38rem; width: 1px; background: var(--rule); }
+.event { position: relative; padding: 0 0 2rem; }
+.event::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: -2.2rem;
+  inset-block-start: 0.25rem;
+  width: 0.78rem;
+  aspect-ratio: 1;
+  border: 2px solid var(--muted);
+  background: var(--bg);
+  transform: rotate(45deg);
+}
+.event.fail::before { border-color: var(--danger); background: var(--danger); }
+.event.fix::before { border-color: var(--signal); background: var(--signal); }
+.event.good::before { border-color: var(--ok); background: var(--ok); }
+.event time { display: block; color: var(--signal); font: 600 0.72rem var(--mono); letter-spacing: 0.08em; }
+.event h3 { margin-top: 0.25rem; font: 600 1.6rem/1.05 var(--display); text-transform: uppercase; }
+.event p { margin: 0.45rem 0 0; max-width: 49rem; color: var(--muted); }
+.status-line {
+  margin-top: 1.4rem;
+  padding: 1rem 1.1rem;
+  border-inline-start: 0.3rem solid var(--danger);
+  background: oklch(0.66 0.22 30 / 0.08);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  overflow-wrap: break-word;
+}
+.table-wrap { overflow-x: auto; border: 1px solid var(--rule); }
+table { width: 100%; min-width: 48rem; border-collapse: collapse; font-size: 0.92rem; }
+th, td { padding: 0.95rem 1rem; text-align: start; vertical-align: top; border-bottom: 1px solid var(--rule); }
+th { color: var(--muted); background: var(--bg-soft); font: 500 0.68rem var(--mono); letter-spacing: 0.08em; text-transform: uppercase; }
+td:nth-child(n+2) { font-variant-numeric: tabular-nums; }
+td strong { font-family: var(--mono); font-weight: 600; white-space: nowrap; }
+tr:last-child td { border-bottom: 0; }
+.delta-bad { color: var(--danger); }
+.delta-good { color: var(--ok); }
+.table-note { margin: 1rem 0 0; max-width: 70ch; color: var(--muted); font-size: 0.83rem; }
+.flow {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.65rem;
+  align-items: stretch;
+}
+.flow-step { padding: 1.1rem 1rem; background: var(--bg-raised); border-top: 0.18rem solid var(--rule); position: relative; }
+.flow-step.hot { border-color: var(--danger); }
+.flow-step b { display: block; font: 700 2.4rem/1 var(--display); font-variant-numeric: tabular-nums; }
+.flow-step span { display: block; margin-top: 0.35rem; color: var(--muted); font-size: 0.78rem; }
+.flow-step:not(:last-child)::after { content: "→"; position: absolute; inset-inline-end: -0.78rem; inset-block-start: 50%; z-index: 2; color: var(--signal); font: 600 1rem var(--mono); }
+.patterns { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.pattern { padding: clamp(1.2rem, 3vw, 1.8rem); background: var(--bg-raised); border: 1px solid var(--rule); }
+.pattern.good { border-top: 0.28rem solid var(--ok); }
+.pattern.bad { border-top: 0.28rem solid var(--danger); }
+.pattern h3 { font: 700 1.65rem/1 var(--display); text-transform: uppercase; }
+.pattern p { margin: 0.7rem 0 0; color: var(--muted); max-width: 60ch; }
+.pattern .metric { display: block; margin-top: 1rem; color: var(--ink); font: 500 0.78rem/1.5 var(--mono); }
+.queue-bars { margin-top: 1.25rem; display: grid; gap: 0.8rem; }
+.queue-row { display: grid; grid-template-columns: 12rem 1fr 4.5rem; gap: 0.9rem; align-items: center; }
+.queue-row .label { font-size: 0.85rem; }
+.track { height: 0.65rem; background: var(--bg-soft); overflow: hidden; }
+.track i { display: block; height: 100%; background: var(--danger); }
+.queue-row.good .track i { background: var(--ok); }
+.queue-row output { text-align: end; color: var(--muted); font: 0.72rem var(--mono); }
+.actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; counter-reset: action; }
+.action {
+  counter-increment: action;
+  min-height: 18rem;
+  padding: clamp(1.3rem, 3vw, 2rem);
+  background: var(--bg-raised);
+  border: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+}
+.action::before { content: "0" counter(action); color: var(--signal); font: 600 0.72rem var(--mono); letter-spacing: 0.12em; }
+.action h3 { margin-top: 1.2rem; font: 700 2rem/0.95 var(--display); text-transform: uppercase; }
+.action p { margin: 0.85rem 0 0; color: var(--muted); }
+.action .accept { margin-top: auto; padding-top: 1rem; border-top: 1px solid var(--rule); color: var(--ink); font: 500 0.74rem/1.5 var(--mono); }
+.plan { display: grid; grid-template-columns: 10rem minmax(0, 1fr); border-top: 1px solid var(--rule); }
+.plan + .plan { margin-top: 0; }
+.plan-time { padding: 1.3rem 1rem 1.3rem 0; color: var(--signal); font: 600 0.72rem/1.5 var(--mono); letter-spacing: 0.07em; text-transform: uppercase; }
+.plan-body { padding: 1.2rem 0 1.4rem 1.4rem; border-inline-start: 1px solid var(--rule); }
+.plan-body h3 { font: 600 1.55rem/1 var(--display); text-transform: uppercase; }
+.plan-body p { margin: 0.45rem 0 0; color: var(--muted); max-width: 62ch; }
+.plan-body .owner { display: inline-block; margin-top: 0.65rem; color: var(--cold); font: 500 0.68rem var(--mono); letter-spacing: 0.07em; text-transform: uppercase; }
+.stop-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+.stop-item { background: var(--bg-raised); padding: 1.2rem; font-size: 0.85rem; }
+.stop-item b { display: block; margin-bottom: 0.45rem; color: var(--danger); font: 600 0.68rem var(--mono); letter-spacing: 0.09em; text-transform: uppercase; }
+footer {
+  border: 1px solid var(--rule);
+  border-top: 0.35rem solid var(--signal);
+  padding: 2rem clamp(1rem, 4vw, 3rem) 2.5rem;
+  background: var(--bg-raised);
+}
+footer h2 { font-size: 2.4rem; }
+.source-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.4rem; }
+footer p, footer li { color: var(--muted); font-size: 0.8rem; }
+footer ul { margin: 0; padding-inline-start: 1.1rem; }
+.footer-mark { margin-top: 2rem; display: flex; justify-content: space-between; gap: 1rem; color: var(--rule); font: 0.66rem var(--mono); letter-spacing: 0.08em; text-transform: uppercase; }
+@media (max-width: 58rem) {
+  .hero, .incident { grid-template-columns: 1fr; }
+  .masthead { min-height: auto; }
+  .verdict { max-width: 30rem; }
+  .kpis { grid-template-columns: repeat(2, 1fr); }
+  .kpi:nth-child(odd) { border-inline-start: 0; }
+  .kpi:nth-child(n+3) { border-top: 1px solid var(--rule); }
+  .kpi:last-child { grid-column: 1 / -1; }
+  .callout, .patterns, .actions { grid-template-columns: 1fr; }
+  .incident-summary { position: static; }
+  .flow { grid-template-columns: 1fr; }
+  .flow-step:not(:last-child)::after { content: "↓"; inset-inline-end: 1rem; inset-block-start: auto; inset-block-end: -0.85rem; }
+  .stop-list { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 38rem) {
+  .frame { width: min(100% - 1rem, 74rem); }
+  .topline { display: grid; }
+  h1 { font-size: clamp(4rem, 23vw, 6.8rem); }
+  .section-head { grid-template-columns: 1fr; gap: 0.5rem; }
+  .kpis { grid-template-columns: 1fr; }
+  .kpi, .kpi:nth-child(n) { border-inline-start: 0; border-top: 1px solid var(--rule); grid-column: auto; }
+  .kpi:first-child { border-top: 0; }
+  .queue-row { grid-template-columns: 1fr 4rem; }
+  .queue-row .track { grid-row: 2; grid-column: 1 / -1; }
+  .plan { grid-template-columns: 1fr; }
+  .plan-time { padding-bottom: 0.4rem; }
+  .plan-body { border-inline-start: 0; padding-inline-start: 0; }
+  .stop-list, .source-grid { grid-template-columns: 1fr; }
+  .footer-mark { display: grid; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero > *, .kpi, .section-head { animation: rise 650ms both cubic-bezier(.2,.8,.2,1); }
+  .hero > :nth-child(2) { animation-delay: 110ms; }
+  .kpi:nth-child(2) { animation-delay: 70ms; }
+  .kpi:nth-child(3) { animation-delay: 140ms; }
+  .kpi:nth-child(4) { animation-delay: 210ms; }
+  .kpi:nth-child(5) { animation-delay: 280ms; }
+  @keyframes rise { from { opacity: 0; transform: translateY(1rem); } to { opacity: 1; transform: translateY(0); } }
+}
+@media print {
+  :root { --bg: #fff; --bg-raised: #fff; --bg-soft: #eee; --ink: #111; --muted: #444; --rule: #999; --signal: #a35600; --danger: #b31919; --ok: #2d6c24; --cold: #205b73; }
+  body { background: #fff; }
+  .frame { width: 100%; }
+  .masthead { min-height: 34rem; }
+  section { break-inside: avoid; padding-block: 2.5rem; }
+  .incident-summary { position: static; }
+  .action { min-height: 0; }
+  .index { display: none; }
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#report">К отчёту</a>
+<div class="frame">
+<header class="masthead">
+  <div class="topline">
+    <span>ИнструментБург · служебный разбор</span>
+    <span class="rec">Чёрный ящик / 17–30.08.2026</span>
+  </div>
+  <div class="hero">
+    <div>
+      <p class="eyebrow">Две полные недели · 14 ежедневных записей</p>
+      <h1>14 дней в памяти</h1>
+      <p class="deck">Что система действительно увидела, почему недельная сводка снова не дошла и какие изменения нужны, чтобы память перестала быть архивом наблюдений.</p>
+    </div>
+    <aside class="verdict" aria-label="Главный вывод">
+      <small>Вердикт / 30.08</small>
+      <strong>Сбор работает. Управления нет.</strong>
+      <p>Память фиксирует исключения каждый день, но не назначает ответственных, не ставит сроки и не проверяет доставку итогов.</p>
+    </aside>
+  </div>
+  <nav class="index" aria-label="Разделы отчёта">
+    <a href="#signal">Сигнал</a>
+    <a href="#incident">Сбой сводки</a>
+    <a href="#weeks">Две недели</a>
+    <a href="#patterns">Что повторялось</a>
+    <a href="#changes">Изменения</a>
+    <a href="#responsibility">Как назначить</a>
+    <a href="#plan">План на 7 дней</a>
+  </nav>
+</header>
+
+<main id="report">
+<section id="signal">
+  <div class="section-head">
+    <div class="section-no">01 / СИГНАЛ</div>
+    <div><h2>Память видит долг, но оставляет его без адресата</h2><p class="section-note">Главная цифра отчёта не денежная. За 14 дней реестр ни разу не получил ответственного или срок.</p></div>
+  </div>
+  <div class="kpis">
+    <div class="kpi ok"><b>14/14</b><span>дней записаны без пропусков</span><code>СБОР</code></div>
+    <div class="kpi"><b>486</b><span>исключений обнаружено за период</span><code>НАЙДЕНО</code></div>
+    <div class="kpi danger"><b>215</b><span>активных записей в сыром реестре, включая почтовый спам</span><code>ОТКРЫТО</code></div>
+    <div class="kpi danger"><b>0</b><span>ответственных и сроков во всём реестре</span><code>ВЛАДЕЛЕЦ / СРОК</code></div>
+    <div class="kpi danger"><b>7/14</b><span>дней LiveSklad был старым или ошибочным</span><code>ДОВЕРИЕ</code></div>
+  </div>
+  <div class="callout">
+    <div class="claim">Нулевая просрочка в отчёте означает не порядок, а отсутствие сроков.</div>
+    <div><p>В реестре 486 записей. Из них 215 активны, у всех поле ответственного пустое, срок не задан. Часть из 76 почтовых записей - спам и уведомления, поэтому сначала их нужно убрать. Остальные записи требуют ответственного и срока.</p></div>
+  </div>
+</section>
+
+<section id="incident">
+  <div class="section-head">
+    <div class="section-no">02 / СБОЙ</div>
+    <div><h2>Почему недельная сводка не пришла</h2><p class="section-note">Система второй раз воспроизвела один и тот же дефект. Файл недели после ручного ремонта появился, но контур доставки повторно не запускали.</p></div>
+  </div>
+  <div class="incident">
+    <div class="incident-summary">
+      <div class="code">127</div>
+      <h3>Планировщик не видел Bun</h3>
+      <p>Недельный сценарий запускался с минимальным <code>PATH</code>. В дневном сценарии путь исправили раньше, а в отдельном недельном файле тот же фикс не закрепили.</p>
+      <div class="status-line">/usr/bin/env: ‘bun’: No such file or directory</div>
+    </div>
+    <div class="timeline" aria-label="Хронология сбоя">
+      <article class="event fail"><time>23 августа · 18:15 CEST</time><h3>Первый штатный запуск падает</h3><p>Встроенный запуск заканчивается ошибкой 127. Сводка W34 не собрана.</p></article>
+      <article class="event good"><time>23 августа · 18:27–18:33</time><h3>Прямой повтор проходит</h3><p>Ручной запуск использует более богатое окружение, собирает W34 и доставляет отчёт. Это приняли за исправление штатного расписания.</p></article>
+      <article class="event fail"><time>30 августа · 18:16</time><h3>Штатный запуск падает снова</h3><p>Недельный файл по-прежнему не добавлял <code>~/.bun/bin</code> в <code>PATH</code>. Планировщик при этом записал статус «ok», потому что агент успешно отправил сообщение об ошибке.</p></article>
+      <article class="event fix"><time>30 августа · 18:21</time><h3>Исправлены две копии сценария</h3><p>Путь добавлен в установленный файл Hermes и в исходник <code>ib-dashboard-prod/apps/memory/scripts/weekly-memory.sh</code>.</p></article>
+      <article class="event good"><time>30 августа · 18:27</time><h3>W35 собрана после ручного ремонта</h3><p>Создан <code>weeks/2026-W35.md</code>, 7/7 дней, изменение <code>9c68149</code> отправлено в репозиторий. Но второго запуска задания на доставку не было, поэтому полноценная сводка не пришла.</p></article>
+      <article class="event fail"><time>Состояние на момент отчёта</time><h3>Фикс ещё можно потерять</h3><p>Канонический исходник изменён, но не зафиксирован в git. Следующая установка или переключение рабочей копии может вернуть прежний файл.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="weeks">
+  <div class="section-head">
+    <div class="section-no">03 / ФАКТЫ</div>
+    <div><h2>Первая неделя дала плюс. Вторая забрала его с запасом</h2><p class="section-note">Объём обработки вырос, но денежный результат и полнота себестоимости просели. Числа ниже взяты из W34 и W35 без пересчёта первичных событий.</p></div>
+  </div>
+  <div class="table-wrap" role="region" aria-label="Сравнение недель" tabindex="0">
+    <table>
+      <thead><tr><th>Показатель</th><th>17–23 августа</th><th>24–30 августа</th><th>Изменение</th></tr></thead>
+      <tbody>
+        <tr><td>Дни с фактами</td><td><strong>7/7</strong></td><td><strong>7/7</strong></td><td class="delta-good">без пропусков</td></tr>
+        <tr><td>Сметы созданы</td><td><strong>57 / 531 160 ₽</strong></td><td><strong>61 / 444 650 ₽</strong></td><td>+4 шт.; <span class="delta-bad">−86 510 ₽</span></td></tr>
+        <tr><td>Сметы высланы</td><td><strong>11 / 169 720 ₽</strong></td><td><strong>15 / 117 390 ₽</strong></td><td>+4 шт.; <span class="delta-bad">−52 330 ₽</span></td></tr>
+        <tr><td>Сметы оплачены</td><td><strong>1 / 4 460 ₽</strong></td><td><strong>2 / 12 630 ₽</strong></td><td class="delta-good">+1 шт.; +8 170 ₽</td></tr>
+        <tr><td>Операционная дельта</td><td><strong>+55 077,68 ₽</strong></td><td><strong>−79 136,89 ₽</strong></td><td class="delta-bad">разворот −134 214,57 ₽</td></tr>
+        <tr><td>Маржа заказов с известной себестоимостью</td><td><strong>42 283,80 ₽</strong></td><td><strong>17 917 ₽</strong></td><td class="delta-bad">−34 326,80 ₽</td></tr>
+        <tr><td>Покрытие себестоимостью</td><td><strong>78,38%</strong></td><td><strong>48,78%</strong></td><td class="delta-bad">−29,60 п. п.</td></tr>
+        <tr><td>Готово, не выдано</td><td><strong>199 → 199</strong><br>1 169 457 → 1 176 677 ₽</td><td><strong>119 → 116</strong><br>731 977 → 800 477 ₽</td><td>во второй неделе −3 заказа, но <span class="delta-bad">+68 500 ₽</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="table-note">Числа «создано / выслано / оплачено» показывают недельный поток событий, а не конверсию одной группы смет. Очередь готовых заказов нельзя напрямую сравнивать между неделями: выходные W34 и пять дней W35 содержат старые снимки LiveSklad.</p>
+  <div class="flow" aria-label="Поток смет за вторую неделю">
+    <div class="flow-step"><b>61</b><span>смета создана</span></div>
+    <div class="flow-step hot"><b>15</b><span>смет выслано</span></div>
+    <div class="flow-step hot"><b>2</b><span>оплаты зафиксировано</span></div>
+    <div class="flow-step hot"><b>23</b><span>заказа сейчас без сметы</span></div>
+    <div class="flow-step hot"><b>10</b><span>из них тянутся с W34</span></div>
+  </div>
+</section>
+
+<section id="patterns">
+  <div class="section-head">
+    <div class="section-no">04 / ПОВТОРЫ</div>
+    <div><h2>Что работает, а что только выглядит работой</h2><p class="section-note">За две недели видна разница между устойчивым процессом и разовой атакой на очередь.</p></div>
+  </div>
+  <div class="patterns">
+    <article class="pattern good"><h3>Ежедневный сбор держится</h3><p>Все 14 дневных записей и оба недельных файла существуют. Основа памяти работает регулярно, даже когда отдельные источники теряют свежесть.</p><span class="metric">14/14 дней · пропуски: 0</span></article>
+    <article class="pattern good"><h3>Пропущенные звонки закрываются</h3><p>Реестр увидел 29 открытых пропусков и закрыл все 29. Это единственный тип исключения, где текущий хвост равен нулю.</p><span class="metric">29 обнаружено · 29 закрыто · 0 активно</span></article>
+    <article class="pattern good"><h3>Команда умеет делать рывок</h3><p>Массовый просчёт и выдача быстро уменьшают общий объём. Крупный A022801 вышел из очереди. Значит, мощности для кампании хватает.</p><span class="metric">готово к выдаче: 119 → 116 · A022801 закрыт</span></article>
+    <article class="pattern bad"><h3>Рывок не трогает старьё</h3><p>После кампаний остаются те же A023301, A023795, A024749, A024750 и группа ЦСКЗ. Сортировка по удобству побеждает возраст и деньги.</p><span class="metric">115 активных исключений перешли из W34 в W35</span></article>
+    <article class="pattern bad"><h3>Почтовая цифра завышена</h3><p>В 76 активных почтовых записей попали спам и автоматические уведомления. Сейчас система смешивает мусор с письмами клиентов и поставщиков.</p><span class="metric">76 записей до очистки · точное число рабочих писем пока неизвестно</span></article>
+    <article class="pattern bad"><h3>Смета застревает после расчёта</h3><p>Команда создаёт десятки смет, но отправка и оплата идут заметно слабее. Управление заканчивается в момент расчёта, хотя деньги находятся дальше.</p><span class="metric">W35: 61 создана · 15 выслано · 2 оплачено</span></article>
+    <article class="pattern bad"><h3>Счётчик скрывает цену хвоста</h3><p>Во второй неделе заказов стало на три меньше, а сумма готовой работы выросла на 68 500 ₽. Один счётчик создаёт ложное ощущение разгрузки.</p><span class="metric">116 заказов · 800 477 ₽ на конец W35</span></article>
+    <article class="pattern bad"><h3>Рост сводки не равен деньгам</h3><p>Выручка и маржа на сводке росли, пока операционная дельта ушла в минус, а покрытие себестоимостью упало ниже половины.</p><span class="metric">операционная дельта: −79 136,89 ₽ · покрытие: 48,78%</span></article>
+  </div>
+  <div class="queue-bars" aria-label="Доля активных исключений по типам">
+    <div class="queue-row good"><span class="label">Пропущенные звонки</span><div class="track"><i style="width:0%"></i></div><output>0%</output></div>
+    <div class="queue-row"><span class="label">Заказы без сметы</span><div class="track"><i style="width:27.4%"></i></div><output>27,4%</output></div>
+    <div class="queue-row"><span class="label">Готово, не выдано</span><div class="track"><i style="width:41.7%"></i></div><output>41,7%</output></div>
+    <div class="queue-row"><span class="label">Почтовые записи до очистки</span><div class="track"><i style="width:80%"></i></div><output>80%</output></div>
+  </div>
+</section>
+
+<section id="changes">
+  <div class="section-head">
+    <div class="section-no">05 / ПЕРЕСТРОЙКА</div>
+    <div><h2>Шесть изменений, без которых память продолжит повторять вопросы</h2><p class="section-note">Новые источники сейчас не нужны. Нужно связать уже собранные данные с человеком, сроком и проверкой результата.</p></div>
+  </div>
+  <div class="actions">
+    <article class="action"><h3>Назначать человека на конкретный результат</h3><p>У каждой рабочей записи должны быть имя, понятное действие и время проверки. Почтовый спам и автоматические уведомления удаляются из списка, а не получают ответственного.</p><div class="accept">Проверка: нет рабочих записей без имени и срока старше суток.</div></article>
+    <article class="action"><h3>Управлять всей цепочкой сметы</h3><p>Разделить этапы: расчёт, отправка, решение клиента, предоплата, закупка или ремонт. У каждой зависшей сметы должна быть причина остановки, а не только возраст.</p><div class="accept">Критерий: ежедневная таблица по этапам; старейшие 10 получают решение раньше нового массового просчёта.</div></article>
+    <article class="action"><h3>Выбрать один денежный контур</h3><p>Сводка обязана различать начисленную маржу, оплаты и движение денег. Если LiveSklad старый или себестоимость известна меньше чем по 70% заказов, итог получает запрет на управленческую трактовку.</p><div class="accept">Критерий: одна подписанная цифра дня и пояснение расхождений, а не несколько конкурирующих итогов.</div></article>
+    <article class="action"><h3>Сделать расписание проверяемым</h3><p>Один исходник для дневного и недельного окружения; проверка с минимальным <code>PATH</code>; ошибка сценария делает задание красным; после ремонта система повторяет сбор и доставку автоматически.</p><div class="accept">Критерий: файл недели существует, содержит 7/7 дней, изменение отправлено в репозиторий, доставка в Telegram подтверждена.</div></article>
+    <article class="action"><h3>Возвращать решения в следующий синтез</h3><p>Каталог <code>decisions/</code> сейчас не читают ни день, ни неделя. Поэтому закрытые вопросы снова появляются в отчёте. Активные решения и даты пересмотра должны входить в новый синтез.</p><div class="accept">Критерий: недельный отчёт различает «решено», «не выполнено» и «ждёт решения».</div></article>
+    <article class="action"><h3>Обновлять здоровье корпуса вместе с данными</h3><p><code>metrics/metrics.json</code> остановился на 23 августа. Проверка здоровья должна идти после каждого недельного прогона и показывать свежесть источников, пропуски и незакрытую доставку.</p><div class="accept">Критерий: дата метрик совпадает с последним днём корпуса.</div></article>
+  </div>
+</section>
+
+<section id="responsibility">
+  <div class="section-head">
+    <div class="section-no">06 / ОТВЕТСТВЕННЫЕ</div>
+    <div><h2>Что тебе сделать и что сказать людям</h2><p class="section-note">Ответственный - один человек, который знает свой результат, срок проверки и право просить помощь у остальных. Если назвать двоих, отвечать не будет никто.</p></div>
+  </div>
+  <div class="callout">
+    <div class="claim">Имя без результата и времени ничего не меняет.</div>
+    <div><p>Перед назначением освободи человеку время. Спроси, какую текущую работу снять. Дай доступ к списку заказов и право требовать ответ по своей очереди. Сам не раздавай поручения в обход него.</p></div>
+  </div>
+  <div class="actions">
+    <article class="action">
+      <h3>Готовые заказы - Александр или Игорь</h3>
+      <p>Выбери одного. Если Александр сейчас работает не в полном режиме, назначь Игоря. Его задача - каждый день двигать 20 самых старых и дорогих заказов до выдачи, оплаты или понятной причины остановки.</p>
+      <div class="accept"><strong>Скажи лично:</strong> «Саша, с сегодняшнего дня ты отвечаешь за готовые заказы. К 17:45 мне нужны четыре числа: сколько выдали, сколько оплатили, сколько осталось без следующего действия и какие решения нужны от меня. Ты можешь спрашивать статусы и ставить срок коллегам. Сам всё делать не обязан. Скажи сейчас, какую работу снять, чтобы у тебя было на это время».</div>
+    </article>
+    <article class="action">
+      <h3>Старые сметы - Андрей</h3>
+      <p>Андрей отвечает за десять заказов без сметы, которые тянутся с прошлой недели. По каждому к концу дня должно быть одно из трёх: смета готова, ждём конкретные данные до указанной даты, заказ закрыт как неактуальный.</p>
+      <div class="accept"><strong>Скажи лично:</strong> «Андрей, до 17:00 разберись с этими десятью заказами. По каждому напиши решение и следующий срок. Если текущая работа мешает, до 10:00 напиши, что нужно перенести. Если не хватает данных или моего решения, пришли номер заказа и один точный вопрос до 14:00».</div>
+    </article>
+    <article class="action">
+      <h3>Почта - Юлия</h3>
+      <p>Юлия сначала очищает 76 записей. Четыре группы: спам, автоматическое уведомление, нужен ответ сотрудника, нужно решение Антона. Спам помечается и уходит из рабочей очереди, уведомления отправляются в архив. Только две последние группы остаются в рабочем списке.</p>
+      <div class="accept"><strong>Скажи лично:</strong> «Юля, до 12:00 очисти почтовый список. Спам помечай и убирай из рабочей очереди, уведомления складывай отдельно. Рабочим письмам назначь человека и срок. Мне пришли только письма, где без моего решения дальше нельзя, и рядом напиши, что именно решить».</div>
+    </article>
+    <article class="action">
+      <h3>Недельная память - ИИ</h3>
+      <p>Задача считается выполненной, когда файл недели собран и сообщение с ним пришло в Telegram. Запись «успешно» в журнале сама по себе ничего не доказывает.</p>
+      <div class="accept"><strong>Правило для проверки:</strong> в воскресенье к 21:20 ЕКБ должны быть файл за 7 дней и доставленное сообщение. Если сообщения нет, задание считается упавшим и запускается повторно.</div>
+    </article>
+  </div>
+  <div class="section-head" style="margin-top:clamp(3rem,7vw,5rem)">
+    <div class="section-no">ТВОЙ ДЕНЬ</div>
+    <div><h2>Твои четыре действия</h2></div>
+  </div>
+  <article class="plan"><div class="plan-time">09:00</div><div class="plan-body"><h3>Выбери людей</h3><p>Назначь по одному человеку на готовые заказы, старые сметы и почту. Если человек не может взять задачу, сразу реши, какую работу с него снять, или назначь другого.</p><span class="owner">Твоя работа: назвать имя и освободить время</span></div></article>
+  <article class="plan"><div class="plan-time">09:15</div><div class="plan-body"><h3>Объяви команде</h3><p>«Коллеги, за готовые заказы отвечает Саша, за старые сметы Андрей, за почту Юля. По своим спискам они задают порядок и сроки. Я не буду давать поручения в обход них. В 17:45 каждый присылает короткий итог».</p><span class="owner">Твоя работа: дать людям право требовать ответ</span></div></article>
+  <article class="plan"><div class="plan-time">14:00</div><div class="plan-body"><h3>Сними помехи</h3><p>Отвечай только на вопросы, без которых работа встала: скидка, возврат, спор с клиентом, закупка, нехватка человека. Решение дай в тот же день.</p><span class="owner">Твоя работа: решить, а не забрать задачу себе</span></div></article>
+  <article class="plan"><div class="plan-time">17:45</div><div class="plan-body"><h3>Прими результат</h3><p>Спроси: «Что закрыто? Что осталось? У каждого остатка есть следующее действие и срок? Что нужно решить мне?» Если отчёта нет, работа за день не принята.</p><span class="owner">Твоя работа: проверить результат за десять минут</span></div></article>
+  <div class="status-line"><strong>Если человек второй раз за неделю не прислал итог:</strong><br>«Мы дважды договорились о результате и времени, но итог не пришёл. Сегодня решаем: я снимаю с тебя другую работу, либо передаём эту очередь другому. До 10:00 передай список заказов и статусы».</div>
+</section>
+
+<section id="plan">
+  <div class="section-head">
+    <div class="section-no">07 / 7 ДНЕЙ</div>
+    <div><h2>Что сделать с 31 августа по 6 сентября</h2><p class="section-note">Цель недели: не новый рекорд обработки, а снижение старого хвоста и ноль действий без адресата.</p></div>
+  </div>
+  <article class="plan"><div class="plan-time">Пн · 09:00</div><div class="plan-body"><h3>Назвать одного ответственного за дневную очередь</h3><p>Антон подтверждает Александра, если режим работы позволяет; запасной вариант на период восстановления - Игорь. Один человек задаёт порядок и отвечает за вечерний итог.</p><span class="owner">Ответственный: Антон · срок 31.08 09:30</span></div></article>
+  <article class="plan"><div class="plan-time">Пн · 10:00</div><div class="plan-body"><h3>Разделить 116 готовых заказов по причине остановки</h3><p>Причины: клиент, оплата, документы, доставка, неверный статус. Сначала 20 самых дорогих и старых. Отдельно проверить A024373 и нулевые A025155, A025156, A025535.</p><span class="owner">Ответственный за очередь · срок 31.08 13:00</span></div></article>
+  <article class="plan"><div class="plan-time">Пн · 12:00</div><div class="plan-body"><h3>Закрыть решение по старым сметам</h3><p>Из 23 активных заказов без сметы десять тянутся с W34. По каждому выбрать одно: считать сегодня, ждать данные с датой, закрыть как неактуальный.</p><span class="owner">Ответственный: Андрей · срок 31.08 17:00</span></div></article>
+  <article class="plan"><div class="plan-time">Пн · 15:00</div><div class="plan-body"><h3>Очистить 76 почтовых записей</h3><p>Юлия делит список на спам, автоматические уведомления, письма с нужным ответом и письма с нужным решением. Первые две группы уходят из рабочей очереди. В двух последних появляются ответственный и срок.</p><span class="owner">Ответственный: Юлия · срок 01.09 12:00</span></div></article>
+  <article class="plan"><div class="plan-time">Пн · до конца дня</div><div class="plan-body"><h3>Закрепить ремонт недельного запуска</h3><p>Зафиксировать исходник <code>weekly-memory.sh</code> в git, добавить проверку окружения расписания и монитор результата. Сбой сценария не должен считаться успешным заданием.</p><span class="owner">Ответственный: ИИ · срок 31.08 20:00</span></div></article>
+  <article class="plan"><div class="plan-time">Вт–Пт · 17:45</div><div class="plan-body"><h3>Пятнадцать минут на результат дня</h3><p>Сверка пяти чисел: выдано и оплачено, старые сметы с решением, рабочая почта закрыта, действия без ответственного, качество источников. Разговоры об общей загрузке не заменяют итог.</p><span class="owner">Ответственный за очередь · ежедневно</span></div></article>
+  <article class="plan"><div class="plan-time">Вс · 21:15 ЕКБ</div><div class="plan-body"><h3>Принимать неделю по четырём доказательствам</h3><p>Файл W36, 7/7 дней, изменение в <code>ib-memory</code> отправлено в репозиторий, сообщение доставлено. Если одного доказательства нет, неделя не собрана.</p><span class="owner">Ответственный: ИИ · контроль Антона 06.09</span></div></article>
+</section>
+
+<section aria-labelledby="dont-title">
+  <div class="section-head">
+    <div class="section-no">08 / НЕ ДЕЛАТЬ</div>
+    <div><h2 id="dont-title">Шесть привычек, которые портят картину</h2></div>
+  </div>
+  <div class="stop-list">
+    <div class="stop-item"><b>Не считать</b>рост сводки подтверждёнными деньгами</div>
+    <div class="stop-item"><b>Не мерить</b>готовую очередь только количеством</div>
+    <div class="stop-item"><b>Не начинать</b>новый массовый просчёт раньше старейших решений</div>
+    <div class="stop-item"><b>Не принимать</b>ручной повтор за проверку штатного расписания</div>
+    <div class="stop-item"><b>Не оставлять</b>вопрос недели без ответственного и срока</div>
+    <div class="stop-item"><b>Не говорить</b>«посмотри» или «проконтролируй» без числа и времени проверки</div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <h2>Основание отчёта</h2>
+  <div class="source-grid">
+    <div><p>Данные:</p><ul><li><code>weeks/2026-W34.md</code> и <code>weeks/2026-W35.md</code></li><li>14 файлов <code>facts/2026-08-17…2026-08-30.json</code></li><li><code>actions/registry.json</code>, состояние на 30 августа</li><li>журнал расписания Hermes для задания <code>3cd74b66902f</code></li></ul></div>
+    <div><p>Ограничения:</p><ul><li>LiveSklad старый или ошибочный 7 из 14 дней</li><li>сметы старые 17 и 26 августа</li><li>недельные события смет не образуют одну группу конверсии</li><li>маржа по заказам не включает ФОТ, доставку, рекламу, постоянные расходы и налоги</li></ul></div>
+  </div>
+  <div class="footer-mark"><span>ПАМЯТЬ · РАЗБОР ДВУХ НЕДЕЛЬ</span><span>Собрано 30.08.2026 · ИнструментБург</span></div>
+</footer>
+</div>
+</body>
+</html>

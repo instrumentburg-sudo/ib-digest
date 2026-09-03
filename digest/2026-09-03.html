@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-09-03 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-09-03</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw 2026.8.2:</h2>
+<ul class="bullets">
+<li>За последние 24 часа нового релиза нет. Версия 2026.8.2 вышла 1 сентября и уже была в предыдущем дайджесте.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> сегодня обновляться не из-за чего; ждём следующий релиз.</blockquote>
+<h2>🤖 Claude Code 2.1.259:</h2>
+<ul class="bullets">
+<li>Добавлен режим <code>--permission-prompts none</code>: в фоновых запусках всё, что потребовало бы подтверждения, автоматически запрещается. Исправлена гонка, из-за которой параллельные сеансы откатывали изменения в <code>~/.claude.json</code>; остановка теперь действительно завершает фоновых агентов и не допускает дублей при возобновлении процесса.[1]</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> полезно для автономных заданий и параллельной разработки. После обновления стоит перевести ночные запуски на новый режим запрета запросов разрешений.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Gemini 3.8 Flash: дешёвая модель для длинных агентных задач</h3>
+<p><span class="hint">Что случилось</span> Google выпустил Gemini 3.8 Flash по цене $0,75 за 1 млн входных и $3,75 за 1 млн выходных токенов. Компания заявляет улучшения в программировании и длинных автономных циклах; модель уже доступна через API и Google AI Studio. За 14 часов обсуждение на Hacker News набрало 939 баллов и 531 комментарий.[2][7]</p>
+<p><span class="hint">Живой пример</span> <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/" target="_blank" rel="noopener">https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/</a></p>
+<blockquote><strong>👉 Как применить:</strong> прогнать на ней дешёвые исследовательские подзадачи Hermes — сбор источников, первичный разбор документов и проверку кода — и сравнить стоимость и долю успешных задач с текущими моделями.</blockquote>
+<h3 class="numbered" data-n="2">Поисковая выдача для ИИ уже забивается фабриками «источников»</h3>
+<p><span class="hint">Что случилось</span> исследователи проверили 760 запросов Perplexity по 380 категориям и собрали 7 534 ссылки. 59,8% ссылок вели на домены ниже 100-тысячного места Tranco, а три связанных сайта создали 215 128 шаблонных страниц «лучший софт» специально под машинное цитирование. Обсуждение на Hacker News набрало 359 баллов и 165 комментариев за 15 часов.[3][8]</p>
+<p><span class="hint">Живой пример</span> <a href="https://trellner.com/reports/manufactured-sources-behind-ai-recommendations/" target="_blank" rel="noopener">https://trellner.com/reports/manufactured-sources-behind-ai-recommendations/</a></p>
+<blockquote><strong>👉 Как применить:</strong> в ценовых исследованиях и тендерах не доверять числу ссылок. Оставить приоритет первичных источников, проверять владельца домена и отделять реального продавца от страницы, созданной ради попадания в ответ ИИ.</blockquote>
+<h3 class="numbered" data-n="3">pdf-inspector: быстрый маршрутизатор PDF перед распознаванием</h3>
+<p><span class="hint">Что случилось</span> в суточный GitHub Trending вошла библиотека на Rust, которая за 10–50 мс определяет, текстовый PDF, скан или смешанный документ, и отправляет на распознавание только нужные страницы. Есть интерфейсы для Python и Node.js.[4][6]</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/firecrawl/pdf-inspector" target="_blank" rel="noopener">https://github.com/firecrawl/pdf-inspector</a></p>
+<blockquote><strong>👉 Как применить:</strong> поставить перед текущим разбором тендерной документации. Текстовые страницы извлекать напрямую, сканы отдавать OCR — это сократит время и стоимость обработки больших архивов.</blockquote>
+<h3 class="numbered" data-n="4">Агентная команда собрала проверяемый цифровой двойник района</h3>
+<p><span class="hint">Что случилось</span> опубликован открытый проект Union Square на Three.js, созданный автономной командой агентов: 453 контура зданий, 129 витрин, 220 пешеходов и проверка по 34 ракурсам с 147 сравнительными листами. В Hacker News проект собрал 192 балла и 57 комментариев за первые 10 часов.[5][9]</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/PhiloLabs/fable51-worlds" target="_blank" rel="noopener">https://github.com/PhiloLabs/fable51-worlds</a></p>
+<blockquote><strong>👉 Как применить:</strong> ценность не в 3D, а в схеме работы — параллельный сбор фактов, отдельная сборка и независимая визуальная проверка. Такой же конвейер нужен для сложных КП и тендеров, где один агент не должен одновременно искать, считать и подтверждать собственный результат.</blockquote>
+<p>X: недоступен — xAI вернул лимит 0 запросов в минуту; публикации не включены.</p>
+<p>## Sources</p>
+<p>[1] <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.259" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/releases/tag/v2.1.259</a></p>
+<p>[2] <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber" target="_blank" rel="noopener">https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber</a></p>
+<p>[3] <a href="https://trellner.com/reports/manufactured-sources-behind-ai-recommendations" target="_blank" rel="noopener">https://trellner.com/reports/manufactured-sources-behind-ai-recommendations</a></p>
+<p>[4] <a href="https://github.com/firecrawl/pdf-inspector" target="_blank" rel="noopener">https://github.com/firecrawl/pdf-inspector</a></p>
+<p>[5] <a href="https://github.com/PhiloLabs/fable51-worlds" target="_blank" rel="noopener">https://github.com/PhiloLabs/fable51-worlds</a></p>
+<p>[6] <a href="https://github.com/trending?since=daily" target="_blank" rel="noopener">https://github.com/trending?since=daily</a></p>
+<p>[7] <a href="https://news.ycombinator.com/item?id=49537553" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49537553</a></p>
+<p>[8] <a href="https://news.ycombinator.com/item?id=49536375" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49536375</a></p>
+<p>[9] <a href="https://news.ycombinator.com/item?id=49541458" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49541458</a></p>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
