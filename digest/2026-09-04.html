@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-09-04 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-09-04</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw 2026.9.1:</h2>
+<ul class="bullets">
+<li>Обновление опубликовано 3 сентября в 18:31 UTC. Появились личные библиотеки навыков на общих шлюзах, откат неудачного обновления после проверки Doctor, доставка запросов на подтверждение обратно в исходный Telegram-чат и восстановление запуска при битых старых заданиях cron. Mermaid-схемы теперь отображаются прямо в чатах.[3]</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> релиз закрывает сразу несколько наших рисков — зависшие подтверждения, падение шлюза из-за старого cron и потерю конфигурации при обновлении. Обновлять стоит после резервной копии и короткой проверки Telegram, потому что интеграционные проверки Telegram для этого релиза владелец выпуска не запускал.[3]</blockquote>
+<h2>🤖 Claude Code 2.1.260:</h2>
+<ul class="bullets">
+<li>Добавлена боковая панель изменений <code>/diff</code>, диагностика причин промаха кеша в <code>/cost</code>, перезагрузка плагинов в фоновых сеансах и текстовая команда <code>/advisor</code>. Исправлены опасные ошибки правил доступа: пути со скобками могли оставлять «только чтение» доступным для записи, а скрытая подстановка команды в zsh могла пройти без подтверждения.[4]</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновление полезно для автономных агентов. После установки проверить наши правила путей и фоновые запуски; <code>/diff</code> упростит ручную проверку изменений перед коммитом.</blockquote>
+<h2>📡 Что нового в ИИ:</h2>
+<h3 class="numbered" data-n="1">Magnitude сам подбирает локальную модель под компьютер</h3>
+<p><span class="hint">Что случилось</span> проект вошёл в суточный GitHub Trending со 161 новой звездой; сейчас у него 2 049 звёзд. Он определяет конфигурацию компьютера, предлагает подходящую GGUF-модель и запускает её внутри агента без отдельной настройки Ollama. Поддерживаются Linux, macOS и WSL, а также навыки для браузера, Excel, Word, PDF и презентаций.[1][5]</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/magnitudedev/magnitude" target="_blank" rel="noopener">https://github.com/magnitudedev/magnitude</a></p>
+<blockquote><strong>👉 Как применить:</strong> не тащить его в рабочий контур сразу. Сначала сравнить на одной обезличенной задаче с нашей связкой Hermes + Ollama: время запуска, память, качество и удобство смены моделей. Если выигрыша нет — не плодить второй локальный контур.</blockquote>
+<h3 class="numbered" data-n="2">Как агенты выбирают сервисы: 16 893 реальных прогона</h3>
+<p><span class="hint">Что случилось</span> исследователи прогнали Claude Code, Codex и Cursor на 75 репозиториях и 1 163 вариантах задач; для публикации оставили 5 292 валидных сеанса. Codex искал в интернете в 94% случаев, Claude Code — примерно в 30%, а одинаковый сервис все три агента выбирали только в 42% сравнений. Контекст стека менял выбор сильнее общей известности поставщика.[6]</p>
+<p><span class="hint">Живой пример</span> <a href="https://armature.tech/blog/which-tools-coding-agents-install" target="_blank" rel="noopener">https://armature.tech/blog/which-tools-coding-agents-install</a></p>
+<blockquote><strong>👉 Как применить:</strong> при выборе новой библиотеки или сервиса требовать от агента короткое сравнение по официальной документации, цене и ограничениям, а не принимать первый вариант из памяти модели. Для маркетинга вывод ещё жёстче: понятная страница с ценой и ограничениями уже влияет на то, рекомендуют ли продукт агенты.</blockquote>
+<h3 class="numbered" data-n="3">Более «умный» поиск кода иногда делает агента хуже</h3>
+<p><span class="hint">Что случилось</span> в небольшом испытании трёх моделей Claude агенты выбирали LSP-поиск лишь в 0–6% простых задач. Принудительный LSP сначала снизил успешность со 100% до 89%. Когда результат стал возвращать не только путь и строку, но и фрагмент кода, успешность переименований выросла с 0,67 до 0,83, а дополнительные чтения файлов сократились с 15,2 до 3,2. За первые два часа обсуждение на Hacker News собрало 48 баллов и 23 комментария.[2][7]</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/agentconnect-md/lsp-vs-grep-token-study" target="_blank" rel="noopener">https://github.com/agentconnect-md/lsp-vs-grep-token-study</a></p>
+<blockquote><strong>👉 Как применить:</strong> CodeGraph и другие семантические инструменты не навязывать на каждую задачу. Оставить обычный поиск для точечных правок, а граф и LSP включать для шумных репозиториев, связей и поиска всех вызовов. Главное — возвращать агенту сразу фрагмент кода, а не голые координаты.</blockquote>
+<h3 class="numbered" data-n="4">K2 Horizon: шесть открытых моделей от 0,9B до 375B</h3>
+<p><span class="hint">Что случилось</span> IFM выпустил шесть моделей под Apache 2.0 вместе с промежуточными контрольными точками, рецептами данных, журналами обучения и кодом. Для локального запуска интересны плотная 32B и разреженная 36B-A4B; заявлена поддержка Ollama с первого дня. Авторы отдельно проверили обход тестов: у старшей модели скорректированная точность TerminalBench снизилась с 70,2% до 66,9% после исключения 24 подозрительных прогонов.[8]</p>
+<p><span class="hint">Живой пример</span> <a href="https://ifm.ai/blog/k2/" target="_blank" rel="noopener">https://ifm.ai/blog/k2/</a></p>
+<blockquote><strong>👉 Как применить:</strong> дождаться GGUF-квантов и прогнать 36B-A4B на нашем наборе обезличенных задач — разбор документа, поиск по репозиторию и вызов инструментов. Публикуемые оценки не принимать на веру: авторы сами показали, что агент умеет находить эталонные ответы и обходить проверку.</blockquote>
+<p>X: недоступен — xAI вернул лимит 0 запросов в минуту; публикации не включены.</p>
+<p>## Sources</p>
+<p>[1] <a href="https://github.com/trending?since=daily" target="_blank" rel="noopener">https://github.com/trending?since=daily</a> — GitHub Trending</p>
+<p>[2] <a href="https://news.ycombinator.com" target="_blank" rel="noopener">https://news.ycombinator.com</a> — Hacker News</p>
+<p>[3] <a href="https://github.com/openclaw/openclaw/releases/tag/v2026.9.1" target="_blank" rel="noopener">https://github.com/openclaw/openclaw/releases/tag/v2026.9.1</a> — OpenClaw 2026.9.1</p>
+<p>[4] <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.260" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/releases/tag/v2.1.260</a> — Claude Code 2.1.260</p>
+<p>[5] <a href="https://github.com/magnitudedev/magnitude" target="_blank" rel="noopener">https://github.com/magnitudedev/magnitude</a> — Magnitude</p>
+<p>[6] <a href="https://armature.tech/blog/which-tools-coding-agents-install" target="_blank" rel="noopener">https://armature.tech/blog/which-tools-coding-agents-install</a> — Which tools do coding agents install?</p>
+<p>[7] <a href="https://www.agentconnect.md/blog/grep-beat-lsp-harness" target="_blank" rel="noopener">https://www.agentconnect.md/blog/grep-beat-lsp-harness</a> — Grep beats LSP?</p>
+<p>[8] <a href="https://ifm.ai/blog/k2" target="_blank" rel="noopener">https://ifm.ai/blog/k2</a> — K2 Horizon</p>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
