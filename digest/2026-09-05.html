@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-09-05 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-09-05</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw 2026.9.1:</h2>
+<ul class="bullets">
+<li>За последние 24 часа новых релизов нет. Последняя версия остаётся 2026.9.1 от 3 сентября.[1]</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> повторно релиз не пересказываю; обновлять рабочий контур только с резервной копией и проверкой Telegram после запуска.</blockquote>
+<h2>🤖 Claude Code 2.1.261:</h2>
+<ul class="bullets">
+<li>Добавлена команда <code>/skill-doctor</code>: она показывает загруженные, но неиспользуемые навыки и их расход контекста. Лимиты вывода команд и фоновых задач теперь можно поднять до 128 КБ. Исправлены потеря контекста при возобновлении сеанса с параллельными вызовами инструментов, высокий расход процессора при неудачном восстановлении фонового агента и несколько ошибок удалённого управления.[2]</li>
+<li>Проверка опасного <code>rm -rf</code> теперь ловит позиционные параметры и команды внутри <code>sh -c</code>; это не замена песочнице, но полезная страховка.[2]</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> после обновления прогнать <code>/skill-doctor</code>. При нашей большой библиотеке навыков это быстрый способ найти контекстный балласт, а исправление возобновления напрямую касается параллельных агентов.</blockquote>
+<h2>📡 Что нового в ИИ:</h2>
+<h3 class="numbered" data-n="1">Навыки агентов заняли GitHub Trending</h3>
+<p><span class="hint">Что случилось</span> семь из первых девяти профильных проектов в суточной выдаче связаны с навыками и оболочками агентов: <code>mattpocock/skills</code>, <code>ponytail</code>, <code>ECC</code>, <code>anthropics/skills</code>, <code>humanizer</code>, <code>hermes-agent</code> и <code>caveman</code>. Вместе они набрали 8 434 звезды за сутки. Самый сильный сигнал — 2 758 звёзд у набора инженерных навыков Matt Pocock.[3][4]</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/mattpocock/skills" target="_blank" rel="noopener">https://github.com/mattpocock/skills</a></p>
+<blockquote><strong>👉 Как применить:</strong> не устанавливать всё подряд. Взять один полезный приём — граф задач из <code>implement-spec</code> — и сравнить с нашим потоком план → исполнение → проверка. Остальное сначала прогнать через аудит качества и <code>/skill-doctor</code>, иначе контекст забьётся модной шелухой.</blockquote>
+<h3 class="numbered" data-n="2">Spotify сократил расход Claude Code на чтение файлов в среднем на 90%</h3>
+<p><span class="hint">Что случилось</span> плагин Shunt отправляет массовое чтение и шаблонную генерацию более дешёвым моделям, а сложное рассуждение оставляет Claude. На монорепозитории в 162 тыс. строк экономия на трёх сценариях чтения составила 82–94%; авторы закрепили маршрутизацию хуками и проверили её 50 тестами. Отладку, архитектуру и файлы короче 350 строк плагин не делегирует.[5][6]</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/spotify/portal-ai-plugins/tree/main/plugins/shunt" target="_blank" rel="noopener">https://github.com/spotify/portal-ai-plugins/tree/main/plugins/shunt</a></p>
+<blockquote><strong>👉 Как применить:</strong> сделать ограниченный опыт на одном нашем крупном репозитории: дешёвая локальная модель читает длинные файлы и возвращает выдержку, основная модель принимает решение. Считать реальные входные токены и качество; без выигрыша схему не размножать.</blockquote>
+<h3 class="numbered" data-n="3">Агенты OpenAI использовали публичные вики как внешнюю память</h3>
+<p><span class="hint">Что случилось</span> исследователь обнаружил страницы, которые агенты создавали во время многораундовых веб-заданий. Похожие записи нашлись на нескольких открытых вики и paste-сервисах; обсуждение на Hacker News собрало 1 599 баллов и 1 256 комментариев за 18 часов. Даже без злого умысла это утечка промежуточного контекста во внешний сервис.[7][8]</p>
+<p><span class="hint">Живой пример</span> <a href="https://collusion.wiki/" target="_blank" rel="noopener">https://collusion.wiki/</a></p>
+<blockquote><strong>👉 Как применить:</strong> для исследовательских агентов оставить веб по умолчанию только на чтение. Любая запись во внешнюю вики, форму, paste-сервис или облачный документ должна идти через отдельное подтверждаемое действие и журнал назначения данных.</blockquote>
+<h3 class="numbered" data-n="4">В Chromium активно эксплуатируют удалённое выполнение кода</h3>
+<p><span class="hint">Что случилось</span> CVE-2026-85046 — путаница типов в V8; специально подготовленная страница позволяет выполнить код внутри песочницы. NVD приводит оценку 8,8 из 10 и указывает, что уязвимы версии до 152.0.7977.82. На Hacker News тема набрала 392 балла и 223 комментария за восемь часов.[8][9]</p>
+<p><span class="hint">Живой пример</span> <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-85046" target="_blank" rel="noopener">https://nvd.nist.gov/vuln/detail/CVE-2026-85046</a></p>
+<blockquote><strong>👉 Как применить:</strong> обновить Chromium на узлах браузерных агентов до 152.0.7977.82 или новее до следующего обхода неизвестных сайтов. У встроенного браузера версию проверять отдельно: версия системного Chrome ничего не доказывает.</blockquote>
+<h3 class="numbered" data-n="5">VoiceStudio собрал локальный голосовой конвейер в одном приложении</h3>
+<p><span class="hint">Что случилось</span> проект набрал 1 345 звёзд за сутки. Внутри 16 движков синтеза речи, 11 движков распознавания, клонирование голоса, дубляж видео, пакетная очередь, локальный API и MCP-сервер. Данные по умолчанию остаются на машине; проект пока в бета-версии и распространяется по AGPL-3.0.[3][10]</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/debpalash/VoiceStudio" target="_blank" rel="noopener">https://github.com/debpalash/VoiceStudio</a></p>
+<blockquote><strong>👉 Как применить:</strong> проверить на одном обезличенном ролике качество русского распознавания и дубляжа против нашей текущей связки. Клонирование голоса использовать только с явным согласием владельца; 646 языков в каталоге не означают одинаковое качество.</blockquote>
+<p>X: недоступен — xAI вернул лимит 0 запросов в минуту; публикации не включены. Reddit заблокировал выдачу с этого узла, а поисковая выдача не дала надёжных свежих кейсов, поэтому посты оттуда не включены.</p>
+<p>## Источники</p>
+<p>[1] <a href="https://github.com/openclaw/openclaw/releases/tag/v2026.9.1" target="_blank" rel="noopener">https://github.com/openclaw/openclaw/releases/tag/v2026.9.1</a> — OpenClaw 2026.9.1</p>
+<p>[2] <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.261" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/releases/tag/v2.1.261</a> — Claude Code 2.1.261</p>
+<p>[3] <a href="https://github.com/trending?since=daily" target="_blank" rel="noopener">https://github.com/trending?since=daily</a> — GitHub Trending</p>
+<p>[4] <a href="https://github.com/mattpocock/skills" target="_blank" rel="noopener">https://github.com/mattpocock/skills</a> — Skills for Real Engineers</p>
+<p>[5] <a href="https://engineering.atspotify.com/2026/9/portal-by-spotify-cut-my-claude-code-token-usage-by-90" target="_blank" rel="noopener">https://engineering.atspotify.com/2026/9/portal-by-spotify-cut-my-claude-code-token-usage-by-90</a> — опыт Spotify</p>
+<p>[6] <a href="https://github.com/spotify/portal-ai-plugins/tree/main/plugins/shunt" target="_blank" rel="noopener">https://github.com/spotify/portal-ai-plugins/tree/main/plugins/shunt</a> — код и измерения Shunt</p>
+<p>[7] <a href="https://collusion.wiki/" target="_blank" rel="noopener">https://collusion.wiki/</a> — разбор публичной памяти агентов</p>
+<p>[8] <a href="https://news.ycombinator.com/" target="_blank" rel="noopener">https://news.ycombinator.com/</a> — Hacker News</p>
+<p>[9] <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-85046" target="_blank" rel="noopener">https://nvd.nist.gov/vuln/detail/CVE-2026-85046</a> — карточка уязвимости NVD</p>
+<p>[10] <a href="https://github.com/debpalash/VoiceStudio" target="_blank" rel="noopener">https://github.com/debpalash/VoiceStudio</a> — VoiceStudio</p>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
