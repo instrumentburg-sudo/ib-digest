@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 NEWS_DIR = ROOT / "dashboard-news"
 EKB = timezone(timedelta(hours=5))
-DASHBOARD_URL = "https://dashboard-three-blond-70.vercel.app"
+DASHBOARD_URL = "https://dashboard.dedkov.pro"
 
 EMOJI_PREFIX = re.compile(
     r"^([\U0001F300-\U0001FAFF\u2600-\u27BF\u2190-\u21FF\u2300-\u23FF\u2B00-\u2BFF\uFE0F]+\s*)(.+)$"
