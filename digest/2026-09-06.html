@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-09-06 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-09-06</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw 2026.9.2:</h2>
+<ul class="bullets">
+<li>Большой релиз на 1 247 PR: ускорена работа с длинными диалогами, ответы и делегированные задачи восстанавливаются после перезапуска Gateway, обновления лучше сохраняют настройки и навыки. Рой параллельных агентов теперь включён по умолчанию; часть настроек применяется без перезапуска.</li>
+<li>Для нашего контура особенно полезны исправления cron и Telegram: финальный ответ не теряется при самоудалении автоматизации, задания сохраняют инструменты создателя, а форматирование заголовков, кода, цитат и таблиц корректно проходит через rich mode.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновлять не вслепую. Сначала резервная копия, затем проверить один cron, одно сообщение с rich-разметкой и восстановление длинной задачи после перезапуска. Отдельно учесть, что видимость сессий между агентами стала шире по умолчанию — при необходимости зажать <code>tools.sessions.visibility</code> до <code>agent</code> или <code>self</code>.</blockquote>
+<h2>🤖 Claude Code 2.1.263:</h2>
+<ul class="bullets">
+<li>Релиз вышел сегодня в 02:54 UTC. Anthropic указала только «исправления ошибок и повышение надёжности», без конкретного списка изменений.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> срочной причины обновляться нет; ставить вместе с очередным плановым обновлением, а не ради пустой строки в журнале.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Magnitude автоматизирует подбор и запуск локальных моделей под конкретное железо</h3>
+<p><span class="hint">Что случилось</span> проект поднялся в суточном GitHub Trending и сегодня получил свежие изменения. Сервер сам профилирует CPU/GPU и память, рекомендует подходящие GGUF-модели с оценкой скорости, настраивает загрузку по требованию и подключается к Hermes, OpenClaw, Claude Code и Codex.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/magnitudedev/magnitude" target="_blank" rel="noopener">https://github.com/magnitudedev/magnitude</a></p>
+<blockquote><strong>👉 Как применить:</strong> не менять рабочий Ollama-контур сразу. На отдельном узле сравнить Magnitude с текущей связкой на трёх одинаковых задачах: скорость, RAM/VRAM, качество tool calling и время холодного старта. Если выигрыша нет — модная обвязка нам не нужна.</blockquote>
+<h3 class="numbered" data-n="2">Не разработчик довёл приложение с Claude Code до трёх платформ — за счёт мелких проверяемых шагов</h3>
+<p><span class="hint">Что случилось</span> автор HuddleCare за 3,5 месяца сделал 469 коммитов в одном Ionic/React/TypeScript-коде и выпустил приложение для iOS, Android и веба. Ключевой приём — правило в <code>CLAUDE.md</code>: одна небольшая работа, запуск и проверка, объяснение, только потом следующий шаг. Firebase security rules защищены примерно 200 автоматическими тестами.</p>
+<p><span class="hint">Живой пример</span> <a href="https://www.reddit.com/r/ClaudeAI/comments/1w8jefe/nondev_here_claude_code_tiny_verified_steps_a/" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeAI/comments/1w8jefe/nondev_here_claude_code_tiny_verified_steps_a/</a></p>
+<blockquote><strong>👉 Как применить:</strong> закрепить тот же принцип для бизнес-автоматизаций: маленькая обратимая правка → реальный прогон → проверяемый результат. Самый полезный урок автора не технический: из 16 регистраций только 8 создали семейную группу и лишь 3 пригласили близких — аналитика быстро показала, что узкое место в активации, а не в новых функциях.</blockquote>
+<h3 class="numbered" data-n="3">Локальные модели становятся «3D-принтером» для одноразового софта</h3>
+<p><span class="hint">Что случилось</span> владелец машины со 128 ГБ общей памяти описал ежедневный поток персональных программ на Qwen 3.8 27B: переводчик визуальных новелл, маршруты для мобильного скутера с учётом дорожных работ, домашний контроль температуры, моды и мелкие утилиты. Он оценивает отдельные прогоны до 50 млн токенов в сутки — после покупки железа цена неудачного опыта сводится к электричеству и времени.</p>
+<p><span class="hint">Живой пример</span> <a href="https://www.reddit.com/r/LocalLLaMA/comments/1w7thwv/ive_found_myself_using_local_llms_like_3d_printers/" target="_blank" rel="noopener">https://www.reddit.com/r/LocalLLaMA/comments/1w7thwv/ive_found_myself_using_local_llms_like_3d_printers/</a></p>
+<blockquote><strong>👉 Как применить:</strong> локальные модели выгоднее всего отдать не на критические решения, а на дешёвые массовые черновики: разбор длинных логов, классификацию деталей, первичную нормализацию каталогов и тестовые прототипы. Финальную цену, отправку клиенту и изменение учётных данных оставлять проверяемому контуру.</blockquote>
+<p>X: недоступен — xAI вернул лимит 0 запросов в минуту; публикации не включены. Hacker News сегодня показывает старые материалы как свежие, поэтому после проверки абсолютных дат они отфильтрованы.</p>
+<p>## Источники</p>
+<p>[1] <a href="https://github.com/openclaw/openclaw/releases/tag/v2026.9.2" target="_blank" rel="noopener">https://github.com/openclaw/openclaw/releases/tag/v2026.9.2</a> — OpenClaw 2026.9.2</p>
+<p>[2] <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.263" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/releases/tag/v2.1.263</a> — Claude Code 2.1.263</p>
+<p>[3] <a href="https://github.com/trending?since=daily" target="_blank" rel="noopener">https://github.com/trending?since=daily</a> — GitHub Trending</p>
+<p>[4] <a href="https://github.com/magnitudedev/magnitude" target="_blank" rel="noopener">https://github.com/magnitudedev/magnitude</a> — Magnitude</p>
+<p>[5] <a href="https://www.reddit.com/r/ClaudeAI/comments/1w8jefe/nondev_here_claude_code_tiny_verified_steps_a/" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeAI/comments/1w8jefe/nondev_here_claude_code_tiny_verified_steps_a/</a> — HuddleCare</p>
+<p>[6] <a href="https://www.reddit.com/r/LocalLLaMA/comments/1w7thwv/ive_found_myself_using_local_llms_like_3d_printers/" target="_blank" rel="noopener">https://www.reddit.com/r/LocalLLaMA/comments/1w7thwv/ive_found_myself_using_local_llms_like_3d_printers/</a> — локальные модели как «3D-принтер»</p>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
