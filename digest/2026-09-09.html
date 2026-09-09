@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-09-09 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-09-09</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw v2026.9.3:</h2>
+<ul class="bullets">
+<li>Обновления теперь сначала репетируются в изолированном состоянии, а при сбое система умеет ограниченно чинить кандидата или откатываться. Снизили холодные накладные расходы и сохранили прогретые кеши подсказок. Добавили общий набор навыков агента между рабочими пространствами, рекурсивное делегирование, управление приоритетом аккаунтов моделей и нативные альбомы Telegram до 10 фото.</li>
+<li>Ломающее изменение: требуется Node.js не ниже 24.16.0 или 26.1.0; Node 22 больше не поддерживается. На нашем сервере сейчас Node v22.22.3 и OpenClaw 2026.6.5.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> не обновлять OpenClaw вслепую. Сначала поднять Node до поддерживаемой версии и проверить плагины на тестовом контуре; после этого обновление полезно прежде всего безопасным откатом и общими навыками.</blockquote>
+<h2>🤖 Claude Code v2.1.266:</h2>
+<ul class="bullets">
+<li>v2.1.265 научилась загружать сразу папку плагинов через <code>--plugin-dir</code>, сохранять рабочий каталог между сообщениями в неинтерактивных сессиях, быстрее поднимать worktree и возобновлять длинные сессии. v2.1.266 сразу исправила регрессию авторизации через LLM-шлюзы и прокси.</li>
+<li>У нас установлена v2.1.258.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновление имеет смысл для Codex/Claude-воркеров и плагинных наборов, но только сразу до v2.1.266 — промежуточную v2.1.265 ставить незачем.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">ChatGPT Images 2.5: быстрее и точнее редактирует исходники</h3>
+<p><span class="hint">Что случилось</span> OpenAI выпустила Images 2.5 для ChatGPT, Codex и API. Заявлены генерация до 50% быстрее, более точечные правки без разрушения остального кадра, лучшая сохранность лица и предмета между итерациями и прозрачный фон. В API появились быстрый GPT‑Image‑2.5 Flare и более точный Sunburst.</p>
+<p><span class="hint">Живой пример</span> <a href="https://openai.com/index/introducing-chatgpt-images-2-5/" target="_blank" rel="noopener">https://openai.com/index/introducing-chatgpt-images-2-5/</a></p>
+<blockquote><strong>👉 Как применить:</strong> перевести на Flare поток товарных фото и рекламных вариаций, где меняются фон, подпись или акцент, но сам инструмент должен оставаться тем же. Проверка — 20 наших реальных фото против текущей модели: время, число повторных генераций и процент сохранённых деталей товара.</blockquote>
+<h3 class="numbered" data-n="2">Mercury 2.5 ускоряет дешёвые служебные вызовы агентов</h3>
+<p><span class="hint">Что случилось</span> новая диффузионная модель выдаёт до 1 107 токенов/с, держит контекст 260 тыс. токенов и стоит $0,20 за миллион входных и $0,75 за миллион выходных токенов; стартовая цена ещё ниже. В производственном кейсе Augment Code перенос сжатия контекста на Mercury сократил задержку с примерно 150 до 27 секунд и стоимость на 90%.</p>
+<p><span class="hint">Живой пример</span> <a href="https://www.inceptionlabs.ai/blog/introducing-mercury-2-5" target="_blank" rel="noopener">https://www.inceptionlabs.ai/blog/introducing-mercury-2-5</a></p>
+<blockquote><strong>👉 Как применить:</strong> не отдавать ей финальные решения, а проверить на маршрутизации, сжатии длинных логов и поиске инструментов Hermes. Нужен слепой тест на 100 задачах против текущей дешёвой модели: точность, задержка и стоимость.</blockquote>
+<h3 class="numbered" data-n="3">Индекс-граф кода не победил обычный поиск</h3>
+<p><span class="hint">Что случилось</span> автор Reddit провёл контролируемый тест двух Claude Code-агентов на производственном TypeScript-монорепозитории. В небольшой сквозной правке оба нашли 8 из 8 мест без лишних изменений, но агент с графом работал на 40% дольше и потратил больше токенов — 79 тыс. против 76 тыс. В анализе цепочки вызовов оба нашли 12 из 12 точек; граф выиграл 13% времени, но имел пропущенную связь, поэтому агент всё равно перепроверял обычным поиском.</p>
+<p><span class="hint">Живой пример</span> <a href="https://www.reddit.com/r/ClaudeAI/comments/1ve7gmy/ab_test_of_codebasememorymcp_against_plain_grep/" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeAI/comments/1ve7gmy/ab_test_of_codebasememorymcp_against_plain_grep/</a></p>
+<blockquote><strong>👉 Как применить:</strong> не тащить графовую память в наши репозитории «потому что модно». Сначала дать двум агентам одинаковые задачи по калькулятору и дашборду и считать полноту найденных мест, время и токены; обычный поиск оставить обязательной проверкой.</blockquote>
+<h3 class="numbered" data-n="4">Qwen3.8 27B в 4 битах не потеряла качество на агентском тесте</h3>
+<p><span class="hint">Что случилось</span> независимый прогон Terminal-Bench 2.1 показал, что Q4_K_M весом 17 ГБ сравнялась с полной BF16-моделью весом 55 ГБ. Она помещается на видеокарте с 24 ГБ памяти вместе примерно с 64 тыс. токенов контекста. На 2 битах качество уже падает, а 1-битные варианты провалились примерно до случайного угадывания.</p>
+<p><span class="hint">Живой пример</span> <a href="https://quesma.com/blog/qwen38-27b-quantizations-benchmarked/" target="_blank" rel="noopener">https://quesma.com/blog/qwen38-27b-quantizations-benchmarked/</a></p>
+<blockquote><strong>👉 Как применить:</strong> если поднимать локального кодового агента, брать Q4_K_M как стартовую точку; 1-битные сборки не рассматривать. Перед закупкой железа прогнать 30 наших задач на RTX 4090-классе и измерить долю завершённых действий, скорость и энергозатраты.</blockquote>
+<h3 class="numbered" data-n="5">Diagram Design собирает брендовые схемы без Figma и Mermaid</h3>
+<p><span class="hint">Что случилось</span> проект вышел в GitHub Trending. В нём 39 типов схем для Claude Code, Codex и совместимых агентов: архитектура, процессы, последовательности, воронки, карты пути клиента и другие. Результат — автономный HTML + SVG; стиль подтягивается с сайта, есть статические варианты и автоматическая проверка переполнения, ошибок JavaScript и доступности.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/cathrynlavery/diagram-design" target="_blank" rel="noopener">https://github.com/cathrynlavery/diagram-design</a></p>
+<blockquote><strong>👉 Как применить:</strong> протестировать на одной схеме процесса ремонта и одной воронке для КП. Если результат проходит бренд и читается с телефона без ручной доводки, подключить к генерации презентационных материалов.</blockquote>
+<p>X: недоступен — xAI вернул лимит запросов RPM 0; посты из X другими источниками не подменялись.</p>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
