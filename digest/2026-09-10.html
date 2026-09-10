@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-09-10 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-09-10</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <p># 🔍 Утренний дайджест — 10 сентября 2026</p>
+<p>## 🔧 OpenClaw v2026.9.3</p>
+<ul class="bullets">
+<li>За последние 24 часа новых релизов нет. Актуальная версия — v2026.9.3 от 8 сентября.[1]</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновляться сегодня не из-за чего; текущую установку не трогаем.</blockquote>
+<p>## 🤖 Claude Code v2.1.267</p>
+<ul class="bullets">
+<li>Свежий релиз закрыл несколько неприятных проблем долгих агентных сессий: при возобновлении диалогов больше 5 МБ не должны теряться параллельные вызовы инструментов и вывод хуков; отдельно поправили стабильность кэша промпта и сохранение рассуждений при переподключении MCP.[2]</li>
+<li>Появился <code>maxEffortLevel</code> — можно ограничить максимальный уровень усилий глобально или для отдельной модели. Исправлены пустые ответы <code>/context</code> на мобильных клиентах и запуск облачных задач Cowork в организациях с обязательной песочницей.[2]</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновление полезное именно для длинных рабочих сессий Hermes/Cowork. После обновления проверить возобновление большой сессии и работу MCP; лимит усилий можно использовать как предохранитель от лишнего расхода.</blockquote>
+<p>## 📡 Что нового в AI</p>
+<p>### 1. Навык, который заставляет агента отвечать короче</p>
+<p><strong>Что случилось:</strong> <code>i-have-adhd</code> набрал 4 650 звёзд за сутки в GitHub Trending. Это набор из десяти правил: действие в первой строке, не больше пяти пунктов, никаких вступлений и побочных рассуждений.[3]</p>
+<p><strong>Живой пример:</strong> <a href="https://github.com/ayghri/i-have-adhd" target="_blank" rel="noopener">https://github.com/ayghri/i-have-adhd</a></p>
+<blockquote><strong>👉</strong> <strong>Как применить:</strong> сравнить правила с нашими <code>ru-text</code>, <code>pohuy</code> и системным промптом. Полезны три жёстких ограничения: сначала действие, максимум пять пунктов, один следующий шаг. Сам навык ставить вслепую не нужно — у нас большая часть этого уже есть.</blockquote>
+<p>### 2. Модель на 3,8 млрд параметров обучили за $998</p>
+<p><strong>Что случилось:</strong> один инженер обучил модель на 65,3 млрд токенов за 43 часа на восьми B200. Итог — 0,384 CORE; ключевые приёмы: FP8, выравнивание словаря, Muon для матричных параметров и локальные шарды данных вместо потоковой загрузки.[4]</p>
+<p><strong>Живой пример:</strong> <a href="https://hugovergnes.github.io/little-lm-3-8b/" target="_blank" rel="noopener">https://hugovergnes.github.io/little-lm-3-8b/</a></p>
+<blockquote><strong>👉</strong> <strong>Как применить:</strong> не обучать свою LLM ради спорта. Практический вывод для локальных задач другой: узкая модель уже становится проектом с бюджетом около $1 000, если есть накопленный размеченный процесс. Для сервиса это имеет смысл только там, где вызовов очень много и задача стабильна — например, классификация обращений или нормализация номенклатуры.</blockquote>
+<p>### 3. Вирусная пародия на «агента, который слишком помогает»</p>
+<p><strong>Что случилось:</strong> интерактивная пародия <code>Claude, change the Add to Cart button to blue</code> собрала на Hacker News 1 090 голосов и 423 комментария за 18 часов. Главная претензия практиков: агент раздувает простую правку, строит ненужную обратную совместимость и продолжает проверки после рабочего результата.[5]</p>
+<p><strong>Живой пример:</strong> <a href="https://opusfived.dev/" target="_blank" rel="noopener">https://opusfived.dev/</a></p>
+<blockquote><strong>👉</strong> <strong>Как применить:</strong> в кодовых задачах явно задавать масштаб проверки и состояние проекта: прототип или прод, есть ли реальные пользователи, нужна ли обратная совместимость. Наше правило «после релевантных проверок не запускать более широкие тесты без причины» попадает точно в проблему.</blockquote>
+<p>### 4. Физический пульт для пяти параллельных Claude Code</p>
+<p><strong>Что случилось:</strong> участник r/ClaudeAI собрал Chibi Deck на сенсорном экране Corsair. Пульт показывает статус сессий, расход токенов и заполнение контекста; с него можно сделать handoff, очистить сессию и быстро запустить типовые действия. Автор держит одновременно не меньше пяти терминалов.[6]</p>
+<p><strong>Живой пример:</strong> <a href="https://github.com/vichannnnn/ChibiDeck" target="_blank" rel="noopener">https://github.com/vichannnnn/ChibiDeck</a></p>
+<blockquote><strong>👉</strong> <strong>Как применить:</strong> железный экран нам не нужен, а сама панель состояний — нужна. Это хороший референс для мобильного Hermes: «работает / ждёт решения / завершено», заполнение контекста, расход и одна кнопка передачи сессии.</blockquote>
+<p>### 5. Продажа вещей по фотографиям через MCP</p>
+<p><strong>Что случилось:</strong> в свежей подборке проектов Claude показали ClearList: пользователь загружает до 50 фотографий, сервис группирует предметы, пишет объявления, предлагает цену и управляет очередью покупателей. Авторы утверждают, что подготовка продажи сокращается с 7+ часов примерно до 20 минут; для агентов опубликован MCP-адрес.[7]</p>
+<p><strong>Живой пример:</strong> <a href="https://clearlist.me/api/mcp" target="_blank" rel="noopener">https://clearlist.me/api/mcp</a></p>
+<blockquote><strong>👉</strong> <strong>Как применить:</strong> это почти готовый шаблон для распродажи неликвидов ИнструментБург: фото → распознавание → карточка → цена → публикация → очередь покупателей. Сначала можно повторить без отдельного продукта: бот принимает фото склада, формирует карточки и отдаёт пакет на подтверждение.</blockquote>
+<p><strong>X:</strong> недоступен — xAI вернул лимит команды <code>0/0</code>, поэтому постов из X сегодня нет.</p>
+<p>## Sources</p>
+<p>[1] <a href="https://github.com/openclaw/openclaw/releases/tag/v2026.9.3" target="_blank" rel="noopener">https://github.com/openclaw/openclaw/releases/tag/v2026.9.3</a> — OpenClaw v2026.9.3</p>
+<p>[2] <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.267" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/releases/tag/v2.1.267</a> — Claude Code v2.1.267</p>
+<p>[3] <a href="https://github.com/ayghri/i-have-adhd" target="_blank" rel="noopener">https://github.com/ayghri/i-have-adhd</a> — i-have-adhd</p>
+<p>[4] <a href="https://hugovergnes.github.io/little-lm-3-8b" target="_blank" rel="noopener">https://hugovergnes.github.io/little-lm-3-8b</a> — Training a 3.8B LLM for $998</p>
+<p>[5] <a href="https://news.ycombinator.com/item?id=49623754" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49623754</a> — Claude, change the Add to Cart button to blue — HN</p>
+<p>[6] <a href="https://www.reddit.com/r/ClaudeAI/comments/1wbo274/built_a_tiny_touch_display_for_managing_claude" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeAI/comments/1wbo274/built_a_tiny_touch_display_for_managing_claude</a> — Chibi Deck for Claude Code</p>
+<p>[7] <a href="https://www.reddit.com/r/ClaudeAI/comments/1wc1dmr/show_us_what_youve_created_with_claude" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeAI/comments/1wc1dmr/show_us_what_youve_created_with_claude</a> — Show us what you created with Claude</p>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>

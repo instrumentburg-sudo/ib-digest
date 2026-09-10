@@ -4,6 +4,7 @@ import re
 import sys
 import html
 import json
+import subprocess
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
@@ -131,8 +132,8 @@ def render_onec_banner(v: dict) -> str:
 
 def render_summary(v: dict) -> str:
     cells = [
-        ("Сегодня", fmt_int(v.get("TODAY_REV")), "₽", f"{v.get('TODAY_ORDERS', 0)} заказов"),
-        ("Вчера", fmt_int(v.get("YEST_REV")), "₽", f"{v.get('YEST_ORDERS', 0)} заказов"),
+        ("Закрыто сегодня", fmt_int(v.get("TODAY_REV")), "₽", f"{v.get('TODAY_ORDERS', 0)} заказов · день не завершён"),
+        ("Закрыто вчера", fmt_int(v.get("YEST_REV")), "₽", f"{v.get('YEST_ORDERS', 0)} заказов · не касса"),
         (
             "Средние будни",
             fmt_int(v.get("AVG_WD_REV")),
@@ -249,7 +250,7 @@ def build_page(date_str: str, label: str, summary: str, insights: str, actions: 
     {summary}
     {body}
     <footer class="page-footer">
-      <span>Источник: apps/dashboard/insights.js</span>
+      <span>Источники: данные дашборда; analytics.js — расчёты периодов; insights.js — заметки дня</span>
       <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
     </footer>
   </div>
@@ -303,7 +304,14 @@ def main():
             text += p.read_text() + "\n"
     v = parse_js_vars(text)
 
-    summary = render_stale_banner(v) + render_onec_banner(v) + render_summary(v)
+    period_text = subprocess.check_output(
+        ["node", str(dash_dir / "analytics.js"), str(dash_dir)],
+        text=True, timeout=30,
+    ).strip()
+    period_summary = '<section class="card"><h2>Неделя и месяц</h2>' + ''.join(
+        f"<p>{html.escape(line)}</p>" for line in period_text.splitlines() if line
+    ) + '</section><h2>Оперативный срез дня</h2>'
+    summary = render_stale_banner(v) + render_onec_banner(v) + period_summary + render_summary(v)
     insights = render_list(v.get("INSIGHTS", []), "insight")
     actions = render_list(v.get("ACTIONS", []), "action")
     marketing = render_list(v.get("MARKETING", []), "marketing")
