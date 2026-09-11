@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-09-11 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-09-11</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw v2026.9.4:</h2>
+<ul class="bullets">
+<li>Появился безопасный автоматический откат совместимых неудачных обновлений: система сохраняет прежний пакет, конфигурацию и службу, затем проверяет восстановленный шлюз. Миграции базы по-прежнему требуют заранее проверенной резервной копии.[1]</li>
+<li>Плагины из комплекта и ClawHub теперь собраны в одном разделе управления. Добавлены подготовленные облачные рабочие среды, ответы на вопросы агента прямо в терминале и варианты GPT Image 2.5 Flare и Sunburst.[1]</li>
+<li>Для нас: обновляться не вслепую. Сначала резервная копия, затем проверить Telegram, историю диалогов и повторное использование сессий Claude CLI — именно эти места в релизе отдельно исправляли.</li>
+</ul>
+<h2>🤖 Claude Code v2.1.268:</h2>
+<ul class="bullets">
+<li>Исправлены утечки секретов в сообщениях об ошибках плагинов и MCP, обход правил доступа через символьные ссылки, зависание WebFetch и загрузка инструментов из недоверенной папки агентом с совпадающим именем.[2]</li>
+<li>Команды управления плагинами получили JSON-вывод; плагины теперь применяются без <code>/reload-plugins</code>. Исправлены высокая загрузка процессора в простаивающих сессиях и поломка сторонних Anthropic-совместимых шлюзов после версии 2.1.265.[2]</li>
+<li>Для нас: версия полезная и по безопасности, и по стабильности. После обновления проверить <code>claude plugin list --json</code>, MCP-конфигурации и один длинный фоновый сеанс.</li>
+</ul>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">OpenAI открыл Agents API</h3>
+<p><span class="hint">Что случилось</span> приложения получили управляемую оболочку Codex с постоянными сессиями, сжатием контекста, восстановлением, песочницей, MCP и параллельными подагентами. Среду исполнения можно оставить у OpenAI или подключить свою.[3] На Hacker News тема набрала 206 баллов и 123 комментария примерно за 10 часов.[7]</p>
+<p><span class="hint">Живой пример</span> <a href="https://developers.openai.com/showcase/agents-api-github-issues" target="_blank" rel="noopener">https://developers.openai.com/showcase/agents-api-github-issues</a></p>
+<blockquote><strong>👉 Как применить:</strong> не переносить текущие процессы сразу. Взять один безопасный сценарий — разбор GitHub-задачи в отдельной песочнице — и сравнить с Hermes по цене, времени и доле задач, дошедших до проверяемого результата.</blockquote>
+<h3 class="numbered" data-n="2">Cognition выпустила SWE-2</h3>
+<p><span class="hint">Что случилось</span> новый агентный кодовый модельный ряд показал 50,0% на FrontierCode 1.1 Main и 73,0% на DeepSWE 1.1. Cognition заявляет цену на 64% ниже Fable 5.1 при отставании менее одного процентного пункта на FrontierCode.[4]</p>
+<p><span class="hint">Живой пример</span> <a href="https://cognition.com/blog/swe-2" target="_blank" rel="noopener">https://cognition.com/blog/swe-2</a></p>
+<blockquote><strong>👉 Как применить:</strong> цифры вендора не принимать на веру. Если модель появится в доступном нам шлюзе, дать ей 10 реальных задач из InstrumentBurg и сравнить с Codex/Claude по успешным тестам и стоимости, а не по красивому бенчмарку.</blockquote>
+<h3 class="numbered" data-n="3">TeamAI CLI вышел в дневные лидеры GitHub</h3>
+<p><span class="hint">Что случилось</span> репозиторий Tencent набрал 841 звезду за сутки в GitHub Trending.[8] Инструмент хранит навыки, правила, MCP и знания команды в общем Git-репозитории и раскладывает их по Claude Code, Codex, Cursor и другим агентам; изменения проходят через ветку и проверку.[5]</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/Tencent/teamai-cli" target="_blank" rel="noopener">https://github.com/Tencent/teamai-cli</a></p>
+<blockquote><strong>👉 Как применить:</strong> это прямой кандидат на устранение ручного дублирования правил между Hermes, Claude и Codex. Проверять только в отдельном тестовом репозитории: инструмент внедряет свои хуки и ресурсы, поэтому подключать его к рабочим профилям без аудита нельзя.</blockquote>
+<h3 class="numbered" data-n="4">llmfit подбирает локальную модель под реальное железо</h3>
+<p><span class="hint">Что случилось</span> утилита из сегодняшнего GitHub Trending определяет CPU, RAM, GPU/VRAM и ранжирует модели по вместимости, скорости, качеству и контексту. Есть замер фактических токенов в секунду и JSON API для автоматизации.[6][8]</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/AlexsJones/llmfit" target="_blank" rel="noopener">https://github.com/AlexsJones/llmfit</a></p>
+<blockquote><strong>👉 Как применить:</strong> использовать перед покупкой железа или развёртыванием Ollama/llama.cpp. Это убирает гадание «какая модель влезет» и даёт воспроизводимый замер на конкретной машине.</blockquote>
+<p>X: недоступен — x_search вернул лимит 0 запросов в минуту для команды xAI. Нужен рабочий лимит SuperGrok/xAI; посты из X не подменялись веб-поиском.</p>
+<p>## Sources</p>
+<p>[1] <a href="https://github.com/openclaw/openclaw/releases/tag/v2026.9.4" target="_blank" rel="noopener">https://github.com/openclaw/openclaw/releases/tag/v2026.9.4</a> — OpenClaw v2026.9.4</p>
+<p>[2] <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.268" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/releases/tag/v2.1.268</a> — Claude Code v2.1.268</p>
+<p>[3] <a href="https://developers.openai.com/api/docs/guides/agents-api/overview" target="_blank" rel="noopener">https://developers.openai.com/api/docs/guides/agents-api/overview</a> — OpenAI Agents API</p>
+<p>[4] <a href="https://cognition.com/blog/swe-2" target="_blank" rel="noopener">https://cognition.com/blog/swe-2</a> — Cognition SWE-2</p>
+<p>[5] <a href="https://github.com/Tencent/teamai-cli" target="_blank" rel="noopener">https://github.com/Tencent/teamai-cli</a> — Tencent TeamAI CLI</p>
+<p>[6] <a href="https://github.com/AlexsJones/llmfit" target="_blank" rel="noopener">https://github.com/AlexsJones/llmfit</a> — llmfit</p>
+<p>[7] <a href="https://news.ycombinator.com" target="_blank" rel="noopener">https://news.ycombinator.com</a> — Hacker News</p>
+<p>[8] <a href="https://github.com/trending?since=daily" target="_blank" rel="noopener">https://github.com/trending?since=daily</a> — GitHub Trending — daily</p>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
