@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-09-16 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-09-16</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <p>## 🔧 OpenClaw v2026.9.4:</p>
+<ul class="bullets">
+<li>За последние 24 часа нового релиза нет. Последняя версия опубликована 11 сентября.[1]</li>
+</ul>
+<p>&gt; <strong>→ Нам:</strong> ничего не обновлять ради номера; ждать следующего релиза и отдельно смотреть исправления Telegram, cron и удалённой работы.</p>
+<p>## 🤖 Claude Code v2.1.273:</p>
+<ul class="bullets">
+<li>Исправлены две опасные ошибки проверки команд: запрос разрешения мог пропускаться при неполном разборе Bash-команды, а опасный <code>rm</code> внутри subshell скрывался в режиме обхода ограничений.[2]</li>
+<li>Починили потерю финального отчёта субагента, если поток завершался без данных о токенах или модели; счётчик контекста больше не завышает объём ходов примерно вдвое. Также задачи из скопированного <code>.claude/scheduled_tasks.json</code> теперь не запускаются в чужой сессии.[2]</li>
+<li>Сессию, начатую через Remote Control, теперь можно ответвить из приложения Claude: копия продолжит работу фоном на своём компьютере.[2]</li>
+</ul>
+<p>&gt; <strong>→ Нам:</strong> обновление полезное и не косметическое. Сначала поставить на рабочую машину, прогнать короткий тест Bash-разрешений, субагента и Remote Control; после этого обновлять остальные контуры.</p>
+<p>## 📡 Что нового в AI:</p>
+<p>### 1. Gemini 3.8 Live: голосовой агент может говорить и параллельно выполнять задачу</p>
+<p><strong>Что случилось:</strong> Google выпустил Gemini 3.8 Live и версию Extended Thinking. Модель поддерживает 97 языков, обрабатывает изображение почти в реальном времени, продолжает диалог во время фоновых вызовов инструментов, а Extended Thinking одновременно рассуждает и озвучивает ход многошаговой задачи. Заявленные результаты: 68,6% на τ-Voice и 35,1% на банковском τ-Voice; доступ уже открыт через Gemini API и AI Studio.[3] На Hacker News обсуждение запуска за 11 часов собрало 360 голосов и 231 комментарий.[4]</p>
+<p><strong>Живой пример:</strong> <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/" target="_blank" rel="noopener">https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/</a></p>
+<p>&gt; <strong>👉 Как применить:</strong> это нормальная база для голосового помощника мастера или приёмщика: человек диктует дефект, агент уточняет модель и симптомы, параллельно ищет карточку заказа и готовит запись. Не пускать сразу к изменению заказов — сначала сделать режим «прочитал, собрал, предложил» и измерить ошибки на реальных звонках.</p>
+<p>### 2. DeskcommCRM — готовый ориентир для CRM с WhatsApp и AI-агентами</p>
+<p><strong>Что случилось:</strong> DeskcommCRM набрал 505 звёзд за сутки в GitHub Trending. Это self-hosted CRM с WhatsApp через WAHA или официальный Cloud API, AI-агентами, RAG по клиенту, передачей диалога человеку, аудитом действий, ограничением расходов и MCP-доступом к CRM. Проект ставится на VPS и заявляет резервное копирование перед обновлением и автоматический откат при неудачном релизе.[5][6]</p>
+<p><strong>Живой пример:</strong> <a href="https://github.com/melgarafael/DeskcommCRM" target="_blank" rel="noopener">https://github.com/melgarafael/DeskcommCRM</a></p>
+<p>&gt; <strong>👉 Как применить:</strong> не менять на него нашу CRM с разбега. Разобрать три готовых узла: очередь и передача обращения «агент → человек», ограничение бюджета агента и защиту WhatsApp-рассылок. Это может сэкономить недели проектирования, но код и модель данных надо проверить отдельно — звёзды не равны надёжности.</p>
+<p>### 3. Граф кода не победил обычный поиск — есть цифры, а не маркетинг</p>
+<p><strong>Что случилось:</strong> автор на Reddit сравнил два одинаковых Claude Code-субагента в изолированных worktree: один работал через обычные grep/glob/read, второй — через граф <code>codebase-memory-mcp</code>. В небольшой задаче оба нашли 8 из 8 мест без лишних правок, но граф был медленнее: 3:06 против 2:12 и потратил 79 тыс. токенов против 76 тыс. В анализе цепочки вызовов оба нашли 12 из 12 входов; граф оказался быстрее на 13% и немного дешевле, но пропустил одну связь, поэтому агент всё равно перепроверил результат обычным поиском.[7]</p>
+<p><strong>Живой пример:</strong> <a href="https://www.reddit.com/r/ClaudeAI/comments/1ve7gmy/ab_test_of_codebasememorymcp_against_plain_grep/" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeAI/comments/1ve7gmy/ab_test_of_codebasememorymcp_against_plain_grep/</a></p>
+<p>&gt; <strong>👉 Как применить:</strong> не тащить индексатор графа в каждый репозиторий по умолчанию. Для обычных правок grep достаточно; граф имеет смысл включать на анализе зоны влияния и длинных цепочек вызовов, причём финальную проверку всё равно делать текстовым поиском. Иначе получим ещё один слой инфраструктуры без измеримого выигрыша.</p>
+<p>### 4. Worktrunk упрощает параллельную работу агентов через git worktree</p>
+<p><strong>Что случилось:</strong> Worktrunk вышел в дневной GitHub Trending. CLI создаёт отдельные worktree по имени ветки, запускает Claude или другой агент в каждой рабочей копии, показывает статус всех веток, умеет хуки, локальное слияние и отдельные порты для серверов разработки.[5][8]</p>
+<p><strong>Живой пример:</strong> <a href="https://github.com/max-sixty/worktrunk" target="_blank" rel="noopener">https://github.com/max-sixty/worktrunk</a></p>
+<p>&gt; <strong>👉 Как применить:</strong> протестировать на одном репозитории, где реально работают два-три агента одновременно. Ценность не в новой оркестрации, а в снижении ручной возни с worktree и уборкой веток; если поверх наших скриптов выигрыш меньше пары минут на задачу, не внедрять.</p>
+<p>Reddit: один проверяемый кейс включён выше; остальные свежие посты были либо без измерений, либо без доступного первоисточника.</p>
+<p>X: недоступен — <code>x_search</code> вернул лимит 0 запросов в минуту; посты не подменял веб-поиском.</p>
+<p>## Sources</p>
+<p>[1] <a href="https://github.com/openclaw/openclaw/releases/tag/v2026.9.4" target="_blank" rel="noopener">https://github.com/openclaw/openclaw/releases/tag/v2026.9.4</a> — OpenClaw v2026.9.4</p>
+<p>[2] <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.273" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/releases/tag/v2.1.273</a> — Claude Code v2.1.273</p>
+<p>[3] <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking" target="_blank" rel="noopener">https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking</a> — Google — Gemini 3.8 Live</p>
+<p>[4] <a href="https://news.ycombinator.com/item?id=49715947" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49715947</a> — Hacker News — Gemini 3.8 Live discussion</p>
+<p>[5] <a href="https://github.com/trending?since=daily" target="_blank" rel="noopener">https://github.com/trending?since=daily</a> — GitHub Trending — daily</p>
+<p>[6] <a href="https://github.com/melgarafael/DeskcommCRM" target="_blank" rel="noopener">https://github.com/melgarafael/DeskcommCRM</a> — DeskcommCRM</p>
+<p>[7] <a href="https://www.reddit.com/r/ClaudeAI/comments/1ve7gmy/ab_test_of_codebasememorymcp_against_plain_grep" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeAI/comments/1ve7gmy/ab_test_of_codebasememorymcp_against_plain_grep</a> — Reddit — codebase-memory-mcp vs grep A/B test</p>
+<p>[8] <a href="https://github.com/max-sixty/worktrunk" target="_blank" rel="noopener">https://github.com/max-sixty/worktrunk</a> — Worktrunk</p>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
