@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-09-17 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-09-17</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw:</h2>
+<ul class="bullets">
+<li>Без релиза за последние 24 часа.[8] Последний выпуск v2026.9.4 опубликован 11 сентября — старое в сегодняшний дайджест не подтягиваю.[8]</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> ничего не обновлять только ради номера версии.</blockquote>
+<h2>🤖 Claude Code v2.1.274:</h2>
+<ul class="bullets">
+<li>Исправлен бесконечный повтор после ошибки <code>unexpected tool_use_id</code>; повреждённая история теперь восстанавливается либо сессия завершается с подсказкой <code>/rewind</code>.[1]</li>
+<li>Добавлен <code>CLAUDE_CODE_MCP_STARTUP_WAIT_MS</code> для ограничения ожидания MCP в первом неинтерактивном ходе.[1] Исправлены обрывы Streamable HTTP MCP после примерно пяти минут и зависания при пустом <code>--strict-mcp-config</code>.[1]</li>
+<li>Исправлено исчезновение <code>/goal</code> после возобновления сжатой сессии, а завершения нескольких фоновых задач теперь объединяются в один модельный вызов.[1]</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновление полезное именно для длинных агентных и MCP-сессий. Обновлять после короткой проверки текущих плагинов и <code>--resume</code>.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">HarnessTax: оболочка агента меняет расход сильнее, чем качество</h3>
+<p><span class="hint">Что случилось</span> исследователи сравнили 21 связку из семи моделей и трёх оболочек — Claude Code, Codex CLI и Pi — на SWE-bench Lite и Terminal-Bench 2.0.[2] На их тестах одна модель давала близкую успешность при разнице стоимости до 5 раз; средний эффект оболочки на успешность укладывался примерно в ±2% на SWE-bench Lite и ±5% на Terminal-Bench 2.0.[2] Это авторские результаты на двух тестах, не универсальный закон.[2]</p>
+<p><span class="hint">Живой пример</span> методика, интерактивные графики и цифры — <a href="https://harnesstax.github.io/" target="_blank" rel="noopener">https://harnesstax.github.io/</a> ; обсуждение Hacker News — <a href="https://news.ycombinator.com/item?id=49733726[3]" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49733726[3]</a></p>
+<blockquote><strong>👉 Как применить:</strong> не выбирать Claude Code, Codex или Hermes по ощущениям. Взять 20 одинаковых реальных задач ИнструментБург и сравнить долю принятых результатов, время, токены и число ручных возвратов. Это даст наш собственный «налог оболочки».</blockquote>
+<h3 class="numbered" data-n="2">Jev Ultrafast резко сократил браузерные круги на одном сценарии</h3>
+<p><span class="hint">Что случилось</span> новый открытый браузерный агент строит индекс видимых элементов и за один запрос выбирает действие и совместимую цель.[4] Авторы показывают поиск Zürich → London в Google Flights за 7,1 секунды; в шести чередующихся запусках обе версии прошли 3/3, медиана времени снизилась с 9,450 до 7,092 секунды, а число вызовов браузерного протокола — с 1 092 до 101.[4] Авторы честно ограничивают вывод: это один сценарий и три повтора на вариант.[4]</p>
+<p><span class="hint">Живой пример</span> код, видео, замеры и ограничения — <a href="https://github.com/browser-use/jev-ultrafast" target="_blank" rel="noopener">https://github.com/browser-use/jev-ultrafast</a> ; обсуждение Hacker News — <a href="https://news.ycombinator.com/item?id=49735979[5]" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49735979[5]</a></p>
+<blockquote><strong>👉 Как применить:</strong> не тащить проект целиком, а проверить сам принцип на повторяющихся кабинетах — TenderPlan, LiveSklad и маркетплейсах. Индекс элементов плюс жёсткий набор разрешённых действий может уменьшить задержки и случайные клики.</blockquote>
+<h3 class="numbered" data-n="3">Claude объединил обычный чат и Cowork</h3>
+<p><span class="hint">Что случилось</span> Anthropic переносит возможности Cowork и Design в обычные разговоры Claude.[6] Появились Claude Docs и Claude Slides; задача может продолжаться после закрытия ноутбука, результат открывается с телефона, а регулярный отчёт можно поставить по расписанию.[6] Развёртывание идёт на Pro и Max в течение нескольких недель, Docs и Slides пока в бете.[6]</p>
+<p><span class="hint">Живой пример</span> анонс Anthropic — <a href="https://claude.com/blog/cowork-is-now-claude" target="_blank" rel="noopener">https://claude.com/blog/cowork-is-now-claude</a> ; обсуждение Hacker News — <a href="https://news.ycombinator.com/item?id=49729412[7]" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49729412[7]</a></p>
+<blockquote><strong>👉 Как применить:</strong> проверить на одном еженедельном отчёте: собрать данные, написать документ и сделать пять слайдов в одной беседе. Если контекст и правки реально сохраняются между форматами, это убирает ручную перекладку отчёта в презентацию.</blockquote>
+<p>X: недоступен — xAI вернул лимит 0 запросов в минуту. Посты из X не подменял обычным веб-поиском.</p>
+<p>## Sources</p>
+<p>[1] <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.274" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/releases/tag/v2.1.274</a> — Claude Code v2.1.274</p>
+<p>[2] <a href="https://harnesstax.github.io" target="_blank" rel="noopener">https://harnesstax.github.io</a> — HarnessTax</p>
+<p>[3] <a href="https://news.ycombinator.com/item?id=49733726" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49733726</a> — HarnessTax discussion on Hacker News</p>
+<p>[4] <a href="https://github.com/browser-use/jev-ultrafast" target="_blank" rel="noopener">https://github.com/browser-use/jev-ultrafast</a> — Jev Ultrafast</p>
+<p>[5] <a href="https://news.ycombinator.com/item?id=49735979" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49735979</a> — Jev Ultrafast discussion on Hacker News</p>
+<p>[6] <a href="https://claude.com/blog/cowork-is-now-claude" target="_blank" rel="noopener">https://claude.com/blog/cowork-is-now-claude</a> — Claude Cowork and chat are now one Claude</p>
+<p>[7] <a href="https://news.ycombinator.com/item?id=49729412" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49729412</a> — Claude Cowork discussion on Hacker News</p>
+<p>[8] <a href="https://github.com/openclaw/openclaw/releases" target="_blank" rel="noopener">https://github.com/openclaw/openclaw/releases</a> — OpenClaw releases</p>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
