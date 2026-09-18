@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-09-18 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-09-18</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw v2026.7.33:</h2>
+<ul class="bullets">
+<li>Вышел расширенный стабильный выпуск: 126 влитых PR. Усилены проверки команд, origin браузера и установки плагинов; исправлены потери сообщений при повторах и остановке каналов, зависания сессий под нагрузкой и ложные тайм-ауты cron.</li>
+</ul>
+<p>  Живой пример: выпуск — <a href="https://github.com/openclaw/openclaw/releases/tag/v2026.7.33" target="_blank" rel="noopener">https://github.com/openclaw/openclaw/releases/tag/v2026.7.33</a></p>
+<blockquote><strong>→ Нам:</strong> обновление полезное именно для серверного Hermes/OpenClaw-контура, но из-за объёма сначала прогнать резервную копию конфигурации и контроль Telegram, cron и браузерных действий.</blockquote>
+<h2>🤖 Claude Code v2.1.276:</h2>
+<ul class="bullets">
+<li>За сутки вышли v2.1.275 и срочный v2.1.276. Основной выпуск добавил синхронизацию навыков и плагинов из claude.ai, отправку всей очереди через Ctrl+Enter и безопасную установку npm-плагинов без запуска install-скриптов. Следом исправили регрессию 2.1.275, из-за которой все запросы через ANTHROPIC_BASE_URL могли падать с ошибкой 400.</li>
+</ul>
+<p>  Живой пример: исправление — <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.276" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/releases/tag/v2.1.276</a></p>
+<blockquote><strong>→ Нам:</strong> не ставить 2.1.275; обновляться сразу до 2.1.276. Синхронизацию аккаунтных навыков включать только после проверки, что она не перетирает локальные правила.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Magnitude подбирает локальную модель под конкретное железо</h3>
+<p><span class="hint">Что случилось</span> репозиторий вошёл в дневной GitHub Trending; на момент сбора у него 4 619 звёзд и ещё 161 за день. Приложение оценивает скорость моделей до загрузки, затем запускает их локально на Apple Silicon, NVIDIA, AMD или CPU и подключается к Hermes, OpenClaw, Codex и Claude Code.</p>
+<p><span class="hint">Живой пример</span> репозиторий — <a href="https://github.com/magnitudedev/magnitude" target="_blank" rel="noopener">https://github.com/magnitudedev/magnitude</a></p>
+<blockquote><strong>👉 Как применить:</strong> не внедрять вслепую. Прогнать на отдельной машине один типовой фоновый сценарий Hermes и сравнить скорость, качество и стоимость с облачной моделью.</blockquote>
+<h3 class="numbered" data-n="2">Caveman сжимает не только ответы, но и входящий шум агента</h3>
+<p><span class="hint">Что случилось</span> проект снова в дневном GitHub Trending — 106 352 звезды и ещё 543 за день на момент сбора. Его локальный прокси сокращает логи, JSON, результаты поиска и диффы; авторы показывают 33,2% экономии входных токенов на наборе из 54 запусков, но честно фиксируют один сценарий с ухудшением на 9,9%.</p>
+<p><span class="hint">Живой пример</span> репозиторий и методика — <a href="https://github.com/JuliusBrussee/caveman" target="_blank" rel="noopener">https://github.com/JuliusBrussee/caveman</a></p>
+<blockquote><strong>👉 Как применить:</strong> взять только измеряемую часть — A/B на двух наших длинных задачах с большими логами. Без замера подключать ещё один прокси в основной контур не стоит.</blockquote>
+<h3 class="numbered" data-n="3">Граф кода оказался не волшебной заменой обычному поиску</h3>
+<p><span class="hint">Что случилось</span> автор свежего теста в r/ClaudeAI сравнил одинаковых агентов на TypeScript-монорепозитории. В небольшой задаче граф дал ту же точность, но был на 40% медленнее; в анализе цепочки вызовов — на 13% быстрее. При этом граф пропустил одну связь, и агент всё равно перепроверил результат обычным поиском.</p>
+<p><span class="hint">Живой пример</span> обсуждение и таблицы — <a href="https://www.reddit.com/r/ClaudeAI/comments/1ve7gmy/ab_test_of_codebasememorymcp_against_plain_grep/" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeAI/comments/1ve7gmy/ab_test_of_codebasememorymcp_against_plain_grep/</a></p>
+<blockquote><strong>👉 Как применить:</strong> codegraph оставляем для связей, вызывающих функций и оценки зоны влияния. Финальную полноту изменений проверяем поиском по файлам — это не дублирование, а защита от дыр в индексе.</blockquote>
+<h3 class="numbered" data-n="4">Skillsync переносит незавершённую сессию между Claude Code, Codex и Cursor</h3>
+<p><span class="hint">Что случилось</span> открытый Rust-движок txcript переводит историю диалога, рассуждения и вызовы инструментов из формата одного агента в другой. Всё обрабатывается локально; в HN уже нашли проблему с архивными сессиями Codex, прислали исправление, и его приняли в тот же день.</p>
+<p><span class="hint">Живой пример</span> движок — <a href="https://github.com/skillsynchq/txcript" target="_blank" rel="noopener">https://github.com/skillsynchq/txcript</a></p>
+<blockquote><strong>👉 Как применить:</strong> протестировать только на копии одной некритичной сессии Hermes/Codex. Если перенос сохраняет команды и результаты без утечки секретов, это может убрать повторное объяснение контекста при смене агента.</blockquote>
+<h3 class="numbered" data-n="5">Aclif предлагает один лениво загружаемый CLI вместо сотен MCP-инструментов</h3>
+<p><span class="hint">Что случилось</span> фреймворк открывает команды Salesforce, ServiceNow, DocuSign и Google Workspace через единую грамматику. Схема конкретной команды загружается только по запросу, а изменения имеют dry-run, подтверждение и журнал — весь каталог инструментов не висит в контексте на каждом ходе.</p>
+<p><span class="hint">Живой пример</span> документация и команды — <a href="https://www.aclif.ai/" target="_blank" rel="noopener">https://www.aclif.ai/</a></p>
+<blockquote><strong>👉 Как применить:</strong> идея годная для наших крупных интеграций — сначала discovery, затем схема одной операции, потом dry-run. Сам Aclif пока не внедрять: нужных LiveSklad, TenderPlan и 1С среди готовых провайдеров нет.</blockquote>
+<p>X: недоступен (нужен hermes auth add xai-oauth)</p>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
