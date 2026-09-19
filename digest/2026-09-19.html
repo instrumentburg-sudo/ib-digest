@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-09-19 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-09-19</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw v2026.9.5:</h2>
+<ul class="bullets">
+<li>Вышел крупный релиз: 4 179 PR и 64 прямых коммита. Главные изменения — атомарное обновление с проверкой новой версии до переключения, установка плагинов без перезапуска Gateway, общий доступ к разговорам, браузерные страницы рядом с агентом, архив разговоров и мастер создания команды специалистов.</li>
+<li>Для серверного контура полезны восстановление установки Gateway на systemd 239, исправление Docker-монтажа рабочих файлов в песочнице и сохранение выбранного агента по умолчанию после миграции.</li>
+</ul>
+<p>  Живой пример: <a href="https://docs.openclaw.ai/releases/2026.9.5" target="_blank" rel="noopener">https://docs.openclaw.ai/releases/2026.9.5</a></p>
+<blockquote><strong>→ Нам:</strong> релиз жирный, но ставить вслепую не надо. Если OpenClaw-контур ещё используется — сначала резервная копия состояния, затем контроль Telegram, cron, браузера и Docker-монтажа. Основной рабочий контур Hermes ради этого не трогаем.</blockquote>
+<h2>🤖 Claude Code v2.1.278:</h2>
+<ul class="bullets">
+<li>За сутки вышли v2.1.277 и v2.1.278. Auto mode для API, Enterprise и облачных шлюзов теперь по умолчанию использует серверный классификатор без отдельной платы за его накладные расходы; состояние видно в <code>/status</code>.</li>
+<li>v2.1.277 добавил поддержку <code>AGENTS.md</code>: если в проекте нет <code>CLAUDE.md</code>, Claude Code подхватывает общий файл инструкций. Заодно закрыта опасная дыра в песочнице: совпадение одной части составной Bash-команды с <code>sandbox.excludedCommands</code> больше не освобождает от ограничений всю команду.</li>
+<li>Исправлены зависания headless/SDK после внутренних ошибок, сбои <code>--resume</code>, потеря сообщений, проблемы фоновых сессий и десятки ошибок плагинов и интерфейса.</li>
+</ul>
+<p>  Живой пример: <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.277" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/releases/tag/v2.1.277</a></p>
+<blockquote><strong>→ Нам:</strong> <code>AGENTS.md</code> наконец становится нормальным переносимым стандартом между агентами — можно сокращать дублирование правил. Обновляться есть смысл сразу до v2.1.278, особенно для headless-задач и работы через шлюзы.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">MiniMax действительно открыл код терминального агента</h3>
+<p><span class="hint">Что случилось</span> за последние сутки в публичный репозиторий импортировали исходники TUI, headless CLI и ACP-интерфейса MiniMax Code под MIT. Это не пустой анонс: в репозитории уже есть пакеты, тесты, документация и свежие исправления прав доступа к файлам с учётными данными. Исходников настольного приложения там нет.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/MiniMax-AI/minimax-code" target="_blank" rel="noopener">https://github.com/MiniMax-AI/minimax-code</a></p>
+<blockquote><strong>👉 Как применить:</strong> не тащить в работу ещё один агент. Взять ACP и headless-архитектуру как образец для удалённого запуска и сравнить на одном тестовом задании с Codex и Claude Code.</blockquote>
+<h3 class="numbered" data-n="2">ZCode без явного согласия паковал рабочий каталог и историю Git</h3>
+<p><span class="hint">Что случилось</span> исследователь разобрал клиент ZCode и обнаружил фоновую упаковку проекта, <code>.git</code>, LFS-кэша и reflog в зашифрованный архив для загрузки в Aliyun OSS. В его случае это были 42 411 файлов: 345 МБ исходных данных и 313 МБ архива; 86,6% полезной нагрузки приходилось на <code>.git</code>. В интерфейсе не оказалось выключателя, который останавливал бы этот контур. ZCode в ответ связал загрузку с индексированием и Wiki и пообещал открыть код.</p>
+<p><span class="hint">Живой пример</span> <a href="https://blog.ferstar.org/en/posts/zcode-silent-workspace-snapshot-upload/" target="_blank" rel="noopener">https://blog.ferstar.org/en/posts/zcode-silent-workspace-snapshot-upload/</a></p>
+<blockquote><strong>👉 Как применить:</strong> ZCode не использовать для закрытых репозиториев. Для любого нового агента проверять сетевые соединения и локальные каталоги на тестовом проекте до выдачи доступа к коммерческому коду; доверять одной галочке «телеметрия выключена» нельзя.</blockquote>
+<h3 class="numbered" data-n="3">Ponytail предлагает агенту сначала удалить решение, а уже потом писать код</h3>
+<p><span class="hint">Что случилось</span> проект набрал 2 128 звёзд за день в GitHub Trending. Его правило заставляет агента идти по лестнице: не делать лишнее, переиспользовать существующее, брать стандартную библиотеку и нативные возможности, и только затем писать минимум нового кода. Автор публикует воспроизводимый тест на 12 задачах: в среднем −54% строк, −22% токенов, −20% стоимости и −27% времени при сохранении защитных проверок.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/DietrichGebert/ponytail" target="_blank" rel="noopener">https://github.com/DietrichGebert/ponytail</a></p>
+<blockquote><strong>👉 Как применить:</strong> не устанавливать плагин в основной контур. Сначала дать его правило двум одинаковым задачам калькулятора или дашборда и сравнить размер diff, тесты и число новых зависимостей. Если качество не проседает — перенести сам принцип в наши coding-скиллы.</blockquote>
+<h3 class="numbered" data-n="4">ECC показывает противоположный путь: агентный комбайн на сотни компонентов</h3>
+<p><span class="hint">Что случилось</span> ECC вошёл в дневной GitHub Trending с 751 новой звездой. В комплекте 68 специализированных агентов, 292 навыка, 94 команды, память, хуки и сканер AgentShield; заявленный цикл — plan → test → implement → review → verify → remember. Это живой каталог инженерных приёмов, но как единая установка он огромен и легко раздует контекст и сложность.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/affaan-m/ECC" target="_blank" rel="noopener">https://github.com/affaan-m/ECC</a></p>
+<blockquote><strong>👉 Как применить:</strong> не ставить целиком. Вытащить только AgentShield и схему независимого review после реализации, затем сравнить с уже установленными Hermes-скиллами — дубли нам не нужны.</blockquote>
+<p>X: недоступен — x_search вернул лимит 0 запросов в минуту. Авторизация есть, но тариф xAI не даёт выполнить поиск.</p>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
