@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-09-20 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-09-20</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw — без релиза за последние 24 часа:</h2>
+<ul class="bullets">
+<li>v2026.9.5 опубликована до границы окна и уже была в выпуске 19 сентября; повторять её не буду.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> новых причин обновлять или менять контур сегодня нет.</blockquote>
+<h2>🤖 Claude Code — без релиза за последние 24 часа:</h2>
+<ul class="bullets">
+<li>v2.1.278 вышла до границы окна и разобрана вчера.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> сегодня только наблюдение, без новых действий.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">CUA-S1: модель на 706 тысяч параметров для заполнения форм</h3>
+<p><span class="hint">Что случилось</span> команда Cua открыла CUA-S1-FORMS — узкую модель размером 2,8 МБ, которая по структуре формы выбирает USE, CHECK, CLICK или SKIP. Обучение первой версии на синтетике заняло менее 30 минут. По данным авторов, на их тесте модель дала 99,7% правильных наборов решений против 83,6% у hosted Jev и работала локально за 7–9 мс против 260–280 мс сетевого вызова. Это сравнение авторов, не независимый тест.</p>
+<p><span class="hint">Живой пример</span> обсуждение и описание эксперимента — <a href="https://news.ycombinator.com/item?id=49767564" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49767564</a></p>
+<blockquote><strong>👉 Как применить:</strong> не менять браузерного агента целиком. Проверить идею узкого локального классификатора на повторяемых решениях: тип письма, маршрут заявки, приоритет обращения. Общему LLM оставить неоднозначные случаи.</blockquote>
+<h3 class="numbered" data-n="2">Laya превращает маршрутизацию и классификацию в один быстрый проход</h3>
+<p><span class="hint">Что случилось</span> новый открытый проект Laya выпустил v0.3.4. Это не генератор текста, а модель для типизированных решений choice, score и boolean по письму, заявке или JSON. Автор заявляет 32,8 мс на один вопрос и 7,2 мс на вопрос в пакете на T4; есть три открытых checkpoint и маршрутизация более чем для 100 языков. Важная оговорка из тестов автора: английская модель на кхмерском дала нулевую точность при средней уверенности 95,2%, поэтому выбирать языковую модель надо до классификации, а не по её confidence.</p>
+<p><span class="hint">Живой пример</span> код и воспроизводимые материалы — <a href="https://github.com/NandhaKishorM/laya" target="_blank" rel="noopener">https://github.com/NandhaKishorM/laya</a></p>
+<blockquote><strong>👉 Как применить:</strong> кандидат для дешёвой сортировки входящих писем и заявок перед дорогим агентом. Сначала прогнать русскую контрольную выборку из реальных обезличенных обращений; заявленным цифрам без собственного теста не верить.</blockquote>
+<h3 class="numbered" data-n="3">Десять правок оператора обогнали увеличение модели и данных</h3>
+<p><span class="hint">Что случилось</span> команда цифрового архива восстановила 575 729 ручных разметок страниц из 1 765 книг. Увеличение обучающей выборки с 378 до 572 книг, ResNet-50 и вход 1024 px не улучшили качество на новых книгах: нужный отступ зависел от предпочтения оператора и отсутствовал в пикселях. Десять корректировок на книгу подняли pass@80 с 0,71 до 0,83. Для ретуши нейросеть только строит маску, а детерминированный код восстанавливает изображение и отклоняет результат при изменении хотя бы одного пикселя вне маски.</p>
+<p><span class="hint">Живой пример</span> разбор проекта и методики — <a href="https://www.reddit.com/r/MachineLearning/comments/1vz2ojw/we_recovered_575k_crop_labels_from_a_decade_of/" target="_blank" rel="noopener">https://www.reddit.com/r/MachineLearning/comments/1vz2ojw/we_recovered_575k_crop_labels_from_a_decade_of/</a></p>
+<blockquote><strong>👉 Как применить:</strong> это прямой урок для наших автоматизаций. Если правило живёт в голове сотрудника, не надо бесконечно увеличивать модель: собрать 5–10 корректировок на конкретный тип работ, зафиксировать правило и оставить человеку только пограничные случаи.</blockquote>
+<h3 class="numbered" data-n="4">Needle уместил вызовы инструментов в модель для слабых устройств</h3>
+<p><span class="hint">Что случилось</span> Needle вошёл в дневной GitHub Trending с 234 звёздами за сутки и получил свежие изменения в репозитории. Авторы открыли модель на 26 млн параметров для вызова инструментов на телефонах и микрокомпьютерах; заявлены 1 200 токенов/с при генерации в их среде и полный набор весов и данных. Это авторские показатели, не наш замер.</p>
+<p><span class="hint">Живой пример</span> репозиторий и архитектура — <a href="https://github.com/cactus-compute/needle" target="_blank" rel="noopener">https://github.com/cactus-compute/needle</a></p>
+<blockquote><strong>👉 Как применить:</strong> сейчас не внедрять. Следить как за вариантом локальной автоматики без облака — например, простые команды на устройстве или шлюзе. Для серверных процессов Hermes выигрыш пока неочевиден.</blockquote>
+<p>X: недоступен — x_search вернул лимит 0 запросов в минуту. Авторизация есть, но тариф xAI не даёт выполнить поиск.</p>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
