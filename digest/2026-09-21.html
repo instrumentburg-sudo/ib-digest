@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-09-21 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-09-21</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <p># 🔍 Утренний дайджест — 2026-09-21</p>
+<p>## 🔧 OpenClaw — без релиза за последние 24 часа</p>
+<ul class="bullets">
+<li>Последняя версия — v2026.9.5 от 19 сентября; она уже была в прошлых выпусках.[5]</li>
+</ul>
+<p>&gt; <strong>→ Нам:</strong> обновлять контур сегодня не из-за чего.</p>
+<p>## 🤖 Claude Code — без релиза за последние 24 часа</p>
+<ul class="bullets">
+<li>Последняя версия — v2.1.278 от 19 сентября; новых выпусков в суточном окне нет.[6]</li>
+</ul>
+<p>&gt; <strong>→ Нам:</strong> новых изменений для проверки нет.</p>
+<p>## 📡 Что нового в AI</p>
+<p>### 1. Граф кода не победил обычный поиск</p>
+<p><strong>Что случилось:</strong> разработчик прогнал контролируемый A/B-тест <code>codebase-memory-mcp</code> против обычных grep/glob/read на производственном TypeScript-монорепозитории. В небольшой сквозной задаче оба агента нашли 8 из 8 точек правки без лишних изменений, но графовый агент работал на 40% дольше и потратил больше токенов. В анализе цепочки вызовов оба нашли 12 из 12 входов; граф оказался на 13% быстрее, но пропустил одну связь, поэтому агент всё равно перепроверил результат обычным поиском.[1]</p>
+<p><strong>Живой пример:</strong> [подробный A/B-тест на Reddit](<a href="https://www.reddit.com/r/ClaudeAI/comments/1ve7gmy/ab_test_of_codebasememorymcp_against_plain_grep/" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeAI/comments/1ve7gmy/ab_test_of_codebasememorymcp_against_plain_grep/</a>)</p>
+<p>&gt; <strong>👉 Как применить:</strong> не тащить граф кода «потому что модно». Для обычных правок оставлять поиск по тексту; граф подключать к анализу длинных цепочек вызовов и всегда подтверждать находки поиском. Это ровно тот случай, где усложнение без измерения даёт лишнюю еблю, а не выигрыш.</p>
+<p>### 2. Ponytail режет переусложнение у кодовых агентов</p>
+<p><strong>Что случилось:</strong> Ponytail вышел на первое место среди агентских проектов дневного GitHub Trending — 2 128 звёзд за сутки.[2] Это набор правил и хуков, который заставляет агента сначала искать более простое решение. В собственном тесте авторов на 12 задачах для FastAPI + React получилось на 54% меньше кода, на 22% меньше токенов, на 20% дешевле и на 27% быстрее базового Claude Code; это авторский тест, не независимый замер.[3]</p>
+<p><strong>Живой пример:</strong> [репозиторий и методика теста](<a href="https://github.com/DietrichGebert/ponytail" target="_blank" rel="noopener">https://github.com/DietrichGebert/ponytail</a>)</p>
+<p>&gt; <strong>👉 Как применить:</strong> не ставить вслепую. Взять его критерии минимальности и прогнать на 5 наших реальных задачах: размер diff, стоимость, время, тесты. Если выигрыш повторится хотя бы наполовину без потери качества — перенести правила в наш процесс ревью агентов.</p>
+<p>### 3. Magnitude подбирает локальную модель под конкретное железо</p>
+<p><strong>Что случилось:</strong> Magnitude вошёл в дневной Trending со 161 звездой за сутки и получил свежие изменения 20 сентября.[2][4] Проект сам профилирует компьютер, рекомендует подходящую локальную модель, загружает её и подключает к Hermes, OpenClaw, Codex, Claude Code и другим агентам. Поддержаны Apple Silicon, NVIDIA, AMD и режим только на CPU; после загрузки модели работа возможна без интернета.[4]</p>
+<p><strong>Живой пример:</strong> [Magnitude на GitHub](<a href="https://github.com/magnitudedev/magnitude" target="_blank" rel="noopener">https://github.com/magnitudedev/magnitude</a>)</p>
+<p>&gt; <strong>👉 Как применить:</strong> на текущем VPS это вряд ли даст пользу — слабое железо съест скорость. Но для отдельной машины с GPU это готовый кандидат на дешёвый приватный контур для сортировки документов, черновиков и фоновых задач без оплаты каждого токена.</p>
+<p>X: недоступен — <code>x_search</code> вернул лимит 0 запросов в минуту у команды xAI. Посты из X не подменял веб-поиском.</p>
+<p>## Sources</p>
+<p>[1] <a href="https://www.reddit.com/r/ClaudeAI/comments/1ve7gmy/ab_test_of_codebasememorymcp_against_plain_grep" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeAI/comments/1ve7gmy/ab_test_of_codebasememorymcp_against_plain_grep</a> — A/B test: codebase-memory-mcp vs grep</p>
+<p>[2] <a href="https://github.com/trending?since=daily" target="_blank" rel="noopener">https://github.com/trending?since=daily</a> — GitHub Trending — daily</p>
+<p>[3] <a href="https://github.com/DietrichGebert/ponytail" target="_blank" rel="noopener">https://github.com/DietrichGebert/ponytail</a> — Ponytail</p>
+<p>[4] <a href="https://github.com/magnitudedev/magnitude" target="_blank" rel="noopener">https://github.com/magnitudedev/magnitude</a> — Magnitude</p>
+<p>[5] <a href="https://github.com/openclaw/openclaw/releases/tag/v2026.9.5" target="_blank" rel="noopener">https://github.com/openclaw/openclaw/releases/tag/v2026.9.5</a> — OpenClaw v2026.9.5</p>
+<p>[6] <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.278" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/releases/tag/v2.1.278</a> — Claude Code v2.1.278</p>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
