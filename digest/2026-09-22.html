@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-09-22 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-09-22</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <p># 🔍 Утренний дайджест — 2026-09-22</p>
+<p>## 🔧 OpenClaw v2026.7.35</p>
+<ul class="bullets">
+<li>Вышел не новый основной релиз, а исправленный <code>extended-stable</code>: Doctor больше не теряет встроенные плагины Browser, Canvas, file-transfer, phone-control, Talk и Bonjour при создании или ремонте реестра. В пакет также вошли накопленные исправления безопасности, доставки сообщений и совместимость с новыми моделями. Основная актуальная ветка по-прежнему новее — v2026.9.5.[1]</li>
+</ul>
+<p>&gt; <strong>→ Нам:</strong> не обновляться на него поверх основной ветки. Релиз нужен только для шлюзов, намеренно закреплённых на <code>extended-stable</code>; там исправление реестра плагинов критичное.</p>
+<p>## 🤖 Claude Code — без релиза за последние 24 часа</p>
+<ul class="bullets">
+<li>Последний GitHub-релиз — v2.1.278 от 19 сентября; в суточном окне новых выпусков нет.[2]</li>
+</ul>
+<p>&gt; <strong>→ Нам:</strong> сегодня ничего обновлять и перепроверять не требуется.</p>
+<p>## 📡 Что нового в AI</p>
+<p>### 1. Google показал AX — среду исполнения для массового запуска агентов</p>
+<p><strong>Что случилось:</strong> AX поднялся на Hacker News до 527 голосов и 227 комментариев за 12 часов.[3] Это открытая платформа, которая описывает задачу, рабочее окружение, сетевые ограничения и модель декларативно, запускает агента в изолированной среде и умеет приостанавливать и возобновлять его с сохранением состояния. Репозиторий прямо предупреждает, что проект ранний и до стабильной версии будут ломающие изменения.[4][5]</p>
+<p><strong>Живой пример:</strong> [демо AX с <code>task.yaml</code>, ограничением сети и suspend/resume](<a href="https://agentexecutor.io/" target="_blank" rel="noopener">https://agentexecutor.io/</a>)</p>
+<p>&gt; <strong>👉 Как применить:</strong> AX нам пока избыточен. Но его четыре примитива — задача, рабочее окружение, сетевой шлюз и модель — стоит использовать как эталон при развитии наших автономных джоб: секреты не отдавать агенту напрямую, сеть ограничивать списком разрешённых адресов, состояние хранить отдельно от процесса.</p>
+<p>### 2. Qwen-Image-2.1 дал открытую альтернативу генерации и редактированию изображений</p>
+<p><strong>Что случилось:</strong> релиз Qwen-Image-2.1 собрал 659 голосов и 181 комментарий на Hacker News за 22 часа.[3] Qwen открыл модель, которая объединяет генерацию и редактирование изображений; опубликованы веса и готовый запуск через <code>diffusers</code>, включая размеры до 2752×1536.[6][7]</p>
+<p><strong>Живой пример:</strong> [веса и код запуска на Hugging Face](<a href="https://huggingface.co/Qwen/Qwen-Image-2.1-PE-T2I" target="_blank" rel="noopener">https://huggingface.co/Qwen/Qwen-Image-2.1-PE-T2I</a>)</p>
+<p>&gt; <strong>👉 Как применить:</strong> GPT Image 2 не заменять. Qwen имеет смысл проверить как резервный локальный контур для массовых черновиков баннеров и редактирования товарных фото, где важнее цена и приватность. Решение — только после A/B на 20 наших заданиях: читаемость русского текста, сохранение инструмента, время и стоимость одного принятого изображения.</p>
+<p>### 3. Kev превращает локальную Qwen3.5 в дешёвый классификатор решений</p>
+<p><strong>Что случилось:</strong> репозиторий Kev за четыре дня набрал около 2,7 тыс. звёзд, а обсуждение на Hacker News — 138 голосов и 58 комментариев за четыре часа.[3][8] Это семейство небольших моделей поверх Qwen3.5: на вход подаётся состояние, на выходе — выбор категории, оценка или короткое решение через простой HTTP API. Модель можно обучать и запускать у себя.[8]</p>
+<p><strong>Живой пример:</strong> [пример маршрутизации претензии клиента по отделам](<a href="https://github.com/jaredpalmer/kev" target="_blank" rel="noopener">https://github.com/jaredpalmer/kev</a>)</p>
+<p>&gt; <strong>👉 Как применить:</strong> кандидат для дешёвой первой линии: классификация писем и заявок по типу ремонта, срочности и ответственному процессу без большого LLM на каждый вход. Не внедрять вслепую — сначала сравнить с текущей моделью на размеченных 300 обращениях по точности, цене и числу опасных ошибок.</p>
+<p>### 4. Правила для кодовых агентов начали закреплять техническими стопорами</p>
+<p><strong>Что случилось:</strong> автор <code>create-agent-room</code> опубликовал рабочий CLI для Claude Code и Cursor: stop-hook блокирует завершение хода, если агент изменил код, но не записал решение; pre-commit ловит секреты и защищённые пути; CI проверяет журналы и правила. Репозиторий маленький и пока без звёзд, поэтому это не готовый стандарт, а проверяемая реализация идеи.[9][10]</p>
+<p><strong>Живой пример:</strong> [репозиторий с воспроизводимым демо](<a href="https://github.com/sipandey/create-agent-room" target="_blank" rel="noopener">https://github.com/sipandey/create-agent-room</a>)</p>
+<p>&gt; <strong>👉 Как применить:</strong> не ставить пакет целиком. Забрать принцип для критичных репозиториев ИнструментБург: агент не может завершить задачу без тестов, записи решения и подтверждённого diff; секреты и продовые пути блокируются хуками, а не надеждой на <code>AGENTS.md</code>.</p>
+<p>X: недоступен — <code>x_search</code> вернул лимит 0 запросов в минуту у команды xAI. Посты из X не подменял веб-поиском.</p>
+<p>## Sources</p>
+<p>[1] <a href="https://github.com/openclaw/openclaw/releases/tag/v2026.7.35" target="_blank" rel="noopener">https://github.com/openclaw/openclaw/releases/tag/v2026.7.35</a> — OpenClaw v2026.7.35</p>
+<p>[2] <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.278" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/releases/tag/v2.1.278</a> — Claude Code v2.1.278</p>
+<p>[3] <a href="https://news.ycombinator.com" target="_blank" rel="noopener">https://news.ycombinator.com</a> — Hacker News — 22 сентября 2026</p>
+<p>[4] <a href="https://agentexecutor.io" target="_blank" rel="noopener">https://agentexecutor.io</a> — AX — Agent Executor</p>
+<p>[5] <a href="https://github.com/google/ax" target="_blank" rel="noopener">https://github.com/google/ax</a> — google/ax</p>
+<p>[6] <a href="https://qwen.ai/blog?id=qwen-image-2.1" target="_blank" rel="noopener">https://qwen.ai/blog?id=qwen-image-2.1</a> — Qwen-Image-2.1</p>
+<p>[7] <a href="https://huggingface.co/Qwen/Qwen-Image-2.1-PE-T2I" target="_blank" rel="noopener">https://huggingface.co/Qwen/Qwen-Image-2.1-PE-T2I</a> — Qwen-Image-2.1 — Hugging Face</p>
+<p>[8] <a href="https://github.com/jaredpalmer/kev" target="_blank" rel="noopener">https://github.com/jaredpalmer/kev</a> — Kev</p>
+<p>[9] <a href="https://www.reddit.com/r/ClaudeAI/comments/1ve4wyd/cli_that_enforces_agent_governance_with_stop" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeAI/comments/1ve4wyd/cli_that_enforces_agent_governance_with_stop</a> — create-agent-room — Reddit</p>
+<p>[10] <a href="https://github.com/sipandey/create-agent-room" target="_blank" rel="noopener">https://github.com/sipandey/create-agent-room</a> — create-agent-room</p>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
