@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-09-23 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-09-23</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <p># 🔍 Утренний дайджест — 2026-09-23</p>
+<p>## 🔧 OpenClaw — без релиза за последние 24 часа</p>
+<ul class="bullets">
+<li>Последний GitHub-релиз — v2026.7.35 от 21 сентября. Это исправление ветки <code>extended-stable</code>, о котором уже было во вчерашнем выпуске; нового релиза в суточном окне нет.[1]</li>
+</ul>
+<p>&gt; <strong>→ Нам:</strong> сегодня OpenClaw не обновлять. Ждём новый основной релиз, а не повторяем старую новость.</p>
+<p>## 🤖 Claude Code v2.1.280</p>
+<ul class="bullets">
+<li>В Claude Code добавили Claude Opus 5.5 и сделали его моделью Opus по умолчанию. Контекст — 1 млн токенов, цена — $4 за миллион входных и $20 за миллион выходных токенов, чтение кэша — $0,20 за миллион.[2]</li>
+<li>Релиз устраняет несколько неприятных сбоев автономной работы: бесконечные повторы после отказа проверки безопасности, потерю отчёта завершившегося субагента после сжатия контекста, потерю сообщений фоновому агенту и самопроизвольный старт хода при возобновлении сессии.[2]</li>
+<li>Исправлена проверка записи через символические ссылки: разрешение теперь оценивается по фактическому месту назначения, а не по внешне безопасному пути. Это важная защита от записи за пределы проекта.[2]</li>
+</ul>
+<p>&gt; <strong>→ Нам:</strong> обновление полезное именно для наших долгих и фоновых задач. После штатного обновления проверить три сценария: отчёт субагента после сжатия, запрет записи через ссылку за пределы репозитория и отсутствие повторных попыток после отказа проверки.</p>
+<p>## 📡 Что нового в AI</p>
+<p>### 1. Opus 5.5 стал заметно дешевле для длинной агентной работы</p>
+<p><strong>Что случилось:</strong> Anthropic заявляет 40% снижения типичной стоимости относительно Opus 5 и более чем 30% прироста скорости вывода. На Terminal-Bench 4.0 модель получила 66,4% против 52,3% у Opus 5. В реальном тесте раннего клиента аудит и исправление базы из 200 тыс. строк заняли менее трёх часов вместо более чем 20 часов у Opus 5; это данные производителя, а не независимая проверка.[3] На Hacker News релиз собрал 1 402 голоса и 885 комментариев за 13 часов.[4]</p>
+<p><strong>Живой пример:</strong> [описание Opus 5.5, цены и результаты тестов](<a href="https://www.anthropic.com/claude-opus-5-5" target="_blank" rel="noopener">https://www.anthropic.com/claude-opus-5-5</a>)</p>
+<p>&gt; <strong>👉 Как применить:</strong> не переводить на Opus 5.5 весь поток. Сначала дать ему три дорогие задачи — ревью большого репозитория, сложную миграцию и аудит автоматизации — и сравнить с текущей моделью по фактическим токенам, времени, числу правок после ревью и итоговой цене.</p>
+<p>### 2. Unreal Agent показал, сколько стоит лишняя болтовня между моделью и инструментами</p>
+<p><strong>Что случилось:</strong> Unreal Labs выпустила агентную обвязку с асинхронными вызовами инструментов: модель не тратит отдельные ходы на ожидание, опрос состояния и служебные сообщения. На Terminal-Bench 4.0 заявлена та же успешность, что у Codex, — 57,9%, но суммарная стоимость теста ниже на 39%: $1 428 против $2 350. На DeepSWE — 72,4% против 69,0% при стоимости $1 367 против $1 633.[5] Обсуждение на Hacker News набрало 156 голосов и 94 комментария за 11 часов.[4]</p>
+<p><strong>Живой пример:</strong> [архитектура и воспроизводимые результаты Unreal Agent](<a href="https://unreallabs.ai/blog/unreal-agent/" target="_blank" rel="noopener">https://unreallabs.ai/blog/unreal-agent/</a>)</p>
+<p>&gt; <strong>👉 Как применить:</strong> для Hermes ценность не в немедленной замене движка, а в метрике. В журнале долгих задач отдельно считать ходы модели, вызовы инструментов и служебные ожидания. Если агент расходует модельные ходы на опрос уже запущенных процессов, это чистый налог обвязки, который надо убирать событиями и уведомлениями.</p>
+<p>### 3. Граф знаний для кода не победил обычный поиск</p>
+<p><strong>Что случилось:</strong> автор на Reddit сравнил два одинаковых агента на реальном TypeScript-монорепозитории: один работал обычными <code>grep/glob/read</code>, второй — через индекс-граф примерно из 9 тыс. узлов и 21 тыс. связей. На небольшой сквозной доработке оба нашли 8 из 8 мест без лишних правок, но графовый агент был на 40% медленнее и потратил больше токенов. На анализе зоны влияния оба нашли 12 из 12 входов; граф выиграл лишь 13% времени и всё равно потребовал перепроверки обычным поиском из-за пропущенной связи.[6]</p>
+<p><strong>Живой пример:</strong> [A/B-тест codebase-memory-mcp против обычного поиска](<a href="https://www.reddit.com/r/ClaudeAI/comments/1ve7gmy/ab_test_of_codebasememorymcp_against_plain_grep/" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeAI/comments/1ve7gmy/ab_test_of_codebasememorymcp_against_plain_grep/</a>)</p>
+<p>&gt; <strong>👉 Как применить:</strong> не строить граф ради моды. Для наших репозиториев сначала замерить обычный поиск на 20 типовых задачах. Граф оправдан только там, где он доказуемо улучшает полноту анализа связей или сокращает время; иначе это ещё один индекс, который надо обновлять и перепроверять.</p>
+<p>### 4. <code>video-use</code> превращает монтаж разговорного видео в задачу для агента</p>
+<p><strong>Что случилось:</strong> <code>browser-use/video-use</code> сегодня вошёл в GitHub Trending и набрал 191 звезду за сутки.[7] Инструмент не скармливает модели десятки тысяч кадров: он упаковывает расшифровку с временными метками примерно в 12 КБ текста, показывает монтажные композиты только в спорных местах, а затем собирает результат через ffmpeg. Поддержаны вырезание пауз и слов-паразитов, субтитры, цветокоррекция, наложения и проверка границ склеек.[8]</p>
+<p><strong>Живой пример:</strong> [репозиторий и схема обработки видео](<a href="https://github.com/browser-use/video-use" target="_blank" rel="noopener">https://github.com/browser-use/video-use</a>)</p>
+<p>&gt; <strong>👉 Как применить:</strong> хороший кандидат для роликов из сервиса, где есть речь: разбор ремонта, отзыв, объяснение поломки. Проверить на одном исходнике 5–10 минут и сравнить с ручным монтажом по времени, качеству склеек и стоимости расшифровки. Ограничение существенное: штатно нужен ElevenLabs, а для чувствительных записей облачная расшифровка не подходит.</p>
+<p>X: недоступен — <code>x_search</code> вернул для команды xAI лимит 0 запросов в минуту. Посты из X не подменял веб-поиском.</p>
+<p>## Sources</p>
+<p>[1] <a href="https://github.com/openclaw/openclaw/releases/tag/v2026.7.35" target="_blank" rel="noopener">https://github.com/openclaw/openclaw/releases/tag/v2026.7.35</a> — OpenClaw v2026.7.35</p>
+<p>[2] <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.280" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/releases/tag/v2.1.280</a> — Claude Code v2.1.280</p>
+<p>[3] <a href="https://www.anthropic.com/claude-opus-5-5" target="_blank" rel="noopener">https://www.anthropic.com/claude-opus-5-5</a> — Claude Opus 5.5</p>
+<p>[4] <a href="https://news.ycombinator.com/" target="_blank" rel="noopener">https://news.ycombinator.com/</a> — Hacker News, 23 сентября 2026</p>
+<p>[5] <a href="https://unreallabs.ai/blog/unreal-agent/" target="_blank" rel="noopener">https://unreallabs.ai/blog/unreal-agent/</a> — Unreal Agent</p>
+<p>[6] <a href="https://www.reddit.com/r/ClaudeAI/comments/1ve7gmy/ab_test_of_codebasememorymcp_against_plain_grep/" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeAI/comments/1ve7gmy/ab_test_of_codebasememorymcp_against_plain_grep/</a> — A/B-тест поиска по коду</p>
+<p>[7] <a href="https://github.com/trending?since=daily" target="_blank" rel="noopener">https://github.com/trending?since=daily</a> — GitHub Trending, 23 сентября 2026</p>
+<p>[8] <a href="https://github.com/browser-use/video-use" target="_blank" rel="noopener">https://github.com/browser-use/video-use</a> — video-use</p>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
