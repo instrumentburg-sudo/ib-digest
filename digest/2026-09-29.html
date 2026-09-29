@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-09-29 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-09-29</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw v2026.8.33:</h2>
+<ul class="bullets">
+<li>Вышла ветка extended-stable: добавлены Fable 5.1, GPT-6 Astra, GPT Image 2.5 и полная поддержка семейства GPT-5.6. В релиз также вошли исправления авторизации Prometheus, владения медиа и голосовыми сессиями Discord, сохранения рассуждений при смене модели и уязвимостей Nodemailer.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновление полезное, но это не новая основная версия, а защищённая стабильная ветка на базе августовского кода. Сначала проверить, на какой ветке стоит Hermes/OpenClaw; не откатывать свежую 2026.9.6 ради номера 2026.8.33. Релиз — <a href="https://github.com/openclaw/openclaw/releases/tag/v2026.8.33" target="_blank" rel="noopener">https://github.com/openclaw/openclaw/releases/tag/v2026.8.33</a></blockquote>
+<h2>🤖 Claude Code v2.1.284:</h2>
+<ul class="bullets">
+<li>Добавлен Sonnet 5.5 с контекстом 1 млн токенов и ценой $2/$10 за млн входных/выходных токенов; появился <code>/mcp reconnect all</code>. Исправлены повторное переполнение контекста после сжатия, потеря MCP-инструментов при возобновлении сессии и повреждённые потоки ответов. Автоматический режим теперь включается по умолчанию, если режим разрешений явно не задан.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> после обновления проверить разрешения — смена режима по умолчанию влияет на безопасность автономных запусков. <code>/mcp reconnect all</code> пригодится для быстрого восстановления серверов без ручного переподключения каждого. Релиз — <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.284" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/releases/tag/v2.1.284</a></blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Paperclip попал в GitHub Trending с 3 197 звёздами за день</h3>
+<p><span class="hint">Что случилось</span> старый проект получил новую волну внимания. Это открытая панель управления командами агентов: задачи, иерархия ролей, периодические запуски, бюджеты с жёсткой остановкой, согласования и журнал действий. Поддерживает OpenClaw, Claude Code, Codex и обычные HTTP/CLI-агенты; репозиторий достиг 93 303 звёзд на момент сбора. Нового релиза за сутки не было.</p>
+<p><span class="hint">Живой пример</span> репозиторий и схема работы — <a href="https://github.com/paperclipai/paperclip" target="_blank" rel="noopener">https://github.com/paperclipai/paperclip</a></p>
+<blockquote><strong>👉 Как применить:</strong> не тащить ещё один оркестратор в прод. Взять как референс для нашей модели «собственник по исключениям»: отдельные бюджеты агентов, обязательный след решений и жёсткая остановка при превышении лимита. Сначала сравнить эти три функции с Hermes Kanban на бумаге.</blockquote>
+<h3 class="numbered" data-n="2">VoiceStudio собрал 3 221 звезду за день и обновил рабочую ветку</h3>
+<p><span class="hint">Что случилось</span> локальная студия речи и дубляжа предлагает 16 движков синтеза, 11 движков распознавания, каталог из 646 языков, локальный API и MCP. Последние изменения за ночь обновили качество голоса, модельно-зависимые языки и интеграции рабочего пространства. Число языков — заявка авторов; качество зависит от выбранного движка.</p>
+<p><span class="hint">Живой пример</span> репозиторий, установщики и документация — <a href="https://github.com/debpalash/VoiceStudio" target="_blank" rel="noopener">https://github.com/debpalash/VoiceStudio</a></p>
+<blockquote><strong>👉 Как применить:</strong> протестировать на одном ролике ИнструментБург «исходная русская дорожка → расшифровка → исправленный текст → новая озвучка». Если качество приемлемо, получим локальный конвейер для роликов и инструкций без тарифа за минуту. Клонировать только голоса с явным согласием владельца.</blockquote>
+<h3 class="numbered" data-n="3">Самая горячая AI-дискуссия Hacker News — не про генерацию кода, а про потерю замысла</h3>
+<p><span class="hint">Что случилось</span> материал о том, что команды перестают понимать архитектуру и причины решений в сгенерированной кодовой базе, набрал 358 баллов и 227 комментариев на момент сбора. Главный тезис: дешёвый код не заменяет зафиксированные ограничения, связи компонентов и историю решений.</p>
+<p><span class="hint">Живой пример</span> статья — <a href="https://www.ssp.sh/brain/the-problem-is-not-the-ai-code-but-nobody-knows-anything-anymore/" target="_blank" rel="noopener">https://www.ssp.sh/brain/the-problem-is-not-the-ai-code-but-nobody-knows-anything-anymore/</a></p>
+<blockquote><strong>👉 Как применить:</strong> для каждого автономного изменения требовать не только тесты и diff, но и короткую запись «зачем, какие ограничения, что нельзя сломать». Это особенно нужно в dashboard, LiveSklad и финансовых расчётах, где локально правильный патч легко ломает смысл показателя.</blockquote>
+<h3 class="numbered" data-n="4">Google Research показал самонастройку агентных оболочек без подгонки под один тест</h3>
+<p><span class="hint">Что случилось</span> RRSI меняет промпты, инструменты, память, контекст и подагентов в отдельных git-worktree, но отбрасывает улучшения в пределах шума, штрафует рост расхода токенов и проверяет перенос на отложенных задачах. Авторы заявляют рост Terminal-Bench 2.1 с 74,2 до 80,2 и SWE-bench Verified с 82,0 до 83,8 при фиксированной Claude Opus 4.8.</p>
+<p><span class="hint">Живой пример</span> код, тесты и полная история изменений — <a href="https://github.com/google-research/rrsi" target="_blank" rel="noopener">https://github.com/google-research/rrsi</a></p>
+<blockquote><strong>👉 Как применить:</strong> не запускать дорогую систему целиком. Забрать метод: каждую правку skill оценивать на рабочем наборе и отдельном контрольном наборе, не принимать прирост меньше разброса и учитывать стоимость токенов. Это защищает от «улучшили один кейс — ухудшили всё остальное».</blockquote>
+<p>X: недоступен — x_search упёрся в лимит xAI (RPM 0/0). Reddit заблокировал прямое чтение, RSS и нейтральный прокси; непроверенные публикации в выпуск не добавлены.</p>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
