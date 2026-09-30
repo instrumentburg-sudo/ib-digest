@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-09-30 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-09-30</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw 2026.9.7:</h2>
+<ul class="bullets">
+<li>Перед миграциями теперь создаются согласованные резервные копии баз состояния и агентов, а откат восстанавливает их автоматически. Рабочие ходы и правки переживают перезапуск Gateway.</li>
+<li>Появились изолированные worktree-сессии для параллельной работы над одним репозиторием и плагин OpenAI Agents API со стримингом, поиском, вложениями и инструментами OpenClaw.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновляться после резервной копии; отдельно проверить, что cron, Telegram и активные сессии нормально переживают перезапуск. Worktree-сессии полезны для параллельных задач по калькулятору и dashboard без конфликтов файлов.</blockquote>
+<h2>🤖 Claude Code 2.1.285:</h2>
+<ul class="bullets">
+<li>Добавлена команда <code>claude --desktop</code>, настройка параметров плагинов через <code>claude plugin configure</code> и конфигурация MCP-сервера прямо при установке <code>.mcpb</code>.</li>
+<li>Исправлены зависания фоновых hooks, потеря вложений в Remote Control, лишние ходы субагентов и повтор запросов после тайм-аута; фоновые команды теперь ограничены по времени — 30 минут по умолчанию, максимум 2 часа.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> версия полезна для удалённой работы и устойчивых агентных конвейеров. Сначала прогнать на одном проекте плагины, MCP и фоновые задания, затем обновлять рабочие окружения.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">OpenAI запустила Dots — постоянно работающих агентов</h3>
+<p><span class="hint">Что случилось</span> Dots живут внутри ChatGPT, продолжают работу между диалогами и получают собственный облачный компьютер с браузером. На Hacker News запуск набрал 534 балла и 397 комментариев на момент сбора.</p>
+<p><span class="hint">Живой пример</span> официальный анонс — <a href="https://openai.com/index/introducing-dots/" target="_blank" rel="noopener">https://openai.com/index/introducing-dots/</a></p>
+<blockquote><strong>👉 Как применить:</strong> пока наблюдать, а не переносить процессы. Для ИнструментБург ценность появится, если агент сможет надёжно вести регулярную задачу с журналом действий, ограничениями доступа и ручным согласованием платежей и публикаций.</blockquote>
+<h3 class="numbered" data-n="2">GPT-6.1 Sol: почти уровень Astra по цене массовой модели</h3>
+<p><span class="hint">Что случилось</span> модель доступна в Codex и API как <code>gpt-6.1-sol</code>; цена заявлена $2 за миллион входных и $10 за миллион выходных токенов, кэшированный ввод — $0,10. По данным OpenAI, DeepSWE 1.1 — 75,2%, OSWorld 2.0 — 71,4%; это заявления производителя, не наша проверка. Обсуждение на Hacker News набрало 867 баллов и 786 комментариев.</p>
+<p><span class="hint">Живой пример</span> официальный анонс — <a href="https://openai.com/index/introducing-gpt-6-1-sol/" target="_blank" rel="noopener">https://openai.com/index/introducing-gpt-6-1-sol/</a></p>
+<blockquote><strong>👉 Как применить:</strong> провести наш тест на 10 реальных задачах — код, браузер, документы, длинный контекст — и считать стоимость завершённой задачи, а не токена. До этого не менять основную маршрутизацию.</blockquote>
+<h3 class="numbered" data-n="3">OpenRig 0.6.2 объединяет Claude Code и Codex в одну команду</h3>
+<p><span class="hint">Что случилось</span> свежий выпуск даёт три готовые схемы — два Codex, два Claude Code или Claude-владелец плюс Codex-проверяющий. Есть очередь задач, независимая проверка результата и восстановление после перезапуска; репозиторий получил 737 звёзд за сутки и содержит 2 561 звезду на момент сбора.</p>
+<p><span class="hint">Живой пример</span> выпуск и сценарий запуска — <a href="https://github.com/mvschwarz/openrig/releases/tag/v0.6.2" target="_blank" rel="noopener">https://github.com/mvschwarz/openrig/releases/tag/v0.6.2</a></p>
+<blockquote><strong>👉 Как применить:</strong> протестировать смешанную пару на одной ограниченной задаче калькулятора: Claude делает изменение, Codex проверяет точный кандидат. Не ставить поверх Hermes целиком — сначала сравнить расход, качество ревью и восстановление после сбоя.</blockquote>
+<h3 class="numbered" data-n="4">Hindsight 0.10.2 снизил цену обновления памяти и укрепил интеграцию с Hermes</h3>
+<p><span class="hint">Что случилось</span> выпуск добавил совместимость Hermes с Python 3.14, исправления плагина и режимы консолидации. Авторы заявляют снижение расхода на обновление mental models на 26–43% и входного контекста ещё на 39% за счёт передачи страницы со сниппетами вместо пяти страниц. На GitHub проект получил 2 575 звёзд за сутки.</p>
+<p><span class="hint">Живой пример</span> выпуск — <a href="https://github.com/vectorize-io/hindsight/releases/tag/v0.10.2" target="_blank" rel="noopener">https://github.com/vectorize-io/hindsight/releases/tag/v0.10.2</a></p>
+<blockquote><strong>👉 Как применить:</strong> взять теневой тест на бизнес-памяти: одинаковые 30 вопросов к текущему fact_store и Hindsight, затем сравнить точность, задержку, стоимость и ложные связи. Не подключать к рабочей памяти без измерений.</blockquote>
+<h3 class="numbered" data-n="5">LiveNerf пытается измерить, деградируют ли модели после релиза</h3>
+<p><span class="hint">Что случилось</span> вместо субъективных жалоб проект ежедневно запускает 90 образцов на фиксированном наборе из 78 вопросов. Собрано 6 из 30 дней; все дни прошли на одном хэше harness и Claude Code 2.1.280. Валидация показала, что низкий reasoning effort уменьшает выходные токены на 62% и точность на 8,3 ± 4,5 п.п.; окончательных выводов о деградации Opus 5.5 пока нет.</p>
+<p><span class="hint">Живой пример</span> репозиторий и открытые логи методики — <a href="https://github.com/ninjahawk/livenerf" target="_blank" rel="noopener">https://github.com/ninjahawk/livenerf</a></p>
+<blockquote><strong>👉 Как применить:</strong> перенять подход для маршрутизации Hermes — закрепить 15–20 наших задач, версию CLI, модель, промпт и метрики, затем ловить ухудшение по результату и токенам, а не по ощущениям.</blockquote>
+<p>X: недоступен (нужен hermes auth add xai-oauth).</p>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
