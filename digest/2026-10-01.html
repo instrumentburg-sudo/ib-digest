@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-10-01 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-10-01</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw:</h2>
+<ul class="bullets">
+<li>За точные 24 часа релизов нет. Версия 2026.9.7 вышла в 04:44 UTC 30 сентября, на 1 час 17 минут раньше границы окна, поэтому повторно её не считаю.[1]</li>
+</ul>
+<p>  Нам: остаёмся на уже проверенной 2026.9.7, нового обновления сегодня нет.</p>
+<h2>🤖 Claude Code 2.1.286:</h2>
+<ul class="bullets">
+<li>Исправлена потеря ходов при <code>--resume</code> и <code>--continue</code> после падения с параллельными вызовами инструментов. Фоновые задания больше не показываются завершёнными, пока ждут разрешения. Закрыты утечки Bearer-токенов, URL-паролей и секретов с невидимыми символами в журналах.[2]</li>
+<li>Режим <code>--bare</code> теперь запускает только явно указанные MCP-серверы, не добавляет системные напоминания и не поднимает фоновые задачи.[2]</li>
+</ul>
+<p>  Нам: обновить Claude Code на рабочей машине. Для автономных задач особенно полезны восстановление сессий и исправленная маскировка секретов.</p>
+<p>  Живой пример: полный список исправлений - <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.286" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/releases/tag/v2.1.286</a></p>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Gemini 4 Argon вышел для ограниченного круга пользователей</h3>
+<p><span class="hint">Что случилось</span> Google заявляет цену 2 доллара за миллион входных и 10 долларов за миллион выходных токенов. Внутри Google группы агентов освободили свыше 300 ТиБ памяти и работают над переносом кодовых баз с C и C++ на Rust, включая более 800 тысяч строк ядра Zircon. Публичного доступа пока нет.[3] Обсуждение на Hacker News набрало 1 226 баллов и 788 комментариев на момент сбора.[4]</p>
+<p><span class="hint">Живой пример</span> анонс Google - <a href="https://deepmind.google/blog/gemini-4-argon-our-next-era-of-frontier-intelligence" target="_blank" rel="noopener">https://deepmind.google/blog/gemini-4-argon-our-next-era-of-frontier-intelligence</a></p>
+<blockquote><strong>👉 Как применить:</strong> не менять маршрутизацию вслепую. Когда откроют API, прогнать наш набор задач по КП, анализу кода и поиску запчастей против GPT-6.1 Sol и Claude.</blockquote>
+<h3 class="numbered" data-n="2">OpenRig снова поднялся в GitHub Trending</h3>
+<p><span class="hint">Что случилось</span> OpenRig объединяет Claude Code и Codex в постоянную команду, описанную в YAML. Есть роли владельца и проверяющего, очередь задач, восстановление после перезапуска и общий терминальный интерфейс. За день проект получил 624 звезды в GitHub Trending, всего у него 3 164 звезды на момент сбора.[5][6]</p>
+<p><span class="hint">Живой пример</span> репозиторий и команда <code>rig setup --dry-run</code> - <a href="https://github.com/mvschwarz/openrig" target="_blank" rel="noopener">https://github.com/mvschwarz/openrig</a></p>
+<blockquote><strong>👉 Как применить:</strong> взять на разбор как внешний ориентир для нашего Kanban. Не устанавливать поверх рабочего Hermes: OpenRig пишет хуки, настройки доверия и файлы конфигурации Claude Code и Codex.</blockquote>
+<h3 class="numbered" data-n="3">Context Mode сокращает сырой вывод инструментов</h3>
+<p><span class="hint">Что случилось</span> MCP-сервер запускает обработку файлов, страниц и журналов в песочнице и возвращает агенту выжимку. Авторы показывают сокращение одного примера с 315 КБ до 5,4 КБ и хранят историю действий в SQLite с полнотекстовым поиском.[7] В GitHub Trending проект получил 90 звёзд за день.[6]</p>
+<p><span class="hint">Живой пример</span> описание и установка - <a href="https://github.com/mksglu/context-mode" target="_blank" rel="noopener">https://github.com/mksglu/context-mode</a></p>
+<blockquote><strong>👉 Как применить:</strong> проверить отдельно на одной длинной исследовательской задаче Hermes. Сравнить расход токенов, число сжатий контекста и качество результата; цифру 98 процентов пока считать заявлением автора.</blockquote>
+<h3 class="numbered" data-n="4">Локальная Swift 1.5 Qwen3.8-27B получила живую проверку на RTX 3090</h3>
+<p><span class="hint">Что случилось</span> пользователь LocalLLaMA сообщает, что модель исправила сценарий для Directory Opus за 6 минут со скоростью 67 токенов в секунду на старой RTX 3090. До этого Gemini Flash крутился 40 минут и задачу не решил.[8] Модель можно поднять через vLLM или SGLang, карточка и веса опубликованы открыто.[9]</p>
+<p><span class="hint">Живой пример</span> обсуждение и ссылка на модель - <a href="https://www.reddit.com/r/LocalLLaMA/comments/1wrv6bp/swift_15_qwen38_27b_a_musthave_for_low_thinking" target="_blank" rel="noopener">https://www.reddit.com/r/LocalLLaMA/comments/1wrv6bp/swift_15_qwen38_27b_a_musthave_for_low_thinking</a></p>
+<blockquote><strong>👉 Как применить:</strong> кандидат на дешёвый локальный резерв для небольших задач по коду. Нужен наш тест, один пользовательский пример ничего не доказывает.</blockquote>
+<p>X: недоступен из-за нулевого лимита запросов xAI; посты не подменял поиском в интернете.</p>
+<p>## Sources</p>
+<p>[1] <a href="https://github.com/openclaw/openclaw/releases" target="_blank" rel="noopener">https://github.com/openclaw/openclaw/releases</a> — OpenClaw releases</p>
+<p>[2] <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.286" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/releases/tag/v2.1.286</a> — Claude Code v2.1.286</p>
+<p>[3] <a href="https://deepmind.google/blog/gemini-4-argon-our-next-era-of-frontier-intelligence" target="_blank" rel="noopener">https://deepmind.google/blog/gemini-4-argon-our-next-era-of-frontier-intelligence</a> — Gemini 4 Argon</p>
+<p>[4] <a href="https://news.ycombinator.com/item?id=49913571" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49913571</a> — HN: Gemini 4 Argon</p>
+<p>[5] <a href="https://github.com/mvschwarz/openrig" target="_blank" rel="noopener">https://github.com/mvschwarz/openrig</a> — OpenRig</p>
+<p>[6] <a href="https://github.com/trending?since=daily" target="_blank" rel="noopener">https://github.com/trending?since=daily</a> — GitHub Trending daily</p>
+<p>[7] <a href="https://github.com/mksglu/context-mode" target="_blank" rel="noopener">https://github.com/mksglu/context-mode</a> — Context Mode</p>
+<p>[8] <a href="https://www.reddit.com/r/LocalLLaMA/comments/1wrv6bp/swift_15_qwen38_27b_a_musthave_for_low_thinking" target="_blank" rel="noopener">https://www.reddit.com/r/LocalLLaMA/comments/1wrv6bp/swift_15_qwen38_27b_a_musthave_for_low_thinking</a> — Reddit: Swift 1.5 Qwen3.8 27B</p>
+<p>[9] <a href="https://huggingface.co/ukisai/Swift-Qwen3.8-27b" target="_blank" rel="noopener">https://huggingface.co/ukisai/Swift-Qwen3.8-27b</a> — Swift-Qwen3.8-27B</p>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
