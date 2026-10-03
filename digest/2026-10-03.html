@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-10-03 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-10-03</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw 2026.9.8 / 2026.8.35:</h2>
+<ul class="bullets">
+<li>В 2026.9.8 вошли 43 pull request: GPT-6.1 Sol, возврат результата делегированного агента строго исходному запросу, защита от двух Gateway на одном состоянии, устойчивые обновления Windows/macOS и восстановление каналов после перезагрузки конфигурации.</li>
+<li>Отдельно вышла 2026.8.35 — ветка extended-stable с критическими исправлениями безопасности, cron, Telegram, Gmail/IMAP, удалённых MCP и расхода памяти в больших Codex-конфигурациях.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновление полезное именно для нашей схемы с cron, Telegram и субагентами. Но 2026.9.8 помечен без Telegram E2E-проверок, поэтому сначала тестовый профиль, затем основной.</blockquote>
+<p><span class="hint">Источник</span> релиз 2026.9.8 — <a href="https://github.com/openclaw/openclaw/releases/tag/v2026.9.8" target="_blank" rel="noopener">https://github.com/openclaw/openclaw/releases/tag/v2026.9.8</a></p>
+<p><span class="hint">Источник</span> extended-stable 2026.8.35 — <a href="https://github.com/openclaw/openclaw/releases/tag/v2026.8.35" target="_blank" rel="noopener">https://github.com/openclaw/openclaw/releases/tag/v2026.8.35</a></p>
+<h2>🤖 Claude Code 2.1.288:</h2>
+<ul class="bullets">
+<li>Большой выпуск про надёжность долгих и автономных сессий: продолжение после тайм-аута потока, корректное автосжатие, сохранение контекста при <code>--resume</code>, остановка watchdog после трёх тайм-аутов и исправление двойных вызовов MCP при ответах свыше 16 МБ.</li>
+<li>Закрыта опасная дыра: разрушительный <code>rm</code> внутри <code>bash -c</code> или <code>sh -c</code> больше не проходит без запроса даже при bypassPermissions. Добавлен <code>--max-findings</code> для <code>/code-review</code>, а LSP-вызовы теперь обрываются через 60 секунд вместо вечного зависания.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновлять. Особенно важны исправления <code>--resume</code>, системного SIGTERM, двойных MCP-вызовов и блокировки опасных shell-команд — это прямые риски наших фоновых задач.</blockquote>
+<p><span class="hint">Источник</span> <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.288" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/releases/tag/v2.1.288</a></p>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Agent Reach собрал доступ к интернет-источникам в один слой</h3>
+<p><span class="hint">Что случилось</span> в дневной GitHub Trending вышел Agent Reach — единый CLI для веба, YouTube, RSS, GitHub, X, Reddit и ряда закрытых площадок. У проекта 88 952 звезды; он не новый, свежий сигнал — именно новый всплеск внимания. Для каналов с авторизацией всё равно нужны отдельные cookie или браузерная сессия.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/Panniantong/Agent-Reach" target="_blank" rel="noopener">https://github.com/Panniantong/Agent-Reach</a></p>
+<blockquote><strong>👉 Как применить:</strong> не ставить целиком в прод. Взять идею <code>doctor</code> и резервных маршрутов для нашего сборщика дайджеста: источник должен не молча пустеть, а показывать, какой способ доступа сломался и чем его заменили.</blockquote>
+<h3 class="numbered" data-n="2">Context Mode обещает сокращать сырой вывод инструментов до 98%</h3>
+<p><span class="hint">Что случилось</span> проект снова в дневном GitHub Trending, 25 090 звёзд. Он уводит большие ответы MCP в песочницу, хранит события сессии в SQLite/FTS5 и возвращает модели только релевантные фрагменты. Заявленные 98% — цифра автора, независимой проверки у нас нет.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/mksglu/context-mode" target="_blank" rel="noopener">https://github.com/mksglu/context-mode</a></p>
+<blockquote><strong>👉 Как применить:</strong> провести изолированный тест на одной тяжёлой задаче Hermes — сравнить токены, качество восстановления после сжатия и время. Не внедрять глобально до замера: чужой слой памяти легко создаёт вторую, конфликтующую правду.</blockquote>
+<h3 class="numbered" data-n="3">NVIDIA OpenShell двигает ограничения агентов на уровень ядра</h3>
+<p><span class="hint">Что случилось</span> OpenShell вошёл в дневной Trending и за последние часы получил исправления песочницы и CLI. Проект изолирует агентов, проверяет файловый, системный и сетевой доступ политиками, а реальные секреты подставляет только в запросы к разрешённым адресам. Репозиторий набрал 14 503 звезды.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/NVIDIA/OpenShell" target="_blank" rel="noopener">https://github.com/NVIDIA/OpenShell</a></p>
+<blockquote><strong>👉 Как применить:</strong> кандидат для отдельного контура опасных внешних агентов — тендерные вложения, неизвестные репозитории, сторонние skills. Основной Hermes пока не переносить: сначала проверить накладные расходы и совместимость с нашими браузерными и MCP-сессиями.</blockquote>
+<h3 class="numbered" data-n="4">DwarfStar 4 поднялся на Hacker News как узкий локальный движок для больших моделей</h3>
+<p><span class="hint">Что случилось</span> обсуждение ds4 набрало 202 голоса и 56 комментариев на момент сбора. Движок на C запускает DeepSeek V4/V4.1, GLM 5.x и Qwen3.8 на Metal, CUDA и ROCm; авторы показывают 126 токенов/с суммарно на восьми L40S при 16 одновременных сессиях. Это бета и заявленные авторами результаты, не наша проверка.</p>
+<p><span class="hint">Живой пример</span> проект — <a href="https://github.com/antirez/ds4" target="_blank" rel="noopener">https://github.com/antirez/ds4</a></p>
+<p><span class="hint">Источник</span> обсуждение — <a href="https://news.ycombinator.com/item?id=49936575" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49936575</a></p>
+<blockquote><strong>👉 Как применить:</strong> для ИнструментБург сейчас не покупать железо. Держать как вариант локального закрытого контура, если объём документов и цена облачных моделей оправдают машину с 96–128 ГБ памяти.</blockquote>
+<h3 class="numbered" data-n="5">Wagtail показал реальную цену неограниченных агентных экспериментов</h3>
+<p><span class="hint">Что случилось</span> за месяц команда израсходовала 2 млрд токенов. Первая половина на GLM 5.3 Flash стоила $68, но неверный выбор модели для прототипа MCP сжёг ещё 450 млн токенов и $150 почти за ночь; итог — только 50% трафика на целевой модели и около 35 кВт·ч вместо плановых 10.</p>
+<p><span class="hint">Живой пример</span> <a href="https://wagtail.org/blog/one-month-on-glm-53-flash/" target="_blank" rel="noopener">https://wagtail.org/blog/one-month-on-glm-53-flash/</a></p>
+<p><span class="hint">Источник</span> обсуждение — <a href="https://news.ycombinator.com/item?id=49934620" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49934620</a></p>
+<blockquote><strong>👉 Как применить:</strong> в наших автономных задачах считать не токены сами по себе, а стоимость результата. Для прототипов задать лимит на модель, число итераций и бюджет; дорогую модель подключать только после провала дешёвой или на финальную проверку.</blockquote>
+<p>X: недоступен — xAI вернул нулевой лимит запросов для текущей команды.</p>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
