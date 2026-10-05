@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-10-05 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-10-05</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <p># 🔍 Утренний дайджест — 5 октября 2026</p>
+<p>## 🔧 OpenClaw v2026.9.8</p>
+<ul class="bullets">
+<li>За последние 24 часа релизов нет. Актуальная версия по-прежнему v2026.9.8 от 3 октября.[1]</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> ничего обновлять и повторно разбирать сегодня не нужно.</blockquote>
+<p>## 🤖 Claude Code v2.1.289</p>
+<ul class="bullets">
+<li>За последние 24 часа релизов нет. Актуальная версия — v2.1.289 от 3 октября.[2]</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> вчерашний вывод про усиление правил доступа остаётся актуальным; нового сигнала нет.</blockquote>
+<p>## 📡 Что нового в AI</p>
+<p>### 1. Ponytail v4.12.0: агенту навязывают инженерную лень</p>
+<p><span class="hint">Что случилось</span> вышел Ponytail v4.12.0 — навык для Claude Code, Codex, Hermes и других агентов, который заставляет сначала удалить лишнее, переиспользовать имеющееся и взять стандартную возможность платформы, а уже потом писать новый код.[4] В релизе пронумеровали замечания аудита и исправили отчёт бенчмарка: автор заявляет в среднем на 54% меньше кода, на 22% меньше токенов, на 20% ниже стоимость и на 27% быстрее выполнение; это собственный бенчмарк проекта, не независимое исследование.[3] На GitHub Trending проект набрал около 1 894 звёзд за сутки.[10]</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/DietrichGebert/ponytail/releases/tag/v4.12.0" target="_blank" rel="noopener">https://github.com/DietrichGebert/ponytail/releases/tag/v4.12.0</a></p>
+<blockquote><strong>👉 Как применить:</strong> не включать глобально. Сначала прогнать только <code>/ponytail-review</code> на одном реальном diff калькулятора и сравнить число строк, тесты и стоимость с обычным режимом. Ставить только из официального <code>DietrichGebert/ponytail</code>: README отдельно предупреждает о троянизированном клоне.[4]</blockquote>
+<p>### 2. claude-mem v13.31.0 убрал тормоза при старте сессии</p>
+<p><span class="hint">Что случилось</span> новая версия перестала читать всю историю проекта и ждать облачную синхронизацию при запуске.[5] На базе 1,2 ГБ прежний хук занимал около 3 секунд, а в худшем случае — 44 секунды; индексированный запрос новых воспоминаний теперь занимает около 4 мс, а синхронизация идёт в фоне.[5] Проект одновременно набрал около 628 звёзд за сутки на GitHub Trending.[10]</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/thedotmack/claude-mem/releases/tag/v13.31.0" target="_blank" rel="noopener">https://github.com/thedotmack/claude-mem/releases/tag/v13.31.0</a></p>
+<blockquote><strong>👉 Как применить:</strong> поверх памяти Hermes пока не ставить — получится две конкурирующие системы контекста. Полезный паттерн стоит забрать в наши агенты: локальная база как источник истины, предварительно собранный контекст и облачная синхронизация строго в фоне.[5]</blockquote>
+<p>### 3. Strata запускает Qwen 3.8 Flash Next 125B на обычной видеокарте</p>
+<p><span class="hint">Что случилось</span> Strata v0.1.39 добавила OpenAI Responses API для Codex, параллельные запросы, поддержку старых NVIDIA и экспериментальную поддержку Intel Arc.[6] Для RTX 5070 авторы измерили ускорение генерации на 2,5–6%, а длинных запросов — до 18,5% в отдельных конфигурациях.[6] Обсуждение на Hacker News за 17 часов собрало 699 баллов и 321 комментарий; участники спорят о потере качества на Q2/IQ3-квантизации, но приводят собственные тесты, где Strata обошла локальный Qwen 27B в задачах генерации и дополнения кода.[7]</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/Niko1221/Strata/releases/tag/v0.1.39" target="_blank" rel="noopener">https://github.com/Niko1221/Strata/releases/tag/v0.1.39</a></p>
+<blockquote><strong>👉 Как применить:</strong> для текущего VPS бесполезно — нужна видеокарта минимум с 12 ГБ видеопамяти, от 32 ГБ ОЗУ и около 80 ГБ на диске.[6] Имеет смысл тестировать только на отдельной рабочей станции как приватный локальный движок для Codex, не как замену облачным моделям вслепую.</blockquote>
+<p>### 4. Impeccable превращает борьбу с AI-дизайном в проверяемый процесс</p>
+<p><span class="hint">Что случилось</span> Impeccable вышел в GitHub Trending с примерно 1 171 звездой за сутки.[10] Внутри один навык, 24 команды и 61 детерминированное правило для поиска типичных косяков AI-интерфейсов: вложенных карточек, серого текста на цветном фоне, шаблонных шрифтов, проблем адаптива и доступности.[8]</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/pbakaus/impeccable" target="_blank" rel="noopener">https://github.com/pbakaus/impeccable</a></p>
+<blockquote><strong>👉 Как применить:</strong> не тащить ещё один дизайн-фреймворк целиком. Сравнить его 61 правило с нашим набором <code>better-interface</code> и забрать только проверки, которых у нас нет; иначе получим дублирующие инструкции и размытый приоритет.[8]</blockquote>
+<p>### 5. OpenMontage собрал полный видеопродакшен внутри агента</p>
+<p><span class="hint">Что случилось</span> OpenMontage набрал около 245 звёзд за сутки на GitHub Trending.[10] Проект объединяет 12 производственных конвейеров, более 100 инструментов и свыше 700 файлов навыков и знаний: агент исследует тему, пишет сценарий, подбирает или генерирует материалы, собирает монтаж и рендерит ролик.[9] В репозитории показан 60-секундный ролик из шести клипов Kling v3 с озвучкой и субтитрами за $1,33.[9]</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/calesthio/OpenMontage" target="_blank" rel="noopener">https://github.com/calesthio/OpenMontage</a></p>
+<blockquote><strong>👉 Как применить:</strong> годится для одного пилота — 15-секундный вертикальный ролик о ремонте инструмента на наших реальных фото. Целиком внедрять рано: 700+ файлов — уже тяжёлая система, а лицензия AGPL требует аккуратности при доработках и сетевом использовании.[9]</blockquote>
+<p>## Покрытие источников</p>
+<ul class="bullets">
+<li>X: недоступен — xAI вернул лимит RPM 0; посты не выдумывал.</li>
+<li>Reddit: прямые ленты вернули 403, а поисковая выдача не дала надёжно проверить время публикации. Сомнительные кейсы в дайджест не включены.</li>
+</ul>
+<p>## Sources</p>
+<p>[1] <a href="https://github.com/openclaw/openclaw/releases/tag/v2026.9.8" target="_blank" rel="noopener">https://github.com/openclaw/openclaw/releases/tag/v2026.9.8</a> — OpenClaw v2026.9.8</p>
+<p>[2] <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.289" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/releases/tag/v2.1.289</a> — Claude Code v2.1.289</p>
+<p>[3] <a href="https://github.com/DietrichGebert/ponytail/releases/tag/v4.12.0" target="_blank" rel="noopener">https://github.com/DietrichGebert/ponytail/releases/tag/v4.12.0</a> — Ponytail v4.12.0</p>
+<p>[4] <a href="https://github.com/DietrichGebert/ponytail" target="_blank" rel="noopener">https://github.com/DietrichGebert/ponytail</a> — Ponytail</p>
+<p>[5] <a href="https://github.com/thedotmack/claude-mem/releases/tag/v13.31.0" target="_blank" rel="noopener">https://github.com/thedotmack/claude-mem/releases/tag/v13.31.0</a> — claude-mem v13.31.0</p>
+<p>[6] <a href="https://github.com/Niko1221/Strata/releases/tag/v0.1.39" target="_blank" rel="noopener">https://github.com/Niko1221/Strata/releases/tag/v0.1.39</a> — Strata v0.1.39</p>
+<p>[7] <a href="https://news.ycombinator.com/item?id=49953495" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49953495</a> — Hacker News: Strata discussion</p>
+<p>[8] <a href="https://github.com/pbakaus/impeccable" target="_blank" rel="noopener">https://github.com/pbakaus/impeccable</a> — Impeccable</p>
+<p>[9] <a href="https://github.com/calesthio/OpenMontage" target="_blank" rel="noopener">https://github.com/calesthio/OpenMontage</a> — OpenMontage</p>
+<p>[10] <a href="https://github.com/trending?since=daily" target="_blank" rel="noopener">https://github.com/trending?since=daily</a> — GitHub Trending daily</p>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
