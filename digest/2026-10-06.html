@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-10-06 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-10-06</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw v2026.10.1-beta.1:</h2>
+<ul class="bullets">
+<li>За сутки вышла бета на 283 PR: починили доставку вложений из удалённых рабочих каталогов, воспроизведение локального видео, пакетную миграцию кэша памяти, запуск Chromium на ARM64 и несколько зависаний активных сессий.[1]</li>
+<li>Для Telegram убрали карточки ссылок из промежуточных обновлений и вернули голосовые ответы при включённом рассуждении.[1]</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> в рабочий контур не обновлять до стабильной версии. Но релиз закрывает ровно наши болевые места — вложения, Telegram и память; после выхода стабильной версии стоит проверить на отдельном профиле.</blockquote>
+<h2>🤖 Claude Code v2.1.291:</h2>
+<ul class="bullets">
+<li>v2.1.290 вернула задания <code>/loop</code> после сжатия контекста, добавила продолжение чтения WebFetch после 100 000 символов и закрыла несколько обходов правил доступа через ссылки и шаблоны путей.[3]</li>
+<li>Через четыре часа вышла v2.1.291: исправлены потеря ответов на запросы разрешений в облачных сессиях и потеря последних сообщений при выходе.[2]</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> если обновлять Claude Code, то сразу до v2.1.291 — v2.1.290 уже успела принести две регрессии. Для длинных сессий и заданий по расписанию обновление полезное.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1"><code>e2e</code>: агент пишет шаг, проверка остаётся детерминированной</h3>
+<p><span class="hint">Что случилось</span> <code>tester-army/e2e</code> набрал около 1 398 звёзд за сутки в GitHub Trending.[4] Тест задаёт действие обычным языком, но результат проверяется локаторами и утверждениями; после успешного прохода действия записываются и повторяются без обращения к модели, пока приложение не изменится.[5]</p>
+<p><span class="hint">Живой пример</span> репозиторий и готовые примеры для Vite, Next.js, Expo и SwiftUI — <a href="https://github.com/tester-army/e2e" target="_blank" rel="noopener">https://github.com/tester-army/e2e</a></p>
+<blockquote><strong>👉 Как применить:</strong> прогнать один пилот на публичной сводке ИнструментБург — открыть страницу, переключить раздел, проверить дату и ключевые суммы. Если повторный запуск действительно обходится без модели, это нормальный кандидат для ежедневной проверки интерфейса.</blockquote>
+<h3 class="numbered" data-n="2">Cloudflare OS показал безопасную схему отложенных подтверждений</h3>
+<p><span class="hint">Что случилось</span> Cloudflare OS снова попал в GitHub Trending — около 101 звезды за сутки.[4] Его Gatekeepers не останавливают агента на каждом опасном действии: локально имитируют результат, собирают очередь операций и дают человеку подтвердить их пачкой после завершения работы; все действия журналируются.[6]</p>
+<p><span class="hint">Живой пример</span> открытый рабочий контур на Workers — <a href="https://github.com/cloudflare/cloudflare-os" target="_blank" rel="noopener">https://github.com/cloudflare/cloudflare-os</a></p>
+<blockquote><strong>👉 Как применить:</strong> забрать не продукт, а схему для Hermes: агент готовит письма, изменения и публикации до конца, а Антон одним экраном подтверждает только необратимые действия. Это убирает ожидание посреди задачи, не превращая безопасность в авторазрешение всего подряд.</blockquote>
+<h3 class="numbered" data-n="3">Дешёвая модель не всегда дешевле за решённую задачу</h3>
+<p><span class="hint">Что случилось</span> автор свежего кейса в r/LocalLLaMA сообщает о более чем 20 заранее описанных опытах на реальных коммитах. Лучший вариант с Haiku и отдельной «совестью»-проверкой стоил около $1,22 за решённую задачу против $1,41 у Sonnet без обвязки; протоколы фиксировались до запуска, а поздние опыты шли на незнакомых репозиториях.[7]</p>
+<p><span class="hint">Живой пример</span> пост с протоколами, неудачами и инструментом — <a href="https://www.reddit.com/r/LocalLLaMA/comments/1wyjmzv/i_tested_20_ways_to_make_a_cheap_coding_model_act/" target="_blank" rel="noopener">https://www.reddit.com/r/LocalLLaMA/comments/1wyjmzv/i_tested_20_ways_to_make_a_cheap_coding_model_act/</a></p>
+<blockquote><strong>👉 Как применить:</strong> не переводить фоновые агенты на дешёвую модель по цене токена. Сначала взять 10 одинаковых задач и считать цену именно успешного результата, число повторов и время; сильную модель оставить судьёй для спорных случаев.</blockquote>
+<h3 class="numbered" data-n="4">Beam обещает открытые веса, но пока показывает только цифры</h3>
+<p><span class="hint">Что случилось</span> Reflection представила Beam — смесь экспертов на 501 млрд параметров, из которых активны 23 млрд. Компания заявляет 23,8 трлн токенов обучения, более 100 млн попыток в обучении с подкреплением и в 3–4 раза меньше вычислений на выводе против GLM-5.2 при сопоставимых результатах; веса и технический отчёт обещаны позже в октябре.[8]</p>
+<p><span class="hint">Живой пример</span> анонс и обсуждение на Hacker News, где на момент сбора было 386 баллов и 120 комментариев — <a href="https://news.ycombinator.com/item?id=49969183" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49969183</a></p>
+<blockquote><strong>👉 Как применить:</strong> пока никак. На локальное железо модель не рассчитана, весов ещё нет, цифры принадлежат самому разработчику. Вернуться к ней только после публикации весов, появления провайдеров и независимых замеров на агентных задачах.[8][9]</blockquote>
+<h2>📋 Покрытие источников:</h2>
+<ul class="bullets">
+<li>X: недоступен — xAI вернул лимит RPM 0/0; посты не использовал.</li>
+<li>Reddit: прямой доступ вернул 403. Взял только один свежий кейс, время и основные цифры которого подтвердились в поисковой выдаче; остальные сомнительные посты отброшены.</li>
+<li>Hacker News: просмотрены свежие обсуждения за окно; в выпуск вошёл только Beam как практический сигнал. Остальные темы были академическими либо без применимого примера.</li>
+</ul>
+<p>Sources:</p>
+<p>[1] <a href="https://github.com/openclaw/openclaw/releases/tag/v2026.10.1-beta.1" target="_blank" rel="noopener">https://github.com/openclaw/openclaw/releases/tag/v2026.10.1-beta.1</a> — OpenClaw v2026.10.1-beta.1</p>
+<p>[2] <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.291" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/releases/tag/v2.1.291</a> — Claude Code v2.1.291</p>
+<p>[3] <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.290" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/releases/tag/v2.1.290</a> — Claude Code v2.1.290</p>
+<p>[4] <a href="https://github.com/trending?since=daily" target="_blank" rel="noopener">https://github.com/trending?since=daily</a> — GitHub Trending daily</p>
+<p>[5] <a href="https://github.com/tester-army/e2e" target="_blank" rel="noopener">https://github.com/tester-army/e2e</a> — tester-army/e2e</p>
+<p>[6] <a href="https://github.com/cloudflare/cloudflare-os" target="_blank" rel="noopener">https://github.com/cloudflare/cloudflare-os</a> — Cloudflare OS</p>
+<p>[7] <a href="https://www.reddit.com/r/LocalLLaMA/comments/1wyjmzv/i_tested_20_ways_to_make_a_cheap_coding_model_act" target="_blank" rel="noopener">https://www.reddit.com/r/LocalLLaMA/comments/1wyjmzv/i_tested_20_ways_to_make_a_cheap_coding_model_act</a> — Reddit: cheap coding model experiment</p>
+<p>[8] <a href="https://reflection.ai/blog/introducing-beam" target="_blank" rel="noopener">https://reflection.ai/blog/introducing-beam</a> — Reflection Beam announcement</p>
+<p>[9] <a href="https://news.ycombinator.com/item?id=49969183" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49969183</a> — Hacker News: Beam discussion</p>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
