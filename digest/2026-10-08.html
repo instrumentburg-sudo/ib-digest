@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-10-08 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-10-08</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw v2026.10.1-beta.2:</h2>
+<ul class="bullets">
+<li>Исправили восстановление после прерванных обновлений: управляемый Gateway больше не должен оставаться остановленным. Вернули отправку сообщений и кнопок Telegram после передачи диалога между каналами, а также сохранение готового ответа, если следующий служебный ход оказался пустым.</li>
+<li>Это предварительная версия без новых функций: 40 коммитов и 26 PR с исправлениями после beta.1.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> полезны именно исправления Telegram и восстановления Gateway, но на рабочий контур ставить только после короткой проверки отправки, кнопок и перезапуска.</blockquote>
+<p><span class="hint">Живой пример</span> релиз — <a href="https://github.com/openclaw/openclaw/releases/tag/v2026.10.1-beta.2" target="_blank" rel="noopener">https://github.com/openclaw/openclaw/releases/tag/v2026.10.1-beta.2</a></p>
+<h2>🤖 Claude Code v2.1.294 / v2.1.293:</h2>
+<ul class="bullets">
+<li>v2.1.294 исправляет опасную инверсию в инструкционных <code>prompt</code>- и <code>agent</code>-хуках: правила вида «запретить команды, которые…» могли разрешать то, что должны были блокировать.</li>
+<li>v2.1.293 добавляет Haiku 5.5, устраняет утечку памяти в HTTP MCP, потерю сообщения при переносе активной сессии в фон и повторное выполнение уже завершённой работы после сжатия контекста. Вложенные <code>CLAUDE.md</code> и правила по путям теперь подхватываются даже при чтении файла через <code>cat</code>, <code>head</code>, <code>tail</code>, <code>sed</code> или <code>grep</code> внутри Bash.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновление приоритетное из-за исправления хуков. После обновления проверить один запрещающий хук и длинную сессию с MCP; Haiku 5.5 использовать для дешёвых подзадач, а не для сложной разработки.</blockquote>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.294" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/releases/tag/v2.1.294</a></p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.293" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/releases/tag/v2.1.293</a></p>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Claude Haiku 5.5 резко удешевляет массовые агентные операции</h3>
+<p><span class="hint">Что случилось</span> Anthropic выпустила модель с контекстом 1 млн токенов. Для запросов до 100 тыс. токенов цена составляет $0,10 за миллион входных и $0,50 за миллион выходных токенов; производитель оценивает среднее снижение стоимости против Haiku 4.5 примерно в 75%. На Hacker News обсуждение набрало 791 балл и 390 комментариев на момент сбора.</p>
+<p><span class="hint">Живой пример</span> анонс и тесты — <a href="https://www.anthropic.com/claude-haiku-5-5" target="_blank" rel="noopener">https://www.anthropic.com/claude-haiku-5-5</a></p>
+<p>Обсуждение: <a href="https://news.ycombinator.com/item?id=49996437" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49996437</a></p>
+<blockquote><strong>👉 Как применить:</strong> протестировать на классификации входящих писем, сжатии длинных контекстов и вспомогательных поисковых агентах. Сложные изменения кода и финальные управленческие выводы оставить Sonnet/Opus до собственного сравнения качества.</blockquote>
+<h3 class="numbered" data-n="2">Docker Agent 1.149 загружает навыки прямо из GitHub</h3>
+<p><span class="hint">Что случилось</span> в YAML-конфигурации агента теперь можно указать публичный GitHub-репозиторий в <code>skills:</code>. Релиз также добавил отдельный оценщик результата и полный набор хуков для отладочных вызовов инструментов. Сам Docker Agent запускает многоагентные команды из YAML, подключает MCP и распространяет конфигурации через OCI-реестры. На Hacker News — 210 баллов и 99 комментариев на момент сбора.</p>
+<p><span class="hint">Живой пример</span> релиз — <a href="https://github.com/docker/docker-agent/releases/tag/v1.149.0" target="_blank" rel="noopener">https://github.com/docker/docker-agent/releases/tag/v1.149.0</a></p>
+<p>Обсуждение: <a href="https://news.ycombinator.com/item?id=49996259" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=49996259</a></p>
+<blockquote><strong>👉 Как применить:</strong> не переносить туда Hermes целиком. Сделать отдельный опыт с одним изолированным работником — например, проверкой репозитория или сборкой отчёта — и сравнить повторяемость, стоимость и контроль прав с нынешним процессом.</blockquote>
+<h3 class="numbered" data-n="3">REA 5.0 превращает обратный анализ приложений в MCP-инструмент агента</h3>
+<p><span class="hint">Что случилось</span> свежий релиз научился связывать сетевые ответы сайта с исходными модулями и source map, выгружать захваченные скрипты для анализа, строить графы Android- и Apple-приложений. Проект вышел на первое место GitHub Trending: 17 028 звёзд всего и 4 655 за сутки на момент сбора.</p>
+<p><span class="hint">Живой пример</span> релиз — <a href="https://github.com/morluto/rea/releases/tag/rea-agents-5.0.0" target="_blank" rel="noopener">https://github.com/morluto/rea/releases/tag/rea-agents-5.0.0</a></p>
+<p>Репозиторий: <a href="https://github.com/morluto/rea" target="_blank" rel="noopener">https://github.com/morluto/rea</a></p>
+<blockquote><strong>👉 Как применить:</strong> держать как точечный инструмент для законного исследования интеграций и поведения закрытых программ, когда нет API или документация врёт. Для обычной веб-автоматизации он избыточен.</blockquote>
+<p>X: недоступен — у xAI для текущей команды установлен лимит 0 запросов в минуту; посты из X не подменялись веб-поиском.</p>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
