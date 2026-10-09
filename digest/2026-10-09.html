@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-10-09 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-10-09</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw 2026.9.9:</h2>
+<ul class="bullets">
+<li>Старый запуск по расписанию больше не может по тайм-ауту остановить более новый разговор в той же сессии и отнять у него инструменты.</li>
+<li>Усилено восстановление после неудачных обновлений: сохраняются данные, записанные во время попытки; исправлены зависания и ложные откаты при обслуживании базы.</li>
+<li>В релизе 112 pull request; также исправлена потеря уже подготовленных ответов в iMessage.</li>
+</ul>
+<p><span class="hint">Источник</span> релиз — <a href="https://github.com/openclaw/openclaw/releases/tag/v2026.9.9" target="_blank" rel="noopener">https://github.com/openclaw/openclaw/releases/tag/v2026.9.9</a></p>
+<blockquote><strong>→ Нам:</strong> обновление полезно именно для фоновых задач Hermes/OpenClaw. Ставить после резервной копии профиля и короткой проверки cron-запусков: исправление конфликта старой и новой сессии для нас не косметика.</blockquote>
+<h2>🤖 Claude Code 2.1.295:</h2>
+<ul class="bullets">
+<li>Появился <code>onFailure: &quot;block&quot;</code> для командных и HTTP-хуков: если защитный хук не стартовал, завис или завершился неожиданным кодом, действие блокируется, а не пропускается.</li>
+<li>Удалённые MCP-серверы в headless- и SDK-сессиях снова подключаются после долгого сбоя и используют задержку до 30 секунд вместо тесного цикла переподключений.</li>
+<li>Исправлены потеря параметров <code>allowed-tools</code> и <code>effort</code> у skills, восстановление фоновых подагентов и несколько сбоев задач по расписанию.</li>
+</ul>
+<p><span class="hint">Источник</span> релиз — <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.295" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/releases/tag/v2.1.295</a></p>
+<blockquote><strong>→ Нам:</strong> для хуков, защищающих публикацию, секреты и необратимые действия, включать <code>onFailure: &quot;block&quot;</code>. Остальные хуки переводить только после теста: отказоустойчивость не должна остановить безобидную операционку.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Автономная разработка: 67 PR, но автоматика съела больше сил, чем сэкономила</h3>
+<p><span class="hint">Что случилось</span> автор две недели управлял через Telegram цепочкой Claude → Codex → исправление → merge. Система слила 67 PR с медианой 3,3 часа, но потребовала 54 изменения автоматики и 129 обслуживающих PR. Пакет из 3 000 минут GitHub Actions закончился примерно за 3,5 дня, а остановку заметили только через двое суток.</p>
+<p><span class="hint">Живой пример</span> разбор автора — <a href="https://www.reddit.com/r/ClaudeAI/comments/1x1cltw/i_ran_an_autonomous_coding_pipeline_for_two_weeks/" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeAI/comments/1x1cltw/i_ran_an_autonomous_coding_pipeline_for_two_weeks/</a></p>
+<blockquote><strong>👉 Как применить:</strong> не строить «полный автопилот» ради самого автопилота. Наш рабочий предел разумнее: агент делает, другой агент проверяет, CI подтверждает, Антон принимает рискованные решения; отдельно нужен сигнал «конвейер перестал работать».</blockquote>
+<h3 class="numbered" data-n="2">Четыре агента получили по $100 на PDF-редактор — у всех быстро нашлись пользовательские баги</h3>
+<p><span class="hint">Что случилось</span> Gemini 3.8 Flash, GPT Astra 6, Opus 5 и Fable 5 сделали рабочие редакторы, но ручная проверка сразу нашла перекошенный экспорт, инверсию цветов, смену шрифта после редактирования, проблемы с поворотом изображений и рисованием. Вывод автора: агент проверяет статичные экраны, но плохо проживает реальную пользовательскую цель и трение по пути.</p>
+<p><span class="hint">Живой пример</span> эксперимент и список дефектов — <a href="https://blog.nielstron.de/2026/10/08/the-remaining-shortcomings-of-coding-agents/" target="_blank" rel="noopener">https://blog.nielstron.de/2026/10/08/the-remaining-shortcomings-of-coding-agents/</a></p>
+<blockquote><strong>👉 Как применить:</strong> для калькулятора, дашборда и КП оставить обязательный сценарий «человек реально выполняет задачу от начала до конца». Зелёные тесты и красивый скриншот не доказывают, что продукт удобен.</blockquote>
+<h3 class="numbered" data-n="3">REA: агентный реверс-инжиниринг резко вышел в GitHub Trending</h3>
+<p><span class="hint">Что случилось</span> REA набрал 7 738 звёзд за сутки в GitHub Trending и превысил 30 тыс. всего. Один MCP-сервер даёт агенту локальный анализ JavaScript/Electron, .NET, APK, прошивок, сайтов и нативных бинарников; выводы возвращаются вместе с доказательствами и ограничениями.</p>
+<p><span class="hint">Живой пример</span> репозиторий и сценарии — <a href="https://github.com/morluto/rea" target="_blank" rel="noopener">https://github.com/morluto/rea</a></p>
+<blockquote><strong>👉 Как применить:</strong> держать как специализированный инструмент, а не ставить везде. Полезный тест — разбор одного закрытого Windows-приложения или Electron-клиента, когда надо понять формат данных либо поведение без исходников; только на законно полученном ПО.</blockquote>
+<h3 class="numbered" data-n="4">Vizzer режет разросшийся контекст Claude Code, но теряет часть деталей</h3>
+<p><span class="hint">Что случилось</span> свежий кейс показал передачу задачи в новую сессию через компактный handoff. В авторском тесте контекст упал с 70 тыс. до 28 тыс. токенов; после handoff обработано на 41% меньше токенов и потрачено на 21% меньше денег. Обратная сторона: итоговое резюме вспомнило 6 из 10 контрольных идентификаторов против 10 из 10 без handoff, а время модели выросло на 25%.</p>
+<p><span class="hint">Живой пример</span> исходники и воспроизводимый тест — <a href="https://github.com/krishnaGauss/Vizzer" target="_blank" rel="noopener">https://github.com/krishnaGauss/Vizzer</a></p>
+<blockquote><strong>👉 Как применить:</strong> идея годится для длинных сессий, но переносить её надо с проверкой незакрытых задач, изменённых файлов и обязательных ограничений. Экономия контекста без проверки памяти легко превращается в скрытую потерю деталей.</blockquote>
+<p>X: недоступен — поиск xAI вернул ограничение тарифа для команды; посты не подменялись обычным веб-поиском.</p>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
