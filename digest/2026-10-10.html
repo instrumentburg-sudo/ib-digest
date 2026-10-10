@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-10-10 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-10-10</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw:</h2>
+<ul class="bullets">
+<li>За последние 24 часа новых релизов нет. Последний стабильный релиз — 2026.9.9 от 8 октября, поэтому старые изменения повторно не тащу.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> ничего не обновлять только ради номера; текущую версию оставить до следующего релиза.</blockquote>
+<h2>🤖 Claude Code 2.1.296:</h2>
+<ul class="bullets">
+<li>Появились <code>autoCompactWindow</code> для раннего сжатия контекста субагентов, единая модель для workflow-агентов через <code>CLAUDE_CODE_WORKFLOW_SUBAGENT_MODEL</code>, настраиваемая максимальная задержка повтора при 529 и <code>allow_large</code> для чтения больших файлов целиком.</li>
+<li>Починили защитные хуки, применение изменённого вывода MCP, потерю контекста при возобновлении субагента, утечки секретов в общих транскриптах и опасное авторазрешение команд с <code>BASH_ARGV0</code>. В отладке хуков теперь видны команда, плагин, результат и длительность.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> полезнее всего ограничивать контекст дешёвых субагентов и видеть длительность хуков. Обновление стоит ставить: в нём есть и эксплуатационные, и защитные исправления.</blockquote>
+<p>Релиз: <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.296" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/releases/tag/v2.1.296</a></p>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Prime Agent переписал себя на Rust роем из 2 000 агентов</h3>
+<p><span class="hint">Что случилось</span> Prime Intellect утверждает, что за две недели более 2 000 агентов работали в 10 000+ изолированных средах. Новый клиент стартует до ввода за 55,8 мс против 737,8 мс у TypeScript-версии, занимает 59,6 МБ вместо 172,1 МБ и использует 106 МБ памяти вместо 607 МБ. На Hacker News — 43 балла и 13 комментариев на момент сбора.</p>
+<p><span class="hint">Живой пример</span> технический разбор и таблица измерений — <a href="https://www.primeintellect.ai/blog/prime-agent-rust" target="_blank" rel="noopener">https://www.primeintellect.ai/blog/prime-agent-rust</a></p>
+<blockquote><strong>👉 Как применить:</strong> не бросаться переписывать Hermes на Rust. Забрать метод: фиксированный измеримый критерий, изолированные параллельные прогоны, автоматическая проверка и принятие только улучшивших результат изменений.</blockquote>
+<h3 class="numbered" data-n="2">Агенту дали визуальный указатель для человеческих шагов</h3>
+<p><span class="hint">Что случилось</span> <code>big-arrow-on-the-screen</code> — новый macOS-инструмент, которым Claude Code или Codex может указать человеку на кнопку разрешения, 2FA или нужное окно, но не нажимать за него. Репозиторий создан 8 октября, набрал 502 звезды; заявлены 104 автоматических теста и 18 проверок поведения. На Hacker News — 391 балл и 173 комментария.</p>
+<p><span class="hint">Живой пример</span> команды, демонстрации и skill — <a href="https://github.com/franzenzenhofer/big-arrow-on-the-screen" target="_blank" rel="noopener">https://github.com/franzenzenhofer/big-arrow-on-the-screen</a></p>
+<blockquote><strong>👉 Как применить:</strong> сам инструмент нам пока не нужен — он только для macOS. Но паттерн годный: когда автоматизация упирается в подтверждение человека, показывать конкретное место и действие, а не присылать расплывчатое «нужно вмешательство».</blockquote>
+<h3 class="numbered" data-n="3">Реальный провал агентов — не код, а последовательное выполнение независимых задач</h3>
+<p><span class="hint">Что случилось</span> разработчик дал OpenCode изменение примерно на 1 500 строк. Агент правильно выделил 10 подзадач, но выполнил их строго одну за другой. Обсуждение на Hacker News собрало 85 баллов и 81 комментарий.</p>
+<p><span class="hint">Живой пример</span> разбор задачи и снимок очереди — <a href="https://mtlynch.io/why-are-coding-agents-so-dumb/" target="_blank" rel="noopener">https://mtlynch.io/why-are-coding-agents-so-dumb/</a></p>
+<blockquote><strong>👉 Как применить:</strong> перед запуском сложной разработки строить граф зависимостей. Независимые исследования, тесты и модули отправлять параллельно; последовательность оставлять только там, где следующий шаг реально зависит от результата предыдущего.</blockquote>
+<h3 class="numbered" data-n="4">Точный товарный ролик сделали кодом из исходной 3D-модели</h3>
+<p><span class="hint">Что случилось</span> пользователь ClaudeAI показал практический обход типичной проблемы видеогенераторов: они меняли форму устройства и кнопки. Вместо генерации кадров он передал Claude исходную 3D-модель; агент собрал анимацию кодом и выдал горизонтальную и вертикальную версии. Это пользовательский кейс, не независимый тест.</p>
+<p><span class="hint">Живой пример</span> пост и видео — <a href="https://www.reddit.com/r/ClaudeAI/comments/1x1yzie/every_ai_video_tool_butchered_my_product_claude/" target="_blank" rel="noopener">https://www.reddit.com/r/ClaudeAI/comments/1x1yzie/every_ai_video_tool_butchered_my_product_claude/</a></p>
+<blockquote><strong>👉 Как применить:</strong> для роликов про инструмент и запчасти, где важна геометрия, опираться на реальные фото, CAD или 3D-модель и анимировать их кодом. Генеративное видео оставлять для фона, иначе товар легко превращается в выдуманную модель.</blockquote>
+<p>X: недоступен — <code>x_search</code> вернул нулевой лимит запросов команды; посты из X не подменял веб-поиском.</p>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
