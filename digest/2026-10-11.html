@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-10-11 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-10-11</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw 2026.10.1:</h2>
+<ul class="bullets">
+<li>Появился поиск по установленным навыкам: агент может найти нужный навык, не загружая всю библиотеку в контекст. Полные инструкции читаются отдельно; один файл — до 256 КиБ, общий предел выбранных материалов — 8 МиБ.</li>
+<li>MCP Apps теперь открываются рядом с чатом, принимают выбранный контент и могут работать с файлами проекта через видимые подтверждения.</li>
+<li>Полные резервные копии можно хранить на внешнем диске или в Cloudflare R2, шифровать и восстанавливать сначала в отдельный каталог.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновление полезное прежде всего для большой библиотеки навыков и аварийного восстановления. Обновлять стоит после резервной копии и проверки совместимости плагинов. Релиз: <a href="https://github.com/openclaw/openclaw/releases/tag/v2026.10.1" target="_blank" rel="noopener">https://github.com/openclaw/openclaw/releases/tag/v2026.10.1</a></blockquote>
+<h2>🤖 Claude Code:</h2>
+<ul class="bullets">
+<li>Без релиза за последние 24 часа. Последняя версия 2.1.296 вышла 9 октября и уже была в предыдущем дайджесте.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> новых изменений для проверки сегодня нет.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Agent Standup показывает команду субагентов как живой созвон</h3>
+<p><span class="hint">Что случилось</span> новый открытый проект появился 10 октября и уже собрал 81 звезду. Он читает локальные файлы сессий Claude Code и показывает статусы агентов, команды, изменения, дерево делегирования, расход контекста и моменты, когда нужен человек. В Reddit демонстрация набрала 629 голосов и 81 комментарий на момент сбора.</p>
+<p><span class="hint">Живой пример</span> репозиторий — <a href="https://github.com/Atoll92/agent-standup" target="_blank" rel="noopener">https://github.com/Atoll92/agent-standup</a></p>
+<blockquote><strong>👉 Как применить:</strong> не тащить мультяшный интерфейс в прод, а забрать идею для Hermes Kanban: один экран «работает / ждёт / заблокирован / нужен Антон» и предупреждение перед сжатием контекста.</blockquote>
+<h3 class="numbered" data-n="2">Talorys — личный агент внутри бесплатного контура Cloudflare</h3>
+<p><span class="hint">Что случилось</span> проект создан 10 октября, набрал 478 звёзд; обсуждение на Hacker News — 274 балла и 128 комментариев на момент сбора. В одном Durable Object лежат чаты, память, задачи и расписания; интерфейс работает через Pages, закрытый Worker не получает публичный адрес. Установка — одной командой, телеметрии автор не заявляет.</p>
+<p><span class="hint">Живой пример</span> репозиторий — <a href="https://github.com/rociiu/talorys" target="_blank" rel="noopener">https://github.com/rociiu/talorys</a></p>
+<blockquote><strong>👉 Как применить:</strong> архитектуру можно использовать как ориентир для лёгких клиентских кабинетов и удалённых агентов без отдельного VPS. Сам продукт пока сырой: 31 коммит и один день жизни, поэтому только стенд, не рабочие данные.</blockquote>
+<h3 class="numbered" data-n="3">500 млрд токенов показали, почему агентам нужен машинный критерий приёмки</h3>
+<p><span class="hint">Что случилось</span> свежая дискуссия Hacker News набрала 70 баллов и 55 комментариев. В трёхмесячном проекте 16 агентов восстановили 99% функций игры, 83% совпали с оригиналом побайтно. До появления автоматического PASS/FAIL код выглядел аккуратно, но был семантически неверным; после появления проверки с задачей справлялись и более дешёвые модели.</p>
+<p><span class="hint">Живой пример</span> разбор проекта — <a href="https://momo5502.com/posts/2026-10-09-game-decompilation/" target="_blank" rel="noopener">https://momo5502.com/posts/2026-10-09-game-decompilation/</a></p>
+<blockquote><strong>👉 Как применить:</strong> в наших агентных задачах сначала формулировать проверяемый результат — тест, хэш, сверку публичного URL, сумму или счётчик. Второй агент без независимого критерия легко поверит убедительному, но неверному комментарию первого.</blockquote>
+<h3 class="numbered" data-n="4">Context Mode снова поднялся в GitHub Trending на проблеме переполнения контекста</h3>
+<p><span class="hint">Что случилось</span> проект получил 178 звёзд за день и заявляет сокращение сырого вывода инструментов с 315 КиБ до 5,4 КиБ — на 98%. Вместо отправки логов и файлов модели он выполняет анализ в изолированном процессе, сохраняет события в SQLite FTS5 и возвращает только релевантные фрагменты. Поддерживаются 17 клиентов, включая OpenClaw, Claude Code и Codex.</p>
+<p><span class="hint">Живой пример</span> репозиторий — <a href="https://github.com/mksglu/context-mode" target="_blank" rel="noopener">https://github.com/mksglu/context-mode</a></p>
+<blockquote><strong>👉 Как применить:</strong> сравнить подход с уже используемым в Hermes выполнением кода и усечением вывода. Ставить вслепую не надо: лицензия ELv2, 169 открытых запросов на изменения и дополнительный слой маршрутизации требуют отдельного теста.</blockquote>
+<p>X: недоступен — xAI вернул нулевой лимит запросов для команды; посты из X не подменялись веб-поиском.</p>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
