@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-10-13 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-10-13</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw 2026.10.5-beta.2:</h2>
+<ul class="bullets">
+<li>Бета-релиз вышел 12 октября в 12:10 UTC. Обновление теперь завершает зависшие передачи и старые записи восстановления, не теряет ответы после перезапуска Gateway и сохраняет настройки плагинов и файлы памяти при работе Doctor.</li>
+<li>Усилена граница доверия: хуки больше не могут незаметно поменять аргументы уже одобренного вызова инструмента; сообщения подагентам сохраняют пометку межсессионного происхождения даже после повтора.</li>
+<li>Исправлены повторное подключение Telegram polling, зависание чатов после обновления, маршрутизация ответов и занятый MCP computer control.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> релиз попадает прямо в наши болевые точки — cron, Telegram, подагенты и восстановление. Но это beta: сначала проверить обновление и перезапуск на отдельном контуре, затем переносить в рабочий.</blockquote>
+<p>  Релиз: <a href="https://github.com/openclaw/openclaw/releases/tag/v2026.10.5-beta.2" target="_blank" rel="noopener">https://github.com/openclaw/openclaw/releases/tag/v2026.10.5-beta.2</a></p>
+<h2>🤖 Claude Code:</h2>
+<ul class="bullets">
+<li>За последние 24 часа релизов нет. Последний опубликованный релиз — v2.1.296 от 9 октября, поэтому в сегодняшний выпуск его не включаю.</li>
+</ul>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Agent37: песочницы для постоянно работающих агентов</h3>
+<p><span class="hint">Что случилось</span> на Hacker News запустили сервис песочниц для Hermes, OpenClaw и Claude Code. Основатель заявляет среднюю стоимость $0,37 в месяц за песочницу и $0,05–0,10 инфраструктурных затрат на бесплатного пользователя. Экономия строится на gVisor, совместном использовании памяти и серверах Hetzner/OVH; Docker-in-Docker в дешёвом режиме не поддерживается. На момент сбора обсуждение набрало 126 баллов и 84 комментария.</p>
+<p><span class="hint">Живой пример</span> запуск и технический разбор — <a href="https://news.ycombinator.com/item?id=50059096" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=50059096</a></p>
+<blockquote><strong>👉 Как применить:</strong> не переносить туда рабочий контур вслепую. Можно испытать на одном изолированном агенте без бизнес-секретов и сравнить месячную стоимость, время запуска и стабильность с нашим VPS.</blockquote>
+<h3 class="numbered" data-n="2">Context Mode сокращает сырой вывод инструментов до 98%</h3>
+<p><span class="hint">Что случилось</span> проект поднялся в GitHub Trending и получил 246 звёзд за день. Он уводит большие ответы инструментов в песочницу, сохраняет сессионную память и подключается через MCP и хуки. В README автор показывает сокращение одного вывода с 315 КБ до 5,4 КБ; это заявление автора, а не независимый тест.</p>
+<p><span class="hint">Живой пример</span> репозиторий — <a href="https://github.com/mksglu/context-mode" target="_blank" rel="noopener">https://github.com/mksglu/context-mode</a></p>
+<blockquote><strong>👉 Как применить:</strong> провести пилот на одном агенте разработки и замерить расход контекста на длинных логах и веб-выдаче. Глобально ставить рано: инструмент вмешивается в маршрутизацию вызовов, поэтому сначала нужна проверка полноты данных.</blockquote>
+<h3 class="numbered" data-n="3">Janas запускает модель на 48 ГБ на ноутбуке с 32 ГБ памяти</h3>
+<p><span class="hint">Что случилось</span> Janas подгружает экспертов MoE-модели с NVMe и держит наиболее используемые в кэше. Автор сообщает 24 токена/с без черновой модели для Qwen3-Next-80B объёмом 48,4 ГБ на ноутбуке с 32 ГБ памяти против 2,8 токена/с у llama.cpp в его конфигурации. На Hacker News проект набрал 91 балл и 31 комментарий; сравнение выполнено автором на одной машине.</p>
+<p><span class="hint">Живой пример</span> код и методика замеров — <a href="https://github.com/prabanta-dev/janas" target="_blank" rel="noopener">https://github.com/prabanta-dev/janas</a></p>
+<blockquote><strong>👉 Как применить:</strong> это не замена облачным моделям, а кандидат на локальный резерв для закрытых данных. Имеет смысл тестировать только на машине с быстрым NVMe; на текущий рабочий контур без собственного замера не тащить.</blockquote>
+<p>X: недоступен — x_search вернул ограничение тарифа xAI; посты не подменялись веб-поиском.</p>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
