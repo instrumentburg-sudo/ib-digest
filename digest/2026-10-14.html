@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-10-14 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-10-14</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <p># 🔍 Утренний дайджест — 14 октября 2026</p>
+<p>## 🔧 OpenClaw 2026.10.3 / 2026.10.5-beta.3</p>
+<ul class="bullets">
+<li>Вышел стабильный 2026.10.3: разблокированы зависшие обновления, Doctor бережнее сохраняет OAuth и файлы памяти, после перезапуска продолжаются диалоги, а активная отправка сообщений больше не теряется.[1]</li>
+<li>В beta.3 дополнительно починили восстановление прерванных ходов, подагентов и автоматизаций после рестарта, повторную обработку старых Telegram-сообщений и блокировки базы во время cron/обновлений.[2]</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> 2026.10.3 — кандидат на плановое обновление после резервной копии; beta.3 в рабочий контур пока не тащить, но её исправления прямо попадают в наши сценарии Telegram + cron + подагенты.</blockquote>
+<p>## 🤖 Claude Code v2.1.299</p>
+<ul class="bullets">
+<li>Добавлена фоновая компакция диалогов от 200K токенов примерно через 54 минуты простоя — следующий запрос не пересчитывает весь контекст заново.[3]</li>
+<li>Исправлены повторный запуск уже одобренного tool call после рестарта, двойные MCP-вызовы при переподключении, неверное время scheduled tasks, повторные срабатывания на переходе летнего времени и рост памяти после множества подагентов.[3]</li>
+<li>Закрыты опасные края: plan mode больше не выполняет запись, даже если hook её разрешил; заблокированный MCP-сервер не запускается; ключ стороннего <code>ANTHROPIC_BASE_URL</code> больше не уходит в запросы Anthropic.[3]</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновление полезное именно для фоновых задач и длинных сессий. После установки проверить cron, MCP и возобновление прерванной сессии — изменений много, слепой апдейт здесь лишний риск.</blockquote>
+<p>## 📡 Что нового в AI</p>
+<p><strong>X: недоступен (нужен hermes auth add xai-oauth).</strong> Поиск упёрся в нулевой лимит xAI, посты не выдумывал.</p>
+<p>### 1. Anthropic построила Scion — систему контроля версий под поток агентов</p>
+<p><span class="hint">Что случилось</span> Anthropic описала собственную замену части Git-инфраструктуры для монорепозитория, где в среднем сливается около 2 500 изменений в день. Главная смена модели — клиенты почти всегда агенты и всегда онлайн, поэтому полная локальная копия и офлайн-работа больше не считаются базовым требованием.[4] Обсуждение за несколько часов набрало 668 баллов и 642 комментария на Hacker News.[5]</p>
+<p><span class="hint">Живой пример</span> <a href="https://www.anthropic.com/engineering/redesigning-source-control" target="_blank" rel="noopener">https://www.anthropic.com/engineering/redesigning-source-control</a></p>
+<blockquote><strong>👉 Как применить:</strong> не копировать Scion, а признать сигнал — при росте числа агентов узким местом становятся не модели, а очереди изменений, изоляция рабочих деревьев, проверки и слияние. В наших репозиториях заранее держать один агент = одна ветка/worktree и отдельную проверку перед merge.</blockquote>
+<p>### 2. REA: агент разбирает приложения и бинарники без исходников</p>
+<p><span class="hint">Что случилось</span> REA вышел на первое место GitHub Trending с 54 679 звёздами за сутки.[6] Это MCP-набор для локального анализа сайтов, Electron/JavaScript-приложений, .NET-сборок и нативных бинарников через Hopper, Ghidra или IDA; вывод сопровождается доказательствами и ограничениями.[7]</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/morluto/rea" target="_blank" rel="noopener">https://github.com/morluto/rea</a></p>
+<blockquote><strong>👉 Как применить:</strong> полезен не для «воровства фич», а для диагностики закрытых интеграций и старого ПО, где нет API-документации. Сначала испытать на отдельной песочнице и одном безопасном бинарнике — инструмент получает мощный доступ к среде анализа.</blockquote>
+<p>### 3. VoiceStudio — локальная альтернатива облачным сервисам озвучки</p>
+<p><span class="hint">Что случилось</span> проект набрал 1 748 звёзд за сутки на GitHub Trending.[6] Он объединяет клонирование и конструирование голоса, дубляж видео, диктовку, расшифровку и пакетную генерацию аудио; заявлена поддержка 646 языков, локальный API и MCP.[8]</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/debpalash/VoiceStudio" target="_blank" rel="noopener">https://github.com/debpalash/VoiceStudio</a></p>
+<blockquote><strong>👉 Как применить:</strong> прогнать один ролик ИнструментБург и сравнить с текущей озвучкой по времени, качеству русского и стоимости. Для коммерческого внедрения отдельно проверить AGPL-3.0 и требования к железу.</blockquote>
+<p>### 4. Jevcrawl сокращает веб-поиск агента до нескольких релевантных фрагментов</p>
+<p><span class="hint">Что случилось</span> новый MCP-краулер использует маленькую модель только для выбора ссылок и фрагментов, а не даёт основной LLM читать весь сайт. В собственном тесте авторов на 50 задачах WebWalkerQA он нашёл страницу с ответом в 54% случаев против 33% у Claude и стоил $0,025 за задачу против $0,194; это пока данные самого проекта, не независимый бенчмарк.[9]</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/RayenMlayeh/jevcrawl" target="_blank" rel="noopener">https://github.com/RayenMlayeh/jevcrawl</a></p>
+<blockquote><strong>👉 Как применить:</strong> проверить на поиске мануалов и запчастей, где нужная характеристика лежит глубоко в сайте производителя. Критерий простой: доля найденных точных артикулов, время и стоимость против обычного веб-поиска.</blockquote>
+<p>### 5. «Обвязка» важнее промпта: практический шаблон для агентной разработки</p>
+<p><span class="hint">Что случилось</span> инженерный разбор на Hacker News показал рабочий набор для сложных визуальных систем: детерминированные seed, снимки состояния, сравнение изображений, команды вместо прямых мутаций, данные вне кода и отдельное тестируемое ядро симуляции.[10]</p>
+<p><span class="hint">Живой пример</span> <a href="https://kylekukshtel.com/ai-harness-engineering-game-development-claude-code" target="_blank" rel="noopener">https://kylekukshtel.com/ai-harness-engineering-game-development-claude-code</a></p>
+<blockquote><strong>👉 Как применить:</strong> принцип переносится на наши автоматизации — агент должен видеть не красивый интерфейс, а стабильные текстовые состояния, воспроизводимые входы и проверяемые выходы. Для новых процессов сначала строить такой тестовый контур, потом добавлять автономность.</blockquote>
+<p>*Покрытие Reddit: свежие посты за окно не включены — прямые ленты вернули rate limit, а веб-поиск подмешал старые публикации несмотря на фильтр даты.*</p>
+<p>## Sources</p>
+<p>[1] <a href="https://github.com/openclaw/openclaw/releases/tag/v2026.10.3" target="_blank" rel="noopener">https://github.com/openclaw/openclaw/releases/tag/v2026.10.3</a> — OpenClaw 2026.10.3</p>
+<p>[2] <a href="https://github.com/openclaw/openclaw/releases/tag/v2026.10.5-beta.3" target="_blank" rel="noopener">https://github.com/openclaw/openclaw/releases/tag/v2026.10.5-beta.3</a> — OpenClaw 2026.10.5-beta.3</p>
+<p>[3] <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.299" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/releases/tag/v2.1.299</a> — Claude Code v2.1.299</p>
+<p>[4] <a href="https://www.anthropic.com/engineering/redesigning-source-control" target="_blank" rel="noopener">https://www.anthropic.com/engineering/redesigning-source-control</a> — Redesigning source control at Anthropic</p>
+<p>[5] <a href="https://news.ycombinator.com/item?id=50073633" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=50073633</a> — HN: Redesigning source control at Anthropic</p>
+<p>[6] <a href="https://github.com/trending?since=daily" target="_blank" rel="noopener">https://github.com/trending?since=daily</a> — GitHub Trending daily</p>
+<p>[7] <a href="https://github.com/morluto/rea" target="_blank" rel="noopener">https://github.com/morluto/rea</a> — REA: Reverse Engineer Anything</p>
+<p>[8] <a href="https://github.com/debpalash/VoiceStudio" target="_blank" rel="noopener">https://github.com/debpalash/VoiceStudio</a> — VoiceStudio</p>
+<p>[9] <a href="https://github.com/RayenMlayeh/jevcrawl" target="_blank" rel="noopener">https://github.com/RayenMlayeh/jevcrawl</a> — jevcrawl</p>
+<p>[10] <a href="https://kylekukshtel.com/ai-harness-engineering-game-development-claude-code" target="_blank" rel="noopener">https://kylekukshtel.com/ai-harness-engineering-game-development-claude-code</a> — How to engineer an AI harness for game development</p>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
