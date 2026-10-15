@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-10-15 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-10-15</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw:</h2>
+<ul class="bullets">
+<li>За последние 24 часа новых релизов нет. Последний стабильный выпуск — 2026.10.3 от 13 октября, поэтому повторно в сегодняшний выпуск его не включаем.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> остаёмся на проверенной версии; обновляться только после отдельной проверки совместимости cron, Telegram и MCP.</blockquote>
+<h2>🤖 Claude Code 2.1.300:</h2>
+<ul class="bullets">
+<li>Исправлены потери данных при возобновлении и компактации headless- и Agent SDK-сессий, повторный запуск уже обработанного сообщения после перезапуска облачной сессии, пропажа диалогов завершённых субагентов и отключение автоматического поиска инструментов после переподключения MCP.</li>
+<li>Добавлены просмотр журнала агента через $.ui.view({ agentId }), управление prompt и model workflow-агента из agent.spawn и подробные OpenTelemetry-поля для инструментов и разговоров.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновление полезно именно для долгих фоновых задач Hermes. Сначала прогнать контрольный cron со сжатием контекста и возобновлением сессии, затем обновлять рабочий контур.</blockquote>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">OpenCode 2.0 вынес все интерфейсы в единый локальный сервис</h3>
+<p><span class="hint">Что случилось</span> TUI, рабочий стол и веб-интерфейс теперь подключаются к одному фоновому процессу с общими сессиями, настройками, разрешениями и инструментами. Новый Code Mode позволяет агенту писать сценарий из нескольких вызовов MCP вместо последовательного перебора инструментов. На Hacker News обсуждение набрало 475 баллов и 196 комментариев на момент сбора.</p>
+<p><span class="hint">Живой пример</span> официальный разбор — <a href="https://anoma.ly/notes/opencode-2-0/" target="_blank" rel="noopener">https://anoma.ly/notes/opencode-2-0/</a></p>
+<blockquote><strong>👉 Как применить:</strong> не переносить рабочий контур сразу — версия 2.0 ломает старые плагины и серверный API. Но архитектуру единого локального сервиса стоит взять как ориентир для непрерывности Hermes между Telegram, терминалом и фоновыми задачами.</blockquote>
+<h3 class="numbered" data-n="2">Jev 1.14 получил изображения, строгий тип bounding box и длинный контекст</h3>
+<p><span class="hint">Что случилось</span> TypeSafe выпустила jev-1.14.0 под именем jev-preview. Изображения, box и длинный контекст включаются отдельными экспериментальными заголовками; jev-latest переключат на новую версию через неделю. На Hacker News — 254 балла и 84 комментария на момент сбора.</p>
+<p><span class="hint">Живой пример</span> описание выпуска — <a href="https://typesafe.ai/blog/jev-1-14" target="_blank" rel="noopener">https://typesafe.ai/blog/jev-1-14</a></p>
+<blockquote><strong>👉 Как применить:</strong> тестировать только в изолированном сравнении на классификации документов и извлечении областей из сканов. В рабочие автоматизации пока не ставить: сам разработчик предупреждает о нестабильности мультимодальности и длинного контекста.</blockquote>
+<h3 class="numbered" data-n="3">Context Mode показывает практичный способ экономить контекст агентов</h3>
+<p><span class="hint">Что случилось</span> проект вошёл в дневной GitHub Trending: 947 звёзд за день, 29 328 всего на момент сбора. Он уводит сырые ответы инструментов в песочницу, хранит события сессии в SQLite FTS5 и возвращает агенту только релевантные фрагменты. Авторы показывают сокращение 315 КБ до 5,4 КБ; это их собственный результат, а не независимый замер.</p>
+<p><span class="hint">Живой пример</span> репозиторий и команды установки — <a href="https://github.com/mksglu/context-mode" target="_blank" rel="noopener">https://github.com/mksglu/context-mode</a></p>
+<blockquote><strong>👉 Как применить:</strong> взять не весь плагин, а проверить подход на одном тяжёлом сборщике Hermes: обработка больших ответов кодом, компактный stdout и поиск по сохранённым событиям вместо повторной загрузки истории.</blockquote>
+<h3 class="numbered" data-n="4">Локальная модель LFM2.5-24B-A2B снова поднялась в обсуждении из-за агентных тестов</h3>
+<p><span class="hint">Что случилось</span> сам выпуск вышел 13 октября, но за последние сутки обсуждение на Hacker News набрало 148 баллов и 37 комментариев. У модели 24 млрд параметров, но активны 2 млрд; Liquid AI заявляет 48,09 в LiveClaw, 27,69 в AutomationBench и 184 токена/с на Apple M5 Max. Модель обучалась в том числе внутри Hermes Agent и OpenClaw. Это показатели разработчика, независимо мы их не воспроизводили.</p>
+<p><span class="hint">Живой пример</span> модель, таблица тестов и демонстрация Hermes — <a href="https://www.liquid.ai/blog/lfm2-5-24b-a2b" target="_blank" rel="noopener">https://www.liquid.ai/blog/lfm2-5-24b-a2b</a></p>
+<blockquote><strong>👉 Как применить:</strong> не менять облачную модель, а поставить ограниченный локальный тест на сортировке писем или утренней сводке без приватных данных. Если качество проходит порог, получим дешёвый резервный контур без внешнего API.</blockquote>
+<p>X: недоступен — xAI вернул ограничение запросов для текущей команды; посты из X не подменялись веб-поиском.</p>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
