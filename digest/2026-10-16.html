@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-10-16 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-10-16</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw 2026.10.4:</h2>
+<ul class="bullets">
+<li>Шлюз больше не перезапускается после сна компьютера или скачка системных часов; завершение работы не зависает на обработчике истории и событиях сессии.</li>
+<li>Ручной <code>/compact</code> теперь дожидается активного запуска, а не обрывает его с потерей ожидающего запроса. Закрыта и уязвимость Tlon: участник группового диалога больше не может выдаваться за владельца.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновление приоритетное. Оно напрямую касается надёжности шлюза, фоновых сессий и компактации Hermes.</blockquote>
+<p>Релиз: <a href="https://github.com/openclaw/openclaw/releases/tag/v2026.10.4" target="_blank" rel="noopener">https://github.com/openclaw/openclaw/releases/tag/v2026.10.4</a></p>
+<h2>🤖 Claude Code 2.1.301:</h2>
+<ul class="bullets">
+<li>Для автономного режима появился предел ожидания квоты <code>CLAUDE_CODE_RETRY_WATCHDOG_MAX_USAGE_LIMIT_WAIT_MS</code>: задача не будет бесконечно ждать далёкого сброса лимита.</li>
+<li>Исправлен опасный ложный успех: агент этапа иногда пропускал работу, но весь процесс всё равно отмечался выполненным. При выходе Claude Code теперь также не удаляет без спроса рабочее дерево, где могут лежать неотправленные коммиты.</li>
+<li>В телеметрию решений инструментов добавлены вердикт классификатора, режим разрешений и категория блокировки.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> после обновления задать предел ожидания для автономных задач и использовать новые поля телеметрии при разборе отказов. Исправление ложного успеха особенно важно для многоэтапных джоб.</blockquote>
+<p>Релиз: <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.301" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/releases/tag/v2.1.301</a></p>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Context Mode режет сырой вывод инструментов до компактного контекста</h3>
+<p><span class="hint">Что случилось</span> репозиторий вошёл в дневной GitHub Trending и обновился в пределах суток. Автор показывает сокращение 315 КБ сырого вывода до 5,4 КБ, то есть на 98%; данные обрабатываются в песочнице, а в контекст возвращается выборка. Для Claude Code доступны 11 MCP-инструментов и хуки маршрутизации. Цифры пока являются заявлением автора.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/mksglu/context-mode" target="_blank" rel="noopener">https://github.com/mksglu/context-mode</a></p>
+<blockquote><strong>👉 Как применить:</strong> не ставить сразу в основной Hermes. Сначала прогнать на копии одной тяжёлой исследовательской задачи и сравнить расход контекста, полноту источников и качество итогового ответа с текущей схемой.</blockquote>
+<h3 class="numbered" data-n="2">OpenUI предлагает агентам собирать интерфейс из наших компонентов, а не печатать простыню JSON</h3>
+<p><span class="hint">Что случилось</span> свежая публикация в r/LocalLLaMA снова подняла OpenUI; репозиторий обновился за сутки, а CLI 0.6.0 вышел 15 октября в 11:08 UTC. Потоковый OpenUI Lang позволяет начинать отрисовку до завершения ответа модели. Авторы заявляют примерно на 67% меньше токенов по сравнению с JSON-подходами; независимой проверки цифры нет.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/thesysdev/openui" target="_blank" rel="noopener">https://github.com/thesysdev/openui</a></p>
+<blockquote><strong>👉 Как применить:</strong> взять один закрытый экран калькулятора, например карточку решения по смете, и проверить генерацию только из разрешённого набора компонентов. В публичный сайт пока не тащить.</blockquote>
+<h3 class="numbered" data-n="3">AWS выложила AI-DLC: 5 фаз, 33 этапа и 14 агентов для разработки</h3>
+<p><span class="hint">Что случилось</span> проект обсуждают на Hacker News; на момент сбора у темы 22 голоса и 19 комментариев. Внутри 11 профильных агентов, два рецензента, адаптивный компоновщик и ручные точки согласования. Обсуждение полезно не восторгом, а возражением: участники сообщают, что удаление похожей надстройки ускоряло работу и снижало расход токенов.</p>
+<p><span class="hint">Живой пример</span> <a href="https://github.com/awslabs/aidlc-workflows" target="_blank" rel="noopener">https://github.com/awslabs/aidlc-workflows</a></p>
+<p>Обсуждение: <a href="https://news.ycombinator.com/item?id=50100387" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=50100387</a></p>
+<blockquote><strong>👉 Как применить:</strong> не копировать 33 этапа. Проверить на одной задаче только идею адаптивной глубины: мелкая правка идёт коротким путём, рискованный деплой получает отдельную проверку и доказательства результата.</blockquote>
+<p>X: недоступен — xAI вернул нулевой лимит запросов для текущей команды; посты из X не подменялись веб-поиском.</p>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
