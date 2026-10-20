@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дайджест 2026-10-20 · ИБ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23d4a574%22/></svg>">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>ИБ · Лента</div>
+    <nav>
+      <a href="../">Главная</a>
+      <a href="./" class="active">Дайджест</a>
+      <a href="../dashboard-news/">Дашборд</a>
+    </nav>
+  </div>
+  <div class="container">
+    <header class="page-header">
+      <div class="kicker">Утренний дайджест · 2026-10-20</div>
+      <h1><em>AI-</em>сводка дня</h1>
+      <div class="meta">
+        <a href="./">Все выпуски</a>
+        <span class="sep">·</span>
+        <span>OpenClaw · Claude Code · GitHub · Reddit · HN</span>
+      </div>
+    </header>
+    <h2>🔧 OpenClaw 2026.10.10-beta.2:</h2>
+<ul class="bullets">
+<li>Исправили несколько опасных сбоев: многофайловый apply_patch теперь отклоняется до изменения файлов, если один из следующих патчей не применим; обработка большой истории cron больше не должна забивать память SQLite и валить каналы; standalone agent exec теперь запускает защитные before_tool_call-хуки плагинов.</li>
+<li>Также закрыли циклы падения Gateway из-за SQLite/SIGBUS и зависание обновления с выключенным Gateway.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> полезные исправления именно для наших cron и рабочих каталогов, но это beta. Не обновлять рабочий контур вслепую; дождаться стабильного релиза или проверить на отдельном профиле.</blockquote>
+<p>Релиз: <a href="https://github.com/openclaw/openclaw/releases/tag/v2026.10.10-beta.2" target="_blank" rel="noopener">https://github.com/openclaw/openclaw/releases/tag/v2026.10.10-beta.2</a></p>
+<h2>🤖 Claude Code 2.1.304:</h2>
+<ul class="bullets">
+<li>Добавили /auto-mode-setup: команда читает проект и недавние сессии и настраивает авто-режим под окружение. В tool.check появились decider: &quot;person&quot; и признак e.isReadOnly — плагины могут жёстче отделять безопасное чтение от действий, требующих человека.</li>
+<li>Исправили потерю коммитов при выходе из claude --worktree, забывание последней работы субагентами, зависание headless-запусков после --max-turns и ожидание разрешения WebFetch в плановых облачных сессиях.</li>
+</ul>
+<blockquote><strong>→ Нам:</strong> обновление практичное для параллельных агентов и cron. После обновления проверить возобновление субагента и один запуск с worktree на тестовом репозитории.</blockquote>
+<p>Релиз: <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.304" target="_blank" rel="noopener">https://github.com/anthropics/claude-code/releases/tag/v2.1.304</a></p>
+<h2>📡 Что нового в AI:</h2>
+<h3 class="numbered" data-n="1">Headroom сжимает контекст инструментов локально</h3>
+<p><span class="hint">Что случилось</span> Headroom поднялся в суточном GitHub Trending на 310 звёзд за день. Проект сжимает логи, JSON, файлы и историю до отправки модели; в демонстрации авторов 10 144 токена превратились в 1 260, а строка FATAL сохранилась. Есть обёртки для Claude, Codex и OpenClaw, прокси и MCP; исходные данные остаются локально.</p>
+<p><span class="hint">Живой пример</span> репозиторий — <a href="https://github.com/headroomlabs-ai/headroom" target="_blank" rel="noopener">https://github.com/headroomlabs-ai/headroom</a></p>
+<blockquote><strong>👉 Как применить:</strong> проверить на одном самом шумном внутреннем агенте и измерить не только экономию токенов, но и долю потерянных фактов. В рабочие контуры ставить только после контрольного набора задач.</blockquote>
+<h3 class="numbered" data-n="2">Orca собрала рабочее место для нескольких агентов с телефона</h3>
+<p><span class="hint">Что случилось</span> Orca получила 1 590 звёзд за сутки в GitHub Trending. Она запускает Claude Code, Codex и другие агенты в отдельных worktree, умеет работать через SSH, а мобильное приложение для Android позволяет следить за задачами и отправлять продолжения издалека.</p>
+<p><span class="hint">Живой пример</span> репозиторий и Android-ссылка — <a href="https://github.com/stablyai/orca" target="_blank" rel="noopener">https://github.com/stablyai/orca</a></p>
+<blockquote><strong>👉 Как применить:</strong> это прямое попадание в сценарий удалённой работы Антона с телефона. Проверить на отдельном тестовом репозитории: соединение с VPS, уведомления, продолжение задачи и границы доступа. Не заменять Hermes до проверки стабильности и приватности.</blockquote>
+<h3 class="numbered" data-n="3">Скрытый текст на страницах WhatsApp управлял ответами ИИ-поддержки</h3>
+<p><span class="hint">Что случилось</span> исследователи просмотрели 545 страниц справки WhatsApp и нашли 102 скрытых блока на 80 страницах. Два блока запрещали чат-боту советовать регулятора и упоминать законы о защите данных после слов о юристе. WhatsApp назвал публикацию блоков ошибкой; скрытый текст удалили.</p>
+<p><span class="hint">Живой пример</span> разбор с сохранёнными фрагментами — <a href="https://redact.dev/blog/whatsapp-help-pages-hidden-ai-instructions" target="_blank" rel="noopener">https://redact.dev/blog/whatsapp-help-pages-hidden-ai-instructions</a></p>
+<blockquote><strong>👉 Как применить:</strong> внешние страницы и справочники считать недоверенными данными, а не инструкциями. Для наших агентов сохранять разделение «контент источника» и «правила агента», особенно при сборе юридической и клиентской информации.</blockquote>
+<h3 class="numbered" data-n="4">Готовый каркас «фабрики разработки» для Claude Code</h3>
+<p><span class="hint">Что случилось</span> новый репозиторий показывает связку из контейнера, детерминированного регулятора Bash-команд, линтера после каждого изменения и генератора многоагентного процесса. Автор заявляет примерно 80% экономии токенов против простого запуска Claude; это заявление пока не воспроизведено независимо.</p>
+<p><span class="hint">Живой пример</span> репозиторий — <a href="https://github.com/gojko/lights-on-software-factory" target="_blank" rel="noopener">https://github.com/gojko/lights-on-software-factory</a></p>
+<blockquote><strong>👉 Как применить:</strong> не тащить весь каркас. Забрать две идеи: автоматическое правило вместо повторяющихся подтверждений команд и линтер-хук, который сразу возвращает агенту предметную ошибку.</blockquote>
+<p>Источники:</p>
+<ul class="bullets">
+<li>Reddit: свежие посты не удалось подтвердить — публичный JSON вернул 403, слабые результаты поиска отброшены.</li>
+<li>X: недоступен (нужен hermes auth add xai-oauth).</li>
+<li>Hacker News на момент сбора: обсуждение скрытых инструкций WhatsApp — 227 баллов и 38 комментариев; каркас фабрики разработки — 9 баллов.</li>
+</ul>
+    <footer class="page-footer">
+      <span>Сгенерировано автоматически</span>
+      <a href="https://github.com/instrumentburg-sudo/ib-digest">source</a>
+    </footer>
+  </div>
+</body>
+</html>
